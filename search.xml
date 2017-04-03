@@ -6,7 +6,7 @@
     <entry>
       <title><![CDATA[读书笔记之 深入理解 Java 虚拟机——内存篇]]></title>
       <url>http://yoursite.com/2017/04/03/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B9%8B%20%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%20Java%20%E8%99%9A%E6%8B%9F%E6%9C%BA%E2%80%94%E2%80%94%E5%86%85%E5%AD%98%E7%AF%87/</url>
-      <content type="html"><![CDATA[<h1 id="读书笔记之-深入理解-Java-虚拟机——内存篇"><a href="#读书笔记之-深入理解-Java-虚拟机——内存篇" class="headerlink" title="读书笔记之 深入理解 Java 虚拟机——内存篇"></a>读书笔记之 深入理解 Java 虚拟机——<em>内存篇</em></h1><h2 id="Java-内存区域"><a href="#Java-内存区域" class="headerlink" title="Java 内存区域"></a>Java 内存区域</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>对于 C 和 C++ 程序员来说，他们即拥有每一个对象的“所有权”，同时也担负每一个对象生命周期的维护责任。</p>
+      <content type="html"><![CDATA[<h2 id="Java-内存区域"><a href="#Java-内存区域" class="headerlink" title="Java 内存区域"></a>Java 内存区域</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>对于 C 和 C++ 程序员来说，他们即拥有每一个对象的“所有权”，同时也担负每一个对象生命周期的维护责任。</p>
 <p>而 Java 程序员则是在虚拟机自动内存管理机制的帮助下，不用操心对象内存的释放。但是也正由于这个帮助，一旦程序出现内存泄漏和溢出问题的时候，由于不够了解虚拟机运行机制，而对问题无从下手。</p>
 <h3 id="运行时数据区域"><a href="#运行时数据区域" class="headerlink" title="运行时数据区域"></a>运行时数据区域</h3><p><img src="http://on9hzfn6s.bkt.clouddn.com/Runtime.jpg" alt=""></p>
 <p>上图是 Java 虚拟机运行时数据区的结构图</p>
@@ -63,11 +63,28 @@
 <h4 id="可达性分析算法"><a href="#可达性分析算法" class="headerlink" title="可达性分析算法"></a>可达性分析算法</h4><p>通过一系列被称为 GC Root 的对象作为起点，从这些节点向下搜索，没有被搜索到的对象都被当做垃圾。</p>
 <p>可以被当成是 GC Root 对象的，在 Java 中有：</p>
 <ul>
-<li>JVM Stack 中引用的对象</li>
-<li>方法区中常量引用的对象</li>
-<li>本地方法栈中 Native 方法引用的对象</li>
+<li>JVM Stack 中引用的对象。</li>
+<li>方法区中常量引用的对象。</li>
+<li>本地方法栈中 Native 方法引用的对象。</li>
 </ul>
-<h3 id="垃圾收集算法"><a href="#垃圾收集算法" class="headerlink" title="垃圾收集算法"></a>垃圾收集算法</h3><h4 id="标记-清除算法"><a href="#标记-清除算法" class="headerlink" title="标记-清除算法"></a>标记-清除算法</h4><h4 id="复制算法"><a href="#复制算法" class="headerlink" title="复制算法"></a>复制算法</h4><h4 id="标记-整理算法"><a href="#标记-整理算法" class="headerlink" title="标记-整理算法"></a>标记-整理算法</h4><h4 id="分代收集算法"><a href="#分代收集算法" class="headerlink" title="分代收集算法"></a>分代收集算法</h4>]]></content>
+<h3 id="垃圾收集算法"><a href="#垃圾收集算法" class="headerlink" title="垃圾收集算法"></a>垃圾收集算法</h3><h4 id="标记-清除算法"><a href="#标记-清除算法" class="headerlink" title="标记-清除算法"></a>标记-清除算法</h4><p><img src="http://on9hzfn6s.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-04-03%20%E4%B8%8B%E5%8D%885.31.55.png" alt=""></p>
+<p>先标记无用对象，在清除。是最基础算法，之后的算法都是根据它来改进。</p>
+<p>不足有两点：</p>
+<ol>
+<li>标记和清除的效率都不高。</li>
+<li>清除之后会导致内存的碎片化。</li>
+</ol>
+<h4 id="复制算法"><a href="#复制算法" class="headerlink" title="复制算法"></a>复制算法</h4><p><img src="http://on9hzfn6s.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-04-03%20%E4%B8%8B%E5%8D%885.32.09.png" alt=""></p>
+<p>将内存一分为二，每次用其中一块。当一块内存用完的时候，就将存活的对象复制到另一块新的空的内存中，然后这边一次性全部清空就好了。简单高效。</p>
+<p>缺点很明显，就是只有一半的内存能用。</p>
+<h4 id="标记-整理算法"><a href="#标记-整理算法" class="headerlink" title="标记-整理算法"></a>标记-整理算法</h4><p><img src="http://on9hzfn6s.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-04-03%20%E4%B8%8B%E5%8D%885.32.25.png" alt=""></p>
+<p>可以说是前两种算法的综合，标记阶段和“<em>标记-清除</em>”算法一样，清除阶段先是将存活对象移到一边，然后直接清除没被引用对象。</p>
+<p>解决了碎片化和清除效率低的问题。</p>
+<h4 id="分代收集算法"><a href="#分代收集算法" class="headerlink" title="分代收集算法"></a>分代收集算法</h4><p>当前主流算法，是前面几种算法的综合。</p>
+<p>根据对象存活的周期(每 GC 一次算一个周期)，将内存分为新生代和老年代。</p>
+<p>在新生代由于对象一般都是朝生夕死，而且占用内存量相对小，所以使用复制算法。</p>
+<p>老年代存活率高，使用”<em>标记-清理</em>”或者“<em>标记-整理</em>”算法。</p>
+]]></content>
       
         
     </entry>
