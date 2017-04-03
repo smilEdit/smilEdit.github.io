@@ -558,6 +558,69 @@
 
 
   
+    <article id="post-读书笔记之 Head First 设计模式" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/23/读书笔记之 Head First 设计模式/" class="article-date">
+      <time datetime="2017-03-23T09:13:20.000Z" itemprop="datePublished">2017-03-23</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/23/读书笔记之 Head First 设计模式/">读书笔记之 Head First 设计模式</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>#策略模式</p>
+<p>##定义<br>定义了算法族，分别封装起来，让他们之间可以相互替换，此模式让算法的变化独立于使用算法的客户。</p>
+<p>##场景<br>假设有这么一款游戏，以三位一体来举例子。主角只有一个，但是可以切换身体和武器。</p>
+<p>先定义一个人：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">abstract</span> class <span class="title">person</span><span class="params">()</span></span>&#123;</div><div class="line">	fight();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>然后有三个人物继承了这抽象的人，法师，战士，弓箭手。如果将fight()定义成抽象的方法，就会使得继承person类的人必须实现，而有些人是不会fight的，所以不能这样</p>
+<p>```html</p>
+<p><div class="bdsharebuttonbox"><br>  <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><br>  <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a><br>  <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a><br>  <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"><br>  </a><br>&lt;/div</div></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
