@@ -15,16 +15,52 @@
 
 
 
-<meta name="description" content="创建和销毁对象考虑用静态工厂方法代替构造器多个参数参与构造，考虑用构造器用私有构造器或者枚举强化 Singleton 属性通过私有构造器强化不可实例化的能力避免创建不必要的对象消除过期的对象引用避免使用终结方法">
+<meta name="description" content="创建和销毁对象考虑用静态工厂方法代替构造器主要有 4 点优势:
+
+他们有名字
+不需要再每次调用的时候都创建一个新的对象
+可以返回原返回类型的任何子类型的对象
+在创建参数化类型实例的时候，代码更简洁
+
+有 2 个缺点
+
+类如果不含公有的或者受保护的构造器，就不能被子类化
+它们与其他的静态方法实际上没有什么区别
+
+多个参数参与构造，考虑用构造器用私有构造器或者枚举强化 Singleton 属性通过私有">
 <meta property="og:type" content="article">
 <meta property="og:title" content="读书笔记之 Effectice Java(一)">
 <meta property="og:url" content="http://yoursite.com/2017/04/04/读书笔记之 Effective Java/index.html">
 <meta property="og:site_name" content="smilEdit's Bolg">
-<meta property="og:description" content="创建和销毁对象考虑用静态工厂方法代替构造器多个参数参与构造，考虑用构造器用私有构造器或者枚举强化 Singleton 属性通过私有构造器强化不可实例化的能力避免创建不必要的对象消除过期的对象引用避免使用终结方法">
-<meta property="og:updated_time" content="2017-04-04T12:56:41.000Z">
+<meta property="og:description" content="创建和销毁对象考虑用静态工厂方法代替构造器主要有 4 点优势:
+
+他们有名字
+不需要再每次调用的时候都创建一个新的对象
+可以返回原返回类型的任何子类型的对象
+在创建参数化类型实例的时候，代码更简洁
+
+有 2 个缺点
+
+类如果不含公有的或者受保护的构造器，就不能被子类化
+它们与其他的静态方法实际上没有什么区别
+
+多个参数参与构造，考虑用构造器用私有构造器或者枚举强化 Singleton 属性通过私有">
+<meta property="og:updated_time" content="2017-04-04T13:57:36.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="读书笔记之 Effectice Java(一)">
-<meta name="twitter:description" content="创建和销毁对象考虑用静态工厂方法代替构造器多个参数参与构造，考虑用构造器用私有构造器或者枚举强化 Singleton 属性通过私有构造器强化不可实例化的能力避免创建不必要的对象消除过期的对象引用避免使用终结方法">
+<meta name="twitter:description" content="创建和销毁对象考虑用静态工厂方法代替构造器主要有 4 点优势:
+
+他们有名字
+不需要再每次调用的时候都创建一个新的对象
+可以返回原返回类型的任何子类型的对象
+在创建参数化类型实例的时候，代码更简洁
+
+有 2 个缺点
+
+类如果不含公有的或者受保护的构造器，就不能被子类化
+它们与其他的静态方法实际上没有什么区别
+
+多个参数参与构造，考虑用构造器用私有构造器或者枚举强化 Singleton 属性通过私有">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -315,7 +351,19 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="创建和销毁对象"><a href="#创建和销毁对象" class="headerlink" title="创建和销毁对象"></a>创建和销毁对象</h2><h3 id="考虑用静态工厂方法代替构造器"><a href="#考虑用静态工厂方法代替构造器" class="headerlink" title="考虑用静态工厂方法代替构造器"></a>考虑用静态工厂方法代替构造器</h3><h3 id="多个参数参与构造，考虑用构造器"><a href="#多个参数参与构造，考虑用构造器" class="headerlink" title="多个参数参与构造，考虑用构造器"></a>多个参数参与构造，考虑用构造器</h3><h3 id="用私有构造器或者枚举强化-Singleton-属性"><a href="#用私有构造器或者枚举强化-Singleton-属性" class="headerlink" title="用私有构造器或者枚举强化 Singleton 属性"></a>用私有构造器或者枚举强化 Singleton 属性</h3><h3 id="通过私有构造器强化不可实例化的能力"><a href="#通过私有构造器强化不可实例化的能力" class="headerlink" title="通过私有构造器强化不可实例化的能力"></a>通过私有构造器强化不可实例化的能力</h3><h3 id="避免创建不必要的对象"><a href="#避免创建不必要的对象" class="headerlink" title="避免创建不必要的对象"></a>避免创建不必要的对象</h3><h3 id="消除过期的对象引用"><a href="#消除过期的对象引用" class="headerlink" title="消除过期的对象引用"></a>消除过期的对象引用</h3><h3 id="避免使用终结方法"><a href="#避免使用终结方法" class="headerlink" title="避免使用终结方法"></a>避免使用终结方法</h3>
+        <h2 id="创建和销毁对象"><a href="#创建和销毁对象" class="headerlink" title="创建和销毁对象"></a>创建和销毁对象</h2><h3 id="考虑用静态工厂方法代替构造器"><a href="#考虑用静态工厂方法代替构造器" class="headerlink" title="考虑用静态工厂方法代替构造器"></a>考虑用静态工厂方法代替构造器</h3><p>主要有 4 点优势:</p>
+<ol>
+<li>他们有名字</li>
+<li>不需要再每次调用的时候都创建一个新的对象</li>
+<li>可以返回原返回类型的任何子类型的对象</li>
+<li>在创建参数化类型实例的时候，代码更简洁</li>
+</ol>
+<p>有 2 个缺点</p>
+<ol>
+<li>类如果不含公有的或者受保护的构造器，就不能被子类化</li>
+<li>它们与其他的静态方法实际上没有什么区别</li>
+</ol>
+<h3 id="多个参数参与构造，考虑用构造器"><a href="#多个参数参与构造，考虑用构造器" class="headerlink" title="多个参数参与构造，考虑用构造器"></a>多个参数参与构造，考虑用构造器</h3><h3 id="用私有构造器或者枚举强化-Singleton-属性"><a href="#用私有构造器或者枚举强化-Singleton-属性" class="headerlink" title="用私有构造器或者枚举强化 Singleton 属性"></a>用私有构造器或者枚举强化 Singleton 属性</h3><h3 id="通过私有构造器强化不可实例化的能力"><a href="#通过私有构造器强化不可实例化的能力" class="headerlink" title="通过私有构造器强化不可实例化的能力"></a>通过私有构造器强化不可实例化的能力</h3><h3 id="避免创建不必要的对象"><a href="#避免创建不必要的对象" class="headerlink" title="避免创建不必要的对象"></a>避免创建不必要的对象</h3><h3 id="消除过期的对象引用"><a href="#消除过期的对象引用" class="headerlink" title="消除过期的对象引用"></a>消除过期的对象引用</h3><h3 id="避免使用终结方法"><a href="#避免使用终结方法" class="headerlink" title="避免使用终结方法"></a>避免使用终结方法</h3>
       
     </div>
     
@@ -326,7 +374,7 @@
         <p><span>本文标题:</span><a href="/2017/04/04/读书笔记之 Effective Java/">读书笔记之 Effectice Java(一)</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">zhanglf</a></p>
         <p><span>发布时间:</span>2017-04-04, 14:45:17</p>
-        <p><span>最后更新:</span>2017-04-04, 20:56:41</p>
+        <p><span>最后更新:</span>2017-04-04, 21:57:36</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/04/04/读书笔记之 Effective Java/" title="读书笔记之 Effectice Java(一)">http://yoursite.com/2017/04/04/读书笔记之 Effective Java/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/04/04/读书笔记之 Effective Java/　　作者: zhanglf" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
