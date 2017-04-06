@@ -8,11 +8,23 @@
       <url>http://yoursite.com/2017/04/04/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B9%8B%20Effective%20Java/</url>
       <content type="html"><![CDATA[<h2 id="创建和销毁对象"><a href="#创建和销毁对象" class="headerlink" title="创建和销毁对象"></a>创建和销毁对象</h2><h3 id="考虑用静态工厂方法代替构造器"><a href="#考虑用静态工厂方法代替构造器" class="headerlink" title="考虑用静态工厂方法代替构造器"></a>考虑用静态工厂方法代替构造器</h3><p>主要有 4 点优势:</p>
 <ol>
-<li>他们有名字</li>
+<li>它们有名字</li>
 <li>不需要再每次调用的时候都创建一个新的对象</li>
-<li>可以返回原返回类型的任何子类型的对象</li>
-<li>在创建参数化类型实例的时候，代码更简洁</li>
+<li><p>可以返回原返回类型的任何子类型的对象</p>
+<p>有点绕，但是不难理解。</p>
+<p>例如，Java Collections Framework 的集合接口有 32 个实现，几乎所有的实现都是通过静态工厂方法在一个不可实例化的类中导出的。</p>
+</li>
+<li><p>在创建参数化类型实例的时候，代码更简洁。</p>
+<p>举个栗子:</p>
+<p>传统写法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Map&lt;String,List&lt;String&gt;&gt; map = <span class="keyword">new</span> Hash&lt;String,List&lt;String&gt;&gt;();</div></pre></td></tr></table></figure>
+<p>每次都要写两次泛型，一点都不优雅。</p>
+<p>如果 HaspMap 提供了这样的代码:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;K,V&gt; <span class="function">HashMap&lt;K,V&gt; <span class="title">newInstance</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">new</span> Hash&lt;K,V&gt;();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
 </ol>
+<p> 那么创建就简洁了:</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Map&lt;String,List&lt;String&gt;&gt; map = HashMap.newInstance();</div></pre></td></tr></table></figure>
 <p>有 2 个缺点</p>
 <ol>
 <li>类如果不含公有的或者受保护的构造器，就不能被子类化</li>
