@@ -117,11 +117,11 @@
         
         <tags>
             
+            <tag> JVM </tag>
+            
             <tag> Java 虚拟机 </tag>
             
             <tag> Class 结构 </tag>
-            
-            <tag> JVM </tag>
             
         </tags>
         
@@ -310,9 +310,9 @@
             
             <tag> 算法 </tag>
             
-            <tag> JVM </tag>
-            
             <tag> 内存 </tag>
+            
+            <tag> JVM </tag>
             
             <tag> GC </tag>
             

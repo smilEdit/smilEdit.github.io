@@ -145,11 +145,11 @@
       <category term="读书笔记" scheme="http://yoursite.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     
     
+      <category term="JVM" scheme="http://yoursite.com/tags/JVM/"/>
+    
       <category term="Java 虚拟机" scheme="http://yoursite.com/tags/Java-%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
     
       <category term="Class 结构" scheme="http://yoursite.com/tags/Class-%E7%BB%93%E6%9E%84/"/>
-    
-      <category term="JVM" scheme="http://yoursite.com/tags/JVM/"/>
     
   </entry>
   
@@ -353,9 +353,9 @@
     
       <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
     
-      <category term="JVM" scheme="http://yoursite.com/tags/JVM/"/>
-    
       <category term="内存" scheme="http://yoursite.com/tags/%E5%86%85%E5%AD%98/"/>
+    
+      <category term="JVM" scheme="http://yoursite.com/tags/JVM/"/>
     
       <category term="GC" scheme="http://yoursite.com/tags/GC/"/>
     
