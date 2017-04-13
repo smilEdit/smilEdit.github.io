@@ -36,7 +36,7 @@
 <li>表: 由多个无符号数或者其他表组成，以 _info 结尾。</li>
 </ol>
 <p>整个 Class 文件本质上就是一张表。</p>
-<p>Class 结构的了解对进一步理解虚拟机执行引擎很重要。</p>
+<p>Class 结构的了解对进一步理解虚拟机执行引擎很重要。<br><a id="more"></a></p>
 <h3 id="魔数与-Class-文件版本"><a href="#魔数与-Class-文件版本" class="headerlink" title="魔数与 Class 文件版本"></a>魔数与 Class 文件版本</h3><p>每个 Class 文件的头 4 个字节被称为魔数( Magic Number )。</p>
 <p>作用是确定这个文件是否能被虚拟机接受，例如 Gif，jpeg 之类的文件也存在魔数。因为通过后缀来判断不够安全。</p>
 <p>Class 文件的魔数值为: OxCAFEBABE (其魔数值某种程度上也是决定了 Java 未来的图标是咖啡 ^ v ^ )</p>
@@ -91,6 +91,22 @@
 <p>方法中调用过的每条 <code>monitorenter</code> 指令都必须执行对应的 <code>monitorexit</code> 指令。</p>
 ]]></content>
       
+        <categories>
+            
+            <category> 读书笔记 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Java 虚拟机 </tag>
+            
+            <tag> Class 结构 </tag>
+            
+            <tag> JVM </tag>
+            
+        </tags>
         
     </entry>
     
@@ -339,23 +355,6 @@
 <p> 点击 Go TO BUNDLEACTIVITY 进入业务 bundle 发现版本号也是发现了变化。</p>
 <p>  <img src="http://on9hzfn6s.bkt.clouddn.com/Screenshot_2017-03-22-14-50-29.png" width="300" height="400" alt="Demo图片" align="center"></p>
 <p>无需重新安装app就完成了业务代码的修改，这就是动态部署的魅力。</p>
-]]></content>
-      
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[Hello World]]></title>
-      <url>http://yoursite.com/2017/03/23/hello-world/</url>
-      <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
 ]]></content>
       
         

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-04-13T06:26:15.000Z</updated>
+  <updated>2017-04-13T11:35:47.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2017/04/10/%E7%BD%91%E7%BB%9C%E4%BC%A0%E8%BE%93/"/>
     <id>http://yoursite.com/2017/04/10/网络传输/</id>
     <published>2017-04-10T12:52:04.000Z</published>
-    <updated>2017-04-13T06:26:15.000Z</updated>
+    <updated>2017-04-13T11:35:47.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><h3 id="五层模型"><a href="#五层模型" class="headerlink" title="五层模型"></a>五层模型</h3><p>相比 OSI 的 7 层参考模型，为了更加高效的开发，TCP/IP 使用了 4 层参考模型。</p>
 <p>但是一般为了介绍方便，一般采用 5 层协议。</p>
@@ -53,7 +53,7 @@
     <link href="http://yoursite.com/2017/04/10/JVM%20%E7%BB%93%E6%9E%84%E7%AF%87/"/>
     <id>http://yoursite.com/2017/04/10/JVM 结构篇/</id>
     <published>2017-04-10T06:37:50.000Z</published>
-    <updated>2017-04-13T05:26:34.000Z</updated>
+    <updated>2017-04-13T11:33:42.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Class-类文件的结构"><a href="#Class-类文件的结构" class="headerlink" title="Class 类文件的结构"></a>Class 类文件的结构</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>是一组以 8 位字节为基础单位的二进制流。</p>
 <p>其格式是一种类似于 C 语言结构体的伪结构，由两种数据类型组成。</p>
@@ -62,7 +62,7 @@
 <li>表: 由多个无符号数或者其他表组成，以 _info 结尾。</li>
 </ol>
 <p>整个 Class 文件本质上就是一张表。</p>
-<p>Class 结构的了解对进一步理解虚拟机执行引擎很重要。</p>
+<p>Class 结构的了解对进一步理解虚拟机执行引擎很重要。<br><a id="more"></a></p>
 <h3 id="魔数与-Class-文件版本"><a href="#魔数与-Class-文件版本" class="headerlink" title="魔数与 Class 文件版本"></a>魔数与 Class 文件版本</h3><p>每个 Class 文件的头 4 个字节被称为魔数( Magic Number )。</p>
 <p>作用是确定这个文件是否能被虚拟机接受，例如 Gif，jpeg 之类的文件也存在魔数。因为通过后缀来判断不够安全。</p>
 <p>Class 文件的魔数值为: OxCAFEBABE (其魔数值某种程度上也是决定了 Java 未来的图标是咖啡 ^ v ^ )</p>
@@ -119,10 +119,25 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;Class-类文件的结构&quot;&gt;&lt;a href=&quot;#Class-类文件的结构&quot; class=&quot;headerlink&quot; title=&quot;Class 类文件的结构&quot;&gt;&lt;/a&gt;Class 类文件的结构&lt;/h2&gt;&lt;h3 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;
+      &lt;h2 id=&quot;Class-类文件的结构&quot;&gt;&lt;a href=&quot;#Class-类文件的结构&quot; class=&quot;headerlink&quot; title=&quot;Class 类文件的结构&quot;&gt;&lt;/a&gt;Class 类文件的结构&lt;/h2&gt;&lt;h3 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h3&gt;&lt;p&gt;是一组以 8 位字节为基础单位的二进制流。&lt;/p&gt;
+&lt;p&gt;其格式是一种类似于 C 语言结构体的伪结构，由两种数据类型组成。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;无符号数: 基本数据类型，数字、索引引用、数量值等等。&lt;/li&gt;
+&lt;li&gt;表: 由多个无符号数或者其他表组成，以 _info 结尾。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;整个 Class 文件本质上就是一张表。&lt;/p&gt;
+&lt;p&gt;Class 结构的了解对进一步理解虚拟机执行引擎很重要。&lt;br&gt;
     
     </summary>
     
+      <category term="读书笔记" scheme="http://yoursite.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="Java 虚拟机" scheme="http://yoursite.com/tags/Java-%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
+    
+      <category term="Class 结构" scheme="http://yoursite.com/tags/Class-%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="JVM" scheme="http://yoursite.com/tags/JVM/"/>
     
   </entry>
   
@@ -400,33 +415,6 @@
     <summary type="html">
     
       &lt;h1 id=&quot;Atlas框架浅析&quot;&gt;&lt;a href=&quot;#Atlas框架浅析&quot; class=&quot;headerlink&quot; title=&quot;Atlas框架浅析&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://atlas.taobao.org/docs/principle-intro/Runti
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://yoursite.com/2017/03/23/hello-world/"/>
-    <id>http://yoursite.com/2017/03/23/hello-world/</id>
-    <published>2017-03-23T09:13:20.000Z</published>
-    <updated>2017-03-27T02:13:12.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
     
     </summary>
     

@@ -89,7 +89,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Java 虚拟机,Class 结构,JVM," />
 
 
 
@@ -112,8 +112,7 @@
 表: 由多个无符号数或者其他表组成，以 _info 结尾。
 
 整个 Class 文件本质上就是一张表。
-Class 结构的了解对进一步理解虚拟机执行引擎很重要。
-魔数与 Class 文件版本每个 Clas">
+Class 结构的了解对进一步理解虚拟机执行引擎很重要。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="读书笔记之 深入理解 Java 虚拟机--结构篇">
 <meta property="og:url" content="http://yoursite.com/2017/04/10/JVM 结构篇/index.html">
@@ -125,9 +124,8 @@ Class 结构的了解对进一步理解虚拟机执行引擎很重要。
 表: 由多个无符号数或者其他表组成，以 _info 结尾。
 
 整个 Class 文件本质上就是一张表。
-Class 结构的了解对进一步理解虚拟机执行引擎很重要。
-魔数与 Class 文件版本每个 Clas">
-<meta property="og:updated_time" content="2017-04-13T05:26:34.000Z">
+Class 结构的了解对进一步理解虚拟机执行引擎很重要。">
+<meta property="og:updated_time" content="2017-04-13T11:33:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="读书笔记之 深入理解 Java 虚拟机--结构篇">
 <meta name="twitter:description" content="Class 类文件的结构概述是一组以 8 位字节为基础单位的二进制流。
@@ -137,8 +135,7 @@ Class 结构的了解对进一步理解虚拟机执行引擎很重要。
 表: 由多个无符号数或者其他表组成，以 _info 结尾。
 
 整个 Class 文件本质上就是一张表。
-Class 结构的了解对进一步理解虚拟机执行引擎很重要。
-魔数与 Class 文件版本每个 Clas">
+Class 结构的了解对进一步理解虚拟机执行引擎很重要。">
 
 
 
@@ -243,6 +240,16 @@ Class 结构的了解对进一步理解虚拟机执行引擎很重要。
         </li>
       
         
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
@@ -338,6 +345,28 @@ Class 结构的了解对进一步理解虚拟机执行引擎很重要。
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/读书笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">读书笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -381,7 +410,7 @@ Class 结构的了解对进一步理解虚拟机执行引擎很重要。
 <li>表: 由多个无符号数或者其他表组成，以 _info 结尾。</li>
 </ol>
 <p>整个 Class 文件本质上就是一张表。</p>
-<p>Class 结构的了解对进一步理解虚拟机执行引擎很重要。</p>
+<p>Class 结构的了解对进一步理解虚拟机执行引擎很重要。<br><a id="more"></a></p>
 <h3 id="魔数与-Class-文件版本"><a href="#魔数与-Class-文件版本" class="headerlink" title="魔数与 Class 文件版本"></a>魔数与 Class 文件版本</h3><p>每个 Class 文件的头 4 个字节被称为魔数( Magic Number )。</p>
 <p>作用是确定这个文件是否能被虚拟机接受，例如 Gif，jpeg 之类的文件也存在魔数。因为通过后缀来判断不够安全。</p>
 <p>Class 文件的魔数值为: OxCAFEBABE (其魔数值某种程度上也是决定了 Java 未来的图标是咖啡 ^ v ^ )</p>
@@ -460,6 +489,16 @@ Class 结构的了解对进一步理解虚拟机执行引擎很重要。
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java-虚拟机/" rel="tag"># Java 虚拟机</a>
+          
+            <a href="/tags/Class-结构/" rel="tag"># Class 结构</a>
+          
+            <a href="/tags/JVM/" rel="tag"># JVM</a>
+          
+        </div>
       
 
       
@@ -562,14 +601,32 @@ Class 结构的了解对进一步理解虚拟机执行引擎很重要。
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
           
 
           
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
 
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
           
 
         </nav>
@@ -673,7 +730,7 @@ Class 结构的了解对进一步理解虚拟机执行引擎很重要。
       var i = songs[curSongIndex];
       S();
     })()'>
-    <i class="fa fa-music"></i> 刚刚好</a>
+    <i class="fa fa-music"></i>    点击 放/切 歌</a>
 
 
         
