@@ -9,8 +9,7 @@
       <content type="html"><![CDATA[<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><h3 id="五层模型"><a href="#五层模型" class="headerlink" title="五层模型"></a>五层模型</h3><p>相比 OSI 的 7 层参考模型，为了更加高效的开发，TCP/IP 使用了 4 层参考模型。</p>
 <p>但是一般为了介绍方便，一般采用 5 层协议。</p>
 <p><img src="http://on9hzfn6s.bkt.clouddn.com/1-150526093225401.png" alt=""></p>
-<p>为何协议，协议就是大家都遵守的规则，所有的这些协议统称为<strong>互联网协议</strong>。</p>
-<p>每层模型都有属于自己的协议，协议各式各样，有的是为了数据能找到目的地址，有的是为了保证源数据的完整性，有的是当发送失败的重发使用等等。</p>
+<p>为何协议，协议就是大家都遵守的规则，所有的这些协议统称为<strong>互联网协议</strong>。<br><a id="more"></a><br>每层模型都有属于自己的协议，协议各式各样，有的是为了数据能找到目的地址，有的是为了保证源数据的完整性，有的是当发送失败的重发使用等等。</p>
 <p><img src="http://on9hzfn6s.bkt.clouddn.com/231055580455666.jpg" alt=""></p>
 <p>发送数据的时候至上而下经过层层模型，经过每层模型的时候都会在数据中加点本层模型的内容，层层封装之后发送到另一个主机上。</p>
 <p>就像是买了个小礼品，包装了一层一层，最后写上收件人交给邮递员，历经万水千山，收件人拿到了快递，再一层一层的拆包装，最后才能看到里面的小礼品。</p>
@@ -23,11 +22,29 @@
 <p>HTTP 协议:</p>
 ]]></content>
       
+        <categories>
+            
+            <category> 计算机基础 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 计算机网络 </tag>
+            
+            <tag> 协议 </tag>
+            
+            <tag> 网络 </tag>
+            
+            <tag> 传输 </tag>
+            
+        </tags>
         
     </entry>
     
     <entry>
-      <title><![CDATA[读书笔记之 深入理解 Java 虚拟机--结构篇]]></title>
+      <title><![CDATA[深入理解 Java 虚拟机(结构篇)]]></title>
       <url>http://yoursite.com/2017/04/10/JVM%20%E7%BB%93%E6%9E%84%E7%AF%87/</url>
       <content type="html"><![CDATA[<h2 id="Class-类文件的结构"><a href="#Class-类文件的结构" class="headerlink" title="Class 类文件的结构"></a>Class 类文件的结构</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>是一组以 8 位字节为基础单位的二进制流。</p>
 <p>其格式是一种类似于 C 语言结构体的伪结构，由两种数据类型组成。</p>
@@ -111,8 +128,8 @@
     </entry>
     
     <entry>
-      <title><![CDATA[读书笔记之 Effectice Java(一)]]></title>
-      <url>http://yoursite.com/2017/04/04/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B9%8B%20Effective%20Java/</url>
+      <title><![CDATA[Effectice Java(一)]]></title>
+      <url>http://yoursite.com/2017/04/04/Effective%20Java/</url>
       <content type="html"><![CDATA[<h2 id="创建和销毁对象"><a href="#创建和销毁对象" class="headerlink" title="创建和销毁对象"></a>创建和销毁对象</h2><h3 id="考虑用静态工厂方法代替构造器"><a href="#考虑用静态工厂方法代替构造器" class="headerlink" title="考虑用静态工厂方法代替构造器"></a>考虑用静态工厂方法代替构造器</h3><p>主要有 4 点优势:</p>
 <ol>
 <li>它们有名字</li>
@@ -124,6 +141,7 @@
 <li><p>在创建参数化类型实例的时候，代码更简洁。</p>
 <p>举个栗子:</p>
 <p>传统写法</p>
+<a id="more"></a>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Map&lt;String,List&lt;String&gt;&gt; map = <span class="keyword">new</span> Hash&lt;String,List&lt;String&gt;&gt;();</div></pre></td></tr></table></figure>
 <p>每次都要写两次泛型，一点都不优雅。</p>
 <p>如果 HaspMap 提供了这样的代码:</p>
@@ -175,14 +193,32 @@
 <p>···</p>
 <h3 id="消除过期的对象引用"><a href="#消除过期的对象引用" class="headerlink" title="消除过期的对象引用"></a>消除过期的对象引用</h3><h3 id="避免使用终结方法"><a href="#避免使用终结方法" class="headerlink" title="避免使用终结方法"></a>避免使用终结方法</h3>]]></content>
       
+        <categories>
+            
+            <category> 读书笔记 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 高效 </tag>
+            
+            <tag> Java </tag>
+            
+            <tag> Effectice </tag>
+            
+            <tag> 思想 </tag>
+            
+        </tags>
         
     </entry>
     
     <entry>
-      <title><![CDATA[读书笔记之 深入理解 Java 虚拟机——内存篇]]></title>
+      <title><![CDATA[深入理解 Java 虚拟机(内存篇)]]></title>
       <url>http://yoursite.com/2017/04/03/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B9%8B%20%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%20Java%20%E8%99%9A%E6%8B%9F%E6%9C%BA%E2%80%94%E2%80%94%E5%86%85%E5%AD%98%E7%AF%87/</url>
       <content type="html"><![CDATA[<h2 id="Java-内存区域"><a href="#Java-内存区域" class="headerlink" title="Java 内存区域"></a>Java 内存区域</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>对于 C 和 C++ 程序员来说，他们即拥有每一个对象的“所有权”，同时也担负每一个对象生命周期的维护责任。</p>
-<p>而 Java 程序员则是在虚拟机自动内存管理机制的帮助下，不用操心对象内存的释放。但是也正由于这个帮助，一旦程序出现内存泄漏和溢出问题的时候，由于不够了解虚拟机运行机制，而对问题无从下手。</p>
+<p>而 Java 程序员则是在虚拟机自动内存管理机制的帮助下，不用操心对象内存的释放。但是也正由于这个帮助，一旦程序出现内存泄漏和溢出问题的时候，由于不够了解虚拟机运行机制，而对问题无从下手。<br><a id="more"></a></p>
 <h3 id="运行时数据区域"><a href="#运行时数据区域" class="headerlink" title="运行时数据区域"></a>运行时数据区域</h3><p><img src="http://on9hzfn6s.bkt.clouddn.com/Runtime.jpg" alt=""></p>
 <p>上图是 Java 虚拟机运行时数据区的结构图</p>
 <h4 id="PC-Register"><a href="#PC-Register" class="headerlink" title="PC Register"></a>PC Register</h4><p>当一个 Java 线程启动的时候，就会产生一个程序计数器( Program Counter Register ),它是一块较小的内存空间。</p>
@@ -261,6 +297,26 @@
 <p>老年代存活率高，使用”<em>标记-清理</em>”或者“<em>标记-整理</em>”算法。</p>
 ]]></content>
       
+        <categories>
+            
+            <category> 读书笔记 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Java </tag>
+            
+            <tag> 算法 </tag>
+            
+            <tag> JVM </tag>
+            
+            <tag> 内存 </tag>
+            
+            <tag> GC </tag>
+            
+        </tags>
         
     </entry>
     
@@ -268,7 +324,7 @@
       <title><![CDATA[Atlas框架浅析]]></title>
       <url>http://yoursite.com/2017/03/27/Atlas%E6%A1%86%E6%9E%B6%E6%B5%85%E6%9E%90/</url>
       <content type="html"><![CDATA[<h1 id="Atlas框架浅析"><a href="#Atlas框架浅析" class="headerlink" title="Atlas框架浅析"></a><a href="http://atlas.taobao.org/docs/principle-intro/Runtime_principle.html" target="_blank" rel="external">Atlas框架浅析</a></h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><h3 id="Atlas由来"><a href="#Atlas由来" class="headerlink" title="Atlas由来"></a>Atlas由来</h3><p>Atlas 是希腊神话中擎天的巨人。  (寓为脚踏底层框架，为应用撑起一片天)</p>
-<p>2013年手淘人员倍增，整个客户端架构重构，形成了今天的 <a href="https://github.com/alibaba/atlas" target="_blank" rel="external">Atlas</a>。</p>
+<p>2013年手淘人员倍增，整个客户端架构重构，形成了今天的 <a href="https://github.com/alibaba/atlas" target="_blank" rel="external">Atlas</a>。<br><a id="more"></a></p>
 <h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><ul>
 <li>工程期，实现工程独立开发，调试的功能，工程模块独立。</li>
 <li>运行期，实现完整的组件生命周期的映射，类隔离等机制。</li>
@@ -357,14 +413,33 @@
 <p>无需重新安装app就完成了业务代码的修改，这就是动态部署的魅力。</p>
 ]]></content>
       
+        <categories>
+            
+            <category> 一些新东西 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 框架 </tag>
+            
+            <tag> 阿里 </tag>
+            
+            <tag> Atlas </tag>
+            
+            <tag> Andoird </tag>
+            
+        </tags>
         
     </entry>
     
     <entry>
-      <title><![CDATA[读书笔记之 Head First 设计模式]]></title>
-      <url>http://yoursite.com/2017/03/23/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B9%8B%20Head%20First%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</url>
+      <title><![CDATA[Head First 设计模式]]></title>
+      <url>http://yoursite.com/2017/03/23/Head%20First%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</url>
       <content type="html"><![CDATA[<h2 id="策略模式"><a href="#策略模式" class="headerlink" title="策略模式"></a>策略模式</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>定义了算法族，分别封装起来，让他们之间可以相互替换，此模式让算法的变化独立于使用算法的客户。</p>
 <h3 id="UML"><a href="#UML" class="headerlink" title="UML"></a>UML</h3><p><img src="http://on9hzfn6s.bkt.clouddn.com/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F.jpg" alt=""></p>
+<a id="more"></a>
 <h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p><strong>设计原则</strong>:抽取可能发生改变的，与不会发生改变的隔离。</p>
 <p>将会发生改变的相关性强的行为或者功能抽象，抽取，定义为一个接口:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">IStrategy</span></span>&#123;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Func</span><span class="params">()</span></span>;</div><div class="line">	</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -422,6 +497,26 @@
 <p>画图工具使用 Chrome 应用 <a href="https://chrome.google.com/webstore/detail/gliffy-diagrams/bhmicilclplefnflapjmnngmkkkkpfad" target="_blank" rel="external">Gliffy Diagrams</a> ，好用看得见。</p>
 ]]></content>
       
+        <categories>
+            
+            <category> 读书笔记 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Java </tag>
+            
+            <tag> 设计模式 </tag>
+            
+            <tag> 策略模式 </tag>
+            
+            <tag> UML </tag>
+            
+            <tag> 算法 </tag>
+            
+        </tags>
         
     </entry>
     

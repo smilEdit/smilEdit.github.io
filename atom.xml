@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-04-13T11:35:47.000Z</updated>
+  <updated>2017-04-13T12:10:14.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,13 +20,12 @@
     <link href="http://yoursite.com/2017/04/10/%E7%BD%91%E7%BB%9C%E4%BC%A0%E8%BE%93/"/>
     <id>http://yoursite.com/2017/04/10/网络传输/</id>
     <published>2017-04-10T12:52:04.000Z</published>
-    <updated>2017-04-13T11:35:47.000Z</updated>
+    <updated>2017-04-13T12:10:14.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><h3 id="五层模型"><a href="#五层模型" class="headerlink" title="五层模型"></a>五层模型</h3><p>相比 OSI 的 7 层参考模型，为了更加高效的开发，TCP/IP 使用了 4 层参考模型。</p>
 <p>但是一般为了介绍方便，一般采用 5 层协议。</p>
 <p><img src="http://on9hzfn6s.bkt.clouddn.com/1-150526093225401.png" alt=""></p>
-<p>为何协议，协议就是大家都遵守的规则，所有的这些协议统称为<strong>互联网协议</strong>。</p>
-<p>每层模型都有属于自己的协议，协议各式各样，有的是为了数据能找到目的地址，有的是为了保证源数据的完整性，有的是当发送失败的重发使用等等。</p>
+<p>为何协议，协议就是大家都遵守的规则，所有的这些协议统称为<strong>互联网协议</strong>。<br><a id="more"></a><br>每层模型都有属于自己的协议，协议各式各样，有的是为了数据能找到目的地址，有的是为了保证源数据的完整性，有的是当发送失败的重发使用等等。</p>
 <p><img src="http://on9hzfn6s.bkt.clouddn.com/231055580455666.jpg" alt=""></p>
 <p>发送数据的时候至上而下经过层层模型，经过每层模型的时候都会在数据中加点本层模型的内容，层层封装之后发送到另一个主机上。</p>
 <p>就像是买了个小礼品，包装了一层一层，最后写上收件人交给邮递员，历经万水千山，收件人拿到了快递，再一层一层的拆包装，最后才能看到里面的小礼品。</p>
@@ -41,19 +40,32 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h2&gt;&lt;h3 id=&quot;五层模型&quot;&gt;&lt;a href=&quot;#五层模型&quot; class=&quot;headerlink&quot; title=&quot;五层模型&quot;&gt;&lt;/a&gt;五层模型&lt;/h
+      &lt;h2 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h2&gt;&lt;h3 id=&quot;五层模型&quot;&gt;&lt;a href=&quot;#五层模型&quot; class=&quot;headerlink&quot; title=&quot;五层模型&quot;&gt;&lt;/a&gt;五层模型&lt;/h3&gt;&lt;p&gt;相比 OSI 的 7 层参考模型，为了更加高效的开发，TCP/IP 使用了 4 层参考模型。&lt;/p&gt;
+&lt;p&gt;但是一般为了介绍方便，一般采用 5 层协议。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://on9hzfn6s.bkt.clouddn.com/1-150526093225401.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;为何协议，协议就是大家都遵守的规则，所有的这些协议统称为&lt;strong&gt;互联网协议&lt;/strong&gt;。&lt;br&gt;
     
     </summary>
     
+      <category term="计算机基础" scheme="http://yoursite.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="计算机网络" scheme="http://yoursite.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+      <category term="协议" scheme="http://yoursite.com/tags/%E5%8D%8F%E8%AE%AE/"/>
+    
+      <category term="网络" scheme="http://yoursite.com/tags/%E7%BD%91%E7%BB%9C/"/>
+    
+      <category term="传输" scheme="http://yoursite.com/tags/%E4%BC%A0%E8%BE%93/"/>
     
   </entry>
   
   <entry>
-    <title>读书笔记之 深入理解 Java 虚拟机--结构篇</title>
+    <title>深入理解 Java 虚拟机(结构篇)</title>
     <link href="http://yoursite.com/2017/04/10/JVM%20%E7%BB%93%E6%9E%84%E7%AF%87/"/>
     <id>http://yoursite.com/2017/04/10/JVM 结构篇/</id>
     <published>2017-04-10T06:37:50.000Z</published>
-    <updated>2017-04-13T11:33:42.000Z</updated>
+    <updated>2017-04-13T12:16:35.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Class-类文件的结构"><a href="#Class-类文件的结构" class="headerlink" title="Class 类文件的结构"></a>Class 类文件的结构</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>是一组以 8 位字节为基础单位的二进制流。</p>
 <p>其格式是一种类似于 C 语言结构体的伪结构，由两种数据类型组成。</p>
@@ -142,11 +154,11 @@
   </entry>
   
   <entry>
-    <title>读书笔记之 Effectice Java(一)</title>
-    <link href="http://yoursite.com/2017/04/04/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B9%8B%20Effective%20Java/"/>
-    <id>http://yoursite.com/2017/04/04/读书笔记之 Effective Java/</id>
+    <title>Effectice Java(一)</title>
+    <link href="http://yoursite.com/2017/04/04/Effective%20Java/"/>
+    <id>http://yoursite.com/2017/04/04/Effective Java/</id>
     <published>2017-04-04T06:45:17.000Z</published>
-    <updated>2017-04-10T01:03:21.000Z</updated>
+    <updated>2017-04-13T12:14:04.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="创建和销毁对象"><a href="#创建和销毁对象" class="headerlink" title="创建和销毁对象"></a>创建和销毁对象</h2><h3 id="考虑用静态工厂方法代替构造器"><a href="#考虑用静态工厂方法代替构造器" class="headerlink" title="考虑用静态工厂方法代替构造器"></a>考虑用静态工厂方法代替构造器</h3><p>主要有 4 点优势:</p>
 <ol>
@@ -159,6 +171,7 @@
 <li><p>在创建参数化类型实例的时候，代码更简洁。</p>
 <p>举个栗子:</p>
 <p>传统写法</p>
+<a id="more"></a>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Map&lt;String,List&lt;String&gt;&gt; map = <span class="keyword">new</span> Hash&lt;String,List&lt;String&gt;&gt;();</div></pre></td></tr></table></figure>
 <p>每次都要写两次泛型，一点都不优雅。</p>
 <p>如果 HaspMap 提供了这样的代码:</p>
@@ -212,22 +225,42 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;创建和销毁对象&quot;&gt;&lt;a href=&quot;#创建和销毁对象&quot; class=&quot;headerlink&quot; title=&quot;创建和销毁对象&quot;&gt;&lt;/a&gt;创建和销毁对象&lt;/h2&gt;&lt;h3 id=&quot;考虑用静态工厂方法代替构造器&quot;&gt;&lt;a href=&quot;#考虑用静态工厂方法代替构造器&quot; cla
+      &lt;h2 id=&quot;创建和销毁对象&quot;&gt;&lt;a href=&quot;#创建和销毁对象&quot; class=&quot;headerlink&quot; title=&quot;创建和销毁对象&quot;&gt;&lt;/a&gt;创建和销毁对象&lt;/h2&gt;&lt;h3 id=&quot;考虑用静态工厂方法代替构造器&quot;&gt;&lt;a href=&quot;#考虑用静态工厂方法代替构造器&quot; class=&quot;headerlink&quot; title=&quot;考虑用静态工厂方法代替构造器&quot;&gt;&lt;/a&gt;考虑用静态工厂方法代替构造器&lt;/h3&gt;&lt;p&gt;主要有 4 点优势:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;它们有名字&lt;/li&gt;
+&lt;li&gt;不需要再每次调用的时候都创建一个新的对象&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;可以返回原返回类型的任何子类型的对象&lt;/p&gt;
+&lt;p&gt;有点绕，但是不难理解。&lt;/p&gt;
+&lt;p&gt;例如，Java Collections Framework 的集合接口有 32 个实现，几乎所有的实现都是通过静态工厂方法在一个不可实例化的类中导出的。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;在创建参数化类型实例的时候，代码更简洁。&lt;/p&gt;
+&lt;p&gt;举个栗子:&lt;/p&gt;
+&lt;p&gt;传统写法&lt;/p&gt;
     
     </summary>
     
+      <category term="读书笔记" scheme="http://yoursite.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="高效" scheme="http://yoursite.com/tags/%E9%AB%98%E6%95%88/"/>
+    
+      <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
+    
+      <category term="Effectice" scheme="http://yoursite.com/tags/Effectice/"/>
+    
+      <category term="思想" scheme="http://yoursite.com/tags/%E6%80%9D%E6%83%B3/"/>
     
   </entry>
   
   <entry>
-    <title>读书笔记之 深入理解 Java 虚拟机——内存篇</title>
+    <title>深入理解 Java 虚拟机(内存篇)</title>
     <link href="http://yoursite.com/2017/04/03/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B9%8B%20%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%20Java%20%E8%99%9A%E6%8B%9F%E6%9C%BA%E2%80%94%E2%80%94%E5%86%85%E5%AD%98%E7%AF%87/"/>
     <id>http://yoursite.com/2017/04/03/读书笔记之 深入理解 Java 虚拟机——内存篇/</id>
     <published>2017-04-03T09:39:37.000Z</published>
-    <updated>2017-04-03T12:08:31.000Z</updated>
+    <updated>2017-04-13T12:16:51.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Java-内存区域"><a href="#Java-内存区域" class="headerlink" title="Java 内存区域"></a>Java 内存区域</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>对于 C 和 C++ 程序员来说，他们即拥有每一个对象的“所有权”，同时也担负每一个对象生命周期的维护责任。</p>
-<p>而 Java 程序员则是在虚拟机自动内存管理机制的帮助下，不用操心对象内存的释放。但是也正由于这个帮助，一旦程序出现内存泄漏和溢出问题的时候，由于不够了解虚拟机运行机制，而对问题无从下手。</p>
+<p>而 Java 程序员则是在虚拟机自动内存管理机制的帮助下，不用操心对象内存的释放。但是也正由于这个帮助，一旦程序出现内存泄漏和溢出问题的时候，由于不够了解虚拟机运行机制，而对问题无从下手。<br><a id="more"></a></p>
 <h3 id="运行时数据区域"><a href="#运行时数据区域" class="headerlink" title="运行时数据区域"></a>运行时数据区域</h3><p><img src="http://on9hzfn6s.bkt.clouddn.com/Runtime.jpg" alt=""></p>
 <p>上图是 Java 虚拟机运行时数据区的结构图</p>
 <h4 id="PC-Register"><a href="#PC-Register" class="headerlink" title="PC Register"></a>PC Register</h4><p>当一个 Java 线程启动的时候，就会产生一个程序计数器( Program Counter Register ),它是一块较小的内存空间。</p>
@@ -308,10 +341,23 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;Java-内存区域&quot;&gt;&lt;a href=&quot;#Java-内存区域&quot; class=&quot;headerlink&quot; title=&quot;Java 内存区域&quot;&gt;&lt;/a&gt;Java 内存区域&lt;/h2&gt;&lt;h3 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; 
+      &lt;h2 id=&quot;Java-内存区域&quot;&gt;&lt;a href=&quot;#Java-内存区域&quot; class=&quot;headerlink&quot; title=&quot;Java 内存区域&quot;&gt;&lt;/a&gt;Java 内存区域&lt;/h2&gt;&lt;h3 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h3&gt;&lt;p&gt;对于 C 和 C++ 程序员来说，他们即拥有每一个对象的“所有权”，同时也担负每一个对象生命周期的维护责任。&lt;/p&gt;
+&lt;p&gt;而 Java 程序员则是在虚拟机自动内存管理机制的帮助下，不用操心对象内存的释放。但是也正由于这个帮助，一旦程序出现内存泄漏和溢出问题的时候，由于不够了解虚拟机运行机制，而对问题无从下手。&lt;br&gt;
     
     </summary>
     
+      <category term="读书笔记" scheme="http://yoursite.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
+    
+      <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="JVM" scheme="http://yoursite.com/tags/JVM/"/>
+    
+      <category term="内存" scheme="http://yoursite.com/tags/%E5%86%85%E5%AD%98/"/>
+    
+      <category term="GC" scheme="http://yoursite.com/tags/GC/"/>
     
   </entry>
   
@@ -320,10 +366,10 @@
     <link href="http://yoursite.com/2017/03/27/Atlas%E6%A1%86%E6%9E%B6%E6%B5%85%E6%9E%90/"/>
     <id>http://yoursite.com/2017/03/27/Atlas框架浅析/</id>
     <published>2017-03-27T02:29:04.000Z</published>
-    <updated>2017-04-03T06:36:50.000Z</updated>
+    <updated>2017-04-13T12:10:29.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Atlas框架浅析"><a href="#Atlas框架浅析" class="headerlink" title="Atlas框架浅析"></a><a href="http://atlas.taobao.org/docs/principle-intro/Runtime_principle.html" target="_blank" rel="external">Atlas框架浅析</a></h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><h3 id="Atlas由来"><a href="#Atlas由来" class="headerlink" title="Atlas由来"></a>Atlas由来</h3><p>Atlas 是希腊神话中擎天的巨人。  (寓为脚踏底层框架，为应用撑起一片天)</p>
-<p>2013年手淘人员倍增，整个客户端架构重构，形成了今天的 <a href="https://github.com/alibaba/atlas" target="_blank" rel="external">Atlas</a>。</p>
+<p>2013年手淘人员倍增，整个客户端架构重构，形成了今天的 <a href="https://github.com/alibaba/atlas" target="_blank" rel="external">Atlas</a>。<br><a id="more"></a></p>
 <h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><ul>
 <li>工程期，实现工程独立开发，调试的功能，工程模块独立。</li>
 <li>运行期，实现完整的组件生命周期的映射，类隔离等机制。</li>
@@ -414,22 +460,34 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;Atlas框架浅析&quot;&gt;&lt;a href=&quot;#Atlas框架浅析&quot; class=&quot;headerlink&quot; title=&quot;Atlas框架浅析&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://atlas.taobao.org/docs/principle-intro/Runti
+      &lt;h1 id=&quot;Atlas框架浅析&quot;&gt;&lt;a href=&quot;#Atlas框架浅析&quot; class=&quot;headerlink&quot; title=&quot;Atlas框架浅析&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://atlas.taobao.org/docs/principle-intro/Runtime_principle.html&quot;&gt;Atlas框架浅析&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h2&gt;&lt;h3 id=&quot;Atlas由来&quot;&gt;&lt;a href=&quot;#Atlas由来&quot; class=&quot;headerlink&quot; title=&quot;Atlas由来&quot;&gt;&lt;/a&gt;Atlas由来&lt;/h3&gt;&lt;p&gt;Atlas 是希腊神话中擎天的巨人。  (寓为脚踏底层框架，为应用撑起一片天)&lt;/p&gt;
+&lt;p&gt;2013年手淘人员倍增，整个客户端架构重构，形成了今天的 &lt;a href=&quot;https://github.com/alibaba/atlas&quot;&gt;Atlas&lt;/a&gt;。&lt;br&gt;
     
     </summary>
     
+      <category term="一些新东西" scheme="http://yoursite.com/categories/%E4%B8%80%E4%BA%9B%E6%96%B0%E4%B8%9C%E8%A5%BF/"/>
+    
+    
+      <category term="框架" scheme="http://yoursite.com/tags/%E6%A1%86%E6%9E%B6/"/>
+    
+      <category term="阿里" scheme="http://yoursite.com/tags/%E9%98%BF%E9%87%8C/"/>
+    
+      <category term="Atlas" scheme="http://yoursite.com/tags/Atlas/"/>
+    
+      <category term="Andoird" scheme="http://yoursite.com/tags/Andoird/"/>
     
   </entry>
   
   <entry>
-    <title>读书笔记之 Head First 设计模式</title>
-    <link href="http://yoursite.com/2017/03/23/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B9%8B%20Head%20First%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    <id>http://yoursite.com/2017/03/23/读书笔记之 Head First 设计模式/</id>
+    <title>Head First 设计模式</title>
+    <link href="http://yoursite.com/2017/03/23/Head%20First%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://yoursite.com/2017/03/23/Head First 设计模式/</id>
     <published>2017-03-23T09:13:20.000Z</published>
-    <updated>2017-04-13T06:26:01.000Z</updated>
+    <updated>2017-04-13T12:12:35.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="策略模式"><a href="#策略模式" class="headerlink" title="策略模式"></a>策略模式</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>定义了算法族，分别封装起来，让他们之间可以相互替换，此模式让算法的变化独立于使用算法的客户。</p>
 <h3 id="UML"><a href="#UML" class="headerlink" title="UML"></a>UML</h3><p><img src="http://on9hzfn6s.bkt.clouddn.com/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F.jpg" alt=""></p>
+<a id="more"></a>
 <h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p><strong>设计原则</strong>:抽取可能发生改变的，与不会发生改变的隔离。</p>
 <p>将会发生改变的相关性强的行为或者功能抽象，抽取，定义为一个接口:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">IStrategy</span></span>&#123;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Func</span><span class="params">()</span></span>;</div><div class="line">	</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -489,10 +547,23 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;策略模式&quot;&gt;&lt;a href=&quot;#策略模式&quot; class=&quot;headerlink&quot; title=&quot;策略模式&quot;&gt;&lt;/a&gt;策略模式&lt;/h2&gt;&lt;h3 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot; title=&quot;定义&quot;&gt;&lt;/a&gt;定义&lt;/h
+      &lt;h2 id=&quot;策略模式&quot;&gt;&lt;a href=&quot;#策略模式&quot; class=&quot;headerlink&quot; title=&quot;策略模式&quot;&gt;&lt;/a&gt;策略模式&lt;/h2&gt;&lt;h3 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot; title=&quot;定义&quot;&gt;&lt;/a&gt;定义&lt;/h3&gt;&lt;p&gt;定义了算法族，分别封装起来，让他们之间可以相互替换，此模式让算法的变化独立于使用算法的客户。&lt;/p&gt;
+&lt;h3 id=&quot;UML&quot;&gt;&lt;a href=&quot;#UML&quot; class=&quot;headerlink&quot; title=&quot;UML&quot;&gt;&lt;/a&gt;UML&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;http://on9hzfn6s.bkt.clouddn.com/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
     
     </summary>
     
+      <category term="读书笔记" scheme="http://yoursite.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
+    
+      <category term="设计模式" scheme="http://yoursite.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="策略模式" scheme="http://yoursite.com/tags/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="UML" scheme="http://yoursite.com/tags/UML/"/>
+    
+      <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
