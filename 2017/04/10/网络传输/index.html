@@ -87,25 +87,37 @@
 
 
 
-<meta name="description" content="概述五层模型相比 OSI 的 7 层参考模型，为了高效性开发，TCP/IP 使用了 4 层参考模型。
+<meta name="description" content="概述五层模型相比 OSI 的 7 层参考模型，为了更加高效的开发，TCP/IP 使用了 4 层参考模型。
 但是一般为了介绍方便，一般采用 5 层协议。
-每层模型都有属于自己的协议。
-发送数据的时候从上至下经过层层模型，每层模型都">
+
+为何协议，协议就是大家都遵守的规则，所有的这些协议统称为互联网协议。
+每层模型都有属于自己的协议，协议各式各样，有的是为了数据能找到目的地址，有的是为了保证源数据的完整性，有的是当发送失败的重发使用等等。
+
+发送数据的时候至上而下经过层层模型，经">
 <meta property="og:type" content="article">
 <meta property="og:title" content="网络传输基础">
 <meta property="og:url" content="http://yoursite.com/2017/04/10/网络传输/index.html">
 <meta property="og:site_name" content="smilEdit's Bolg">
-<meta property="og:description" content="概述五层模型相比 OSI 的 7 层参考模型，为了高效性开发，TCP/IP 使用了 4 层参考模型。
+<meta property="og:description" content="概述五层模型相比 OSI 的 7 层参考模型，为了更加高效的开发，TCP/IP 使用了 4 层参考模型。
 但是一般为了介绍方便，一般采用 5 层协议。
-每层模型都有属于自己的协议。
-发送数据的时候从上至下经过层层模型，每层模型都">
-<meta property="og:updated_time" content="2017-04-11T11:49:23.000Z">
+
+为何协议，协议就是大家都遵守的规则，所有的这些协议统称为互联网协议。
+每层模型都有属于自己的协议，协议各式各样，有的是为了数据能找到目的地址，有的是为了保证源数据的完整性，有的是当发送失败的重发使用等等。
+
+发送数据的时候至上而下经过层层模型，经">
+<meta property="og:image" content="http://on9hzfn6s.bkt.clouddn.com/1-150526093225401.png">
+<meta property="og:image" content="http://on9hzfn6s.bkt.clouddn.com/231055580455666.jpg">
+<meta property="og:updated_time" content="2017-04-13T06:26:15.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="网络传输基础">
-<meta name="twitter:description" content="概述五层模型相比 OSI 的 7 层参考模型，为了高效性开发，TCP/IP 使用了 4 层参考模型。
+<meta name="twitter:description" content="概述五层模型相比 OSI 的 7 层参考模型，为了更加高效的开发，TCP/IP 使用了 4 层参考模型。
 但是一般为了介绍方便，一般采用 5 层协议。
-每层模型都有属于自己的协议。
-发送数据的时候从上至下经过层层模型，每层模型都">
+
+为何协议，协议就是大家都遵守的规则，所有的这些协议统称为互联网协议。
+每层模型都有属于自己的协议，协议各式各样，有的是为了数据能找到目的地址，有的是为了保证源数据的完整性，有的是当发送失败的重发使用等等。
+
+发送数据的时候至上而下经过层层模型，经">
+<meta name="twitter:image" content="http://on9hzfn6s.bkt.clouddn.com/1-150526093225401.png">
 
 
 
@@ -330,10 +342,21 @@
       
 
       
-        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><h3 id="五层模型"><a href="#五层模型" class="headerlink" title="五层模型"></a>五层模型</h3><p>相比 OSI 的 7 层参考模型，为了高效性开发，TCP/IP 使用了 4 层参考模型。</p>
+        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><h3 id="五层模型"><a href="#五层模型" class="headerlink" title="五层模型"></a>五层模型</h3><p>相比 OSI 的 7 层参考模型，为了更加高效的开发，TCP/IP 使用了 4 层参考模型。</p>
 <p>但是一般为了介绍方便，一般采用 5 层协议。</p>
-<p>每层模型都有属于自己的协议。</p>
-<p>发送数据的时候从上至下经过层层模型，每层模型都</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/1-150526093225401.png" alt=""></p>
+<p>为何协议，协议就是大家都遵守的规则，所有的这些协议统称为<strong>互联网协议</strong>。</p>
+<p>每层模型都有属于自己的协议，协议各式各样，有的是为了数据能找到目的地址，有的是为了保证源数据的完整性，有的是当发送失败的重发使用等等。</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/231055580455666.jpg" alt=""></p>
+<p>发送数据的时候至上而下经过层层模型，经过每层模型的时候都会在数据中加点本层模型的内容，层层封装之后发送到另一个主机上。</p>
+<p>就像是买了个小礼品，包装了一层一层，最后写上收件人交给邮递员，历经万水千山，收件人拿到了快递，再一层一层的拆包装，最后才能看到里面的小礼品。</p>
+<p>对的，就算你在 QQ 上发了一个句号给你的朋友，这个句号也要这样经过层层封装，在网络中不断辗转。</p>
+<p>下面就主要介绍一下每层之中重要的协议和一些基本概念。</p>
+<h3 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h3><p>是体系中的最高层，也是用户最能直观感受到的一层。</p>
+<p>该层的任务是<strong>通过应用进程间的交互来完成特定网络应用</strong>。这里进程就是指那些正在运行的程序。</p>
+<p>例如 QQ、Chrome、Foxmail 等。不同的程序有各自的协议，比如 Chrome 就应该遵守 <a href="https://zh.wikipedia.org/wiki/%E8%B6%85%E6%96%87%E6%9C%AC%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AEhtt" target="_blank" rel="external">HTTP</a> 或者是 <a href="https://zh.wikipedia.org/wiki/%E8%B6%85%E6%96%87%E6%9C%AC%E4%BC%A0%E8%BE%93%E5%AE%89%E5%85%A8%E5%8D%8F%E8%AE%AE" target="_blank" rel="external">HTTPS</a> 协议，Foxmail 要遵守 <a href="https://zh.wikipedia.org/wiki/%E7%AE%80%E5%8D%95%E9%82%AE%E4%BB%B6%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE" target="_blank" rel="external">SMTP</a> 协议，QQ 之间传递文件就要遵守 <a href="https://zh.wikipedia.org/wiki/%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE" target="_blank" rel="external">FTP</a> 协议。</p>
+<p>我们常说的报文，就是该层交互的数据单元。</p>
+<p>HTTP 协议:</p>
 
       
     </div>
@@ -370,7 +393,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/10/n/" rel="next" title="读书笔记之 深入理解 Java 虚拟机--结构篇">
+              <a href="/2017/04/10/JVM 结构篇/" rel="next" title="读书笔记之 深入理解 Java 虚拟机--结构篇">
                 <i class="fa fa-chevron-left"></i> 读书笔记之 深入理解 Java 虚拟机--结构篇
               </a>
             
@@ -524,7 +547,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#五层模型"><span class="nav-number">1.1.</span> <span class="nav-text">五层模型</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#五层模型"><span class="nav-number">1.1.</span> <span class="nav-text">五层模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应用层"><span class="nav-number">1.2.</span> <span class="nav-text">应用层</span></a></li></ol></li></ol></div>
             
 
           </div>
