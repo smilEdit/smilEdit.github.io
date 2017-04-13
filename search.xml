@@ -308,13 +308,13 @@
             
             <tag> Java </tag>
             
-            <tag> 算法 </tag>
-            
             <tag> 内存 </tag>
             
             <tag> JVM </tag>
             
             <tag> GC </tag>
+            
+            <tag> 算法 </tag>
             
         </tags>
         
@@ -508,13 +508,13 @@
             
             <tag> Java </tag>
             
+            <tag> 算法 </tag>
+            
             <tag> 设计模式 </tag>
             
             <tag> 策略模式 </tag>
             
             <tag> UML </tag>
-            
-            <tag> 算法 </tag>
             
         </tags>
         

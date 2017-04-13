@@ -351,13 +351,13 @@
     
       <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
     
-      <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="内存" scheme="http://yoursite.com/tags/%E5%86%85%E5%AD%98/"/>
     
       <category term="JVM" scheme="http://yoursite.com/tags/JVM/"/>
     
       <category term="GC" scheme="http://yoursite.com/tags/GC/"/>
+    
+      <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -557,13 +557,13 @@
     
       <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
     
+      <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
       <category term="设计模式" scheme="http://yoursite.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
       <category term="策略模式" scheme="http://yoursite.com/tags/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/"/>
     
       <category term="UML" scheme="http://yoursite.com/tags/UML/"/>
-    
-      <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
