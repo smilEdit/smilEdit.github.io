@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-04-13T12:10:14.000Z</updated>
+  <updated>2017-04-14T08:33:28.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,132 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Mac使用技巧</title>
+    <link href="http://yoursite.com/2017/04/14/Mac%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/"/>
+    <id>http://yoursite.com/2017/04/14/Mac使用技巧/</id>
+    <published>2017-04-14T03:07:21.000Z</published>
+    <updated>2017-04-14T08:33:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>新版 MacPro</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-04-14%20%E4%B8%8A%E5%8D%8811.14.37.png" alt=""></p>
+<p> 入手 3 月多了。 简单说说使用的心得，好用的软件和一些小技巧吧。</p>
+<h2 id="外观"><a href="#外观" class="headerlink" title="外观"></a>外观</h2><h4 id="Dock"><a href="#Dock" class="headerlink" title="Dock"></a>Dock</h4><p>在没用 Mac 之前，在 Window 系统上我就用了 <a href="http://www.ouyaoxiazai.com/soft/stgj/14/19457.html" target="_blank" rel="external">RocketDock</a> ，可山寨终究是山寨啊。</p>
+<p>不过相对来说原生的 Dock 自定义性不强，怎么改都不满意。</p>
+<p>在个时候就需要 <a href="http://xclient.info/s/cdock.html" target="_blank" rel="external">cDock2</a>了。</p>
+<a id="more"></a>
+<p>先来张图预览下:</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-04-14%20%E4%B8%8A%E5%8D%8811.34.35.png" alt=""></p>
+<p>虽然总体区别不大，但是还是有些细节差别的。</p>
+<p>更有立体感了，打开的应用会有倒影。这些通过 <a href="http://w0lfschild.github.io/app_cDock.html" target="_blank" rel="external">cDock2</a> 都是可以调整的，具体的自己调整一下就知道了。</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-04-14%20%E4%B8%8A%E5%8D%8811.38.21.png" alt=""></p>
+<p>使用该软件之前，有几个步骤要走(软件上本来就有指导)</p>
+<ol>
+<li>重启 MAC。</li>
+<li>按住 command + R 不动，直到 OS X 实用工具页面出现。</li>
+<li>菜单上选择实用工具 -&gt; 终端</li>
+<li><p>在出现的控制台窗口中输入如下命令并敲回车: </p>
+<p>   csrutil disable</p>
+</li>
+<li>重启 MAC</li>
+<li>正常进入 OS X 系统，使用 cDock2 设置 dock 样式</li>
+<li>设置好后，继续重启 MAC ，按住 command + R 不动，直到 OS X 实用工具页面出现。</li>
+<li><p>这次输入如下命令并敲回车：</p>
+<p>   csrutil enable</p>
+</li>
+</ol>
+<p>要是还不行，自行 <strong><a href="https://www.baidu.com/baidu?tn=64075107_1_dg&amp;ie=utf-8&amp;wd=cdock2" target="_blank" rel="external">百度</a></strong> 或 <strong><a href="https://www.google.co.jp/search?q=cdock2&amp;oq=cdock2&amp;gs_l=serp.3...51948.51948.0.52153.1.1.0.0.0.0.0.0..0.0....0...1.1.64.serp..1.0.0.3W9PtJ0bW7Q" target="_blank" rel="external">Google</a></strong> 。</p>
+<p>另外还有图标的修改，也挺有意思的，之前的图片中也可以看出，我改了 Finder 和 Sublime 的图标。</p>
+<p>图标的来源可以参考 <a href="https://dribbble.com/search?q=mac+icon" target="_blank" rel="external">这里</a> 。</p>
+<p>修改的过程很简单，自己 <strong><a href="http://jingyan.baidu.com/article/e5c39bf5baa1e639d6603355.html" target="_blank" rel="external">搜下</a></strong> 就有了。</p>
+<p>有一点要注意下，修改了图标之后，可能并不会马上生效，不要慌，重启下软件可能就好了。</p>
+<h4 id="壁纸"><a href="#壁纸" class="headerlink" title="壁纸"></a>壁纸</h4><p>推荐个软件 <a href="http://arkanath.com/FreshBackMac/" target="_blank" rel="external">FreshBackMac</a> 。 很小，3M 左右，不用安装，点击就可以用了。</p>
+<p>可以设置更新频率，图片内容，来源等等。。。</p>
+<p>一个字，好用。</p>
+<p>当然，如果刚好看到特别喜欢的桌面，也可以下载保存下来。</p>
+<p>分享几张个人比较喜欢的图片。</p>
+<h4 id="终端配色"><a href="#终端配色" class="headerlink" title="终端配色"></a>终端配色</h4><p>我用的是 <a href="http://iterm2.com/" target="_blank" rel="external">iTerm2</a>  </p>
+<p>它有什么用就不<strong><a href="https://www.zhihu.com/question/27447370" target="_blank" rel="external">多说</a></strong>了。</p>
+<p>配色方案很多，可以参考 <a href="https://github.com/mbadolato/iTerm2-Color-Schemes" target="_blank" rel="external">这里</a>。</p>
+<p>为了方便使用，可以设置全局 <em>热键</em> ，瞬间呼出。</p>
+<p>iTerm2 -&gt; Preferences -&gt; Appearance -&gt; Hotkey -&gt; Check “Show/hide iTerm2 with a system-wide hotkey”</p>
+<p>然后设置新窗口的布局，让它半透明之类的(看你喜欢),占据你的半个屏幕之类的(看你喜欢),出现在顶端。</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-04-14%20%E4%B8%8B%E5%8D%881.32.01.png" alt=""></p>
+<p>最后为了使用更酷，使用它的时候不让它出现在 Dock 上面:</p>
+<p>执行:</p>
+<p> <code>/usr/libexec/PlistBuddy -c &quot;Add :LSUIElement bool true&quot; /Applications/iTerm.app/Contents/Info.plist</code></p>
+<p>然后重启 iTerm2 就行了。</p>
+<p>想要恢复的话，执行:</p>
+<p><code>/usr/libexec/PlistBuddy -c &quot;Delete :LSUIElement&quot; /Applications/iTerm.app/Contents/Info.plist</code></p>
+<p>说几个常用的快捷键:</p>
+<ul>
+<li>command + d / command + shift + d 横竖分屏</li>
+<li>command + option + 方向键 在分屏中切屏</li>
+<li>command + ; 自动补全 </li>
+<li><p>command + shift + h 历史记录</p>
+<p>…</p>
+</li>
+</ul>
+<h2 id="高效软件"><a href="#高效软件" class="headerlink" title="高效软件"></a>高效软件</h2><h3 id="Contexts"><a href="#Contexts" class="headerlink" title="Contexts"></a><a href="http://xclient.info/s/contexts.html" target="_blank" rel="external">Contexts</a></h3><p>第一个必须是它。</p>
+<p>我 13 寸的 MacPro 肯定是没有地盘一直显示 Dock 了，所以都是自动隐藏的。</p>
+<p>每次 command + m 一个软件之后，就想着有什么方法可以不用鼠标点 Dock 的情况下唤起缩小过后的程序。(用 command + tab 一个个切换太笨拙了 )</p>
+<p>答案就是 <strong>Contexts</strong> ，两个字，非常棒。</p>
+<p>当然，可能会有按键冲突，那么就在 设置 → Panel → Switch by window number 中，可以更改根据编号切换窗口的快捷键。</p>
+<p>具体可以看这里的 <em><a href="https://sspai.com/post/32468?utm_medium=referral&amp;utm_source=tuicool" target="_blank" rel="external">详细攻略</a></em>。</p>
+<h3 id="MacDown"><a href="#MacDown" class="headerlink" title="MacDown"></a><a href="https://github.com/MacDownApp/macdown" target="_blank" rel="external">MacDown</a></h3><p> 用了几个 MarkDown 的编辑器或者插件之后觉得这个最为简洁直观。</p>
+<p> 常用快捷键在 Format 里，command + 一些首字母，比较少，基本都是很常用的。</p>
+<p> 代码的话除了 double `。</p>
+<p> 还可以使用 6 个 ` 中间加语言类型。 </p>
+<p> 不管他是不是盗版还是啥的，还是支持下开源。</p>
+<h3 id="BetterTouchTool"><a href="#BetterTouchTool" class="headerlink" title="BetterTouchTool"></a>BetterTouchTool</h3><p><em>待更新…</em></p>
+<h3 id="Alfred-3"><a href="#Alfred-3" class="headerlink" title="Alfred 3"></a>Alfred 3</h3><p><em>待更新…</em></p>
+<h2 id="翻墙"><a href="#翻墙" class="headerlink" title="翻墙"></a>翻墙</h2><h3 id="XX-net"><a href="#XX-net" class="headerlink" title="XX-net"></a><a href="https://github.com/XX-net/XX-Net" target="_blank" rel="external">XX-net</a></h3><p>开源没有流量限制，搭配 Chrome 使用更好。</p>
+<p>整体速度较快，但是不稳定。</p>
+<p>具体配置 <a href="https://github.com/XX-net/XX-Net/wiki/%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3" target="_blank" rel="external">文档</a> 里已经说的非常清楚了。</p>
+<h3 id="影梭"><a href="#影梭" class="headerlink" title="影梭"></a><a href="https://www.shadowshocks.com/" target="_blank" rel="external">影梭</a></h3><p>我用的是 99/年的，用了半年多了，前几个月一般般，后几个月根本上不了网。</p>
+<p>太坑了，价格低质量差？</p>
+<p>配置不算难，但是有点蠢，下个客户端，一个一个的加代理服务器地址。</p>
+<p>用的时候最好是看看哪个延时低用哪个，很无语。</p>
+<h4 id="lantern"><a href="#lantern" class="headerlink" title="lantern"></a><a href="https://github.com/getlantern/lantern" target="_blank" rel="external">lantern</a></h4><p>基础版免费有限制，不过流量不是很少，整体速度一般，但是相对稳定。</p>
+<p>使用特特别简单，双击。</p>
+<h2 id="一些插件"><a href="#一些插件" class="headerlink" title="一些插件"></a>一些插件</h2><h3 id="关于翻译"><a href="#关于翻译" class="headerlink" title="关于翻译"></a>关于翻译</h3><p>英语不好真是够呛的</p>
+<h4 id="系统"><a href="#系统" class="headerlink" title="系统"></a>系统</h4><p>三指轻触取词:</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-04-14%20%E4%B8%8B%E5%8D%883.55.07.png" alt=""></p>
+<p>设置也挺方便的:</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-04-14%20%E4%B8%8B%E5%8D%883.50.37.png" alt=""></p>
+<p>讲道理整个系统通用的，但是相对有时候取的范围不大准，所以一些软件还是有必要在搞些别的。</p>
+<h4 id="Chrome"><a href="#Chrome" class="headerlink" title="Chrome"></a>Chrome</h4><p><a href="https://chrome.google.com/webstore/detail/halo-word-dictionary/bhkcehpnnlgncpnefpanachijmhikocj" target="_blank" rel="external">Halo Word Dictionary</a></p>
+<p>按住 command 键取词就行了。</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-04-14%20%E4%B8%8B%E5%8D%883.56.54.png" alt=""></p>
+<h4 id="Android-Studio"><a href="#Android-Studio" class="headerlink" title="Android Studio"></a>Android Studio</h4><p>command + shift + a 输入 plug ,</p>
+<p>下载 ECTranslation 翻译插件，可能要重启生效。</p>
+<p>command + , (在 Mac 上基本所有的软件的设置快捷都是这个)输入 keymap 搜索 translate ,找到后自己选个不冲突的全局快捷键就好了。</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-04-14%20%E4%B8%8B%E5%8D%884.22.32.png" alt=""><br><br><br><br><br><br><br><br></p>
+<p>   <em>未完待续…</em></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;新版 MacPro&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://on9hzfn6s.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-04-14%20%E4%B8%8A%E5%8D%8811.14.37.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt; 入手 3 月多了。 简单说说使用的心得，好用的软件和一些小技巧吧。&lt;/p&gt;
+&lt;h2 id=&quot;外观&quot;&gt;&lt;a href=&quot;#外观&quot; class=&quot;headerlink&quot; title=&quot;外观&quot;&gt;&lt;/a&gt;外观&lt;/h2&gt;&lt;h4 id=&quot;Dock&quot;&gt;&lt;a href=&quot;#Dock&quot; class=&quot;headerlink&quot; title=&quot;Dock&quot;&gt;&lt;/a&gt;Dock&lt;/h4&gt;&lt;p&gt;在没用 Mac 之前，在 Window 系统上我就用了 &lt;a href=&quot;http://www.ouyaoxiazai.com/soft/stgj/14/19457.html&quot;&gt;RocketDock&lt;/a&gt; ，可山寨终究是山寨啊。&lt;/p&gt;
+&lt;p&gt;不过相对来说原生的 Dock 自定义性不强，怎么改都不满意。&lt;/p&gt;
+&lt;p&gt;在个时候就需要 &lt;a href=&quot;http://xclient.info/s/cdock.html&quot;&gt;cDock2&lt;/a&gt;了。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="高效做事" scheme="http://yoursite.com/categories/%E9%AB%98%E6%95%88%E5%81%9A%E4%BA%8B/"/>
+    
+    
+      <category term="技巧" scheme="http://yoursite.com/tags/%E6%8A%80%E5%B7%A7/"/>
+    
+      <category term="Mac" scheme="http://yoursite.com/tags/Mac/"/>
+    
+      <category term="软件" scheme="http://yoursite.com/tags/%E8%BD%AF%E4%BB%B6/"/>
+    
+  </entry>
   
   <entry>
     <title>网络传输基础</title>
@@ -353,11 +479,11 @@
     
       <category term="JVM" scheme="http://yoursite.com/tags/JVM/"/>
     
+      <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
       <category term="内存" scheme="http://yoursite.com/tags/%E5%86%85%E5%AD%98/"/>
     
       <category term="GC" scheme="http://yoursite.com/tags/GC/"/>
-    
-      <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -557,13 +683,13 @@
     
       <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
     
-      <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="设计模式" scheme="http://yoursite.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
       <category term="策略模式" scheme="http://yoursite.com/tags/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/"/>
     
       <category term="UML" scheme="http://yoursite.com/tags/UML/"/>
+    
+      <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
