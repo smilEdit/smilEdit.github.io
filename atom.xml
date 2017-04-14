@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-04-14T08:33:28.000Z</updated>
+  <updated>2017-04-14T08:44:24.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,12 +20,12 @@
     <link href="http://yoursite.com/2017/04/14/Mac%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/"/>
     <id>http://yoursite.com/2017/04/14/Mac使用技巧/</id>
     <published>2017-04-14T03:07:21.000Z</published>
-    <updated>2017-04-14T08:33:28.000Z</updated>
+    <updated>2017-04-14T08:44:24.000Z</updated>
     
     <content type="html"><![CDATA[<p>新版 MacPro</p>
 <p><img src="http://on9hzfn6s.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-04-14%20%E4%B8%8A%E5%8D%8811.14.37.png" alt=""></p>
 <p> 入手 3 月多了。 简单说说使用的心得，好用的软件和一些小技巧吧。</p>
-<h2 id="外观"><a href="#外观" class="headerlink" title="外观"></a>外观</h2><h4 id="Dock"><a href="#Dock" class="headerlink" title="Dock"></a>Dock</h4><p>在没用 Mac 之前，在 Window 系统上我就用了 <a href="http://www.ouyaoxiazai.com/soft/stgj/14/19457.html" target="_blank" rel="external">RocketDock</a> ，可山寨终究是山寨啊。</p>
+<h2 id="外观"><a href="#外观" class="headerlink" title="外观"></a>外观</h2><h3 id="Dock"><a href="#Dock" class="headerlink" title="Dock"></a>Dock</h3><p>在没用 Mac 之前，在 Window 系统上我就用了 <a href="http://www.ouyaoxiazai.com/soft/stgj/14/19457.html" target="_blank" rel="external">RocketDock</a> ，可山寨终究是山寨啊。</p>
 <p>不过相对来说原生的 Dock 自定义性不强，怎么改都不满意。</p>
 <p>在个时候就需要 <a href="http://xclient.info/s/cdock.html" target="_blank" rel="external">cDock2</a>了。</p>
 <a id="more"></a>
@@ -54,12 +54,17 @@
 <p>图标的来源可以参考 <a href="https://dribbble.com/search?q=mac+icon" target="_blank" rel="external">这里</a> 。</p>
 <p>修改的过程很简单，自己 <strong><a href="http://jingyan.baidu.com/article/e5c39bf5baa1e639d6603355.html" target="_blank" rel="external">搜下</a></strong> 就有了。</p>
 <p>有一点要注意下，修改了图标之后，可能并不会马上生效，不要慌，重启下软件可能就好了。</p>
-<h4 id="壁纸"><a href="#壁纸" class="headerlink" title="壁纸"></a>壁纸</h4><p>推荐个软件 <a href="http://arkanath.com/FreshBackMac/" target="_blank" rel="external">FreshBackMac</a> 。 很小，3M 左右，不用安装，点击就可以用了。</p>
+<h3 id="壁纸"><a href="#壁纸" class="headerlink" title="壁纸"></a>壁纸</h3><p>推荐个软件 <a href="http://arkanath.com/FreshBackMac/" target="_blank" rel="external">FreshBackMac</a> 。 很小，3M 左右，不用安装，点击就可以用了。</p>
 <p>可以设置更新频率，图片内容，来源等等。。。</p>
 <p>一个字，好用。</p>
 <p>当然，如果刚好看到特别喜欢的桌面，也可以下载保存下来。</p>
 <p>分享几张个人比较喜欢的图片。</p>
-<h4 id="终端配色"><a href="#终端配色" class="headerlink" title="终端配色"></a>终端配色</h4><p>我用的是 <a href="http://iterm2.com/" target="_blank" rel="external">iTerm2</a>  </p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/macbook_pro_3-wallpaper-2560x1600.jpg" alt="图1"></p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/bg-1.jpg" alt="图2"></p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/Unsplash%20Source.jpg" alt="图3"></p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/macbook_triangles-wallpaper-1680x1050.jpg" alt="图4"></p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/apple_leather_2-wallpaper-1680x1050.jpg" alt="图5"></p>
+<h3 id="终端配色"><a href="#终端配色" class="headerlink" title="终端配色"></a>终端配色</h3><p>我用的是 <a href="http://iterm2.com/" target="_blank" rel="external">iTerm2</a>  </p>
 <p>它有什么用就不<strong><a href="https://www.zhihu.com/question/27447370" target="_blank" rel="external">多说</a></strong>了。</p>
 <p>配色方案很多，可以参考 <a href="https://github.com/mbadolato/iTerm2-Color-Schemes" target="_blank" rel="external">这里</a>。</p>
 <p>为了方便使用，可以设置全局 <em>热键</em> ，瞬间呼出。</p>
@@ -101,7 +106,7 @@
 <p>太坑了，价格低质量差？</p>
 <p>配置不算难，但是有点蠢，下个客户端，一个一个的加代理服务器地址。</p>
 <p>用的时候最好是看看哪个延时低用哪个，很无语。</p>
-<h4 id="lantern"><a href="#lantern" class="headerlink" title="lantern"></a><a href="https://github.com/getlantern/lantern" target="_blank" rel="external">lantern</a></h4><p>基础版免费有限制，不过流量不是很少，整体速度一般，但是相对稳定。</p>
+<h3 id="lantern"><a href="#lantern" class="headerlink" title="lantern"></a><a href="https://github.com/getlantern/lantern" target="_blank" rel="external">lantern</a></h3><p>基础版免费有限制，不过流量不是很少，整体速度一般，但是相对稳定。</p>
 <p>使用特特别简单，双击。</p>
 <h2 id="一些插件"><a href="#一些插件" class="headerlink" title="一些插件"></a>一些插件</h2><h3 id="关于翻译"><a href="#关于翻译" class="headerlink" title="关于翻译"></a>关于翻译</h3><p>英语不好真是够呛的</p>
 <h4 id="系统"><a href="#系统" class="headerlink" title="系统"></a>系统</h4><p>三指轻触取词:</p>
@@ -124,7 +129,7 @@
       &lt;p&gt;新版 MacPro&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;http://on9hzfn6s.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-04-14%20%E4%B8%8A%E5%8D%8811.14.37.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt; 入手 3 月多了。 简单说说使用的心得，好用的软件和一些小技巧吧。&lt;/p&gt;
-&lt;h2 id=&quot;外观&quot;&gt;&lt;a href=&quot;#外观&quot; class=&quot;headerlink&quot; title=&quot;外观&quot;&gt;&lt;/a&gt;外观&lt;/h2&gt;&lt;h4 id=&quot;Dock&quot;&gt;&lt;a href=&quot;#Dock&quot; class=&quot;headerlink&quot; title=&quot;Dock&quot;&gt;&lt;/a&gt;Dock&lt;/h4&gt;&lt;p&gt;在没用 Mac 之前，在 Window 系统上我就用了 &lt;a href=&quot;http://www.ouyaoxiazai.com/soft/stgj/14/19457.html&quot;&gt;RocketDock&lt;/a&gt; ，可山寨终究是山寨啊。&lt;/p&gt;
+&lt;h2 id=&quot;外观&quot;&gt;&lt;a href=&quot;#外观&quot; class=&quot;headerlink&quot; title=&quot;外观&quot;&gt;&lt;/a&gt;外观&lt;/h2&gt;&lt;h3 id=&quot;Dock&quot;&gt;&lt;a href=&quot;#Dock&quot; class=&quot;headerlink&quot; title=&quot;Dock&quot;&gt;&lt;/a&gt;Dock&lt;/h3&gt;&lt;p&gt;在没用 Mac 之前，在 Window 系统上我就用了 &lt;a href=&quot;http://www.ouyaoxiazai.com/soft/stgj/14/19457.html&quot;&gt;RocketDock&lt;/a&gt; ，可山寨终究是山寨啊。&lt;/p&gt;
 &lt;p&gt;不过相对来说原生的 Dock 自定义性不强，怎么改都不满意。&lt;/p&gt;
 &lt;p&gt;在个时候就需要 &lt;a href=&quot;http://xclient.info/s/cdock.html&quot;&gt;cDock2&lt;/a&gt;了。&lt;/p&gt;
     
