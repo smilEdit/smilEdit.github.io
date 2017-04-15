@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-04-15T04:56:46.000Z</updated>
+  <updated>2017-04-15T05:15:52.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,11 +16,41 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>我的梦想</title>
+    <link href="http://yoursite.com/2017/04/15/%E6%88%91%E7%9A%84%E6%A2%A6%E6%83%B3/"/>
+    <id>http://yoursite.com/2017/04/15/我的梦想/</id>
+    <published>2017-04-15T05:13:28.000Z</published>
+    <updated>2017-04-15T05:15:52.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><br><br><br></p>
+<p><br></p>
+<p><br><br><br></p>
+<p><br><br><br><br><br></p>
+<center>养两只猫，一只灰色的，一只白色的</center>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;center&gt;养两只猫，一只灰色的，一只白色的&lt;/center&gt;
+    
+    </summary>
+    
+      <category term="梦想" scheme="http://yoursite.com/categories/%E6%A2%A6%E6%83%B3/"/>
+    
+    
+      <category term="梦想" scheme="http://yoursite.com/tags/%E6%A2%A6%E6%83%B3/"/>
+    
+  </entry>
+  
+  <entry>
     <title>周末停水</title>
     <link href="http://yoursite.com/2017/04/15/%E5%91%A8%E6%9C%AB%E5%81%9C%E6%B0%B4/"/>
     <id>http://yoursite.com/2017/04/15/周末停水/</id>
     <published>2017-04-15T04:37:32.000Z</published>
-    <updated>2017-04-15T04:56:46.000Z</updated>
+    <updated>2017-04-15T05:00:20.000Z</updated>
     
     <content type="html"><![CDATA[<p>好不容易周末了。</p>
 <p>居然停水了。</p>
