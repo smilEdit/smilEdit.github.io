@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-04-15T05:20:35.000Z</updated>
+  <updated>2017-04-15T09:52:23.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,14 +16,66 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>安卓桌面图标未读数字</title>
+    <link href="http://yoursite.com/2017/04/15/%E5%AE%89%E5%8D%93%E6%A1%8C%E9%9D%A2%E5%9B%BE%E6%A0%87%E6%9C%AA%E8%AF%BB%E6%95%B0%E5%AD%97/"/>
+    <id>http://yoursite.com/2017/04/15/安卓桌面图标未读数字/</id>
+    <published>2017-04-15T08:58:12.000Z</published>
+    <updated>2017-04-15T09:52:23.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>再不写个安卓技术文，都要忘了自己其实是做安卓的了。</p>
+<p><img src="http://imgsrc.baidu.com/forum/w%3D580/sign=b8700c65494a20a4311e3ccfa0539847/d2198e16fdfaaf5108b8d5c88a5494eef01f7a74.jpg" alt=""></p>
+<p>今天要是实现的就是这种东西</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-04-15%20%E4%B8%8B%E5%8D%885.06.07.png" alt=""></p>
+<a id="more"></a>
+<p>说实话，有点恶心。每次支付宝微信什么的这种未读标志出现的时候就忍不住去点。</p>
+<p>好了，我的学习流程是这样的，先在网上搜了下:</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-04-15%20%E4%B8%8B%E5%8D%885.09.51.png" alt=""></p>
+<p>看了几篇之后，发现 <a href="http://www.jianshu.com/p/0992ff9eeeb6" target="_blank" rel="external"><em>这个</em></a> 写的比较用心，除了无形狗粮。</p>
+<p>然后找到了 Github 上面的 <a href="https://github.com/leolin310148/ShortcutBadger" target="_blank" rel="external"><em>这个</em></a>，应该是用的人最多的了。</p>
+<p>使用起来非非常的方便:</p>
+<p>新建了个工程，在布局中简单写了两个 <code>Button</code> ，一个用来添加未读的标志，一个用来消除未读的标记。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">Button</span></span></div><div class="line">    <span class="attr">android:text</span>=<span class="string">"addCount"</span></div><div class="line">    <span class="attr">android:id</span>=<span class="string">"@+id/bt_addCount"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span>/&gt;</div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">Button</span></span></div><div class="line">    <span class="attr">android:text</span>=<span class="string">"removeCount"</span></div><div class="line">    <span class="attr">android:id</span>=<span class="string">"@+id/bt_removeCount"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span>/&gt;</div></pre></td></tr></table></figure>
+<p>然后在代码中添加按钮的点击事件:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">mBtAddCount = (Button) findViewById(R.id.bt_addCount);</div><div class="line">        mBtAddCount.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</div><div class="line">                <span class="keyword">if</span> (ShortcutBadger.isBadgeCounterSupported(getApplicationContext())) &#123;</div><div class="line">                    ShortcutBadger.applyCount(getApplicationContext(),<span class="number">1</span>);</div><div class="line">                    Toast  toast = Toast.makeText(getApplicationContext(),<span class="string">"标记已添加"</span>,Toast.LENGTH_SHORT);</div><div class="line">                    toast.show();</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">        mBtRemove = (Button) findViewById(R.id.bt_removeCount);</div><div class="line">        mBtRemove.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</div><div class="line">                <span class="keyword">if</span> (ShortcutBadger.isBadgeCounterSupported(getApplicationContext())) &#123;</div><div class="line">                    ShortcutBadger.removeCount(getApplicationContext());</div><div class="line">                    Toast  toast = Toast.makeText(getApplicationContext(),<span class="string">"标记已清除"</span>,Toast.LENGTH_SHORT);</div><div class="line">                    toast.show();</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;);</div></pre></td></tr></table></figure>
+<p>灰常快，然后在真机上试了下，能用。（手头只有自己使用的手机，华为荣耀 6。）</p>
+<p>再然后，看源码。</p>
+<p>怎么说呢，可以这样理解。桌面屏幕其实也是个 Activity 界面，是一个类，Launcher 。修改桌面图标其实就是传一些参数进去，然后调用里面的修改图标的方法。(这个方法各个厂商的实现方式可能都是不一样的，原生其实是没有的，因为有强大的通知栏了，为何要整这种逼死强迫症的东西呢)</p>
+<p>需要的参数有包名，类名，和想要设置的数字。移除标志其实就是数字传 0。</p>
+<p>不依赖三方库，我自己实现了下，像这样:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Intent launchIntent = getApplicationContext().getPackageManager().getLaunchIntentForPackage(getApplicationContext().getPackageName());</div><div class="line">Bundle localBundle = <span class="keyword">new</span> Bundle();</div><div class="line">localBundle.putString(<span class="string">"package"</span>, getApplicationContext().getPackageName());</div><div class="line">localBundle.putString(<span class="string">"class"</span>, launchIntent.getComponent().getClassName());</div><div class="line">localBundle.putInt(<span class="string">"badgenumber"</span>, <span class="number">1</span>);</div><div class="line">getApplicationContext().getContentResolver().call(Uri.parse(<span class="string">"content://com.huawei.android.launcher.settings/badge/"</span>), <span class="string">"change_badge"</span>, <span class="keyword">null</span>, localBundle);</div></pre></td></tr></table></figure>
+<p>运行了下，妥妥的。</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-04-15%20%E4%B8%8B%E5%8D%885.06.20.png" alt=""></p>
+<p>烦在哪里呢，安卓严重的碎片化。不同牌子的实现方式就都不一样了，上面只是华为的。</p>
+<p>有的手机，例如锤子之类的，只有 System App 才能改。</p>
+<p>ShortcutBadger 就是对市场上的绝大多数品牌的手机做了适配。一般手机的实现方式都和上面华为那个差不多，传参数调接口就行了。具体可以看<a href="https://github.com/leolin310148/ShortcutBadger/tree/master/ShortcutBadger/src/main/java/me/leolin/shortcutbadger/impl" target="_blank" rel="external"><em>这里</em></a>。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;再不写个安卓技术文，都要忘了自己其实是做安卓的了。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://imgsrc.baidu.com/forum/w%3D580/sign=b8700c65494a20a4311e3ccfa0539847/d2198e16fdfaaf5108b8d5c88a5494eef01f7a74.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;今天要是实现的就是这种东西&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://on9hzfn6s.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-04-15%20%E4%B8%8B%E5%8D%885.06.07.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="安卓" scheme="http://yoursite.com/categories/%E5%AE%89%E5%8D%93/"/>
+    
+    
+      <category term="安卓" scheme="http://yoursite.com/tags/%E5%AE%89%E5%8D%93/"/>
+    
+  </entry>
+  
+  <entry>
     <title>我的梦想</title>
     <link href="http://yoursite.com/2017/04/15/%E6%88%91%E7%9A%84%E6%A2%A6%E6%83%B3/"/>
     <id>http://yoursite.com/2017/04/15/我的梦想/</id>
     <published>2017-04-15T05:13:28.000Z</published>
-    <updated>2017-04-15T05:20:35.000Z</updated>
+    <updated>2017-04-15T05:22:55.000Z</updated>
     
     <content type="html"><![CDATA[<p><br><br><br></p>
 <p><br><br><br><br><br></p>
+<a id="more"></a>
 <center>养两只猫，一只灰色的，一只白色的</center>
 
 <p><br><br><br></p>
@@ -32,13 +84,8 @@
     
     <summary type="html">
     
-      &lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
-&lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
-&lt;center&gt;养两只猫，一只灰色的，一只白色的&lt;/center&gt;
-
-&lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
-&lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
-
+      &lt;p&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;&lt;/p&gt;
     
     </summary>
     
