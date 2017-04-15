@@ -674,9 +674,9 @@
     
       <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
     
-      <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JVM" scheme="http://yoursite.com/tags/JVM/"/>
+    
+      <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
     
       <category term="内存" scheme="http://yoursite.com/tags/%E5%86%85%E5%AD%98/"/>
     
