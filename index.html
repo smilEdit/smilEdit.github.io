@@ -331,6 +331,183 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/17/Android_仿淘宝商品详情页/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhanglf">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="smilEdit's Bolg">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/17/Android_仿淘宝商品详情页/" itemprop="url">
+                  Android 仿淘宝商品详情页
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-17T17:41:06+08:00">
+                2017-04-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/安卓/" itemprop="url" rel="index">
+                    <span itemprop="name">安卓</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/04/17/Android_仿淘宝商品详情页/" class="leancloud_visitors" data-flag-title="Android 仿淘宝商品详情页">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>其实差很多，只是简单的模仿里面的一个效果而已。稍微做个笔记。</p>
+<p>效果是这个样子的。</p>
+<p><img src="http://i4.buimg.com/567571/1f8ddefdf9009ce9.gif" alt=""></p>
+<p>上面那几个 ITEM 可以点击，还有下面模块滑动的时候，对应的 ITEM 要变色，就俩需求。</p>
+<p>这里我采用的都是最直接的方式，上面那个用 <code>LinearLayout</code> 包几个按钮，下面那个用 <code>ScrallView</code>，整体用 <code>FrameLayout</code> 包起来。(这种简单的叠加别用耗性能的 <code>RelativeLayout</code>)</p>
+<p>上布局代码:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">FrameLayout</span></span></div><div class="line">    <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></div><div class="line">    <span class="attr">xmlns:tools</span>=<span class="string">"http://schemas.android.com/tools"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">tools:context</span>=<span class="string">"com.zhanglf.goodsdetail.MainActivity"</span>&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">com.zhanglf.goodsdetail.ScrollViewDIY</span></span></div><div class="line">        <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></div><div class="line">        <span class="attr">xmlns:tools</span>=<span class="string">"http://schemas.android.com/tools"</span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/scrollView"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">tools:context</span>=<span class="string">"com.zhanglf.goodsdetail.MainActivity"</span>&gt;</div><div class="line"></div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">LinearLayout</span></span></div><div class="line">            <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">            <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">            <span class="attr">android:orientation</span>=<span class="string">"vertical"</span>&gt;</div><div class="line"></div><div class="line"></div><div class="line">            <span class="tag">&lt;<span class="name">View</span></span></div><div class="line">                <span class="attr">android:id</span>=<span class="string">"@+id/view_one"</span></div><div class="line">                <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">                <span class="attr">android:layout_height</span>=<span class="string">"400dp"</span></div><div class="line">                <span class="attr">android:layout_marginTop</span>=<span class="string">"45dp"</span></div><div class="line">                <span class="attr">android:background</span>=<span class="string">"@android:color/holo_orange_dark"</span></div><div class="line">                <span class="attr">android:orientation</span>=<span class="string">"vertical"</span>&gt;</div><div class="line"></div><div class="line">            <span class="tag">&lt;/<span class="name">View</span>&gt;</span></div><div class="line"></div><div class="line">            <span class="tag">&lt;<span class="name">View</span></span></div><div class="line">                <span class="attr">android:id</span>=<span class="string">"@+id/view_two"</span></div><div class="line">                <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">                <span class="attr">android:layout_height</span>=<span class="string">"700dp"</span></div><div class="line">                <span class="attr">android:background</span>=<span class="string">"@android:color/holo_blue_bright"</span></div><div class="line">                <span class="attr">android:orientation</span>=<span class="string">"vertical"</span>&gt;</div><div class="line"></div><div class="line">            <span class="tag">&lt;/<span class="name">View</span>&gt;</span></div><div class="line"></div><div class="line">            <span class="tag">&lt;<span class="name">View</span></span></div><div class="line">                <span class="attr">android:id</span>=<span class="string">"@+id/view_three"</span></div><div class="line">                <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">                <span class="attr">android:layout_height</span>=<span class="string">"600dp"</span></div><div class="line">                <span class="attr">android:background</span>=<span class="string">"@android:color/holo_green_dark"</span></div><div class="line">                <span class="attr">android:orientation</span>=<span class="string">"vertical"</span>&gt;</div><div class="line"></div><div class="line">            <span class="tag">&lt;/<span class="name">View</span>&gt;</span></div><div class="line"></div><div class="line">            <span class="tag">&lt;<span class="name">View</span></span></div><div class="line">                <span class="attr">android:id</span>=<span class="string">"@+id/view_four"</span></div><div class="line">                <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">                <span class="attr">android:layout_height</span>=<span class="string">"800dp"</span></div><div class="line">                <span class="attr">android:background</span>=<span class="string">"@android:color/holo_red_light"</span></div><div class="line">                <span class="attr">android:orientation</span>=<span class="string">"vertical"</span>&gt;</div><div class="line">            <span class="tag">&lt;/<span class="name">View</span>&gt;</span></div><div class="line"></div><div class="line">        <span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;/<span class="name">com.zhanglf.goodsdetail.ScrollViewDIY</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">LinearLayout</span></span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:background</span>=<span class="string">"@android:color/holo_purple"</span></div><div class="line">        <span class="attr">android:orientation</span>=<span class="string">"horizontal"</span>&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">Button</span></span></div><div class="line">            <span class="attr">android:id</span>=<span class="string">"@+id/bt_item1"</span></div><div class="line">            <span class="attr">android:layout_width</span>=<span class="string">"0dp"</span></div><div class="line">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">            <span class="attr">android:layout_weight</span>=<span class="string">"1"</span></div><div class="line">            <span class="attr">android:text</span>=<span class="string">" Item 1 "</span>/&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">Button</span></span></div><div class="line">            <span class="attr">android:id</span>=<span class="string">"@+id/bt_item2"</span></div><div class="line">            <span class="attr">android:layout_width</span>=<span class="string">"0dp"</span></div><div class="line">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">            <span class="attr">android:layout_weight</span>=<span class="string">"1"</span></div><div class="line">            <span class="attr">android:text</span>=<span class="string">" Item 2 "</span>/&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">Button</span></span></div><div class="line">            <span class="attr">android:id</span>=<span class="string">"@+id/bt_item3"</span></div><div class="line">            <span class="attr">android:layout_width</span>=<span class="string">"0dp"</span></div><div class="line">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">            <span class="attr">android:layout_weight</span>=<span class="string">"1"</span></div><div class="line">            <span class="attr">android:text</span>=<span class="string">" Item 3 "</span>/&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">Button</span></span></div><div class="line">            <span class="attr">android:id</span>=<span class="string">"@+id/bt_item4"</span></div><div class="line">            <span class="attr">android:layout_width</span>=<span class="string">"0dp"</span></div><div class="line">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">            <span class="attr">android:layout_weight</span>=<span class="string">"1"</span></div><div class="line">            <span class="attr">android:text</span>=<span class="string">" Item 4 "</span>/&gt;</div><div class="line">    <span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">FrameLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>写 4 个 ITEM 按钮的点击事件，下面模块的跳转用 <code>ScrollView</code> 的 <code>smoothScrollTo()</code> 方法就好了。</p>
+<p>这个方法需要传入两个参数，分别是 x 和 y 的坐标。这里 x 我们传 0 就好了。y 的话直接用 <code>getTop();</code> 获取距离顶部的距离。</p>
+<p>这里有一点要<strong>注意</strong>，<code>Activity</code> 生命周期中，<code>onStart</code>, <code>onResume</code>, <code>onCreate</code> 都不是真正 <code>visible</code> 的时间点，真正的<code>visible</code> 时间点是 <code>onWindowFocusChanged()</code> 函数被执行时。</p>
+<p>所以 <code>getTop()</code> 要放在 <code>onWindowFocusChanged()</code> 里面执行，否则过早调用 <code>getTop()</code>，比如在 <code>onCreate()</code> 中调用，可能会因为这个 <code>view</code> 还没有被加到 <code>rootview</code> 中获取到的值都是 0。</p>
+<p>第二个需求是要根据滑动距离让上面对应的 ITEM 变色。</p>
+<p>这个时候需要实现 <code>ScrollView</code> 的 <code>OnScollChangedListener</code> 接口，但是会发现 Call requires API 23 。</p>
+<p>所以，最好还是自己创建一个类继承系统的 <code>ScrollView</code> 来兼容低版本。(不是很清楚为什么 Google要将 <code>onScrollChanged()</code> 定义成 <code>protected</code>)</p>
+<p>上代码:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ScrollViewDIY</span> <span class="keyword">extends</span> <span class="title">ScrollView</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ScrollViewDIY</span><span class="params">(Context context)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>(context, <span class="keyword">null</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ScrollViewDIY</span><span class="params">(Context context, AttributeSet attrs)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>(context, attrs, <span class="number">0</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ScrollViewDIY</span><span class="params">(Context context, AttributeSet attrs, <span class="keyword">int</span> defStyle)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(context, attrs, defStyle);</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onScrollChanged</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y, <span class="keyword">int</span> oldx, <span class="keyword">int</span> oldy)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onScrollChanged(x, y, oldx, oldy);</div><div class="line">        <span class="keyword">if</span> (onScollChangedListener != <span class="keyword">null</span>) &#123;</div><div class="line">            onScollChangedListener.onScrollChanged(<span class="keyword">this</span>, x, y, oldx, oldy);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//接口回调</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setOnScollChangedListener</span><span class="params">(OnScollChangedListener onScollChangedListener)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.onScollChangedListener = onScollChangedListener;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">OnScollChangedListener</span> </span>&#123;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">void</span> <span class="title">onScrollChanged</span><span class="params">(ScrollViewDIY scrollView, <span class="keyword">int</span> x, <span class="keyword">int</span> y, <span class="keyword">int</span> oldx, <span class="keyword">int</span> oldy)</span></span>;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> OnScollChangedListener onScollChangedListener;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>有个小技巧，关于自定义的 View ，每次都要写那三段构造函数是不是很烦？</p>
+<p>其实 Google 早就想到了，直接打 ViewConstructors 就可以自动完成了。你也可以在这里修改该 Templates :</p>
+<p><img src="http://i1.piimg.com/567571/d7a696a0226aa4ec.png" alt=""></p>
+<p>然后就没有然后了，直接判断范围了好了。</p>
+<p>整体代码:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> ScrollViewDIY mScroll;</div><div class="line">    <span class="keyword">private</span> Button mBt1;</div><div class="line">    <span class="keyword">private</span> Button mBt2;</div><div class="line">    <span class="keyword">private</span> Button mBt3;</div><div class="line">    <span class="keyword">private</span> Button mBt4;</div><div class="line">    <span class="keyword">private</span> View mView1;</div><div class="line">    <span class="keyword">private</span> View mView2;</div><div class="line">    <span class="keyword">private</span> View mView3;</div><div class="line">    <span class="keyword">private</span> View mView4;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> mTop1;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> mTop2;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> mTop3;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> mTop4;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_main);</div><div class="line">        intView();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">intView</span><span class="params">()</span> </span>&#123;</div><div class="line">        mScroll = (ScrollViewDIY) findViewById(R.id.scrollView);</div><div class="line">        mView1 =  findViewById(R.id.view_one);</div><div class="line">        mView2 =  findViewById(R.id.view_two);</div><div class="line">        mView3 =  findViewById(R.id.view_three);</div><div class="line">        mView4 =  findViewById(R.id.view_four);</div><div class="line">        mBt1 = (Button) findViewById(R.id.bt_item1);</div><div class="line">        mBt2 = (Button) findViewById(R.id.bt_item2);</div><div class="line">        mBt3 = (Button) findViewById(R.id.bt_item3);</div><div class="line">        mBt4 = (Button) findViewById(R.id.bt_item4);</div><div class="line"></div><div class="line">        mBt1.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</div><div class="line">                mScroll.smoothScrollTo(<span class="number">0</span>,mTop1);</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">        mBt2.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</div><div class="line">                mScroll.smoothScrollTo(<span class="number">0</span>,mTop2);</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">        mBt3.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</div><div class="line">                mScroll.smoothScrollTo(<span class="number">0</span>,mTop3);</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">        mBt4.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</div><div class="line">                mScroll.smoothScrollTo(<span class="number">0</span>,mTop4);</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">        mScroll.setOnScollChangedListener(<span class="keyword">new</span> ScrollViewDIY.OnScollChangedListener() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onScrollChanged</span><span class="params">(ScrollViewDIY scrollView, <span class="keyword">int</span> x, <span class="keyword">int</span> y, <span class="keyword">int</span> oldx, <span class="keyword">int</span> oldy)</span> </span>&#123;</div><div class="line">                <span class="keyword">if</span> (y&lt;mTop2) &#123;</div><div class="line">                    setColor(<span class="number">1</span>);</div><div class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (y&gt;=mTop2&amp;&amp;y&lt;mTop3) &#123;</div><div class="line">                    setColor(<span class="number">2</span>);</div><div class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (y&gt;=mTop3&amp;&amp;y&lt;mTop4) &#123;</div><div class="line">                    setColor(<span class="number">3</span>);</div><div class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (y&gt;=mTop4) &#123;</div><div class="line">                    setColor(<span class="number">4</span>);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">setColor</span><span class="params">(<span class="keyword">int</span> index)</span> </span>&#123;</div><div class="line">        mBt1.setTextColor(Color.BLACK);</div><div class="line">        mBt2.setTextColor(Color.BLACK);</div><div class="line">        mBt3.setTextColor(Color.BLACK);</div><div class="line">        mBt4.setTextColor(Color.BLACK);</div><div class="line">        <span class="keyword">switch</span> (index) &#123;</div><div class="line">            <span class="keyword">case</span> <span class="number">1</span>:</div><div class="line">                mBt1.setTextColor(Color.RED);</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> <span class="number">2</span>:</div><div class="line">                mBt2.setTextColor(Color.RED);</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> <span class="number">3</span>:</div><div class="line">                mBt3.setTextColor(Color.RED);</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> <span class="number">4</span>:</div><div class="line">                mBt4.setTextColor(Color.RED);</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onWindowFocusChanged</span><span class="params">(<span class="keyword">boolean</span> hasFocus)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onWindowFocusChanged(hasFocus);</div><div class="line">        mTop1 = mView1.getTop();</div><div class="line">        mTop2 = mView2.getTop();</div><div class="line">        mTop3 = mView3.getTop();</div><div class="line">        mTop4 = mView4.getTop();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>就是这么简单。</p>
+<p><img src="https://gss0.baidu.com/-Po3dSag_xI4khGko9WTAnF6hhy/zhidao/wh%3D600%2C800/sign=63bf992667380cd7e64baaeb9174810c/63d9f2d3572c11df7a2dd9b5612762d0f603c2ac.jpg" alt=""></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/16/sketch初体验/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1779,165 +1956,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/03/读书笔记之 深入理解 Java 虚拟机——内存篇/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhanglf">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="smilEdit's Bolg">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/03/读书笔记之 深入理解 Java 虚拟机——内存篇/" itemprop="url">
-                  深入理解 Java 虚拟机(内存篇)
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-03T17:39:37+08:00">
-                2017-04-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/读书笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">读书笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/04/03/读书笔记之 深入理解 Java 虚拟机——内存篇/" class="leancloud_visitors" data-flag-title="深入理解 Java 虚拟机(内存篇)">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="Java-内存区域"><a href="#Java-内存区域" class="headerlink" title="Java 内存区域"></a>Java 内存区域</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>对于 C 和 C++ 程序员来说，他们即拥有每一个对象的“所有权”，同时也担负每一个对象生命周期的维护责任。</p>
-<p>而 Java 程序员则是在虚拟机自动内存管理机制的帮助下，不用操心对象内存的释放。但是也正由于这个帮助，一旦程序出现内存泄漏和溢出问题的时候，由于不够了解虚拟机运行机制，而对问题无从下手。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/04/03/读书笔记之 深入理解 Java 虚拟机——内存篇/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1987,7 +2005,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
