@@ -9,6 +9,7 @@
       <content type="html"><![CDATA[<p>其实差很多，只是简单的模仿里面的一个效果而已。稍微做个笔记。</p>
 <p>效果是这个样子的。</p>
 <p><img src="http://i4.buimg.com/567571/1f8ddefdf9009ce9.gif" alt=""></p>
+<a id="more"></a>
 <p>上面那几个 ITEM 可以点击，还有下面模块滑动的时候，对应的 ITEM 要变色，就俩需求。</p>
 <p>这里我采用的都是最直接的方式，上面那个用 <code>LinearLayout</code> 包几个按钮，下面那个用 <code>ScrallView</code>，整体用 <code>FrameLayout</code> 包起来。(这种简单的叠加别用耗性能的 <code>RelativeLayout</code>)</p>
 <p>上布局代码:</p>
