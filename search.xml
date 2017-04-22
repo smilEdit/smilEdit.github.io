@@ -4,6 +4,51 @@
   
     
     <entry>
+      <title><![CDATA[行万里路]]></title>
+      <url>http://yoursite.com/2017/04/22/%E8%A1%8C%E4%B8%87%E9%87%8C%E8%B7%AF/</url>
+      <content type="html"><![CDATA[<h2 id="2月"><a href="#2月" class="headerlink" title="2月"></a>2月</h2><h3 id="上海"><a href="#上海" class="headerlink" title="上海"></a>上海</h3><h4 id="海洋馆"><a href="#海洋馆" class="headerlink" title="海洋馆"></a>海洋馆</h4><p><img src="http://on9hzfn6s.bkt.clouddn.com/mmexport1492871826427.jpg" class="full-image"></p>
+<h4 id="田子坊"><a href="#田子坊" class="headerlink" title="田子坊"></a>田子坊</h4><p><img src="http://on9hzfn6s.bkt.clouddn.com/mmexport1492871843218.jpg" class="full-image"></p>
+<h4 id="泰晤士小镇"><a href="#泰晤士小镇" class="headerlink" title="泰晤士小镇"></a>泰晤士小镇</h4><p><img src="http://on9hzfn6s.bkt.clouddn.com/mmexport1492871880623.jpg" class="full-image"></p>
+<h4 id="辞职"><a href="#辞职" class="headerlink" title="辞职"></a>辞职</h4><p><img src="http://on9hzfn6s.bkt.clouddn.com/IMG_20160825_184452.jpg" class="full-image"><br>     <em>再见上海，再见荣开，再见宅家，再见小伙伴</em></p>
+<h2 id="3月"><a href="#3月" class="headerlink" title="3月"></a>3月</h2><h3 id="杭州"><a href="#杭州" class="headerlink" title="杭州"></a>杭州</h3><h4 id="朋友家"><a href="#朋友家" class="headerlink" title="朋友家"></a>朋友家</h4><p><img src="http://on9hzfn6s.bkt.clouddn.com/IMG_20170306_170120.jpg" class="full-image"></p>
+<h4 id="求职路上"><a href="#求职路上" class="headerlink" title="求职路上"></a>求职路上</h4><p><img src="http://on9hzfn6s.bkt.clouddn.com/IMG_20170309_141543.jpg" class="full-image"><br>    <em>那座桥，看着不长，却要走很久</em></p>
+<h4 id="杭州图书馆"><a href="#杭州图书馆" class="headerlink" title="杭州图书馆"></a>杭州图书馆</h4><p><img src="http://on9hzfn6s.bkt.clouddn.com/mmexport1492871897710.jpg" class="full-image"></p>
+<h4 id="西湖大作战"><a href="#西湖大作战" class="headerlink" title="西湖大作战"></a>西湖大作战</h4><p><img src="http://on9hzfn6s.bkt.clouddn.com/IMG_20170408_130314.jpg" class="full-image"><br>    <em>独善其身</em></p>
+<h4 id="灵隐寺"><a href="#灵隐寺" class="headerlink" title="灵隐寺"></a>灵隐寺</h4><p><img src="http://on9hzfn6s.bkt.clouddn.com/IMG_20170416_135137.jpg" class="full-image"><br>    <em>屡设山门为阻云</em></p>
+<p><em>未完待续…</em></p>
+]]></content>
+      
+        <categories>
+            
+            <category> 行万里路 </category>
+            
+        </categories>
+        
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[我的梦想2]]></title>
+      <url>http://yoursite.com/2017/04/22/%E6%88%91%E7%9A%84%E6%A2%A6%E6%83%B32/</url>
+      <content type="html"><![CDATA[<p><br><br><br></p>
+<p><br><br><br><br><br></p>
+<a id="more"></a>
+<center>独善其身</center>
+
+<p><br><br><br></p>
+<p><br><br><br><br><br></p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> 梦想 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Android 仿淘宝商品详情页]]></title>
       <url>http://yoursite.com/2017/04/17/Android_%E4%BB%BF%E6%B7%98%E5%AE%9D%E5%95%86%E5%93%81%E8%AF%A6%E6%83%85%E9%A1%B5/</url>
       <content type="html"><![CDATA[<p>其实差很多，只是简单的模仿里面的一个效果而已。稍微做个笔记。</p>
@@ -160,7 +205,7 @@
     </entry>
     
     <entry>
-      <title><![CDATA[我的梦想]]></title>
+      <title><![CDATA[我的梦想1]]></title>
       <url>http://yoursite.com/2017/04/15/%E6%88%91%E7%9A%84%E6%A2%A6%E6%83%B3/</url>
       <content type="html"><![CDATA[<p><br><br><br></p>
 <p><br><br><br><br><br></p>
@@ -404,7 +449,7 @@
 <h2 id="4-20-更新"><a href="#4-20-更新" class="headerlink" title="4.20 更新"></a>4.20 更新</h2><h3 id="Chrome-1"><a href="#Chrome-1" class="headerlink" title="Chrome"></a>Chrome</h3><p>关于 Chrome 的最大化，直接双击顶部只能是竖向占满屏幕，如果想要横线也占满，在双击的同时按住 Shift 键。 </p>
 <p>按住 control 不放 ，再按 tab 可以切换 Chrome 的子窗口，和长按 command + tab 的组合差不多。</p>
 <p>以及在 Chrome 中非常非常常用的两个快捷键，command + w 关闭当前子窗口(这个在几乎所有的软件中都适用)，command + t 打开新的子窗口。哦，还有个可能会用到的，如果一不小心关了个子窗口想重新打开可能会跑历史记录里面查找恢复，直接按 command + shift + t 就好了。 </p>
-<p><br><br><br><br><br></p>
+<h2 id="4-22-更新"><a href="#4-22-更新" class="headerlink" title="4.22 更新"></a>4.22 更新</h2><h3 id="Chrome-2"><a href="#Chrome-2" class="headerlink" title="Chrome"></a>Chrome</h3><p>切换子窗口用 option + command + 左右方向键 更好用<br><br><br><br><br><br></p>
 <p>   <strong><em>未完待续…</em></strong></p>
 <p><br><br><br></p>
 <p>友情链接：</p>
@@ -740,9 +785,9 @@
             
             <tag> Java </tag>
             
-            <tag> JVM </tag>
-            
             <tag> 算法 </tag>
+            
+            <tag> JVM </tag>
             
             <tag> 内存 </tag>
             
