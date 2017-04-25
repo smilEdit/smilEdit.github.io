@@ -35,11 +35,11 @@
 <p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-04-25 下午11.29.08.png" alt="屏幕快照 2017-04-25 下午11.29.08"></p>
 <p>就是说获取边框对象，创建 <code>GradientDrawable</code> 对象，用其 <code>setColor()</code> 方法动态的修改 <code>solid</code> 中的颜色。</p>
 <p>好像很简单，我试了下，报错了。</p>
-<p>很下面那人回复的差不多，类型转换错误，看来是 <code>getBackground()</code> 方法获取到的对象不一定是 <code>GradientDrawable</code> ，于是我添加了许多 ITEM，打了个 LOG ，<code>getBackground().getClass().toString()</code> ,将类型都打印了出来。</p>
+<p>和下面那哥们回复的差不多，类型转换错误，看来是 <code>getBackground()</code> 方法获取到的对象不一定是 <code>GradientDrawable</code> ，于是我添加了许多 ITEM，打了个 LOG ，<code>getBackground().getClass().toString()</code> ,将类型都打印了出来。</p>
 <p>发现其中除了 <code>GradientDrawable</code> 还有 <code>ColorDrawable</code> ,再然后发现 <code>ColorDrawable</code> 也有动态设置 <code>solid</code> 颜色的方法。</p>
 <p>那就简单了:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (holder.userinfo_layout.getBackground().getClass().toString().contains(<span class="string">"GradientDrawable"</span>)) &#123;</div><div class="line">    GradientDrawable background1 = (GradientDrawable) holder.userinfo_layout.getBackground();</div><div class="line">    background1.setColor(color);</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">    ColorDrawable background2 = (ColorDrawable) holder.userinfo_layout.getBackground();</div><div class="line">    background2.setColor(color);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>简单粗暴。</p>
+<p>简单粗暴，KO。</p>
 ]]></content>
       
         <categories>
@@ -860,11 +860,11 @@
         
         <tags>
             
-            <tag> JVM </tag>
-            
             <tag> Java </tag>
             
             <tag> 算法 </tag>
+            
+            <tag> JVM </tag>
             
             <tag> 内存 </tag>
             
