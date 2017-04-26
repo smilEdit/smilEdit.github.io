@@ -44,7 +44,7 @@
       
         <categories>
             
-            <category> Android </category>
+            <category> 安卓 </category>
             
         </categories>
         
@@ -860,11 +860,11 @@
         
         <tags>
             
+            <tag> JVM </tag>
+            
             <tag> Java </tag>
             
             <tag> 算法 </tag>
-            
-            <tag> JVM </tag>
             
             <tag> 内存 </tag>
             
