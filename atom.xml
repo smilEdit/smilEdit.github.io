@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-04-27T14:45:10.000Z</updated>
+  <updated>2017-04-27T14:46:31.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,10 +20,11 @@
     <link href="http://yoursite.com/2017/04/27/%E6%88%91%E6%98%AF%E5%81%9A%E5%AE%89%E5%8D%93%E7%9A%84/"/>
     <id>http://yoursite.com/2017/04/27/我是做安卓的/</id>
     <published>2017-04-27T13:43:14.000Z</published>
-    <updated>2017-04-27T14:45:10.000Z</updated>
+    <updated>2017-04-27T14:46:31.000Z</updated>
     
     <content type="html"><![CDATA[<p><strong>IOS 和 Android 的 UI 应该一模一样吗</strong></p>
 <p>我想在 Banner 上加了个切换的动画，已经做好了，设计的第一反应是不行，之后觉得说的太绝对又补充说，如果想要加也可以，也要让 IOS 加上。</p>
+<a id="more"></a>
 <p>虽然我全家人都用 IPhone ，但是我几乎没用过，所以我没什么对比的，但是我记得微信首页就不一样，于是我就那么说了下。</p>
 <p>设计的意思是，那是因为没办法，但是我们要尽可能的让 APP 保持一致，就是说，如果你们开发的技术够硬，两个端的 APP 一模一样最好了。</p>
 <p>说到这，我想，大部分有 Android 开发经历的应该都可以想象到了，那设计给我的肯定是纯纯的 IOS 风格的界面了。</p>
@@ -62,7 +63,6 @@
     
       &lt;p&gt;&lt;strong&gt;IOS 和 Android 的 UI 应该一模一样吗&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;我想在 Banner 上加了个切换的动画，已经做好了，设计的第一反应是不行，之后觉得说的太绝对又补充说，如果想要加也可以，也要让 IOS 加上。&lt;/p&gt;
-&lt;p&gt;虽然我全家人
     
     </summary>
     
@@ -904,9 +904,9 @@
       <category term="读书笔记" scheme="http://yoursite.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
-    
       <category term="高效" scheme="http://yoursite.com/tags/%E9%AB%98%E6%95%88/"/>
+    
+      <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
     
       <category term="Effectice" scheme="http://yoursite.com/tags/Effectice/"/>
     
@@ -1013,9 +1013,9 @@
     
       <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
     
-      <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JVM" scheme="http://yoursite.com/tags/JVM/"/>
+    
+      <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
     
       <category term="内存" scheme="http://yoursite.com/tags/%E5%86%85%E5%AD%98/"/>
     
@@ -1221,11 +1221,11 @@
       <category term="读书笔记" scheme="http://yoursite.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     
     
+      <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
+    
       <category term="设计模式" scheme="http://yoursite.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
       <category term="策略模式" scheme="http://yoursite.com/tags/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/"/>
-    
-      <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
     
       <category term="UML" scheme="http://yoursite.com/tags/UML/"/>
     

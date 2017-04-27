@@ -8,6 +8,7 @@
       <url>http://yoursite.com/2017/04/27/%E6%88%91%E6%98%AF%E5%81%9A%E5%AE%89%E5%8D%93%E7%9A%84/</url>
       <content type="html"><![CDATA[<p><strong>IOS 和 Android 的 UI 应该一模一样吗</strong></p>
 <p>我想在 Banner 上加了个切换的动画，已经做好了，设计的第一反应是不行，之后觉得说的太绝对又补充说，如果想要加也可以，也要让 IOS 加上。</p>
+<a id="more"></a>
 <p>虽然我全家人都用 IPhone ，但是我几乎没用过，所以我没什么对比的，但是我记得微信首页就不一样，于是我就那么说了下。</p>
 <p>设计的意思是，那是因为没办法，但是我们要尽可能的让 APP 保持一致，就是说，如果你们开发的技术够硬，两个端的 APP 一模一样最好了。</p>
 <p>说到这，我想，大部分有 Android 开发经历的应该都可以想象到了，那设计给我的肯定是纯纯的 IOS 风格的界面了。</p>
@@ -814,9 +815,9 @@
         
         <tags>
             
-            <tag> Java </tag>
-            
             <tag> 高效 </tag>
+            
+            <tag> Java </tag>
             
             <tag> Effectice </tag>
             
@@ -920,9 +921,9 @@
             
             <tag> Java </tag>
             
-            <tag> 算法 </tag>
-            
             <tag> JVM </tag>
+            
+            <tag> 算法 </tag>
             
             <tag> 内存 </tag>
             
@@ -1120,11 +1121,11 @@
         
         <tags>
             
+            <tag> Java </tag>
+            
             <tag> 设计模式 </tag>
             
             <tag> 策略模式 </tag>
-            
-            <tag> Java </tag>
             
             <tag> UML </tag>
             
