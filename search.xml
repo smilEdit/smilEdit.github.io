@@ -4,6 +4,29 @@
   
     
     <entry>
+      <title><![CDATA[黑客与画家]]></title>
+      <url>http://yoursite.com/2017/05/01/%E9%BB%91%E5%AE%A2%E4%B8%8E%E7%94%BB%E5%AE%B6/</url>
+      <content type="html"><![CDATA[<p>Lisp</p>
+<p>Lisp</p>
+<p>Lisp</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 读书笔记 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 读书笔记 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[5月小目标]]></title>
       <url>http://yoursite.com/2017/05/01/5%E6%9C%88%E5%B0%8F%E7%9B%AE%E6%A0%87/</url>
       <content type="html"><![CDATA[<p>好好想想四月的所作所为，给五月定几个小目标。</p>
@@ -1056,9 +1079,9 @@
             
             <tag> Java </tag>
             
-            <tag> 算法 </tag>
-            
             <tag> JVM </tag>
+            
+            <tag> 算法 </tag>
             
             <tag> 内存 </tag>
             
