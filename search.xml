@@ -4,43 +4,54 @@
   
     
     <entry>
-      <title><![CDATA[Android 知识点]]></title>
-      <url>http://yoursite.com/2017/04/28/Android-%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
+      <title><![CDATA[5月小目标]]></title>
+      <url>http://yoursite.com/2017/05/01/5%E6%9C%88%E5%B0%8F%E7%9B%AE%E6%A0%87/</url>
+      <content type="html"><![CDATA[<p>好好想想四月的所作所为，给五月定几个小目标。</p>
+<a id="more"></a>
+<p>一不小，五一小长假就要结束了。</p>
+<p>意味着，已经五月份了。</p>
+<p>来杭州快两个月了，到新的公司也有40多天了，自己都不相信。</p>
+<p>自己都做了什么事情呢。</p>
+<p>工作上也就前一周有具体的安排任务，完成的自我感觉算还好，不过这还是要下周测试说了算，觉得自己还是存在很多不足的。</p>
+<p>很多方面经验尚显不足，例如，有些实现方式，其实找后端可以比较轻松的实现，但是都是自己通过比较复杂的途径实现的，当然从另一方面来说也是有一定好处的。不过多一种解决方案总归不是错的。</p>
+<p>心还是没有定下来，有点浮躁。这个说的有点玄乎，但是思想上面的玩意本身就是很难描述清楚的。或许就自己能更深切的体会到吧。</p>
+<p>许多时候，虽然在看一些知识点，但是完全看不进去，就像是在装模作样似的，非常的奇葩，因为其实根本没有必要。也不知道自己是装模作样给谁看，现在想想，可能是为了假装自己不闲。？</p>
+<p>欺骗自己是最恐怖的事情。对的，这个月要坚决不做那种恐怖的事情。一是一，二是二。要学一个东西，必须要深入的学，不能光学表面。这个深入，是能有多深就要有多深。一定要深到自己的极限。要坚信，付出终有回报，基础扎实，之后才能事半功倍。</p>
+<p>不是说要自己给自己喂毒鸡汤，而是要在自己可能要松懈的时候，给自己打一波鸡血，持之以恒，养成习惯。</p>
+<p>五一这三天确实有点玩够了，漫展回来又看了一天的动漫，一方面来说这并没有什么错。但是还是觉得有点浪费时间，好在该看的都看完了。</p>
+<p>要习惯每天都做一些有一点意义但可能不是很有趣的事情，每天！   做自己应该做而不是想做事的。</p>
+<p>人在没有明确目标的时候，如果陷入选择就会自然而然选择放松安逸，所以每天的目标都要非常的明确。现在是白天都会定目标，可是晚上回来要做什么却都没有写下来。而晚上的时间又是最自由，对自己最重要的。所以晚上的安排非非非常的重要。这个思考过程可以放在下班回来的地铁上，5 到 10 分钟完成。</p>
+<p>这个月的小目标就是，努力的去完成这个月每天的小目标，白天和晚上的，然后记录下来，给自己打分。</p>
+<p>还有安卓知识点的收集和更新，每周至少看一个新的小知识点，或者类库的使用的，最好是能深入理解分析。</p>
+<p>你现在处在一个非常非常重要的阶段，要么一辈子当一个底层的打工码农，要么，天高海阔，自己来选。</p>
+<p>最后，希望自己能多看书，除了技术的。 一个月至少至少看一本书。  </p>
+<p>花在豆瓣和掘金的时间超过微信和 UC 。 </p>
+<p>这个月就把没看完的 《希特勒传上》看完，以及《天才疯子》全部。  最好是能够写总结。</p>
+<p>12 12 12 12 12 点之前睡觉，不不不不不不不不要睡前玩玩玩玩手机。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 随笔 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 小目标 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Android 知识点 4.28]]></title>
+      <url>http://yoursite.com/2017/04/28/Android-%E7%9F%A5%E8%AF%86%E7%82%B9-4-28/</url>
       <content type="html"><![CDATA[<blockquote class="blockquote-center"><p>好记性不如破键盘</p>
 </blockquote>
 <a id="more"></a>
-<h2 id="4-24"><a href="#4-24" class="headerlink" title="4.24"></a>4.24</h2><p>设计给了差不多是这样一张图:</p>
-<p><img src="http://on9hzfn6s.bkt.clouddn.com/54A79C8D-0DCB-4789-BA39-BAB4C2709D23.png" alt="54A79C8D-0DCB-4789-BA39-BAB4C2709D23"></p>
-<p>一个简单的 Dialog。</p>
-<p>直接上 xml:</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">FrameLayout</span></span></div><div class="line">    <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"240dp"</span></div><div class="line">    <span class="attr">android:background</span>=<span class="string">"#0000"</span>&gt;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">LinearLayout</span></span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"190dp"</span></div><div class="line">        <span class="attr">android:layout_marginTop</span>=<span class="string">"40dp"</span></div><div class="line">        <span class="attr">android:background</span>=<span class="string">"@drawable/bg_ad"</span></div><div class="line">        <span class="attr">android:gravity</span>=<span class="string">"center_horizontal"</span></div><div class="line">        <span class="attr">android:orientation</span>=<span class="string">"vertical"</span></div><div class="line">        <span class="attr">android:paddingTop</span>=<span class="string">"@dimen/dp70"</span>&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line">            <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">            <span class="attr">android:text</span>=<span class="string">"提交成功"</span></div><div class="line">            <span class="attr">android:textSize</span>=<span class="string">"18sp"</span>/&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line">            <span class="attr">android:id</span>=<span class="string">"@+id/tv_dialog_descript"</span></div><div class="line">            <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">            <span class="attr">android:layout_marginTop</span>=<span class="string">"10dp"</span></div><div class="line">            <span class="attr">android:text</span>=<span class="string">"补充说明巴拉巴拉巴拉"</span></div><div class="line">            <span class="attr">android:textColor</span>=<span class="string">"#646464"</span>/&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">Button</span></span></div><div class="line">            <span class="attr">android:id</span>=<span class="string">"@+id/bt_dialog_ok"</span></div><div class="line">            <span class="attr">style</span>=<span class="string">"?android:attr/borderlessButtonStyle"</span></div><div class="line">            <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">            <span class="attr">android:layout_height</span>=<span class="string">"40dp"</span></div><div class="line">            <span class="attr">android:layout_marginTop</span>=<span class="string">"18dp"</span></div><div class="line">            <span class="attr">android:background</span>=<span class="string">"@color/white"</span></div><div class="line">            <span class="attr">android:gravity</span>=<span class="string">"center"</span></div><div class="line">            <span class="attr">android:paddingTop</span>=<span class="string">"4dp"</span></div><div class="line">            <span class="attr">android:text</span>=<span class="string">"完成"</span></div><div class="line">            <span class="attr">android:textColor</span>=<span class="string">"#1189ff"</span></div><div class="line">            <span class="attr">android:textSize</span>=<span class="string">"18sp"</span>/&gt;</div><div class="line">    <span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">ImageView</span></span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:layout_gravity</span>=<span class="string">"center_horizontal"</span></div><div class="line">        <span class="attr">android:src</span>=<span class="string">"@drawable/classify523"</span>/&gt;</div><div class="line">    </div><div class="line"><span class="tag">&lt;/<span class="name">FrameLayout</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>然后上代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">AlertDialog.Builder builder =</div><div class="line">                <span class="keyword">new</span> AlertDialog.Builder(context);</div><div class="line">        <span class="keyword">final</span> View dialogView = LayoutInflater.from(context)</div><div class="line">                .inflate(R.layout.yx_layout_common_dialog_new,<span class="keyword">null</span>);</div><div class="line">        TextView desc = (TextView) dialogView.findViewById(R.id.tv_dialog_descript);</div><div class="line"></div><div class="line">        desc.setText(message);</div><div class="line">        builder.setView(dialogView);</div><div class="line">        <span class="keyword">final</span> AlertDialog dialog = builder.create();</div><div class="line">        dialogView.findViewById(R.id.bt_dialog_ok).setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View view)</span> </span>&#123;</div><div class="line">                dialog.dismiss();</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">        dialog.show();</div></pre></td></tr></table></figure>
-<p>好了？</p>
-<p>运行起来，差不多是这样的:</p>
-<p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-04-25 下午11.15.07.png" alt="屏幕快照 2017-04-25 下午11.15.07"></p>
-<p>顶部不是透明的，可是明明我给顶部设置全透明了啊？</p>
-<p>我在 xml 和代码中也设置过了就是不行，我怀疑是不是默认有一层纯色的背景。</p>
-<p>最后是这样设置的：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dialog.getWindow().setBackgroundDrawable(<span class="keyword">new</span> ColorDrawable(<span class="number">0</span>));</div></pre></td></tr></table></figure>
-<p>直接在 dialog 上设置了空的背景。</p>
-<h2 id="4-25更新"><a href="#4-25更新" class="headerlink" title="4.25更新"></a>4.25更新</h2><p>设计给了差不多是这样一张图:</p>
-<p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-04-25 下午11.22.16.png" alt="屏幕快照 2017-04-25 下午11.22.16"></p>
-<p>So Easy ，一个 <code>shape</code> 加个 <code>radius</code> 就好啦，像这样:</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">shape</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line">       <span class="attr">android:shape</span>=<span class="string">"rectangle"</span> <span class="attr">android:padding</span>=<span class="string">"10dp"</span>&gt;</div><div class="line">    <span class="tag">&lt;<span class="name">solid</span> <span class="attr">android:color</span>=<span class="string">"#5aaae2"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">corners</span></span></div><div class="line">        <span class="attr">android:radius</span>=<span class="string">"10dp"</span>/&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">shape</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>但是由于银行种类有十多种，颜色也不尽相同，这个时候由于我们是在 <code>background</code> 中直接设置 <code>drawable</code> 的，切换颜色的时候就会导致，圆角消失了。</p>
-<p>除非你直接写十多个不同颜色的 <code>shape</code> ，那好像不大好…</p>
-<p>所以我们要修改 <code>solid</code> 的中的颜色而不是 <code>background</code> 中的颜色。（ MDZZ 一开始我老是在想怎么加个圆角的外框，这样里面的颜色修改圆角就不会消失了，还是同事提醒我的）</p>
-<p>Google 一下， 有人是这样解决的:</p>
-<p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-04-25 下午11.29.08.png" alt="屏幕快照 2017-04-25 下午11.29.08"></p>
-<p>就是说获取边框对象，创建 <code>GradientDrawable</code> 对象，用其 <code>setColor()</code> 方法动态的修改 <code>solid</code> 中的颜色。</p>
-<p>好像很简单，我试了下，报错了。</p>
-<p>和下面那哥们回复的差不多，类型转换错误，看来是 <code>getBackground()</code> 方法获取到的对象不一定是 <code>GradientDrawable</code> ，于是我添加了许多 ITEM，打了个 LOG ，<code>getBackground().getClass().toString()</code> ,将类型都打印了出来。</p>
-<p>发现其中除了 <code>GradientDrawable</code> 还有 <code>ColorDrawable</code> ,再然后发现 <code>ColorDrawable</code> 也有动态设置 <code>solid</code> 颜色的方法。</p>
-<p>那就简单了:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (holder.userinfo_layout.getBackground().getClass().toString().contains(<span class="string">"GradientDrawable"</span>)) &#123;</div><div class="line">    GradientDrawable background1 = (GradientDrawable) holder.userinfo_layout.getBackground();</div><div class="line">    background1.setColor(color);</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">    ColorDrawable background2 = (ColorDrawable) holder.userinfo_layout.getBackground();</div><div class="line">    background2.setColor(color);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>简单粗暴，KO。</p>
-<h2 id="4-28"><a href="#4-28" class="headerlink" title="4.28"></a>4.28</h2><p>设计给了张差不多是这样的一张图。</p>
+<p>设计给了张差不多是这样的一张图。</p>
 <p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-04-28 下午8.56.05.png" alt="屏幕快照 2017-04-28 下午8.56.05"></p>
 <p>编辑栏可以自由的添加文字或者是图片。</p>
 <p>这玩意安卓原生控件肯定是不好搞。</p>
@@ -75,12 +86,16 @@
 <p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-04-28 下午9.57.42.png" alt="屏幕快照 2017-04-28 下午9.57.42"></p>
 <p>好了，主要知道使用是 <code>insertImage()</code> 方法就好了。然后就会遇到一个坑。</p>
 <p>图片的大小，用安卓原生方法是控制不了的因为，那个东西是存在于类似网页中的。</p>
-<p>所以··· 解决方法是用 CSS 解决。</p>
+<p>所以在这里我纠结了挺久的，在想是不是要通过拼接 width 之类的 Img 属性上去。但是这样要修改 RE 中 <code>setImg</code> 的方法，觉得可能搞不定。于是我就想着看看别的一些类库都是怎么实现的。</p>
+<p>于是看了几个也是挺受欢迎的库，像是<a href="https://github.com/xmuSistone/android-animate-RichEditor" target="_blank" rel="external">这个</a>和<a href="https://github.com/KDF5000/RichEditText" target="_blank" rel="external">这个</a>。</p>
+<p>这两个库都是自动处理图片大小的。第一个在图片的右上角还有删除按钮，以及删除图片的动画，感觉特别人性化。</p>
+<p>但是，两者都是通过绝对路径来确认图片以及用原生控件来展示的。（好像也行啊，无语）</p>
+<p>所以··· 解决方法用 CSS 直接一点。</p>
 <p>这个问题在 <a href="https://github.com/wasabeef/richeditor-android/issues/47" target="_blank" rel="external">Issues</a> 中也是有人反映过，而且知情人士也给出了简单好用的解决方案具体步骤:</p>
 <p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-04-28 下午10.06.01.png" alt="屏幕快照 2017-04-28 下午10.06.01"></p>
 <p>然后就好了，亲测，好用。</p>
 <p>好吧，我承认。结尾很潦草。</p>
-<p>明天就是 5 1 小长假了。这一不小心十点了啊。我要出去买点吃的，就先这样。这几天把曲折的过程写整理了，单写一篇。</p>
+<p>明天就是五一小长假了。这一不小心十点了啊。我要出去买点吃的，就先这样。</p>
 ]]></content>
       
         <categories>
@@ -154,6 +169,44 @@
     </entry>
     
     <entry>
+      <title><![CDATA[Android 知识点 4.24]]></title>
+      <url>http://yoursite.com/2017/04/24/Android-%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
+      <content type="html"><![CDATA[<blockquote class="blockquote-center"><p>好记性不如破键盘</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="4-24"><a href="#4-24" class="headerlink" title="4.24"></a>4.24</h2><p>设计给了差不多是这样一张图:</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/54A79C8D-0DCB-4789-BA39-BAB4C2709D23.png" alt="54A79C8D-0DCB-4789-BA39-BAB4C2709D23"></p>
+<p>一个简单的 Dialog。</p>
+<p>直接上 xml:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">FrameLayout</span></span></div><div class="line">    <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"240dp"</span></div><div class="line">    <span class="attr">android:background</span>=<span class="string">"#0000"</span>&gt;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">LinearLayout</span></span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"190dp"</span></div><div class="line">        <span class="attr">android:layout_marginTop</span>=<span class="string">"40dp"</span></div><div class="line">        <span class="attr">android:background</span>=<span class="string">"@drawable/bg_ad"</span></div><div class="line">        <span class="attr">android:gravity</span>=<span class="string">"center_horizontal"</span></div><div class="line">        <span class="attr">android:orientation</span>=<span class="string">"vertical"</span></div><div class="line">        <span class="attr">android:paddingTop</span>=<span class="string">"@dimen/dp70"</span>&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line">            <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">            <span class="attr">android:text</span>=<span class="string">"提交成功"</span></div><div class="line">            <span class="attr">android:textSize</span>=<span class="string">"18sp"</span>/&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line">            <span class="attr">android:id</span>=<span class="string">"@+id/tv_dialog_descript"</span></div><div class="line">            <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">            <span class="attr">android:layout_marginTop</span>=<span class="string">"10dp"</span></div><div class="line">            <span class="attr">android:text</span>=<span class="string">"补充说明巴拉巴拉巴拉"</span></div><div class="line">            <span class="attr">android:textColor</span>=<span class="string">"#646464"</span>/&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">Button</span></span></div><div class="line">            <span class="attr">android:id</span>=<span class="string">"@+id/bt_dialog_ok"</span></div><div class="line">            <span class="attr">style</span>=<span class="string">"?android:attr/borderlessButtonStyle"</span></div><div class="line">            <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">            <span class="attr">android:layout_height</span>=<span class="string">"40dp"</span></div><div class="line">            <span class="attr">android:layout_marginTop</span>=<span class="string">"18dp"</span></div><div class="line">            <span class="attr">android:background</span>=<span class="string">"@color/white"</span></div><div class="line">            <span class="attr">android:gravity</span>=<span class="string">"center"</span></div><div class="line">            <span class="attr">android:paddingTop</span>=<span class="string">"4dp"</span></div><div class="line">            <span class="attr">android:text</span>=<span class="string">"完成"</span></div><div class="line">            <span class="attr">android:textColor</span>=<span class="string">"#1189ff"</span></div><div class="line">            <span class="attr">android:textSize</span>=<span class="string">"18sp"</span>/&gt;</div><div class="line">    <span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">ImageView</span></span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:layout_gravity</span>=<span class="string">"center_horizontal"</span></div><div class="line">        <span class="attr">android:src</span>=<span class="string">"@drawable/classify523"</span>/&gt;</div><div class="line">    </div><div class="line"><span class="tag">&lt;/<span class="name">FrameLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>然后上代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">AlertDialog.Builder builder =</div><div class="line">                <span class="keyword">new</span> AlertDialog.Builder(context);</div><div class="line">        <span class="keyword">final</span> View dialogView = LayoutInflater.from(context)</div><div class="line">                .inflate(R.layout.yx_layout_common_dialog_new,<span class="keyword">null</span>);</div><div class="line">        TextView desc = (TextView) dialogView.findViewById(R.id.tv_dialog_descript);</div><div class="line"></div><div class="line">        desc.setText(message);</div><div class="line">        builder.setView(dialogView);</div><div class="line">        <span class="keyword">final</span> AlertDialog dialog = builder.create();</div><div class="line">        dialogView.findViewById(R.id.bt_dialog_ok).setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View view)</span> </span>&#123;</div><div class="line">                dialog.dismiss();</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">        dialog.show();</div></pre></td></tr></table></figure>
+<p>好了？</p>
+<p>运行起来，差不多是这样的:</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-04-25 下午11.15.07.png" alt="屏幕快照 2017-04-25 下午11.15.07"></p>
+<p>顶部不是透明的，可是明明我给顶部设置全透明了啊？</p>
+<p>我在 xml 和代码中也设置过了就是不行，我怀疑是不是默认有一层纯色的背景。</p>
+<p>最后是这样设置的：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dialog.getWindow().setBackgroundDrawable(<span class="keyword">new</span> ColorDrawable(<span class="number">0</span>));</div></pre></td></tr></table></figure>
+<p>直接在 dialog 上设置了空的背景。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 安卓 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Android </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[行万里路]]></title>
       <url>http://yoursite.com/2017/04/22/%E8%A1%8C%E4%B8%87%E9%87%8C%E8%B7%AF/</url>
       <content type="html"><![CDATA[<blockquote class="blockquote-center"><p>今天的风儿好喧嚣 </p>
@@ -177,6 +230,8 @@
 <p><img src="http://on9hzfn6s.bkt.clouddn.com/IMG_20170416_135137.jpg" class="full-image"></p>
 <h4 id="西溪"><a href="#西溪" class="headerlink" title="西溪"></a>西溪</h4><p><em>左边一个小湖，右边一个小湖</em></p>
 <p><img src="http://on9hzfn6s.bkt.clouddn.com/IMG_20170423_094614.jpg" class="full-image"></p>
+<h4 id="白马湖-漫展"><a href="#白马湖-漫展" class="headerlink" title="白马湖 漫展"></a>白马湖 漫展</h4><p><em>努力工作，发奋赚钱，手办、妹纸、福袋…</em></p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-01 下午5.02.44.png" alt="屏幕快照 2017-05-01 下午5.02.44"></p>
 <p>–</p>
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=209326&auto=1&height=66"></iframe>
 
@@ -782,6 +837,45 @@
     </entry>
     
     <entry>
+      <title><![CDATA[Android 知识点 4.25]]></title>
+      <url>http://yoursite.com/2017/04/05/Android-%E7%9F%A5%E8%AF%86%E7%82%B9-4-25/</url>
+      <content type="html"><![CDATA[<blockquote class="blockquote-center"><p>好记性不如破键盘</p>
+</blockquote>
+<a id="more"></a>
+<p>设计给了差不多是这样一张图:</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-04-25 下午11.22.16.png" alt="屏幕快照 2017-04-25 下午11.22.16"></p>
+<p>So Easy ，一个 <code>shape</code> 加个 <code>radius</code> 就好啦，像这样:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">shape</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line">       <span class="attr">android:shape</span>=<span class="string">"rectangle"</span> <span class="attr">android:padding</span>=<span class="string">"10dp"</span>&gt;</div><div class="line">    <span class="tag">&lt;<span class="name">solid</span> <span class="attr">android:color</span>=<span class="string">"#5aaae2"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">corners</span></span></div><div class="line">        <span class="attr">android:radius</span>=<span class="string">"10dp"</span>/&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">shape</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>但是由于银行种类有十多种，颜色也不尽相同，这个时候由于我们是在 <code>background</code> 中直接设置 <code>drawable</code> 的，切换颜色的时候就会导致，圆角消失了。</p>
+<p>除非你直接写十多个不同颜色的 <code>shape</code> ，那好像不大好…</p>
+<p>所以我们要修改 <code>solid</code> 的中的颜色而不是 <code>background</code> 中的颜色。（ MDZZ 一开始我老是在想怎么加个圆角的外框，这样里面的颜色修改圆角就不会消失了，还是同事提醒我的）</p>
+<p>Google 一下， 有人是这样解决的:</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-04-25 下午11.29.08.png" alt="屏幕快照 2017-04-25 下午11.29.08"></p>
+<p>就是说获取边框对象，创建 <code>GradientDrawable</code> 对象，用其 <code>setColor()</code> 方法动态的修改 <code>solid</code> 中的颜色。</p>
+<p>好像很简单，我试了下，报错了。</p>
+<p>和下面那哥们回复的差不多，类型转换错误，看来是 <code>getBackground()</code> 方法获取到的对象不一定是 <code>GradientDrawable</code> ，于是我添加了许多 ITEM，打了个 LOG ，<code>getBackground().getClass().toString()</code> ,将类型都打印了出来。</p>
+<p>发现其中除了 <code>GradientDrawable</code> 还有 <code>ColorDrawable</code> ,再然后发现 <code>ColorDrawable</code> 也有动态设置 <code>solid</code> 颜色的方法。</p>
+<p>那就简单了:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (holder.userinfo_layout.getBackground().getClass().toString().contains(<span class="string">"GradientDrawable"</span>)) &#123;</div><div class="line">    GradientDrawable background1 = (GradientDrawable) holder.userinfo_layout.getBackground();</div><div class="line">    background1.setColor(color);</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">    ColorDrawable background2 = (ColorDrawable) holder.userinfo_layout.getBackground();</div><div class="line">    background2.setColor(color);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>简单粗暴，KO。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 安卓 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Android </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Effectice Java(一)]]></title>
       <url>http://yoursite.com/2017/04/04/Effective%20Java/</url>
       <content type="html"><![CDATA[<h2 id="创建和销毁对象"><a href="#创建和销毁对象" class="headerlink" title="创建和销毁对象"></a>创建和销毁对象</h2><h3 id="考虑用静态工厂方法代替构造器"><a href="#考虑用静态工厂方法代替构造器" class="headerlink" title="考虑用静态工厂方法代替构造器"></a>考虑用静态工厂方法代替构造器</h3><p>主要有 4 点优势:</p>
@@ -962,9 +1056,9 @@
             
             <tag> Java </tag>
             
-            <tag> 算法 </tag>
-            
             <tag> JVM </tag>
+            
+            <tag> 算法 </tag>
             
             <tag> 内存 </tag>
             
