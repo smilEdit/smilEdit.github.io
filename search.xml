@@ -169,6 +169,45 @@
     </entry>
     
     <entry>
+      <title><![CDATA[Android 知识点 4.25]]></title>
+      <url>http://yoursite.com/2017/04/25/Android-%E7%9F%A5%E8%AF%86%E7%82%B9-4-25/</url>
+      <content type="html"><![CDATA[<blockquote class="blockquote-center"><p>好记性不如破键盘</p>
+</blockquote>
+<a id="more"></a>
+<p>设计给了差不多是这样一张图:</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-04-25 下午11.22.16.png" alt="屏幕快照 2017-04-25 下午11.22.16"></p>
+<p>So Easy ，一个 <code>shape</code> 加个 <code>radius</code> 就好啦，像这样:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">shape</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line">       <span class="attr">android:shape</span>=<span class="string">"rectangle"</span> <span class="attr">android:padding</span>=<span class="string">"10dp"</span>&gt;</div><div class="line">    <span class="tag">&lt;<span class="name">solid</span> <span class="attr">android:color</span>=<span class="string">"#5aaae2"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">corners</span></span></div><div class="line">        <span class="attr">android:radius</span>=<span class="string">"10dp"</span>/&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">shape</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>但是由于银行种类有十多种，颜色也不尽相同，这个时候由于我们是在 <code>background</code> 中直接设置 <code>drawable</code> 的，切换颜色的时候就会导致，圆角消失了。</p>
+<p>除非你直接写十多个不同颜色的 <code>shape</code> ，那好像不大好…</p>
+<p>所以我们要修改 <code>solid</code> 的中的颜色而不是 <code>background</code> 中的颜色。（ MDZZ 一开始我老是在想怎么加个圆角的外框，这样里面的颜色修改圆角就不会消失了，还是同事提醒我的）</p>
+<p>Google 一下， 有人是这样解决的:</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-04-25 下午11.29.08.png" alt="屏幕快照 2017-04-25 下午11.29.08"></p>
+<p>就是说获取边框对象，创建 <code>GradientDrawable</code> 对象，用其 <code>setColor()</code> 方法动态的修改 <code>solid</code> 中的颜色。</p>
+<p>好像很简单，我试了下，报错了。</p>
+<p>和下面那哥们回复的差不多，类型转换错误，看来是 <code>getBackground()</code> 方法获取到的对象不一定是 <code>GradientDrawable</code> ，于是我添加了许多 ITEM，打了个 LOG ，<code>getBackground().getClass().toString()</code> ,将类型都打印了出来。</p>
+<p>发现其中除了 <code>GradientDrawable</code> 还有 <code>ColorDrawable</code> ,再然后发现 <code>ColorDrawable</code> 也有动态设置 <code>solid</code> 颜色的方法。</p>
+<p>那就简单了:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (holder.userinfo_layout.getBackground().getClass().toString().contains(<span class="string">"GradientDrawable"</span>)) &#123;</div><div class="line">    GradientDrawable background1 = (GradientDrawable) holder.userinfo_layout.getBackground();</div><div class="line">    background1.setColor(color);</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">    ColorDrawable background2 = (ColorDrawable) holder.userinfo_layout.getBackground();</div><div class="line">    background2.setColor(color);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>简单粗暴，KO。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 安卓 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Android </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Android 知识点 4.24]]></title>
       <url>http://yoursite.com/2017/04/24/Android-%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
       <content type="html"><![CDATA[<blockquote class="blockquote-center"><p>好记性不如破键盘</p>
@@ -837,45 +876,6 @@
     </entry>
     
     <entry>
-      <title><![CDATA[Android 知识点 4.25]]></title>
-      <url>http://yoursite.com/2017/04/05/Android-%E7%9F%A5%E8%AF%86%E7%82%B9-4-25/</url>
-      <content type="html"><![CDATA[<blockquote class="blockquote-center"><p>好记性不如破键盘</p>
-</blockquote>
-<a id="more"></a>
-<p>设计给了差不多是这样一张图:</p>
-<p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-04-25 下午11.22.16.png" alt="屏幕快照 2017-04-25 下午11.22.16"></p>
-<p>So Easy ，一个 <code>shape</code> 加个 <code>radius</code> 就好啦，像这样:</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">shape</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line">       <span class="attr">android:shape</span>=<span class="string">"rectangle"</span> <span class="attr">android:padding</span>=<span class="string">"10dp"</span>&gt;</div><div class="line">    <span class="tag">&lt;<span class="name">solid</span> <span class="attr">android:color</span>=<span class="string">"#5aaae2"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">corners</span></span></div><div class="line">        <span class="attr">android:radius</span>=<span class="string">"10dp"</span>/&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">shape</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>但是由于银行种类有十多种，颜色也不尽相同，这个时候由于我们是在 <code>background</code> 中直接设置 <code>drawable</code> 的，切换颜色的时候就会导致，圆角消失了。</p>
-<p>除非你直接写十多个不同颜色的 <code>shape</code> ，那好像不大好…</p>
-<p>所以我们要修改 <code>solid</code> 的中的颜色而不是 <code>background</code> 中的颜色。（ MDZZ 一开始我老是在想怎么加个圆角的外框，这样里面的颜色修改圆角就不会消失了，还是同事提醒我的）</p>
-<p>Google 一下， 有人是这样解决的:</p>
-<p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-04-25 下午11.29.08.png" alt="屏幕快照 2017-04-25 下午11.29.08"></p>
-<p>就是说获取边框对象，创建 <code>GradientDrawable</code> 对象，用其 <code>setColor()</code> 方法动态的修改 <code>solid</code> 中的颜色。</p>
-<p>好像很简单，我试了下，报错了。</p>
-<p>和下面那哥们回复的差不多，类型转换错误，看来是 <code>getBackground()</code> 方法获取到的对象不一定是 <code>GradientDrawable</code> ，于是我添加了许多 ITEM，打了个 LOG ，<code>getBackground().getClass().toString()</code> ,将类型都打印了出来。</p>
-<p>发现其中除了 <code>GradientDrawable</code> 还有 <code>ColorDrawable</code> ,再然后发现 <code>ColorDrawable</code> 也有动态设置 <code>solid</code> 颜色的方法。</p>
-<p>那就简单了:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (holder.userinfo_layout.getBackground().getClass().toString().contains(<span class="string">"GradientDrawable"</span>)) &#123;</div><div class="line">    GradientDrawable background1 = (GradientDrawable) holder.userinfo_layout.getBackground();</div><div class="line">    background1.setColor(color);</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">    ColorDrawable background2 = (ColorDrawable) holder.userinfo_layout.getBackground();</div><div class="line">    background2.setColor(color);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>简单粗暴，KO。</p>
-]]></content>
-      
-        <categories>
-            
-            <category> 安卓 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> Android </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[Effectice Java(一)]]></title>
       <url>http://yoursite.com/2017/04/04/Effective%20Java/</url>
       <content type="html"><![CDATA[<h2 id="创建和销毁对象"><a href="#创建和销毁对象" class="headerlink" title="创建和销毁对象"></a>创建和销毁对象</h2><h3 id="考虑用静态工厂方法代替构造器"><a href="#考虑用静态工厂方法代替构造器" class="headerlink" title="考虑用静态工厂方法代替构造器"></a>考虑用静态工厂方法代替构造器</h3><p>主要有 4 点优势:</p>
@@ -1056,9 +1056,9 @@
             
             <tag> Java </tag>
             
-            <tag> JVM </tag>
-            
             <tag> 算法 </tag>
+            
+            <tag> JVM </tag>
             
             <tag> 内存 </tag>
             
