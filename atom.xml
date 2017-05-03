@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-05-03T13:17:57.000Z</updated>
+  <updated>2017-05-03T13:26:12.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,10 +20,11 @@
     <link href="http://yoursite.com/2017/05/03/%E5%85%B3%E4%BA%8E-Drawable%EF%BC%88%E4%B8%80%EF%BC%89/"/>
     <id>http://yoursite.com/2017/05/03/关于-Drawable（一）/</id>
     <published>2017-05-03T08:50:49.000Z</published>
-    <updated>2017-05-03T13:17:57.000Z</updated>
+    <updated>2017-05-03T13:26:12.000Z</updated>
     
     <content type="html"><![CDATA[<p>这里的 Drawable 指的是 Android 项目中 res/drawable 下的资源。</p>
-<p>例如， .9 图， .png 或者 .jpg 等位图文件， xml 格式的可绘制对象等等。</p>
+<p>例如: </p>
+<p>.9 图、 .png 、 .jpg 等位图文件， xml 格式的可绘制对象等等。</p>
 <a id="more"></a>
 <h3 id="位图文件"><a href="#位图文件" class="headerlink" title="位图文件"></a>位图文件</h3><p>关于位图文件，Google 官方首先推荐使用的是 .png ，其次是 .jpg ，不建议使用的 .gif 文件。</p>
 <pre><code>Tip: 当出现如下错误的时候，
@@ -48,10 +49,14 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
 <li><code>src</code> 是一定要求有的，是图片资源地址。</li>
 </ul>
 <ul>
-<li><code>alpha</code> 图片的透明度。</li>
-<li><code>antialias</code> 是否抗锯齿。</li>
-<li><code>autoMirrored</code> 否是镜像反转，当布局是从右往左的时候才有用。</li>
-<li><code>dither</code> 是否使用位图抖动，当图片像素高于设备配置的时候会用到，它能让图片的显示更加平滑，具体可以点<a href="https://en.wikipedia.org/wiki/Dither" target="_blank" rel="external">这里</a>。</li>
+<li><p><code>alpha</code> 图片的透明度。</p>
+</li>
+<li><p><code>antialias</code> 是否抗锯齿。</p>
+</li>
+<li><p><code>autoMirrored</code> 否是镜像反转，当布局是从右往左的时候才有用。</p>
+</li>
+<li><p><code>dither</code> 是否使用位图抖动，当图片像素高于设备配置的时候会用到，它能让图片的显示更加平滑，具体可以点<a href="https://en.wikipedia.org/wiki/Dither" target="_blank" rel="external">这里</a>。</p>
+</li>
 </ul>
 <p>下面的几张图片中， 1 是原图，2 和 3 都是用的同一个<a href="https://en.wikipedia.org/wiki/Web_colors#Web-safe_colors" target="_blank" rel="external">调色板</a>，但是 3 用了<a href="https://en.wikipedia.org/wiki/Floyd%E2%80%93Steinberg_dithering" target="_blank" rel="external">位图抖动算法</a>，看上去更加的平滑。</p>
 <p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-03 下午8.06.48.png" alt="屏幕快照 2017-05-03 下午8.06.48"></p>
@@ -71,26 +76,26 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
 <p>  <img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-03 下午8.37.25.png" alt="屏幕快照 2017-05-03 下午8.37.25"></p>
 </li>
 </ul>
-<pre><code>我们来玩一把，在 `android:tint=&quot;#0f0&quot;` 的条件下，改变 `tintMode`：
-- 当值为 `src_over` 或者 `src_in` 或者 `src_atop` 的时候得到的图形都一样(这里一开我也是用的滑稽的图片，但是由于滑稽图是 .jpg 格式的，于是在这三种模式下就会变成全绿，所以用了 .png 的图片演示)
-
-![屏幕快照 2017-05-03 下午8.59.59](http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-03 下午8.59.59.png)
-
-
-- 当值为 `add` 的时候
-
-![屏幕快照 2017-05-03 下午8.46.42](http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-03 下午8.46.42.png)
-
-
-- 当值为 `multiply` 的时候
-
-![屏幕快照 2017-05-03 下午8.47.03](http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-03 下午8.47.03.png)
-
-
-- 当值为 `screen` 的时候
-
-![屏幕快照 2017-05-03 下午8.47.35](http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-03 下午8.47.35.png)
-</code></pre><p>–</p>
+<p>我们来玩一把，在 <code>android:tint=&quot;#0f0&quot;</code> 的条件下，改变 <code>tintMode</code>：</p>
+<ul>
+<li><p>当值为 <code>src_over</code> 或者 <code>src_in</code> 或者 <code>src_atop</code> 的时候得到的图形都一样(这里一开我也是用的滑稽的图片，但是由于滑稽图是 .jpg 格式的，于是在这三种模式下就会变成全绿，所以用了 .png 的图片演示)</p>
+<p> <img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-03 下午8.59.59.png" alt="屏幕快照 2017-05-03 下午8.59.59"></p>
+</li>
+<li><p>当值为 <code>add</code> 的时候</p>
+<p> <img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-03 下午8.46.42.png" alt="屏幕快照 2017-05-03 下午8.46.42"></p>
+</li>
+</ul>
+<ul>
+<li><p>当值为 <code>multiply</code> 的时候</p>
+<p> <img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-03 下午8.47.03.png" alt="屏幕快照 2017-05-03 下午8.47.03"></p>
+</li>
+</ul>
+<ul>
+<li><p>当值为 <code>screen</code> 的时候</p>
+<p> <img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-03 下午8.47.35.png" alt="屏幕快照 2017-05-03 下午8.47.35"></p>
+</li>
+</ul>
+<p>–</p>
 <p><a href="https://zh.wikipedia.org/wiki/Wikipedia:%E9%A6%96%E9%A1%B5" target="_blank" rel="external">参考链接</a></p>
 <p> <a href="https://developer.android.google.cn/guide/topics/resources/drawable-resource.html" target="_blank" rel="external">Google 官方 API</a></p>
 <p><a href="http://android.jobbole.com/82117/" target="_blank" rel="external">Android 样式的开发：drawable 汇总篇</a></p>
@@ -102,7 +107,8 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
     <summary type="html">
     
       &lt;p&gt;这里的 Drawable 指的是 Android 项目中 res/drawable 下的资源。&lt;/p&gt;
-&lt;p&gt;例如， .9 图， .png 或者 .jpg 等位图文件， xml 格式的可绘制对象等等。&lt;/p&gt;
+&lt;p&gt;例如: &lt;/p&gt;
+&lt;p&gt;.9 图、 .png 、 .jpg 等位图文件， xml 格式的可绘制对象等等。&lt;/p&gt;
     
     </summary>
     
