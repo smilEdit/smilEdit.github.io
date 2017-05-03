@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-05-03T13:31:00.000Z</updated>
+  <updated>2017-05-03T13:34:56.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2017/05/03/%E5%85%B3%E4%BA%8E-Drawable%EF%BC%88%E4%B8%80%EF%BC%89/"/>
     <id>http://yoursite.com/2017/05/03/关于-Drawable（一）/</id>
     <published>2017-05-03T08:50:49.000Z</published>
-    <updated>2017-05-03T13:31:00.000Z</updated>
+    <updated>2017-05-03T13:34:56.000Z</updated>
     
     <content type="html"><![CDATA[<p>这里的 Drawable 指的是 Android 项目中 res/drawable 下的资源。</p>
 <p>例如: </p>
@@ -1288,9 +1288,9 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
     
       <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
     
-      <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JVM" scheme="http://yoursite.com/tags/JVM/"/>
+    
+      <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
     
       <category term="内存" scheme="http://yoursite.com/tags/%E5%86%85%E5%AD%98/"/>
     
