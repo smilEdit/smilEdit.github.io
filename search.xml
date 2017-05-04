@@ -4,6 +4,91 @@
   
     
     <entry>
+      <title><![CDATA[py基础]]></title>
+      <url>http://yoursite.com/2017/05/04/py%E5%9F%BA%E7%A1%80/</url>
+      <content type="html"><![CDATA[<h3 id="格式"><a href="#格式" class="headerlink" title="格式"></a>格式</h3><p>注释行用 <code>#</code> 开头表示。</p>
+<p>语法采用缩进的方式，虽然没有规定是几个空格，但是一般都是 4 个。 </p>
+<p>大小写敏感。</p>
+<p>通常我们在开头这么写：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/env python</span></div><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>第一行注释是为了告诉 Linux/OS X 系统，这是一个 Python 可执行程序， Windows 系统会忽略这个注释。</p>
+<p>由于 Python 源文件也是文本文件，当我们的代码中含有中文的时候（包括注释），第二行注释告诉 Py 解释器，读取源码的时候用指定编码读取。</p>
+<h3 id="数据类型和变量"><a href="#数据类型和变量" class="headerlink" title="数据类型和变量"></a>数据类型和变量</h3><h4 id="整数"><a href="#整数" class="headerlink" title="整数"></a>整数</h4><p>可以处理<strong>任意大小</strong>的整数。</p>
+<p>但是，</p>
+<p><code>int</code> 类型的有最大值 （在我的电脑上是）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> sys</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>print(sys.maxint)</div><div class="line"><span class="number">9223372036854775807</span></div></pre></td></tr></table></figure>
+<h4 id="浮点数"><a href="#浮点数" class="headerlink" title="浮点数"></a>浮点数</h4><p>没什么特别的。</p>
+<h4 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h4><p>以 ‘’ 或 “” 括起来的任意文本。</p>
+<h4 id="布尔值"><a href="#布尔值" class="headerlink" title="布尔值"></a>布尔值</h4><p><code>True</code> 和 <code>False</code> ，可以用 <code>or</code> 、<code>and</code> 、<code>not</code> 进行运算。 （和一般语言一样的）</p>
+<h4 id="空值"><a href="#空值" class="headerlink" title="空值"></a>空值</h4><p><code>None</code> 代表空值，不是 0 ，因为 0 是有意义的。</p>
+<h4 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h4><p>没什么特别的。</p>
+<h4 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h4><p>没什么特别的。</p>
+<h3 id="字符串和编码"><a href="#字符串和编码" class="headerlink" title="字符串和编码"></a>字符串和编码</h3><h4 id="转换"><a href="#转换" class="headerlink" title="转换"></a>转换</h4><p>py 比 Unicode 标准发布还早，所以一开始，字母在 py 中是用 ASCII 编码的，提供了 <code>ord()</code> 和 <code>chr()</code> 两个转换的函数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>ord(<span class="string">'A'</span>)</div><div class="line"><span class="number">65</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>chr(<span class="number">65</span>)</div><div class="line"><span class="string">'A'</span></div></pre></td></tr></table></figure>
+<p>后来又增加了对 Unicode 的支持</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">print</span> <span class="string">u'\u4f60\u597d'</span></div><div class="line">你好</div><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">u'你好'</span></div><div class="line"><span class="string">u'\u4f60\u597d'</span></div></pre></td></tr></table></figure>
+<p>当然，字母也是可以使用这个方式转换，不多说。</p>
+<h4 id="格式化"><a href="#格式化" class="headerlink" title="格式化"></a>格式化</h4><p>与 C 一样，用 % 实现的。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'Hello %s'</span> % <span class="string">'Zhanglf'</span></div><div class="line"><span class="string">'Hello Zhanglf'</span></div></pre></td></tr></table></figure>
+<p>整数 d ，浮点数 f ，字符串 s ，十六进制整数 x 。</p>
+<p>多个一起格式化的时候，</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'Hello %s,%d'</span> % (<span class="string">'Zhanglf'</span>,<span class="number">886</span>)</div><div class="line"><span class="string">'Hello Zhanglf,886'</span></div></pre></td></tr></table></figure>
+<p>括号起来，逗号隔开。</p>
+<h3 id="循环和判断"><a href="#循环和判断" class="headerlink" title="循环和判断"></a>循环和判断</h3><h4 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h4><p>有两种循环，一种是 <code>while</code> 循环</p>
+<p>很简单，<strong>注意</strong>缩进和冒号</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">n = <span class="number">0</span></div><div class="line">s = <span class="number">0</span></div><div class="line"><span class="keyword">while</span> n &lt; <span class="number">100</span>:</div><div class="line">    s += n</div><div class="line">    n += <span class="number">1</span></div><div class="line"><span class="keyword">print</span> (s)</div></pre></td></tr></table></figure>
+<p>py 不支持 ++ 运算符？ 我试了不行。</p>
+<p>还有一种是 <code>for in</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">listttt = [<span class="string">'lll'</span>,<span class="string">'iii'</span>,<span class="string">'sss'</span>,<span class="string">'ttt'</span>];</div><div class="line"><span class="keyword">for</span> list <span class="keyword">in</span> listttt:</div><div class="line">    <span class="keyword">print</span> list</div></pre></td></tr></table></figure>
+<p>像是 Java 中的增强 <code>for</code> 循环。</p>
+<p>另外有一个 <code>range()</code> 函数，可以生成一个整数序列：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>range(<span class="number">6</span>)</div><div class="line">[<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</div></pre></td></tr></table></figure>
+<h4 id="判断"><a href="#判断" class="headerlink" title="判断"></a>判断</h4><p>逻辑和一般语言都一样。</p>
+<p>条件判断，多重判断的时候，用 <code>elif</code> 而不是 <code>else if</code>，<strong>注意</strong>缩进和冒号。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">age = <span class="number">20</span></div><div class="line"><span class="keyword">if</span> age &gt;= <span class="number">6</span>:</div><div class="line">    <span class="keyword">print</span> <span class="string">'teenager'</span></div><div class="line"><span class="keyword">elif</span> age &gt;= <span class="number">18</span>:</div><div class="line">    <span class="keyword">print</span> <span class="string">'adult'</span></div><div class="line"><span class="keyword">else</span>:</div><div class="line">    <span class="keyword">print</span> <span class="string">'kid'</span></div></pre></td></tr></table></figure>
+<h3 id="list-和-tuple"><a href="#list-和-tuple" class="headerlink" title="list 和 tuple"></a>list 和 tuple</h3><h4 id="list"><a href="#list" class="headerlink" title="list"></a>list</h4><p>中括号表示。</p>
+<p>list 和 Java 的集合没差，有序，可重复，可变。但是它可以存不同类型的元素，（其实 Java 的集合也行）甚至是别的 list。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>listtt = [<span class="number">33</span>,<span class="number">44</span>,<span class="string">'zlf'</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>listtt</div><div class="line">[<span class="number">33</span>, <span class="number">44</span>, <span class="string">'zlf'</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>len(listtt)</div><div class="line"><span class="number">3</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>listtt[<span class="number">1</span>]</div><div class="line"><span class="number">44</span></div></pre></td></tr></table></figure>
+<p>获取长度 <code>len()</code><br>添加元素到末尾 <code>append()</code><br>添加元素到指定位置 <code>insert(索引，元素)</code><br>删除末尾元素 <code>pop()</code><br>删除指定位置的元素 <code>pop(索引)</code><br>替换元素，直接通过索引赋值</p>
+<p>最后，如果，list 里面嵌套了 list，就变成多维集合了。</p>
+<h4 id="tuple"><a href="#tuple" class="headerlink" title="tuple"></a>tuple</h4><p>小括号表示。</p>
+<p>元组: 有序，不可变。安全。</p>
+<p>tuple 不可变。但是如果里面有元素是 list，那么其中的 list 是可以改变的。</p>
+<p>有一个要<strong>注意的地方</strong>，</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>tupleee = (<span class="number">1</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>tupleee</div><div class="line"><span class="number">1</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>tupleee = (<span class="number">1</span>,)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>tupleee</div><div class="line">(<span class="number">1</span>,)</div></pre></td></tr></table></figure>
+<p>因为（1） 中的括号就是普通的数学括号，所以 py 官方规定如果是那种情况要初始化，记得加个逗号。</p>
+<h3 id="dict-和-set"><a href="#dict-和-set" class="headerlink" title="dict 和 set"></a>dict 和 set</h3><h4 id="dict"><a href="#dict" class="headerlink" title="dict"></a>dict</h4><p>花（大）括号表示。</p>
+<p>dict 就是 iOS 中常说的字典，全称 dictionary ，Java 中的 Map，是以键值对存储的。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/env python</span></div><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line">dicttt = &#123;<span class="string">"zlf"</span>:<span class="number">24</span>,<span class="string">"hei"</span>:<span class="number">23</span>,<span class="string">"ha"</span>:<span class="number">24</span>&#125;</div><div class="line"><span class="comment"># 通过 key 找 value</span></div><div class="line"><span class="keyword">print</span> dicttt[<span class="string">'zlf'</span>]</div><div class="line"><span class="comment"># 或者是</span></div><div class="line"><span class="keyword">print</span> dicttt.get(<span class="string">'zlf'</span>)</div><div class="line"><span class="comment"># 最好是使用,</span></div><div class="line"><span class="keyword">print</span> dicttt.get(<span class="string">'zlf'</span>,<span class="number">-1</span>)</div></pre></td></tr></table></figure>
+<p>不能通过 value 找 key，因为 dict 是无序不重复的，也就是说 key 值是唯一的，所以</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">dicttt = &#123;<span class="string">"zlf"</span>:<span class="number">24</span>,<span class="string">"hei"</span>:<span class="number">23</span>,<span class="string">"ha"</span>:<span class="number">24</span>,<span class="string">"ha"</span>:<span class="number">24</span>,<span class="string">"zlf"</span>:<span class="number">24</span>,<span class="string">"hei"</span>:<span class="number">23</span>,<span class="string">"ha"</span>:<span class="number">24</span>,<span class="string">"ha"</span>:<span class="number">24</span>&#125;</div><div class="line"><span class="keyword">print</span> dicttt</div></pre></td></tr></table></figure>
+<p>输出的也是</p>
+<p><code>{&#39;zlf&#39;: 24, &#39;ha&#39;: 24, &#39;hei&#39;: 23}</code></p>
+<p>与 Map 一样，查找 value 用的是 Hash 算法，时间复杂度是常数，典型的用空间换时间。</p>
+<h4 id="set"><a href="#set" class="headerlink" title="set"></a>set</h4><p>比较特殊的单列集合，和 Java 的 Set 一样，无序，不可重复。</p>
+<p>初始化有一点特殊：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>settt = set([<span class="string">'s'</span>,<span class="string">'e'</span>,<span class="string">'t'</span>])</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>settt</div><div class="line">set([<span class="string">'s'</span>, <span class="string">'e'</span>, <span class="string">'t'</span>])</div></pre></td></tr></table></figure>
+<p>其中的中括号并不是代表存入的是 list ！ 添加相同的元素会被自动过滤。</p>
+<p>和 dict 一样不可存入变量当做是 key，因为为了保证 key 值是唯一的，而变量可能导致多个 key 值相同。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> python </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> python </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[关于 Drawable（二）]]></title>
       <url>http://yoursite.com/2017/05/04/%E5%85%B3%E4%BA%8E-Drawable%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
       <content type="html"><![CDATA[<h3 id="layer-list"><a href="#layer-list" class="headerlink" title="layer-list"></a>layer-list</h3><p>类似于 FrameLayout，将列表中的 item 叠加在一块，最后的 item 显示在最前面。</p>
@@ -1126,9 +1211,9 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
         
         <tags>
             
-            <tag> Java </tag>
-            
             <tag> 高效 </tag>
+            
+            <tag> Java </tag>
             
             <tag> Effectice </tag>
             
@@ -1232,9 +1317,9 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
             
             <tag> Java </tag>
             
-            <tag> 算法 </tag>
-            
             <tag> JVM </tag>
+            
+            <tag> 算法 </tag>
             
             <tag> 内存 </tag>
             
@@ -1432,11 +1517,11 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
         
         <tags>
             
+            <tag> Java </tag>
+            
             <tag> 设计模式 </tag>
             
             <tag> 策略模式 </tag>
-            
-            <tag> Java </tag>
             
             <tag> UML </tag>
             

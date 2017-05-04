@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-05-04T03:47:34.000Z</updated>
+  <updated>2017-05-04T09:00:05.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,11 +16,102 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>py基础</title>
+    <link href="http://yoursite.com/2017/05/04/py%E5%9F%BA%E7%A1%80/"/>
+    <id>http://yoursite.com/2017/05/04/py基础/</id>
+    <published>2017-05-04T06:52:57.000Z</published>
+    <updated>2017-05-04T09:00:05.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="格式"><a href="#格式" class="headerlink" title="格式"></a>格式</h3><p>注释行用 <code>#</code> 开头表示。</p>
+<p>语法采用缩进的方式，虽然没有规定是几个空格，但是一般都是 4 个。 </p>
+<p>大小写敏感。</p>
+<p>通常我们在开头这么写：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/env python</span></div><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>第一行注释是为了告诉 Linux/OS X 系统，这是一个 Python 可执行程序， Windows 系统会忽略这个注释。</p>
+<p>由于 Python 源文件也是文本文件，当我们的代码中含有中文的时候（包括注释），第二行注释告诉 Py 解释器，读取源码的时候用指定编码读取。</p>
+<h3 id="数据类型和变量"><a href="#数据类型和变量" class="headerlink" title="数据类型和变量"></a>数据类型和变量</h3><h4 id="整数"><a href="#整数" class="headerlink" title="整数"></a>整数</h4><p>可以处理<strong>任意大小</strong>的整数。</p>
+<p>但是，</p>
+<p><code>int</code> 类型的有最大值 （在我的电脑上是）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> sys</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>print(sys.maxint)</div><div class="line"><span class="number">9223372036854775807</span></div></pre></td></tr></table></figure>
+<h4 id="浮点数"><a href="#浮点数" class="headerlink" title="浮点数"></a>浮点数</h4><p>没什么特别的。</p>
+<h4 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h4><p>以 ‘’ 或 “” 括起来的任意文本。</p>
+<h4 id="布尔值"><a href="#布尔值" class="headerlink" title="布尔值"></a>布尔值</h4><p><code>True</code> 和 <code>False</code> ，可以用 <code>or</code> 、<code>and</code> 、<code>not</code> 进行运算。 （和一般语言一样的）</p>
+<h4 id="空值"><a href="#空值" class="headerlink" title="空值"></a>空值</h4><p><code>None</code> 代表空值，不是 0 ，因为 0 是有意义的。</p>
+<h4 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h4><p>没什么特别的。</p>
+<h4 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h4><p>没什么特别的。</p>
+<h3 id="字符串和编码"><a href="#字符串和编码" class="headerlink" title="字符串和编码"></a>字符串和编码</h3><h4 id="转换"><a href="#转换" class="headerlink" title="转换"></a>转换</h4><p>py 比 Unicode 标准发布还早，所以一开始，字母在 py 中是用 ASCII 编码的，提供了 <code>ord()</code> 和 <code>chr()</code> 两个转换的函数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>ord(<span class="string">'A'</span>)</div><div class="line"><span class="number">65</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>chr(<span class="number">65</span>)</div><div class="line"><span class="string">'A'</span></div></pre></td></tr></table></figure>
+<p>后来又增加了对 Unicode 的支持</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">print</span> <span class="string">u'\u4f60\u597d'</span></div><div class="line">你好</div><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">u'你好'</span></div><div class="line"><span class="string">u'\u4f60\u597d'</span></div></pre></td></tr></table></figure>
+<p>当然，字母也是可以使用这个方式转换，不多说。</p>
+<h4 id="格式化"><a href="#格式化" class="headerlink" title="格式化"></a>格式化</h4><p>与 C 一样，用 % 实现的。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'Hello %s'</span> % <span class="string">'Zhanglf'</span></div><div class="line"><span class="string">'Hello Zhanglf'</span></div></pre></td></tr></table></figure>
+<p>整数 d ，浮点数 f ，字符串 s ，十六进制整数 x 。</p>
+<p>多个一起格式化的时候，</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'Hello %s,%d'</span> % (<span class="string">'Zhanglf'</span>,<span class="number">886</span>)</div><div class="line"><span class="string">'Hello Zhanglf,886'</span></div></pre></td></tr></table></figure>
+<p>括号起来，逗号隔开。</p>
+<h3 id="循环和判断"><a href="#循环和判断" class="headerlink" title="循环和判断"></a>循环和判断</h3><h4 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h4><p>有两种循环，一种是 <code>while</code> 循环</p>
+<p>很简单，<strong>注意</strong>缩进和冒号</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">n = <span class="number">0</span></div><div class="line">s = <span class="number">0</span></div><div class="line"><span class="keyword">while</span> n &lt; <span class="number">100</span>:</div><div class="line">    s += n</div><div class="line">    n += <span class="number">1</span></div><div class="line"><span class="keyword">print</span> (s)</div></pre></td></tr></table></figure>
+<p>py 不支持 ++ 运算符？ 我试了不行。</p>
+<p>还有一种是 <code>for in</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">listttt = [<span class="string">'lll'</span>,<span class="string">'iii'</span>,<span class="string">'sss'</span>,<span class="string">'ttt'</span>];</div><div class="line"><span class="keyword">for</span> list <span class="keyword">in</span> listttt:</div><div class="line">    <span class="keyword">print</span> list</div></pre></td></tr></table></figure>
+<p>像是 Java 中的增强 <code>for</code> 循环。</p>
+<p>另外有一个 <code>range()</code> 函数，可以生成一个整数序列：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>range(<span class="number">6</span>)</div><div class="line">[<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</div></pre></td></tr></table></figure>
+<h4 id="判断"><a href="#判断" class="headerlink" title="判断"></a>判断</h4><p>逻辑和一般语言都一样。</p>
+<p>条件判断，多重判断的时候，用 <code>elif</code> 而不是 <code>else if</code>，<strong>注意</strong>缩进和冒号。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">age = <span class="number">20</span></div><div class="line"><span class="keyword">if</span> age &gt;= <span class="number">6</span>:</div><div class="line">    <span class="keyword">print</span> <span class="string">'teenager'</span></div><div class="line"><span class="keyword">elif</span> age &gt;= <span class="number">18</span>:</div><div class="line">    <span class="keyword">print</span> <span class="string">'adult'</span></div><div class="line"><span class="keyword">else</span>:</div><div class="line">    <span class="keyword">print</span> <span class="string">'kid'</span></div></pre></td></tr></table></figure>
+<h3 id="list-和-tuple"><a href="#list-和-tuple" class="headerlink" title="list 和 tuple"></a>list 和 tuple</h3><h4 id="list"><a href="#list" class="headerlink" title="list"></a>list</h4><p>中括号表示。</p>
+<p>list 和 Java 的集合没差，有序，可重复，可变。但是它可以存不同类型的元素，（其实 Java 的集合也行）甚至是别的 list。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>listtt = [<span class="number">33</span>,<span class="number">44</span>,<span class="string">'zlf'</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>listtt</div><div class="line">[<span class="number">33</span>, <span class="number">44</span>, <span class="string">'zlf'</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>len(listtt)</div><div class="line"><span class="number">3</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>listtt[<span class="number">1</span>]</div><div class="line"><span class="number">44</span></div></pre></td></tr></table></figure>
+<p>获取长度 <code>len()</code><br>添加元素到末尾 <code>append()</code><br>添加元素到指定位置 <code>insert(索引，元素)</code><br>删除末尾元素 <code>pop()</code><br>删除指定位置的元素 <code>pop(索引)</code><br>替换元素，直接通过索引赋值</p>
+<p>最后，如果，list 里面嵌套了 list，就变成多维集合了。</p>
+<h4 id="tuple"><a href="#tuple" class="headerlink" title="tuple"></a>tuple</h4><p>小括号表示。</p>
+<p>元组: 有序，不可变。安全。</p>
+<p>tuple 不可变。但是如果里面有元素是 list，那么其中的 list 是可以改变的。</p>
+<p>有一个要<strong>注意的地方</strong>，</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>tupleee = (<span class="number">1</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>tupleee</div><div class="line"><span class="number">1</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>tupleee = (<span class="number">1</span>,)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>tupleee</div><div class="line">(<span class="number">1</span>,)</div></pre></td></tr></table></figure>
+<p>因为（1） 中的括号就是普通的数学括号，所以 py 官方规定如果是那种情况要初始化，记得加个逗号。</p>
+<h3 id="dict-和-set"><a href="#dict-和-set" class="headerlink" title="dict 和 set"></a>dict 和 set</h3><h4 id="dict"><a href="#dict" class="headerlink" title="dict"></a>dict</h4><p>花（大）括号表示。</p>
+<p>dict 就是 iOS 中常说的字典，全称 dictionary ，Java 中的 Map，是以键值对存储的。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/env python</span></div><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line">dicttt = &#123;<span class="string">"zlf"</span>:<span class="number">24</span>,<span class="string">"hei"</span>:<span class="number">23</span>,<span class="string">"ha"</span>:<span class="number">24</span>&#125;</div><div class="line"><span class="comment"># 通过 key 找 value</span></div><div class="line"><span class="keyword">print</span> dicttt[<span class="string">'zlf'</span>]</div><div class="line"><span class="comment"># 或者是</span></div><div class="line"><span class="keyword">print</span> dicttt.get(<span class="string">'zlf'</span>)</div><div class="line"><span class="comment"># 最好是使用,</span></div><div class="line"><span class="keyword">print</span> dicttt.get(<span class="string">'zlf'</span>,<span class="number">-1</span>)</div></pre></td></tr></table></figure>
+<p>不能通过 value 找 key，因为 dict 是无序不重复的，也就是说 key 值是唯一的，所以</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">dicttt = &#123;<span class="string">"zlf"</span>:<span class="number">24</span>,<span class="string">"hei"</span>:<span class="number">23</span>,<span class="string">"ha"</span>:<span class="number">24</span>,<span class="string">"ha"</span>:<span class="number">24</span>,<span class="string">"zlf"</span>:<span class="number">24</span>,<span class="string">"hei"</span>:<span class="number">23</span>,<span class="string">"ha"</span>:<span class="number">24</span>,<span class="string">"ha"</span>:<span class="number">24</span>&#125;</div><div class="line"><span class="keyword">print</span> dicttt</div></pre></td></tr></table></figure>
+<p>输出的也是</p>
+<p><code>{&#39;zlf&#39;: 24, &#39;ha&#39;: 24, &#39;hei&#39;: 23}</code></p>
+<p>与 Map 一样，查找 value 用的是 Hash 算法，时间复杂度是常数，典型的用空间换时间。</p>
+<h4 id="set"><a href="#set" class="headerlink" title="set"></a>set</h4><p>比较特殊的单列集合，和 Java 的 Set 一样，无序，不可重复。</p>
+<p>初始化有一点特殊：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>settt = set([<span class="string">'s'</span>,<span class="string">'e'</span>,<span class="string">'t'</span>])</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>settt</div><div class="line">set([<span class="string">'s'</span>, <span class="string">'e'</span>, <span class="string">'t'</span>])</div></pre></td></tr></table></figure>
+<p>其中的中括号并不是代表存入的是 list ！ 添加相同的元素会被自动过滤。</p>
+<p>和 dict 一样不可存入变量当做是 key，因为为了保证 key 值是唯一的，而变量可能导致多个 key 值相同。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;格式&quot;&gt;&lt;a href=&quot;#格式&quot; class=&quot;headerlink&quot; title=&quot;格式&quot;&gt;&lt;/a&gt;格式&lt;/h3&gt;&lt;p&gt;注释行用 &lt;code&gt;#&lt;/code&gt; 开头表示。&lt;/p&gt;
+&lt;p&gt;语法采用缩进的方式，虽然没有规定是几个空格，但是一般都是 4 个。 &lt;/p&gt;
+&lt;p&gt;大小写敏感。&lt;/p&gt;
+&lt;p&gt;通常我们在开头这么写：&lt;/p&gt;
+&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#!/usr/bin/env python&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# -*- coding: utf-8 -*-&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="python" scheme="http://yoursite.com/categories/python/"/>
+    
+    
+      <category term="python" scheme="http://yoursite.com/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
     <title>关于 Drawable（二）</title>
     <link href="http://yoursite.com/2017/05/04/%E5%85%B3%E4%BA%8E-Drawable%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
     <id>http://yoursite.com/2017/05/04/关于-Drawable（二）/</id>
     <published>2017-05-04T02:43:00.000Z</published>
-    <updated>2017-05-04T03:47:34.000Z</updated>
+    <updated>2017-05-04T07:02:53.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="layer-list"><a href="#layer-list" class="headerlink" title="layer-list"></a>layer-list</h3><p>类似于 FrameLayout，将列表中的 item 叠加在一块，最后的 item 显示在最前面。</p>
 <a id="more"></a>
@@ -1142,105 +1233,6 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
       <category term="Class 结构" scheme="http://yoursite.com/tags/Class-%E7%BB%93%E6%9E%84/"/>
     
       <category term="JVM" scheme="http://yoursite.com/tags/JVM/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Effectice Java(一)</title>
-    <link href="http://yoursite.com/2017/04/04/Effective%20Java/"/>
-    <id>http://yoursite.com/2017/04/04/Effective Java/</id>
-    <published>2017-04-04T06:45:17.000Z</published>
-    <updated>2017-04-13T12:14:04.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="创建和销毁对象"><a href="#创建和销毁对象" class="headerlink" title="创建和销毁对象"></a>创建和销毁对象</h2><h3 id="考虑用静态工厂方法代替构造器"><a href="#考虑用静态工厂方法代替构造器" class="headerlink" title="考虑用静态工厂方法代替构造器"></a>考虑用静态工厂方法代替构造器</h3><p>主要有 4 点优势:</p>
-<ol>
-<li>它们有名字</li>
-<li>不需要再每次调用的时候都创建一个新的对象</li>
-<li><p>可以返回原返回类型的任何子类型的对象</p>
-<p>有点绕，但是不难理解。</p>
-<p>例如，Java Collections Framework 的集合接口有 32 个实现，几乎所有的实现都是通过静态工厂方法在一个不可实例化的类中导出的。</p>
-</li>
-<li><p>在创建参数化类型实例的时候，代码更简洁。</p>
-<p>举个栗子:</p>
-<p>传统写法</p>
-<a id="more"></a>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Map&lt;String,List&lt;String&gt;&gt; map = <span class="keyword">new</span> Hash&lt;String,List&lt;String&gt;&gt;();</div></pre></td></tr></table></figure>
-<p>每次都要写两次泛型，一点都不优雅。</p>
-<p>如果 HaspMap 提供了这样的代码:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;K,V&gt; <span class="function">HashMap&lt;K,V&gt; <span class="title">newInstance</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">new</span> Hash&lt;K,V&gt;();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p> 那么创建就简洁了:</p>
- <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Map&lt;String,List&lt;String&gt;&gt; map = HashMap.newInstance();</div></pre></td></tr></table></figure>
-<p>有 2 个缺点</p>
-<ol>
-<li>类如果不含公有的或者受保护的构造器，就不能被子类化</li>
-<li><p>它们与其他的静态方法实际上没有什么区别</p>
-<p>因为在 API 文档中，静态工厂并没有明确的标记出来，所以你不能清楚的知道该类是否用了静态工厂或者是知道该类使用了静态工厂，却又不知道该如何去实例化。</p>
-</li>
-</ol>
-<h3 id="多个参数参与构造，考虑用构造器"><a href="#多个参数参与构造，考虑用构造器" class="headerlink" title="多个参数参与构造，考虑用构造器"></a>多个参数参与构造，考虑用构造器</h3><p>对于需要多参数来初始化的对象，一般有三种方式。</p>
-<p>绝大多数程序员都使用重叠构造器</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Example</span></span>&#123;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> a; <span class="comment">//required</span></div><div class="line">	<span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> b; <span class="comment">//required</span></div><div class="line">	<span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> c; <span class="comment">//optional</span></div><div class="line">	<span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> d; <span class="comment">//optional</span></div><div class="line">	<span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> e; <span class="comment">//optional</span></div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Example</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;</div><div class="line">		<span class="keyword">this</span>(a,b,<span class="number">0</span>);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Example</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b,<span class="keyword">int</span> c)</span></span>&#123;</div><div class="line">		<span class="keyword">this</span>(a,b,c,<span class="number">0</span>);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Example</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b,<span class="keyword">int</span> c,<span class="keyword">int</span> d)</span></span>&#123;</div><div class="line">		<span class="keyword">this</span>(a,b,c,d,<span class="number">0</span>);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Example</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b,<span class="keyword">int</span> c,<span class="keyword">int</span> d,<span class="keyword">int</span> e)</span></span>&#123;</div><div class="line">		<span class="keyword">this</span>.a = a;</div><div class="line">		<span class="keyword">this</span>.b = b;</div><div class="line">		<span class="keyword">this</span>.c = c;</div><div class="line">		<span class="keyword">this</span>.d = d;</div><div class="line">		<span class="keyword">this</span>.e = e;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>当参数多的时候，创建实例化很乱，参数不直观,顺序颠倒之类的很难发现:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Example example = <span class="keyword">new</span> Example(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>);</div></pre></td></tr></table></figure>
-<p>第二种模式， JavaBeans 模式</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Example</span></span>&#123;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">int</span> a = -<span class="number">1</span>; <span class="comment">// Required</span></div><div class="line">	<span class="keyword">private</span> <span class="keyword">int</span> b = -<span class="number">1</span>; <span class="comment">// Required</span></div><div class="line">	<span class="keyword">private</span> <span class="keyword">int</span> c = <span class="number">0</span>;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">int</span> d = <span class="number">0</span>;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">int</span> e = <span class="number">0</span>;</div><div class="line">	</div><div class="line">	<span class="keyword">public</span> Example&#123;&#125;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setA</span><span class="params">(<span class="keyword">int</span> a)</span></span>&#123;</div><div class="line">		<span class="keyword">this</span>.a = a;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setB</span><span class="params">(<span class="keyword">int</span> b)</span></span>&#123;</div><div class="line">		<span class="keyword">this</span>.b = b;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>实例化的时候</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Example example = <span class="keyword">new</span> Example();</div><div class="line"></div><div class="line">example.setA(<span class="number">1</span>);</div><div class="line">example.setB(<span class="number">2</span>);</div><div class="line">example.setC(<span class="number">3</span>);</div><div class="line">example.setD(<span class="number">4</span>);</div><div class="line">example.setE(<span class="number">5</span>);</div></pre></td></tr></table></figure>
-<p>但是由于构造过程被分到了几个调用中，可能会导致不一致性，会有一定的安全问题。</p>
-<p>第三种方式，即安全又具有良好的可读性:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Example</span></span>&#123;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> a;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> b;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> c;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> d;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> e;</div><div class="line"></div><div class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Builder</span></span>&#123;</div><div class="line">		<span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> a;</div><div class="line">		<span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> b;</div><div class="line"></div><div class="line">		<span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> c = <span class="number">0</span>;</div><div class="line">		<span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> d = <span class="number">0</span>;</div><div class="line">		<span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> e = <span class="number">0</span>;</div><div class="line"></div><div class="line">		<span class="function"><span class="keyword">public</span> <span class="title">Builder</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;</div><div class="line">			<span class="keyword">this</span>.a = a;</div><div class="line">			<span class="keyword">this</span>.b = b;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		<span class="function"><span class="keyword">public</span> Builder <span class="title">c</span><span class="params">(<span class="keyword">int</span> c)</span></span>&#123;</div><div class="line">			<span class="keyword">this</span>.c = c;</div><div class="line">			<span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		<span class="function"><span class="keyword">public</span> Builder <span class="title">d</span><span class="params">(<span class="keyword">int</span> d)</span></span>&#123;</div><div class="line">			<span class="keyword">this</span>.d = d;</div><div class="line">			<span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		<span class="function"><span class="keyword">public</span> Builder <span class="title">e</span><span class="params">(<span class="keyword">int</span> e)</span></span>&#123;</div><div class="line">			<span class="keyword">this</span>.e = e;</div><div class="line">			<span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		<span class="function"><span class="keyword">public</span> Example <span class="title">builder</span><span class="params">()</span></span>&#123;</div><div class="line">			<span class="keyword">return</span> <span class="keyword">new</span> Example(<span class="keyword">this</span>);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">private</span> <span class="title">Example</span><span class="params">(Builder builder)</span></span>&#123;</div><div class="line">		a = builder.a;</div><div class="line">		b = builder.b;</div><div class="line">		c = builder.c;</div><div class="line">		d = builder.d;</div><div class="line">		e = builder.e;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>实例化:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Example example = <span class="keyword">new</span> Example.Builder(<span class="number">1</span>,<span class="number">2</span>).c(<span class="number">3</span>).d(<span class="number">4</span>).e(<span class="number">5</span>);</div></pre></td></tr></table></figure>
-<p>当然，Builder 模式也有不足的地方，为了创建对象要多创建一个构建器，但是如果你的对象初始化需要多个参数或者以后可能需要多个参数，建议还是使用构建器。</p>
-<h3 id="用私有构造器或者枚举强化-Singleton-属性"><a href="#用私有构造器或者枚举强化-Singleton-属性" class="headerlink" title="用私有构造器或者枚举强化 Singleton 属性"></a>用私有构造器或者枚举强化 Singleton 属性</h3><p>一般都这通过两种方式创建单例对象:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span></span>&#123;</div><div class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> Singleton INSTANCE = <span class="keyword">new</span> Singleton();</div><div class="line"></div><div class="line">	<span class="keyword">private</span> Singleton&#123;...&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>由于构造器是私有的，并且 INSTANCE 是被 final 修饰的，所以 <code>Singleton.INSTANCE</code> 对象是全局唯一的。</p>
-<p>第二种方式:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span></span>&#123;</div><div class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> Singleton INSTANCE = <span class="keyword">new</span> Singleton();</div><div class="line"></div><div class="line">	<span class="keyword">private</span> Singleton&#123;...&#125;</div><div class="line"></div><div class="line">	<span class="keyword">public</span> <span class="keyword">static</span> Singleton getInstance&#123;</div><div class="line">		<span class="keyword">return</span> INSTANE;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>工厂方法的优势在于，它更加灵活，在不改变其他 API 的前提下 ，改变其中的内容。</p>
-<p>从 JDK 1.5 开始，还有第三种方式:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">enum</span> Singleton&#123;</div><div class="line">	INSTANE;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>枚举的方式，更加简洁，同时无偿提供了序列化机制。 是实现 Singleton 的最佳方式。</p>
-<p>但是在 Android 中，由于枚举的开销比较大，占用内存是普通单例的 10 多倍，不建议使用枚举。</p>
-<h3 id="通过私有构造器强化不可实例化的能力"><a href="#通过私有构造器强化不可实例化的能力" class="headerlink" title="通过私有构造器强化不可实例化的能力"></a>通过私有构造器强化不可实例化的能力</h3><p>例如一些工具类，不希望被实例化，那就需要:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Utils</span></span>&#123;</div><div class="line">	<span class="function"><span class="keyword">private</span> <span class="title">Utils</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="keyword">throw</span> <span class="keyword">new</span> AssertionError();<span class="comment">//为了避免在内部调用</span></div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>防止被滥用，因为对于一些工具类，被实例化是没有意义的。</p>
-<h3 id="避免创建不必要的对象"><a href="#避免创建不必要的对象" class="headerlink" title="避免创建不必要的对象"></a>避免创建不必要的对象</h3><p>举一个极端的例子:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">String s = <span class="keyword">new</span> String(<span class="string">"abc"</span>);</div></pre></td></tr></table></figure>
-<p>好吧，有点常识的都知道，这种做法特别的蠢。</p>
-<p>因为相同的 String 是会被重用的，所以:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">String s = <span class="string">"abc"</span>;</div></pre></td></tr></table></figure>
-<p>对于同时提供了静态工厂方法和构造器的不可变类，通常可以使用静态工厂方法来避免对象的重复创建。</p>
-<p>···</p>
-<h3 id="消除过期的对象引用"><a href="#消除过期的对象引用" class="headerlink" title="消除过期的对象引用"></a>消除过期的对象引用</h3><h3 id="避免使用终结方法"><a href="#避免使用终结方法" class="headerlink" title="避免使用终结方法"></a>避免使用终结方法</h3>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;创建和销毁对象&quot;&gt;&lt;a href=&quot;#创建和销毁对象&quot; class=&quot;headerlink&quot; title=&quot;创建和销毁对象&quot;&gt;&lt;/a&gt;创建和销毁对象&lt;/h2&gt;&lt;h3 id=&quot;考虑用静态工厂方法代替构造器&quot;&gt;&lt;a href=&quot;#考虑用静态工厂方法代替构造器&quot; class=&quot;headerlink&quot; title=&quot;考虑用静态工厂方法代替构造器&quot;&gt;&lt;/a&gt;考虑用静态工厂方法代替构造器&lt;/h3&gt;&lt;p&gt;主要有 4 点优势:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;它们有名字&lt;/li&gt;
-&lt;li&gt;不需要再每次调用的时候都创建一个新的对象&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;可以返回原返回类型的任何子类型的对象&lt;/p&gt;
-&lt;p&gt;有点绕，但是不难理解。&lt;/p&gt;
-&lt;p&gt;例如，Java Collections Framework 的集合接口有 32 个实现，几乎所有的实现都是通过静态工厂方法在一个不可实例化的类中导出的。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;在创建参数化类型实例的时候，代码更简洁。&lt;/p&gt;
-&lt;p&gt;举个栗子:&lt;/p&gt;
-&lt;p&gt;传统写法&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="读书笔记" scheme="http://yoursite.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
-    
-      <category term="高效" scheme="http://yoursite.com/tags/%E9%AB%98%E6%95%88/"/>
-    
-      <category term="Effectice" scheme="http://yoursite.com/tags/Effectice/"/>
-    
-      <category term="思想" scheme="http://yoursite.com/tags/%E6%80%9D%E6%83%B3/"/>
     
   </entry>
   
