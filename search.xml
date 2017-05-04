@@ -4,6 +4,43 @@
   
     
     <entry>
+      <title><![CDATA[关于 Drawable（二）]]></title>
+      <url>http://yoursite.com/2017/05/04/%E5%85%B3%E4%BA%8E-Drawable%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
+      <content type="html"><![CDATA[<h3 id="layer-list"><a href="#layer-list" class="headerlink" title="layer-list"></a>layer-list</h3><p>类似于 FrameLayout，将列表中的 item 叠加在一块，最后的 item 显示在最前面。</p>
+<h4 id="item"><a href="#item" class="headerlink" title="item"></a>item</h4><p>layer-list 子项,之后会细说，相当于是一个自定义性很强的图层，可以接受 bitmap 。</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/52eb2279jw1f2rx409pcnj2044048mx5.jpg" alt="52eb2279jw1f2rx409pcnj2044048mx5"></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">layer-list</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">bitmap</span></span></div><div class="line">            <span class="attr">android:src</span>=<span class="string">"@drawable/huaji"</span>&gt;</div><div class="line">        <span class="tag">&lt;/<span class="name">bitmap</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span></span></div><div class="line">        <span class="attr">android:left</span>=<span class="string">"280dp"</span></div><div class="line">        <span class="attr">android:top</span>=<span class="string">"280dp"</span>&gt;</div><div class="line">        <span class="tag">&lt;<span class="name">bitmap</span></span></div><div class="line">            <span class="attr">android:src</span>=<span class="string">"@drawable/huaji"</span>&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;/<span class="name">bitmap</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span></span></div><div class="line">        <span class="attr">android:right</span>=<span class="string">"280dp"</span></div><div class="line">        <span class="attr">android:top</span>=<span class="string">"280dp"</span>&gt;</div><div class="line">        <span class="tag">&lt;<span class="name">bitmap</span></span></div><div class="line">            <span class="attr">android:src</span>=<span class="string">"@drawable/huaji"</span>&gt;</div><div class="line">        <span class="tag">&lt;/<span class="name">bitmap</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">layer-list</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>item 可以通过 top 、 right 、bottom 、 left 来调整位置。</p>
+<p>效果是这样的:</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-04 上午11.15.20.png" alt="屏幕快照 2017-05-04 上午11.15.20"></p>
+<p>底层那张怎么为什么那么大？</p>
+<p>我是这样理解的，一开始的时候，有一个边框，大小就是第一个 item 的默认大小，当我们加入第二个 item 时，容器就被扩充了，所以之前的 item 跟着变大了，可以参考下图</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/huaji.jpg" alt="huaji"></p>
+<p>但是当我们给第一个 item 设置一个 <em>gravity</em> 属性的时候，比如 <code>android:gravity=&quot;center&quot;</code>,<br>就会变成这样</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-04 上午11.33.28.png" alt="屏幕快照 2017-05-04 上午11.33.28"></p>
+<p>根据上面的框图，这也不难理解，由于有了方向，所以 item 1 就没有再占满边框，而是变成了默认大小。</p>
+<p>最后有一个比较有意思地方，当给 item 都设置 tileMode 属性的时候，结果可能和你想的不一样哦。</p>
+<p>–</p>
+<p>最后附上滑稽的 png 资源</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/huaji.png" alt="huaji"></p>
+]]></content>
+      
+        <categories>
+            
+            <category> 安卓 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Android </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[关于 Drawable（一）]]></title>
       <url>http://yoursite.com/2017/05/03/%E5%85%B3%E4%BA%8E-Drawable%EF%BC%88%E4%B8%80%EF%BC%89/</url>
       <content type="html"><![CDATA[<p>这里的 Drawable 指的是 Android 项目中 res/drawable 下的资源。</p>
@@ -45,17 +82,32 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
 <p>下面的几张图片中， 1 是原图，2 和 3 都是用的同一个<a href="https://en.wikipedia.org/wiki/Web_colors#Web-safe_colors" target="_blank" rel="external">调色板</a>，但是 3 用了<a href="https://en.wikipedia.org/wiki/Floyd%E2%80%93Steinberg_dithering" target="_blank" rel="external">位图抖动算法</a>，看上去更加的平滑。</p>
 <p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-03 下午8.06.48.png" alt="屏幕快照 2017-05-03 下午8.06.48"></p>
 <ul>
-<li><code>filter</code> 当图片进行了压缩或者拉伸时，使用该属性可以使得图片的外观更加的平滑。</li>
-<li><code>gravity</code> 这个很理解，和普通的控件中也有，该属性对应的值有点 <code>left</code>、<code>top</code> 、<code>right</code> 之类的，用来设置图片在控件中的位置或者说是对齐方式。</li>
-<li><code>tileMode</code> tile 是瓷砖，瓦片的意思。该属性用来设置图片的平铺方式，有四种不同的值：<ul>
-<li><code>disable</code> 默认值，无平铺方式</li>
-<li><code>repeat</code> 重复的铺满，如下图<br><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-03 下午4.37.48.png" alt="屏幕快照 2017-05-03 下午4.37.48"></li>
-<li><code>mirror</code> 镜像的方式，如下图<br><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-03 下午4.37.57.png" alt="屏幕快照 2017-05-03 下午4.37.57"></li>
-<li><code>clamp</code> 效果如下图，其实拉伸的是图片最边缘的那个像素点上的值。<br><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-03 下午4.38.09.png" alt="屏幕快照 2017-05-03 下午4.38.09"></li>
+<li><p><code>filter</code> 当图片进行了压缩或者拉伸时，使用该属性可以使得图片的外观更加的平滑。</p>
+</li>
+<li><p><code>gravity</code> 这个很理解，和普通的控件中也有，该属性对应的值有点 <code>left</code>、<code>top</code> 、<code>right</code> 之类的，用来设置图片在控件中的位置或者说是对齐方式。</p>
+</li>
+<li><p><code>tileMode</code> tile 是瓷砖，瓦片的意思。该属性用来设置图片的平铺方式，有四种不同的值：</p>
+<ul>
+<li><p><code>disable</code> 默认值，无平铺方式</p>
+</li>
+<li><p><code>repeat</code> 重复的铺满，如下图</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-03 下午4.37.48.png" alt="屏幕快照 2017-05-03 下午4.37.48"></p>
+</li>
+<li><p><code>mirror</code> 镜像的方式，如下图</p>
+</li>
 </ul>
 </li>
-<li><code>mipMap</code> 这个属性有点邪乎，可以参考<a href="https://developer.android.google.cn/reference/android/graphics/Bitmap.html#setHasMipMap(boolean" target="_blank" rel="external">里面</a>)，大致意思应该是，当你要绘制的 bitmap 小于 50% 原图的时候，开启该属性可以提供更高质量的画质。（但是使用该属性，需要额外的内存开销，并且是 Android 4.2 及以上才能用，而且！用了不一定真的有用哦，它只是给渲染器的一个建议）</li>
-<li><code>tileMoteX</code> 和<code>tileMoteY</code> 都是 Android 5.0 及之后才有的属性，和 <code>tileMote</code> 的性质一样，只是多了方向上的区别。</li>
+</ul>
+<p>   <img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-03 下午4.37.57.png" alt="屏幕快照 2017-05-03 下午4.37.57"></p>
+<ul>
+<li><code>clamp</code> 效果如下图，其实拉伸的是图片最边缘的那个像素点上的值。</li>
+</ul>
+<pre><code>![屏幕快照 2017-05-03 下午4.38.09](http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-03 下午4.38.09.png)
+</code></pre><ul>
+<li><p><code>mipMap</code> 这个属性有点邪乎，可以参考<a href="https://developer.android.google.cn/reference/android/graphics/Bitmap.html#setHasMipMap(boolean" target="_blank" rel="external">里面</a>)，大致意思应该是，当你要绘制的 bitmap 小于 50% 原图的时候，开启该属性可以提供更高质量的画质。（但是使用该属性，需要额外的内存开销，并且是 Android 4.2 及以上才能用，而且！用了不一定真的有用哦，它只是给渲染器的一个建议）</p>
+</li>
+<li><p><code>tileMoteX</code> 和<code>tileMoteY</code> 都是 Android 5.0 及之后才有的属性，和 <code>tileMote</code> 的性质一样，只是多了方向上的区别。</p>
+</li>
 <li><p><code>tintMode</code> 也是 Android 5.0 及之后才有的，这个属性是配合 <code>tint</code> 来一起使用的。</p>
 <p>  <img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-03 下午8.37.25.png" alt="屏幕快照 2017-05-03 下午8.37.25"></p>
 </li>
@@ -1177,9 +1229,9 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
         
         <tags>
             
-            <tag> JVM </tag>
-            
             <tag> Java </tag>
+            
+            <tag> JVM </tag>
             
             <tag> 算法 </tag>
             

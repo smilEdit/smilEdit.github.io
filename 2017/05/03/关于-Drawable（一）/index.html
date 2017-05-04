@@ -119,13 +119,12 @@
 <meta property="og:image" content="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-03 下午8.06.48.png">
 <meta property="og:image" content="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-03 下午4.37.48.png">
 <meta property="og:image" content="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-03 下午4.37.57.png">
-<meta property="og:image" content="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-03 下午4.38.09.png">
 <meta property="og:image" content="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-03 下午8.37.25.png">
 <meta property="og:image" content="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-03 下午8.59.59.png">
 <meta property="og:image" content="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-03 下午8.46.42.png">
 <meta property="og:image" content="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-03 下午8.47.03.png">
 <meta property="og:image" content="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-03 下午8.47.35.png">
-<meta property="og:updated_time" content="2017-05-04T02:39:51.000Z">
+<meta property="og:updated_time" content="2017-05-04T02:49:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于 Drawable（一）">
 <meta name="twitter:description" content="这里的 Drawable 指的是 Android 项目中 res/drawable 下的资源。
@@ -491,17 +490,32 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
 <p>下面的几张图片中， 1 是原图，2 和 3 都是用的同一个<a href="https://en.wikipedia.org/wiki/Web_colors#Web-safe_colors" target="_blank" rel="external">调色板</a>，但是 3 用了<a href="https://en.wikipedia.org/wiki/Floyd%E2%80%93Steinberg_dithering" target="_blank" rel="external">位图抖动算法</a>，看上去更加的平滑。</p>
 <p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-03 下午8.06.48.png" alt="屏幕快照 2017-05-03 下午8.06.48"></p>
 <ul>
-<li><code>filter</code> 当图片进行了压缩或者拉伸时，使用该属性可以使得图片的外观更加的平滑。</li>
-<li><code>gravity</code> 这个很理解，和普通的控件中也有，该属性对应的值有点 <code>left</code>、<code>top</code> 、<code>right</code> 之类的，用来设置图片在控件中的位置或者说是对齐方式。</li>
-<li><code>tileMode</code> tile 是瓷砖，瓦片的意思。该属性用来设置图片的平铺方式，有四种不同的值：<ul>
-<li><code>disable</code> 默认值，无平铺方式</li>
-<li><code>repeat</code> 重复的铺满，如下图<br><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-03 下午4.37.48.png" alt="屏幕快照 2017-05-03 下午4.37.48"></li>
-<li><code>mirror</code> 镜像的方式，如下图<br><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-03 下午4.37.57.png" alt="屏幕快照 2017-05-03 下午4.37.57"></li>
-<li><code>clamp</code> 效果如下图，其实拉伸的是图片最边缘的那个像素点上的值。<br><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-03 下午4.38.09.png" alt="屏幕快照 2017-05-03 下午4.38.09"></li>
+<li><p><code>filter</code> 当图片进行了压缩或者拉伸时，使用该属性可以使得图片的外观更加的平滑。</p>
+</li>
+<li><p><code>gravity</code> 这个很理解，和普通的控件中也有，该属性对应的值有点 <code>left</code>、<code>top</code> 、<code>right</code> 之类的，用来设置图片在控件中的位置或者说是对齐方式。</p>
+</li>
+<li><p><code>tileMode</code> tile 是瓷砖，瓦片的意思。该属性用来设置图片的平铺方式，有四种不同的值：</p>
+<ul>
+<li><p><code>disable</code> 默认值，无平铺方式</p>
+</li>
+<li><p><code>repeat</code> 重复的铺满，如下图</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-03 下午4.37.48.png" alt="屏幕快照 2017-05-03 下午4.37.48"></p>
+</li>
+<li><p><code>mirror</code> 镜像的方式，如下图</p>
+</li>
 </ul>
 </li>
-<li><code>mipMap</code> 这个属性有点邪乎，可以参考<a href="https://developer.android.google.cn/reference/android/graphics/Bitmap.html#setHasMipMap(boolean" target="_blank" rel="external">里面</a>)，大致意思应该是，当你要绘制的 bitmap 小于 50% 原图的时候，开启该属性可以提供更高质量的画质。（但是使用该属性，需要额外的内存开销，并且是 Android 4.2 及以上才能用，而且！用了不一定真的有用哦，它只是给渲染器的一个建议）</li>
-<li><code>tileMoteX</code> 和<code>tileMoteY</code> 都是 Android 5.0 及之后才有的属性，和 <code>tileMote</code> 的性质一样，只是多了方向上的区别。</li>
+</ul>
+<p>   <img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-03 下午4.37.57.png" alt="屏幕快照 2017-05-03 下午4.37.57"></p>
+<ul>
+<li><code>clamp</code> 效果如下图，其实拉伸的是图片最边缘的那个像素点上的值。</li>
+</ul>
+<pre><code>![屏幕快照 2017-05-03 下午4.38.09](http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-03 下午4.38.09.png)
+</code></pre><ul>
+<li><p><code>mipMap</code> 这个属性有点邪乎，可以参考<a href="https://developer.android.google.cn/reference/android/graphics/Bitmap.html#setHasMipMap(boolean" target="_blank" rel="external">里面</a>)，大致意思应该是，当你要绘制的 bitmap 小于 50% 原图的时候，开启该属性可以提供更高质量的画质。（但是使用该属性，需要额外的内存开销，并且是 Android 4.2 及以上才能用，而且！用了不一定真的有用哦，它只是给渲染器的一个建议）</p>
+</li>
+<li><p><code>tileMoteX</code> 和<code>tileMoteY</code> 都是 Android 5.0 及之后才有的属性，和 <code>tileMote</code> 的性质一样，只是多了方向上的区别。</p>
+</li>
 <li><p><code>tintMode</code> 也是 Android 5.0 及之后才有的，这个属性是配合 <code>tint</code> 来一起使用的。</p>
 <p>  <img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-03 下午8.37.25.png" alt="屏幕快照 2017-05-03 下午8.37.25"></p>
 </li>
@@ -584,6 +598,10 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2017/05/04/关于-Drawable（二）/" rel="prev" title="关于 Drawable（二）">
+                关于 Drawable（二） <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -662,7 +680,7 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

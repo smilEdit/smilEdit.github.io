@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-05-04T02:39:51.000Z</updated>
+  <updated>2017-05-04T03:46:29.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,11 +16,50 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>关于 Drawable（二）</title>
+    <link href="http://yoursite.com/2017/05/04/%E5%85%B3%E4%BA%8E-Drawable%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
+    <id>http://yoursite.com/2017/05/04/关于-Drawable（二）/</id>
+    <published>2017-05-04T02:43:00.000Z</published>
+    <updated>2017-05-04T03:46:29.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="layer-list"><a href="#layer-list" class="headerlink" title="layer-list"></a>layer-list</h3><p>类似于 FrameLayout，将列表中的 item 叠加在一块，最后的 item 显示在最前面。</p>
+<h4 id="item"><a href="#item" class="headerlink" title="item"></a>item</h4><p>layer-list 子项,之后会细说，相当于是一个自定义性很强的图层，可以接受 bitmap 。</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/52eb2279jw1f2rx409pcnj2044048mx5.jpg" alt="52eb2279jw1f2rx409pcnj2044048mx5"></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">layer-list</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">bitmap</span></span></div><div class="line">            <span class="attr">android:src</span>=<span class="string">"@drawable/huaji"</span>&gt;</div><div class="line">        <span class="tag">&lt;/<span class="name">bitmap</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span></span></div><div class="line">        <span class="attr">android:left</span>=<span class="string">"280dp"</span></div><div class="line">        <span class="attr">android:top</span>=<span class="string">"280dp"</span>&gt;</div><div class="line">        <span class="tag">&lt;<span class="name">bitmap</span></span></div><div class="line">            <span class="attr">android:src</span>=<span class="string">"@drawable/huaji"</span>&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;/<span class="name">bitmap</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span></span></div><div class="line">        <span class="attr">android:right</span>=<span class="string">"280dp"</span></div><div class="line">        <span class="attr">android:top</span>=<span class="string">"280dp"</span>&gt;</div><div class="line">        <span class="tag">&lt;<span class="name">bitmap</span></span></div><div class="line">            <span class="attr">android:src</span>=<span class="string">"@drawable/huaji"</span>&gt;</div><div class="line">        <span class="tag">&lt;/<span class="name">bitmap</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">layer-list</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>item 可以通过 top 、 right 、bottom 、 left 来调整位置。</p>
+<p>效果是这样的:</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-04 上午11.15.20.png" alt="屏幕快照 2017-05-04 上午11.15.20"></p>
+<p>底层那张怎么为什么那么大？</p>
+<p>我是这样理解的，一开始的时候，有一个边框，大小就是第一个 item 的默认大小，当我们加入第二个 item 时，容器就被扩充了，所以之前的 item 跟着变大了，可以参考下图</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/huaji.jpg" alt="huaji"></p>
+<p>但是当我们给第一个 item 设置一个 <em>gravity</em> 属性的时候，比如 <code>android:gravity=&quot;center&quot;</code>,<br>就会变成这样</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-04 上午11.33.28.png" alt="屏幕快照 2017-05-04 上午11.33.28"></p>
+<p>根据上面的框图，这也不难理解，由于有了方向，所以 item 1 就没有再占满边框，而是变成了默认大小。</p>
+<p>最后有一个比较有意思地方，当给 item 都设置 tileMode 属性的时候，结果可能和你想的不一样哦。</p>
+<p>–</p>
+<p>最后附上滑稽的 png 资源</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/huaji.png" alt="huaji"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;layer-list&quot;&gt;&lt;a href=&quot;#layer-list&quot; class=&quot;headerlink&quot; title=&quot;layer-list&quot;&gt;&lt;/a&gt;layer-list&lt;/h3&gt;&lt;p&gt;类似于 FrameLayout，将列表中的 item 叠加在一块，最后的 i
+    
+    </summary>
+    
+      <category term="安卓" scheme="http://yoursite.com/categories/%E5%AE%89%E5%8D%93/"/>
+    
+    
+      <category term="Android" scheme="http://yoursite.com/tags/Android/"/>
+    
+  </entry>
+  
+  <entry>
     <title>关于 Drawable（一）</title>
     <link href="http://yoursite.com/2017/05/03/%E5%85%B3%E4%BA%8E-Drawable%EF%BC%88%E4%B8%80%EF%BC%89/"/>
     <id>http://yoursite.com/2017/05/03/关于-Drawable（一）/</id>
     <published>2017-05-03T08:50:49.000Z</published>
-    <updated>2017-05-04T02:39:51.000Z</updated>
+    <updated>2017-05-04T02:49:08.000Z</updated>
     
     <content type="html"><![CDATA[<p>这里的 Drawable 指的是 Android 项目中 res/drawable 下的资源。</p>
 <p>例如: </p>
@@ -61,17 +100,32 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
 <p>下面的几张图片中， 1 是原图，2 和 3 都是用的同一个<a href="https://en.wikipedia.org/wiki/Web_colors#Web-safe_colors" target="_blank" rel="external">调色板</a>，但是 3 用了<a href="https://en.wikipedia.org/wiki/Floyd%E2%80%93Steinberg_dithering" target="_blank" rel="external">位图抖动算法</a>，看上去更加的平滑。</p>
 <p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-03 下午8.06.48.png" alt="屏幕快照 2017-05-03 下午8.06.48"></p>
 <ul>
-<li><code>filter</code> 当图片进行了压缩或者拉伸时，使用该属性可以使得图片的外观更加的平滑。</li>
-<li><code>gravity</code> 这个很理解，和普通的控件中也有，该属性对应的值有点 <code>left</code>、<code>top</code> 、<code>right</code> 之类的，用来设置图片在控件中的位置或者说是对齐方式。</li>
-<li><code>tileMode</code> tile 是瓷砖，瓦片的意思。该属性用来设置图片的平铺方式，有四种不同的值：<ul>
-<li><code>disable</code> 默认值，无平铺方式</li>
-<li><code>repeat</code> 重复的铺满，如下图<br><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-03 下午4.37.48.png" alt="屏幕快照 2017-05-03 下午4.37.48"></li>
-<li><code>mirror</code> 镜像的方式，如下图<br><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-03 下午4.37.57.png" alt="屏幕快照 2017-05-03 下午4.37.57"></li>
-<li><code>clamp</code> 效果如下图，其实拉伸的是图片最边缘的那个像素点上的值。<br><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-03 下午4.38.09.png" alt="屏幕快照 2017-05-03 下午4.38.09"></li>
+<li><p><code>filter</code> 当图片进行了压缩或者拉伸时，使用该属性可以使得图片的外观更加的平滑。</p>
+</li>
+<li><p><code>gravity</code> 这个很理解，和普通的控件中也有，该属性对应的值有点 <code>left</code>、<code>top</code> 、<code>right</code> 之类的，用来设置图片在控件中的位置或者说是对齐方式。</p>
+</li>
+<li><p><code>tileMode</code> tile 是瓷砖，瓦片的意思。该属性用来设置图片的平铺方式，有四种不同的值：</p>
+<ul>
+<li><p><code>disable</code> 默认值，无平铺方式</p>
+</li>
+<li><p><code>repeat</code> 重复的铺满，如下图</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-03 下午4.37.48.png" alt="屏幕快照 2017-05-03 下午4.37.48"></p>
+</li>
+<li><p><code>mirror</code> 镜像的方式，如下图</p>
+</li>
 </ul>
 </li>
-<li><code>mipMap</code> 这个属性有点邪乎，可以参考<a href="https://developer.android.google.cn/reference/android/graphics/Bitmap.html#setHasMipMap(boolean" target="_blank" rel="external">里面</a>)，大致意思应该是，当你要绘制的 bitmap 小于 50% 原图的时候，开启该属性可以提供更高质量的画质。（但是使用该属性，需要额外的内存开销，并且是 Android 4.2 及以上才能用，而且！用了不一定真的有用哦，它只是给渲染器的一个建议）</li>
-<li><code>tileMoteX</code> 和<code>tileMoteY</code> 都是 Android 5.0 及之后才有的属性，和 <code>tileMote</code> 的性质一样，只是多了方向上的区别。</li>
+</ul>
+<p>   <img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-03 下午4.37.57.png" alt="屏幕快照 2017-05-03 下午4.37.57"></p>
+<ul>
+<li><code>clamp</code> 效果如下图，其实拉伸的是图片最边缘的那个像素点上的值。</li>
+</ul>
+<pre><code>![屏幕快照 2017-05-03 下午4.38.09](http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-03 下午4.38.09.png)
+</code></pre><ul>
+<li><p><code>mipMap</code> 这个属性有点邪乎，可以参考<a href="https://developer.android.google.cn/reference/android/graphics/Bitmap.html#setHasMipMap(boolean" target="_blank" rel="external">里面</a>)，大致意思应该是，当你要绘制的 bitmap 小于 50% 原图的时候，开启该属性可以提供更高质量的画质。（但是使用该属性，需要额外的内存开销，并且是 Android 4.2 及以上才能用，而且！用了不一定真的有用哦，它只是给渲染器的一个建议）</p>
+</li>
+<li><p><code>tileMoteX</code> 和<code>tileMoteY</code> 都是 Android 5.0 及之后才有的属性，和 <code>tileMote</code> 的性质一样，只是多了方向上的区别。</p>
+</li>
 <li><p><code>tintMode</code> 也是 Android 5.0 及之后才有的，这个属性是配合 <code>tint</code> 来一起使用的。</p>
 <p>  <img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-03 下午8.37.25.png" alt="屏幕快照 2017-05-03 下午8.37.25"></p>
 </li>
@@ -1186,115 +1240,6 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
       <category term="Effectice" scheme="http://yoursite.com/tags/Effectice/"/>
     
       <category term="思想" scheme="http://yoursite.com/tags/%E6%80%9D%E6%83%B3/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>深入理解 Java 虚拟机(内存篇)</title>
-    <link href="http://yoursite.com/2017/04/03/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B9%8B%20%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%20Java%20%E8%99%9A%E6%8B%9F%E6%9C%BA%E2%80%94%E2%80%94%E5%86%85%E5%AD%98%E7%AF%87/"/>
-    <id>http://yoursite.com/2017/04/03/读书笔记之 深入理解 Java 虚拟机——内存篇/</id>
-    <published>2017-04-03T09:39:37.000Z</published>
-    <updated>2017-04-13T12:16:51.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Java-内存区域"><a href="#Java-内存区域" class="headerlink" title="Java 内存区域"></a>Java 内存区域</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>对于 C 和 C++ 程序员来说，他们即拥有每一个对象的“所有权”，同时也担负每一个对象生命周期的维护责任。</p>
-<p>而 Java 程序员则是在虚拟机自动内存管理机制的帮助下，不用操心对象内存的释放。但是也正由于这个帮助，一旦程序出现内存泄漏和溢出问题的时候，由于不够了解虚拟机运行机制，而对问题无从下手。<br><a id="more"></a></p>
-<h3 id="运行时数据区域"><a href="#运行时数据区域" class="headerlink" title="运行时数据区域"></a>运行时数据区域</h3><p><img src="http://on9hzfn6s.bkt.clouddn.com/Runtime.jpg" alt=""></p>
-<p>上图是 Java 虚拟机运行时数据区的结构图</p>
-<h4 id="PC-Register"><a href="#PC-Register" class="headerlink" title="PC Register"></a>PC Register</h4><p>当一个 Java 线程启动的时候，就会产生一个程序计数器( Program Counter Register ),它是一块较小的内存空间。</p>
-<p>当线程正在执行的是一个 Java方法的时候，它记录的是正在执行的虚拟机字节码指令的地址，如果执行的是 Native 方法，就为空。</p>
-<p>该区域是唯一个在 Java 虚拟机中不存在 OOM 的区域。</p>
-<h4 id="JVM-Stack"><a href="#JVM-Stack" class="headerlink" title="JVM Stack"></a>JVM Stack</h4><p>与 PC Register 一样，JVM Stack 也是线程私有的。</p>
-<p>其描述的是 Java 方法的内存模型。</p>
-<p>在方法执行的同时会创建一个栈帧( Stack Frame ) ,用于存储局部变量表，操作数栈等信息。（之后会详说）</p>
-<h4 id="Native-Stack"><a href="#Native-Stack" class="headerlink" title="Native Stack"></a>Native Stack</h4><p>与 JVM Stack 非常相似，只不过一个是关于 Java 方法的，一个是关于 Native 方法的。</p>
-<h4 id="Heap"><a href="#Heap" class="headerlink" title="Heap"></a>Heap</h4><p>对许多应用来说， Java Heap 是 JVM 所管理的内存中最大的一块。其资源也是被所有线程所共享的。</p>
-<p>该区域的唯一目的就是存放内存对象实例。它也是垃圾收集器主要管理的区域。(也有称其为“ GC 堆”)</p>
-<h4 id="Method-Area"><a href="#Method-Area" class="headerlink" title="Method Area"></a>Method Area</h4><p>也是被线程共享的区域，主要用来存储已被虚拟机加载过的类的信息，常量，静态变量等。</p>
-<p>JVM 规范中称它为 Heap 的一个逻辑部分。但它还有一个别名叫做 Non-Heap。</p>
-<p>也有部分 HotSpot 虚拟机开发者称其为 Permanent Generation（永久代），因为 HotSpot 虚拟机的设计团队将 GC 分代收集机制应用于方法区，将它看做是永久代处理。</p>
-<h4 id="Runtime-Constant-Pool"><a href="#Runtime-Constant-Pool" class="headerlink" title="Runtime Constant Pool"></a>Runtime Constant Pool</h4><p>运行时常量池是方法区的一部分，用于存放编译期生成的各种字面量和符号用引用。</p>
-<h4 id="Direct-Memory"><a href="#Direct-Memory" class="headerlink" title="Direct Memory"></a>Direct Memory</h4><p>直接内存虽然不是 JVM 运行时数据区的一部分，但是却被频繁使用。</p>
-<p>在 JDK 1.4 中新加入了 NIO（New Input/Output）类，引入了一种基于 Channel 与 Buffer 的 I/O 方式，它可以使用 Native 直接分配堆外内存，然后用 Java Heap 中的 DirectByteBuffer 对象作为内存引用进行操作。避免在 Java Heap 和 Native Heap 来回复制数据，提高了不少性能。</p>
-<h3 id="HotSpot-虚拟机对象"><a href="#HotSpot-虚拟机对象" class="headerlink" title="HotSpot 虚拟机对象"></a><a href="https://zh.wikipedia.org/wiki/HotSpot" target="_blank" rel="external">HotSpot</a> 虚拟机对象</h3><h4 id="对象的创建"><a href="#对象的创建" class="headerlink" title="对象的创建"></a>对象的创建</h4><p>当遇到一条 New 指令的时候，检查该类是否已经被加载解析，初始化。如果没有先执行类的加载过程，关于类的加载之后再详说。</p>
-<p>加载检查之后就是分配内存空间。</p>
-<p>关于内存的分配根据收集器算法的不同而采用不同的分配方式：</p>
-<ul>
-<li>例如 Serial 和 ParNew 等带 Compact 过程的的收集器使用的分配算法是指针碰撞。（因为采用压缩算法，内存相对是平整的）</li>
-<li>使用 CMS 这种基于 Mark-Sweep 算法的收集器采用的是空间列表。（因为标记清除容易产生内存碎片化，需要用列表来记录可用内存指针的位置）</li>
-</ul>
-<p>考虑到并发情况下操作内存指针的安全性问题，对分配内存又进行了同步处理：</p>
-<ul>
-<li>采用 <a href="http://www.searchsoa.com.cn/showcontent_69238.htm" target="_blank" rel="external">CAS</a> 配上失败重试的方式保证更新操作的原子性。</li>
-<li>一开始就给不同线程分配一块叫做<em>本地线程分配缓冲</em>（Thread Local Allocatiuon Buffer,TLAB）的区域当做缓存，只有当它用完了，重新分配的时候才需要同步锁定。</li>
-</ul>
-<h4 id="对象的内存布局"><a href="#对象的内存布局" class="headerlink" title="对象的内存布局"></a>对象的内存布局</h4><p>对象布局主要由三个部分组成：</p>
-<h5 id="Header"><a href="#Header" class="headerlink" title="Header"></a>Header</h5><p>对象头主要由两个部分组成：</p>
-<ol>
-<li><p>第一部分 官方称之为 Mack Word ，主要存储哈希码，GC 分代年龄，锁状态的标志等信息。<br><img src="http://on9hzfn6s.bkt.clouddn.com/ObejctHeader.jpg" alt=""></p>
-</li>
-<li><p>第二分就是存储类型指针了。也就是指向对象的类元数据指针。</p>
-</li>
-</ol>
-<h5 id="Insatance-Data"><a href="#Insatance-Data" class="headerlink" title="Insatance Data"></a>Insatance Data</h5><p>该部分存储的是对象真正的有效信息，存储的是代码中定义的各种类型的字段。不论是父类继承，还是子类定义的信息都会被记录。</p>
-<h5 id="Padding"><a href="#Padding" class="headerlink" title="Padding"></a>Padding</h5><p>由于虚拟机的管理机制要求，对象的起始地址必须是 8 个字节的整数倍，所以该部分就是用来填补空缺的。</p>
-<h4 id="对象的访问定位"><a href="#对象的访问定位" class="headerlink" title="对象的访问定位"></a>对象的访问定位</h4><p>关于对象的访问，许多人都知道，是通过在 Stack 上的一个 reference 数据来操作 Heap 上的具体对象，但是是通过什么方式访问却没有指定。</p>
-<p>目前主流的有两种方式，<strong>句柄</strong> 和 <strong>直接指针</strong>。</p>
-<ul>
-<li><a href="https://zh.wikipedia.org/wiki/%E5%8F%A5%E6%9F%84" target="_blank" rel="external"><em>句柄</em></a><br><img src="http://on9hzfn6s.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-04-03%20%E4%B8%8B%E5%8D%885.01.54.png" alt=""></li>
-</ul>
-<p>上图已经表示的非常清楚了，使用该方式的访问，Java Heap 中会划分出一个句柄池，优点很明显，当对象改变时，Java Stack 中的 reference 是不改变的。移动的是句柄中的实例数据指针。</p>
-<ul>
-<li><em>直接指针</em><br><img src="http://on9hzfn6s.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-04-03%20%E4%B8%8B%E5%8D%885.02.07.png" alt=""></li>
-</ul>
-<p>很明显 reference 直接指向对象实例数据，优势就是速度更快。（ HotSpot 使用这种方式）</p>
-<h2 id="Java-垃圾收集器"><a href="#Java-垃圾收集器" class="headerlink" title="Java 垃圾收集器"></a>Java 垃圾收集器</h2><h3 id="关于对象存活的判断"><a href="#关于对象存活的判断" class="headerlink" title="关于对象存活的判断"></a>关于对象存活的判断</h3><h4 id="引用计数算法"><a href="#引用计数算法" class="headerlink" title="引用计数算法"></a>引用计数算法</h4><p>给对象添加一个引用计数器，被引用加 1 ，引用失效减 1 。为 0 就说明不再被使用。</p>
-<p>该算法的优势很明显：实现简单，判定效率也很高。</p>
-<p>但是缺点也明显：很难解决对象之间相互循环引用的问题。这也是 JVM 没有选用该算法的最主要原因。</p>
-<h4 id="可达性分析算法"><a href="#可达性分析算法" class="headerlink" title="可达性分析算法"></a>可达性分析算法</h4><p>通过一系列被称为 GC Root 的对象作为起点，从这些节点向下搜索，没有被搜索到的对象都被当做垃圾。</p>
-<p>可以被当成是 GC Root 对象的，在 Java 中有：</p>
-<ul>
-<li>JVM Stack 中引用的对象。</li>
-<li>方法区中常量引用的对象。</li>
-<li>本地方法栈中 Native 方法引用的对象。</li>
-</ul>
-<h3 id="垃圾收集算法"><a href="#垃圾收集算法" class="headerlink" title="垃圾收集算法"></a>垃圾收集算法</h3><h4 id="标记-清除算法"><a href="#标记-清除算法" class="headerlink" title="标记-清除算法"></a>标记-清除算法</h4><p><img src="http://on9hzfn6s.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-04-03%20%E4%B8%8B%E5%8D%885.31.55.png" alt=""></p>
-<p>先标记无用对象，在清除。是最基础算法，之后的算法都是根据它来改进。</p>
-<p>不足有两点：</p>
-<ol>
-<li>标记和清除的效率都不高。</li>
-<li>清除之后会导致内存的碎片化。</li>
-</ol>
-<h4 id="复制算法"><a href="#复制算法" class="headerlink" title="复制算法"></a>复制算法</h4><p><img src="http://on9hzfn6s.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-04-03%20%E4%B8%8B%E5%8D%885.32.09.png" alt=""></p>
-<p>将内存一分为二，每次用其中一块。当一块内存用完的时候，就将存活的对象复制到另一块新的空的内存中，然后这边一次性全部清空就好了。简单高效。</p>
-<p>缺点很明显，就是只有一半的内存能用。</p>
-<h4 id="标记-整理算法"><a href="#标记-整理算法" class="headerlink" title="标记-整理算法"></a>标记-整理算法</h4><p><img src="http://on9hzfn6s.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-04-03%20%E4%B8%8B%E5%8D%885.32.25.png" alt=""></p>
-<p>可以说是前两种算法的综合，标记阶段和“<em>标记-清除</em>”算法一样，清除阶段先是将存活对象移到一边，然后直接清除没被引用对象。</p>
-<p>解决了碎片化和清除效率低的问题。</p>
-<h4 id="分代收集算法"><a href="#分代收集算法" class="headerlink" title="分代收集算法"></a>分代收集算法</h4><p>当前主流算法，是前面几种算法的综合。</p>
-<p>根据对象存活的周期(每 GC 一次算一个周期)，将内存分为新生代和老年代。</p>
-<p>在新生代由于对象一般都是朝生夕死，而且占用内存量相对小，所以使用复制算法。</p>
-<p>老年代存活率高，使用”<em>标记-清理</em>”或者“<em>标记-整理</em>”算法。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Java-内存区域&quot;&gt;&lt;a href=&quot;#Java-内存区域&quot; class=&quot;headerlink&quot; title=&quot;Java 内存区域&quot;&gt;&lt;/a&gt;Java 内存区域&lt;/h2&gt;&lt;h3 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h3&gt;&lt;p&gt;对于 C 和 C++ 程序员来说，他们即拥有每一个对象的“所有权”，同时也担负每一个对象生命周期的维护责任。&lt;/p&gt;
-&lt;p&gt;而 Java 程序员则是在虚拟机自动内存管理机制的帮助下，不用操心对象内存的释放。但是也正由于这个帮助，一旦程序出现内存泄漏和溢出问题的时候，由于不够了解虚拟机运行机制，而对问题无从下手。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="读书笔记" scheme="http://yoursite.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="JVM" scheme="http://yoursite.com/tags/JVM/"/>
-    
-      <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
-    
-      <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="内存" scheme="http://yoursite.com/tags/%E5%86%85%E5%AD%98/"/>
-    
-      <category term="GC" scheme="http://yoursite.com/tags/GC/"/>
     
   </entry>
   
