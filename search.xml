@@ -4,9 +4,9 @@
   
     
     <entry>
-      <title><![CDATA[py基础]]></title>
+      <title><![CDATA[Python 基础]]></title>
       <url>http://yoursite.com/2017/05/04/py%E5%9F%BA%E7%A1%80/</url>
-      <content type="html"><![CDATA[<h3 id="格式"><a href="#格式" class="headerlink" title="格式"></a>格式</h3><p>注释行用 <code>#</code> 开头表示。</p>
+      <content type="html"><![CDATA[<h3 id="格式"><a href="#格式" class="headerlink" title="格式"></a>格式</h3><p>注释用 <code>#</code> 开头表示。</p>
 <p>语法采用缩进的方式，虽然没有规定是几个空格，但是一般都是 4 个。 </p>
 <p>大小写敏感。</p>
 <p>通常我们在开头这么写：</p>
@@ -75,14 +75,14 @@
       
         <categories>
             
-            <category> python </category>
+            <category> Python </category>
             
         </categories>
         
         
         <tags>
             
-            <tag> python </tag>
+            <tag> Python </tag>
             
         </tags>
         

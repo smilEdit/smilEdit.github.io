@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-05-04T09:00:05.000Z</updated>
+  <updated>2017-05-04T09:04:51.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,13 +16,13 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>py基础</title>
+    <title>Python 基础</title>
     <link href="http://yoursite.com/2017/05/04/py%E5%9F%BA%E7%A1%80/"/>
     <id>http://yoursite.com/2017/05/04/py基础/</id>
     <published>2017-05-04T06:52:57.000Z</published>
-    <updated>2017-05-04T09:00:05.000Z</updated>
+    <updated>2017-05-04T09:04:51.000Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="格式"><a href="#格式" class="headerlink" title="格式"></a>格式</h3><p>注释行用 <code>#</code> 开头表示。</p>
+    <content type="html"><![CDATA[<h3 id="格式"><a href="#格式" class="headerlink" title="格式"></a>格式</h3><p>注释用 <code>#</code> 开头表示。</p>
 <p>语法采用缩进的方式，虽然没有规定是几个空格，但是一般都是 4 个。 </p>
 <p>大小写敏感。</p>
 <p>通常我们在开头这么写：</p>
@@ -91,7 +91,7 @@
     
     <summary type="html">
     
-      &lt;h3 id=&quot;格式&quot;&gt;&lt;a href=&quot;#格式&quot; class=&quot;headerlink&quot; title=&quot;格式&quot;&gt;&lt;/a&gt;格式&lt;/h3&gt;&lt;p&gt;注释行用 &lt;code&gt;#&lt;/code&gt; 开头表示。&lt;/p&gt;
+      &lt;h3 id=&quot;格式&quot;&gt;&lt;a href=&quot;#格式&quot; class=&quot;headerlink&quot; title=&quot;格式&quot;&gt;&lt;/a&gt;格式&lt;/h3&gt;&lt;p&gt;注释用 &lt;code&gt;#&lt;/code&gt; 开头表示。&lt;/p&gt;
 &lt;p&gt;语法采用缩进的方式，虽然没有规定是几个空格，但是一般都是 4 个。 &lt;/p&gt;
 &lt;p&gt;大小写敏感。&lt;/p&gt;
 &lt;p&gt;通常我们在开头这么写：&lt;/p&gt;
@@ -99,10 +99,10 @@
     
     </summary>
     
-      <category term="python" scheme="http://yoursite.com/categories/python/"/>
+      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
     
     
-      <category term="python" scheme="http://yoursite.com/tags/python/"/>
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
     
   </entry>
   
