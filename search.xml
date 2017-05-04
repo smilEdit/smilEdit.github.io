@@ -7,6 +7,7 @@
       <title><![CDATA[关于 Drawable（二）]]></title>
       <url>http://yoursite.com/2017/05/04/%E5%85%B3%E4%BA%8E-Drawable%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
       <content type="html"><![CDATA[<h3 id="layer-list"><a href="#layer-list" class="headerlink" title="layer-list"></a>layer-list</h3><p>类似于 FrameLayout，将列表中的 item 叠加在一块，最后的 item 显示在最前面。</p>
+<a id="more"></a>
 <h4 id="item"><a href="#item" class="headerlink" title="item"></a>item</h4><p>layer-list 子项,之后会细说，相当于是一个自定义性很强的图层，可以接受 bitmap 。</p>
 <p><img src="http://on9hzfn6s.bkt.clouddn.com/52eb2279jw1f2rx409pcnj2044048mx5.jpg" alt="52eb2279jw1f2rx409pcnj2044048mx5"></p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">layer-list</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">bitmap</span></span></div><div class="line">            <span class="attr">android:src</span>=<span class="string">"@drawable/huaji"</span>&gt;</div><div class="line">        <span class="tag">&lt;/<span class="name">bitmap</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span></span></div><div class="line">        <span class="attr">android:left</span>=<span class="string">"280dp"</span></div><div class="line">        <span class="attr">android:top</span>=<span class="string">"280dp"</span>&gt;</div><div class="line">        <span class="tag">&lt;<span class="name">bitmap</span></span></div><div class="line">            <span class="attr">android:src</span>=<span class="string">"@drawable/huaji"</span>&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;/<span class="name">bitmap</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span></span></div><div class="line">        <span class="attr">android:right</span>=<span class="string">"280dp"</span></div><div class="line">        <span class="attr">android:top</span>=<span class="string">"280dp"</span>&gt;</div><div class="line">        <span class="tag">&lt;<span class="name">bitmap</span></span></div><div class="line">            <span class="attr">android:src</span>=<span class="string">"@drawable/huaji"</span>&gt;</div><div class="line">        <span class="tag">&lt;/<span class="name">bitmap</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">layer-list</span>&gt;</span></div></pre></td></tr></table></figure>
@@ -1125,9 +1126,9 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
         
         <tags>
             
-            <tag> 高效 </tag>
-            
             <tag> Java </tag>
+            
+            <tag> 高效 </tag>
             
             <tag> Effectice </tag>
             
@@ -1231,9 +1232,9 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
             
             <tag> Java </tag>
             
-            <tag> JVM </tag>
-            
             <tag> 算法 </tag>
+            
+            <tag> JVM </tag>
             
             <tag> 内存 </tag>
             
@@ -1431,11 +1432,11 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
         
         <tags>
             
-            <tag> Java </tag>
-            
             <tag> 设计模式 </tag>
             
             <tag> 策略模式 </tag>
+            
+            <tag> Java </tag>
             
             <tag> UML </tag>
             

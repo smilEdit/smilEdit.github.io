@@ -105,30 +105,21 @@
 
 
 
-<meta name="description" content="layer-list类似于 FrameLayout，将列表中的 item 叠加在一块，最后的 item 显示在最前面。
-itemlayer-list 子项,之后会细说，相当于是一个自定义性很强的图层，可以接受 bitmap 。
-
-1234567891011121314151617181920212223&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&amp;gt;&amp;lt;">
+<meta name="description" content="layer-list类似于 FrameLayout，将列表中的 item 叠加在一块，最后的 item 显示在最前面。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于 Drawable（二）">
 <meta property="og:url" content="http://yoursite.com/2017/05/04/关于-Drawable（二）/index.html">
 <meta property="og:site_name" content="smilEdit's Bolg">
-<meta property="og:description" content="layer-list类似于 FrameLayout，将列表中的 item 叠加在一块，最后的 item 显示在最前面。
-itemlayer-list 子项,之后会细说，相当于是一个自定义性很强的图层，可以接受 bitmap 。
-
-1234567891011121314151617181920212223&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&amp;gt;&amp;lt;">
+<meta property="og:description" content="layer-list类似于 FrameLayout，将列表中的 item 叠加在一块，最后的 item 显示在最前面。">
 <meta property="og:image" content="http://on9hzfn6s.bkt.clouddn.com/52eb2279jw1f2rx409pcnj2044048mx5.jpg">
 <meta property="og:image" content="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-04 上午11.15.20.png">
 <meta property="og:image" content="http://on9hzfn6s.bkt.clouddn.com/huaji.jpg">
 <meta property="og:image" content="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-04 上午11.33.28.png">
 <meta property="og:image" content="http://on9hzfn6s.bkt.clouddn.com/huaji.png">
-<meta property="og:updated_time" content="2017-05-04T03:46:29.000Z">
+<meta property="og:updated_time" content="2017-05-04T03:47:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于 Drawable（二）">
-<meta name="twitter:description" content="layer-list类似于 FrameLayout，将列表中的 item 叠加在一块，最后的 item 显示在最前面。
-itemlayer-list 子项,之后会细说，相当于是一个自定义性很强的图层，可以接受 bitmap 。
-
-1234567891011121314151617181920212223&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&amp;gt;&amp;lt;">
+<meta name="twitter:description" content="layer-list类似于 FrameLayout，将列表中的 item 叠加在一块，最后的 item 显示在最前面。">
 <meta name="twitter:image" content="http://on9hzfn6s.bkt.clouddn.com/52eb2279jw1f2rx409pcnj2044048mx5.jpg">
 
 
@@ -451,6 +442,7 @@ itemlayer-list 子项,之后会细说，相当于是一个自定义性很强的�
 
       
         <h3 id="layer-list"><a href="#layer-list" class="headerlink" title="layer-list"></a>layer-list</h3><p>类似于 FrameLayout，将列表中的 item 叠加在一块，最后的 item 显示在最前面。</p>
+<a id="more"></a>
 <h4 id="item"><a href="#item" class="headerlink" title="item"></a>item</h4><p>layer-list 子项,之后会细说，相当于是一个自定义性很强的图层，可以接受 bitmap 。</p>
 <p><img src="http://on9hzfn6s.bkt.clouddn.com/52eb2279jw1f2rx409pcnj2044048mx5.jpg" alt="52eb2279jw1f2rx409pcnj2044048mx5"></p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">layer-list</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">bitmap</span></span></div><div class="line">            <span class="attr">android:src</span>=<span class="string">"@drawable/huaji"</span>&gt;</div><div class="line">        <span class="tag">&lt;/<span class="name">bitmap</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span></span></div><div class="line">        <span class="attr">android:left</span>=<span class="string">"280dp"</span></div><div class="line">        <span class="attr">android:top</span>=<span class="string">"280dp"</span>&gt;</div><div class="line">        <span class="tag">&lt;<span class="name">bitmap</span></span></div><div class="line">            <span class="attr">android:src</span>=<span class="string">"@drawable/huaji"</span>&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;/<span class="name">bitmap</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span></span></div><div class="line">        <span class="attr">android:right</span>=<span class="string">"280dp"</span></div><div class="line">        <span class="attr">android:top</span>=<span class="string">"280dp"</span>&gt;</div><div class="line">        <span class="tag">&lt;<span class="name">bitmap</span></span></div><div class="line">            <span class="attr">android:src</span>=<span class="string">"@drawable/huaji"</span>&gt;</div><div class="line">        <span class="tag">&lt;/<span class="name">bitmap</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">layer-list</span>&gt;</span></div></pre></td></tr></table></figure>
