@@ -10,16 +10,16 @@
 <p>例如: </p>
 <p>.9 图、 .png 、 .jpg 等位图文件， xml 格式的可绘制对象等等。</p>
 <a id="more"></a>
-<h3 id="位图文件"><a href="#位图文件" class="headerlink" title="位图文件"></a>位图文件</h3><p>关于位图文件，Google 官方首先推荐使用的是 .png ，其次是 .jpg ，不建议使用的 .gif 文件。</p>
+<h3 id="位图文件"><a href="#位图文件" class="headerlink" title="位图文件"></a>位图文件</h3><p>关于位图文件，Google 官方首先推荐使用的是 .png ，其次是 .jpg ，以及不建议使用的 .gif 文件。</p>
 <pre><code>Tip: 当出现如下错误的时候，
 
-`Error:Execution failed for task &apos;:app:mergeDebugResources&apos;.
+Error:Execution failed for task &apos;:app:mergeDebugResources&apos;.
 Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.ProcessException: `
 
-可能是你将 .jpg 格式的图片的后缀改成了 .png 放到 drawable 目录下了。
+可能是你将 .jpg 格式图片的后缀改成了 .png 放到 drawable 目录下了。
 </code></pre><p>另外，drawable 中的文件名称格式有一定的<strong>要求</strong>：</p>
-<p><code>File-based resource names must contain only lowercase a-z, 0-9, or underscore</code></p>
-<p>位图文件的<strong>使用</strong>很简单:</p>
+<pre><code>File-based resource names must contain only lowercase a-z, 0-9, or underscore
+</code></pre><p>位图文件的<strong>使用</strong>很简单:</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ImageView</span></span></div><div class="line">      <span class="attr">android:layout_width</span>=<span class="string">"50dp"</span></div><div class="line">      <span class="attr">android:src</span>=<span class="string">"@drawable/bitmap_test"</span></div><div class="line">      <span class="attr">android:layout_height</span>=<span class="string">"50dp"</span>/&gt;</div></pre></td></tr></table></figure>
 <p>或者用 <code>background</code> 。</p>
 <p>其中 <code>src</code> 和 <code>background</code> 的主要区别是，前者不会根据 <code>ImageView</code> 控件的大小拉伸原图。</p>
@@ -1177,11 +1177,11 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
         
         <tags>
             
+            <tag> JVM </tag>
+            
             <tag> Java </tag>
             
             <tag> 算法 </tag>
-            
-            <tag> JVM </tag>
             
             <tag> 内存 </tag>
             
