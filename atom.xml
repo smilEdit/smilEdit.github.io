@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-05-04T09:04:51.000Z</updated>
+  <updated>2017-05-04T13:53:24.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,86 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python 函数</title>
+    <link href="http://yoursite.com/2017/05/04/Python-%E5%87%BD%E6%95%B0/"/>
+    <id>http://yoursite.com/2017/05/04/Python-函数/</id>
+    <published>2017-05-04T12:20:24.000Z</published>
+    <updated>2017-05-04T13:53:24.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h3><p>Python 函数的一些用法可以直接通过 help(函数名) 查看，例如</p>
+<p><code>&gt;&gt;&gt; help(abs)</code></p>
+<pre><code>abs(...)
+      abs(number) -&gt; number
+      Return the absolute value of the argument.
+</code></pre><a id="more"></a>
+<p>通过 q 键退出查看</p>
+<p>更多 API 可以直接上<a href="https://docs.python.org/2/library/functions.html#map" target="_blank" rel="external">官网</a>查看。</p>
+<h4 id="数学相关"><a href="#数学相关" class="headerlink" title="数学相关"></a>数学相关</h4><p><code>abs()</code> 绝对值</p>
+<p><code>max()</code>、<code>min()</code> 最大值和最小值 参数可以传集合，如果是 <code>dict</code> 就按 <code>key</code> 的值排序，输出的也仅是 <code>key</code> 。</p>
+<p><code>pow()</code> 乘方</p>
+<h4 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h4><p><code>int()</code></p>
+<p><code>long()</code></p>
+<p><code>float()</code></p>
+<p> <code>str()</code></p>
+<p> <code>list()</code></p>
+<p> …</p>
+<h4 id="字符串相关"><a href="#字符串相关" class="headerlink" title="字符串相关"></a>字符串相关</h4><p><code>split()</code> 切割</p>
+<p><code>capitalize()</code> 首字母大写</p>
+<p>···  其实和别的语言都差不多</p>
+<h4 id="序列处理"><a href="#序列处理" class="headerlink" title="序列处理"></a>序列处理</h4><p>这个是否常用不是很清楚，但是比较有意思，许多方法和 JavaScript 中的方法大同小异，不过感觉这个写起来更加的简洁。</p>
+<ul>
+<li><code>filter()</code> 过滤序列</li>
+</ul>
+<p><code>filter(function, iterable)</code> </p>
+<p>例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>filter(<span class="keyword">lambda</span> x:x%<span class="number">2</span>==<span class="number">0</span>, [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>])</div><div class="line">[<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>]</div></pre></td></tr></table></figure>
+<p>直接过滤出偶数。</p>
+<ul>
+<li><code>zip()</code> 并行遍历</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>name = [<span class="string">'z'</span>,<span class="string">'l'</span>,<span class="string">'f'</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>age = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>hehe = [<span class="string">'q'</span>,<span class="string">'w'</span>,<span class="string">'r'</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>zip(name,age,hehe)</div><div class="line">[(<span class="string">'z'</span>, <span class="number">1</span>, <span class="string">'q'</span>), (<span class="string">'l'</span>, <span class="number">2</span>, <span class="string">'w'</span>), (<span class="string">'f'</span>, <span class="number">3</span>, <span class="string">'r'</span>)]</div></pre></td></tr></table></figure>
+<p>当集合长度不一样的时候，取最短的。如果是 <code>dict</code> 就只用 <code>key</code> 。</p>
+<ul>
+<li><code>map()</code> 并行遍历 </li>
+</ul>
+<p>有点像是上面两个函数的结合。</p>
+<p>接收至少两个参数，第一个是函数，后面是集合。<strong>该函数是针对集合的单个元素。</strong>第一个函数可以直接是 None ，其效果就和 <code>zip()</code> 相同。</p>
+<ul>
+<li><code>reduce()</code> 归并</li>
+</ul>
+<p>和上一个方法类似，但是它的<strong>函数是按顺序叠加生效</strong>的：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>listtt = range(<span class="number">101</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>reduce(<span class="keyword">lambda</span> x,y:x+y,listtt)</div><div class="line"><span class="number">5050</span></div></pre></td></tr></table></figure>
+<p>方法中必须是两个参数，否则会报错：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>reduce(<span class="keyword">lambda</span> x,y,z:x+y+z,listtt)</div><div class="line">Traceback (most recent call last):</div><div class="line">  File <span class="string">"&lt;stdin&gt;"</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</div><div class="line">TypeError: &lt;<span class="keyword">lambda</span>&gt;() takes exactly <span class="number">3</span> arguments (<span class="number">2</span> given)</div></pre></td></tr></table></figure>
+<p>（上面的 stind 是 standard input 的缩写）</p>
+<h3 id="定义函数"><a href="#定义函数" class="headerlink" title="定义函数"></a>定义函数</h3><p>Python 定义函数用 <code>def</code> 语句：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#!/usr/bin/env python</div><div class="line"># -*- coding: utf-8 -*-</div><div class="line">def func(x):</div><div class="line">    if x&gt;17:</div><div class="line">        print(&apos;成年了&apos;)</div><div class="line">    else:</div><div class="line">        print(&apos;小屁孩&apos;)</div><div class="line">func(19)</div></pre></td></tr></table></figure>
+<p>注意冒号和缩进就行。</p>
+<h4 id="空函数"><a href="#空函数" class="headerlink" title="空函数"></a>空函数</h4><p>一个什么也不想做的空函数，可以用 <code>pass</code> 函数。</p>
+<h4 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h4><p>一个或者多个都行，其实多个也是一个（元组）。</p>
+<h4 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h4><p>很酷</p>
+<h5 id="默认参数"><a href="#默认参数" class="headerlink" title="默认参数"></a>默认参数</h5><h5 id="关键字参数"><a href="#关键字参数" class="headerlink" title="关键字参数"></a>关键字参数</h5><p><em>未完待续…</em></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;常用函数&quot;&gt;&lt;a href=&quot;#常用函数&quot; class=&quot;headerlink&quot; title=&quot;常用函数&quot;&gt;&lt;/a&gt;常用函数&lt;/h3&gt;&lt;p&gt;Python 函数的一些用法可以直接通过 help(函数名) 查看，例如&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; help(abs)&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;abs(...)
+      abs(number) -&amp;gt; number
+      Return the absolute value of the argument.
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+  </entry>
   
   <entry>
     <title>Python 基础</title>
@@ -1140,99 +1220,6 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
       <category term="网络" scheme="http://yoursite.com/tags/%E7%BD%91%E7%BB%9C/"/>
     
       <category term="传输" scheme="http://yoursite.com/tags/%E4%BC%A0%E8%BE%93/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>深入理解 Java 虚拟机(结构篇)</title>
-    <link href="http://yoursite.com/2017/04/10/JVM%20%E7%BB%93%E6%9E%84%E7%AF%87/"/>
-    <id>http://yoursite.com/2017/04/10/JVM 结构篇/</id>
-    <published>2017-04-10T06:37:50.000Z</published>
-    <updated>2017-04-13T12:16:35.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Class-类文件的结构"><a href="#Class-类文件的结构" class="headerlink" title="Class 类文件的结构"></a>Class 类文件的结构</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>是一组以 8 位字节为基础单位的二进制流。</p>
-<p>其格式是一种类似于 C 语言结构体的伪结构，由两种数据类型组成。</p>
-<ol>
-<li>无符号数: 基本数据类型，数字、索引引用、数量值等等。</li>
-<li>表: 由多个无符号数或者其他表组成，以 _info 结尾。</li>
-</ol>
-<p>整个 Class 文件本质上就是一张表。</p>
-<p>Class 结构的了解对进一步理解虚拟机执行引擎很重要。<br><a id="more"></a></p>
-<h3 id="魔数与-Class-文件版本"><a href="#魔数与-Class-文件版本" class="headerlink" title="魔数与 Class 文件版本"></a>魔数与 Class 文件版本</h3><p>每个 Class 文件的头 4 个字节被称为魔数( Magic Number )。</p>
-<p>作用是确定这个文件是否能被虚拟机接受，例如 Gif，jpeg 之类的文件也存在魔数。因为通过后缀来判断不够安全。</p>
-<p>Class 文件的魔数值为: OxCAFEBABE (其魔数值某种程度上也是决定了 Java 未来的图标是咖啡 ^ v ^ )</p>
-<p>第 5、6、7、8 个字节分别是次版本号和主版本号。</p>
-<h3 id="常量池"><a href="#常量池" class="headerlink" title="常量池"></a>常量池</h3><p>Class 文件的资源仓库。</p>
-<p>常量池入口放置一个 u2 类型的数据，用于统计池中数量。</p>
-<p>( u1，u2，u4，u8 分别代表 1、2、4、8 个字节的无符号数)</p>
-<p>池中主要存放两种类型的常量：</p>
-<ol>
-<li>字面量: 像 Java 中的 String，final 修饰的常量。</li>
-<li>符号引用: 类、接口、字段、方法、名称描述。JVM</li>
-</ol>
-<p>JDK 1.7 中有 14 中常量类型，每一项都是一个表。</p>
-<h3 id="访问标志"><a href="#访问标志" class="headerlink" title="访问标志"></a>访问标志</h3><p>是否为 <code>public</code> ，<code>final</code> 是类还是接口，是否抽象，是不是枚举等等。</p>
-<h3 id="类索引、父类索引、接口索引集合"><a href="#类索引、父类索引、接口索引集合" class="headerlink" title="类索引、父类索引、接口索引集合"></a>类索引、父类索引、接口索引集合</h3><h3 id="字段表集合"><a href="#字段表集合" class="headerlink" title="字段表集合"></a>字段表集合</h3><p>用来描述类或接口中声明的变量，不包括局部变量。</p>
-<p>字段作用域、是实例变量还是类变量、是否被 <code>final</code> 修饰等等。</p>
-<h3 id="方法表集合"><a href="#方法表集合" class="headerlink" title="方法表集合"></a>方法表集合</h3><p>描述方法，类似于字段的形式。</p>
-<h3 id="属性表集合"><a href="#属性表集合" class="headerlink" title="属性表集合"></a>属性表集合</h3><p>在字段表集合和属性表集合中都存在，用来描述某些场景的专有信息。</p>
-<h2 id="字节码指令"><a href="#字节码指令" class="headerlink" title="字节码指令"></a>字节码指令</h2><h3 id="概述-1"><a href="#概述-1" class="headerlink" title="概述"></a>概述</h3><p>JVM 的指令由一个字节长度的特定数字( Opcode )和数字后面带的参数（ Operands )构成。</p>
-<h3 id="字节码与数据类型"><a href="#字节码与数据类型" class="headerlink" title="字节码与数据类型"></a>字节码与数据类型</h3><p>在 Class 文件中对于不同的数据类型，采用不同的 Opcode 。</p>
-<p>例如:</p>
-<ul>
-<li><code>iload</code> 用来操作 int 类型</li>
-<li><code>fload</code> 用来操作 float 类型</li>
-</ul>
-<p>但是由于 JVM 中 Opcode 的长度是有限制的，只有 1 个字节，所以为每个数据类型都设计相应的 Opcode 是不现实的。</p>
-<p>于是使用一些单独的指令，将不支持类型操作的，转换成支持的。</p>
-<h3 id="加载和存储指令"><a href="#加载和存储指令" class="headerlink" title="加载和存储指令"></a>加载和存储指令</h3><p>栈帧中的局部变量表和操作数栈之间数据的相互传输。</p>
-<h3 id="运算指令"><a href="#运算指令" class="headerlink" title="运算指令"></a>运算指令</h3><p>也是针对不同的类型，有着不同的 Opcode，例如:</p>
-<ul>
-<li>加法: <code>iadd</code>、<code>ladd</code>、<code>fadd</code>、<code>dadd</code></li>
-<li>减法: <code>isub</code>、<code>lsub</code>、<code>fsub</code>、<code>dsub</code></li>
-<li>按位与指令: <code>ior</code>、<code>lor</code></li>
-</ul>
-<p>可以看出首字母就是数据类型。</p>
-<h3 id="类型转换指令"><a href="#类型转换指令" class="headerlink" title="类型转换指令"></a>类型转换指令</h3><p>例如: <code>i2b</code> <code>i2c</code> <code>i2s</code> 等等</p>
-<h3 id="对象创建与访问指令"><a href="#对象创建与访问指令" class="headerlink" title="对象创建与访问指令"></a>对象创建与访问指令</h3><p>实例和数组采用不同的字节码指令。</p>
-<h3 id="操作数栈管理指令"><a href="#操作数栈管理指令" class="headerlink" title="操作数栈管理指令"></a>操作数栈管理指令</h3><p>例如:</p>
-<ul>
-<li>将操作数栈的栈顶一个或两个元素出栈: <code>pop</code>、<code>pop2</code>。</li>
-<li>将栈最顶端的两个数值互换: <code>swap</code>。</li>
-</ul>
-<h3 id="控制转移指令"><a href="#控制转移指令" class="headerlink" title="控制转移指令"></a>控制转移指令</h3><p>可以让指令不按顺序执行程序，本质上来说就是修改 PC Register 的值。</p>
-<p>Java 中的保留字 <code>goto</code> 就是无条件分支中的控制转移指令。</p>
-<h3 id="方法调用和返回指令"><a href="#方法调用和返回指令" class="headerlink" title="方法调用和返回指令"></a>方法调用和返回指令</h3><p>例如:</p>
-<ul>
-<li><code>invokestatic</code> 用于调用类方法</li>
-<li><code>invokeinterface</code> 用于调用接口方法</li>
-</ul>
-<h3 id="异常处理指令"><a href="#异常处理指令" class="headerlink" title="异常处理指令"></a>异常处理指令</h3><p>JVM 中，处理 <code>catch</code> 语句不是由字节码指令来实现，是采用异常表来实现的。</p>
-<h3 id="同步指令"><a href="#同步指令" class="headerlink" title="同步指令"></a>同步指令</h3><p>方法级的同步和方法内部的同步都是使用 Monitor 来支持的。</p>
-<p>方法中调用过的每条 <code>monitorenter</code> 指令都必须执行对应的 <code>monitorexit</code> 指令。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Class-类文件的结构&quot;&gt;&lt;a href=&quot;#Class-类文件的结构&quot; class=&quot;headerlink&quot; title=&quot;Class 类文件的结构&quot;&gt;&lt;/a&gt;Class 类文件的结构&lt;/h2&gt;&lt;h3 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h3&gt;&lt;p&gt;是一组以 8 位字节为基础单位的二进制流。&lt;/p&gt;
-&lt;p&gt;其格式是一种类似于 C 语言结构体的伪结构，由两种数据类型组成。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;无符号数: 基本数据类型，数字、索引引用、数量值等等。&lt;/li&gt;
-&lt;li&gt;表: 由多个无符号数或者其他表组成，以 _info 结尾。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;整个 Class 文件本质上就是一张表。&lt;/p&gt;
-&lt;p&gt;Class 结构的了解对进一步理解虚拟机执行引擎很重要。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="读书笔记" scheme="http://yoursite.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="Java 虚拟机" scheme="http://yoursite.com/tags/Java-%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
-    
-      <category term="Class 结构" scheme="http://yoursite.com/tags/Class-%E7%BB%93%E6%9E%84/"/>
-    
-      <category term="JVM" scheme="http://yoursite.com/tags/JVM/"/>
     
   </entry>
   

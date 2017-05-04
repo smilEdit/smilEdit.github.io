@@ -4,6 +4,79 @@
   
     
     <entry>
+      <title><![CDATA[Python 函数]]></title>
+      <url>http://yoursite.com/2017/05/04/Python-%E5%87%BD%E6%95%B0/</url>
+      <content type="html"><![CDATA[<h3 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h3><p>Python 函数的一些用法可以直接通过 help(函数名) 查看，例如</p>
+<p><code>&gt;&gt;&gt; help(abs)</code></p>
+<pre><code>abs(...)
+      abs(number) -&gt; number
+      Return the absolute value of the argument.
+</code></pre><a id="more"></a>
+<p>通过 q 键退出查看</p>
+<p>更多 API 可以直接上<a href="https://docs.python.org/2/library/functions.html#map" target="_blank" rel="external">官网</a>查看。</p>
+<h4 id="数学相关"><a href="#数学相关" class="headerlink" title="数学相关"></a>数学相关</h4><p><code>abs()</code> 绝对值</p>
+<p><code>max()</code>、<code>min()</code> 最大值和最小值 参数可以传集合，如果是 <code>dict</code> 就按 <code>key</code> 的值排序，输出的也仅是 <code>key</code> 。</p>
+<p><code>pow()</code> 乘方</p>
+<h4 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h4><p><code>int()</code></p>
+<p><code>long()</code></p>
+<p><code>float()</code></p>
+<p> <code>str()</code></p>
+<p> <code>list()</code></p>
+<p> …</p>
+<h4 id="字符串相关"><a href="#字符串相关" class="headerlink" title="字符串相关"></a>字符串相关</h4><p><code>split()</code> 切割</p>
+<p><code>capitalize()</code> 首字母大写</p>
+<p>···  其实和别的语言都差不多</p>
+<h4 id="序列处理"><a href="#序列处理" class="headerlink" title="序列处理"></a>序列处理</h4><p>这个是否常用不是很清楚，但是比较有意思，许多方法和 JavaScript 中的方法大同小异，不过感觉这个写起来更加的简洁。</p>
+<ul>
+<li><code>filter()</code> 过滤序列</li>
+</ul>
+<p><code>filter(function, iterable)</code> </p>
+<p>例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>filter(<span class="keyword">lambda</span> x:x%<span class="number">2</span>==<span class="number">0</span>, [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>])</div><div class="line">[<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>]</div></pre></td></tr></table></figure>
+<p>直接过滤出偶数。</p>
+<ul>
+<li><code>zip()</code> 并行遍历</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>name = [<span class="string">'z'</span>,<span class="string">'l'</span>,<span class="string">'f'</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>age = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>hehe = [<span class="string">'q'</span>,<span class="string">'w'</span>,<span class="string">'r'</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>zip(name,age,hehe)</div><div class="line">[(<span class="string">'z'</span>, <span class="number">1</span>, <span class="string">'q'</span>), (<span class="string">'l'</span>, <span class="number">2</span>, <span class="string">'w'</span>), (<span class="string">'f'</span>, <span class="number">3</span>, <span class="string">'r'</span>)]</div></pre></td></tr></table></figure>
+<p>当集合长度不一样的时候，取最短的。如果是 <code>dict</code> 就只用 <code>key</code> 。</p>
+<ul>
+<li><code>map()</code> 并行遍历 </li>
+</ul>
+<p>有点像是上面两个函数的结合。</p>
+<p>接收至少两个参数，第一个是函数，后面是集合。<strong>该函数是针对集合的单个元素。</strong>第一个函数可以直接是 None ，其效果就和 <code>zip()</code> 相同。</p>
+<ul>
+<li><code>reduce()</code> 归并</li>
+</ul>
+<p>和上一个方法类似，但是它的<strong>函数是按顺序叠加生效</strong>的：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>listtt = range(<span class="number">101</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>reduce(<span class="keyword">lambda</span> x,y:x+y,listtt)</div><div class="line"><span class="number">5050</span></div></pre></td></tr></table></figure>
+<p>方法中必须是两个参数，否则会报错：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>reduce(<span class="keyword">lambda</span> x,y,z:x+y+z,listtt)</div><div class="line">Traceback (most recent call last):</div><div class="line">  File <span class="string">"&lt;stdin&gt;"</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</div><div class="line">TypeError: &lt;<span class="keyword">lambda</span>&gt;() takes exactly <span class="number">3</span> arguments (<span class="number">2</span> given)</div></pre></td></tr></table></figure>
+<p>（上面的 stind 是 standard input 的缩写）</p>
+<h3 id="定义函数"><a href="#定义函数" class="headerlink" title="定义函数"></a>定义函数</h3><p>Python 定义函数用 <code>def</code> 语句：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#!/usr/bin/env python</div><div class="line"># -*- coding: utf-8 -*-</div><div class="line">def func(x):</div><div class="line">    if x&gt;17:</div><div class="line">        print(&apos;成年了&apos;)</div><div class="line">    else:</div><div class="line">        print(&apos;小屁孩&apos;)</div><div class="line">func(19)</div></pre></td></tr></table></figure>
+<p>注意冒号和缩进就行。</p>
+<h4 id="空函数"><a href="#空函数" class="headerlink" title="空函数"></a>空函数</h4><p>一个什么也不想做的空函数，可以用 <code>pass</code> 函数。</p>
+<h4 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h4><p>一个或者多个都行，其实多个也是一个（元组）。</p>
+<h4 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h4><p>很酷</p>
+<h5 id="默认参数"><a href="#默认参数" class="headerlink" title="默认参数"></a>默认参数</h5><h5 id="关键字参数"><a href="#关键字参数" class="headerlink" title="关键字参数"></a>关键字参数</h5><p><em>未完待续…</em></p>
+]]></content>
+      
+        <categories>
+            
+            <category> Python </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Python </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Python 基础]]></title>
       <url>http://yoursite.com/2017/05/04/py%E5%9F%BA%E7%A1%80/</url>
       <content type="html"><![CDATA[<h3 id="格式"><a href="#格式" class="headerlink" title="格式"></a>格式</h3><p>注释用 <code>#</code> 开头表示。</p>
@@ -1211,9 +1284,9 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
         
         <tags>
             
-            <tag> 高效 </tag>
-            
             <tag> Java </tag>
+            
+            <tag> 高效 </tag>
             
             <tag> Effectice </tag>
             
@@ -1317,9 +1390,9 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
             
             <tag> Java </tag>
             
-            <tag> JVM </tag>
-            
             <tag> 算法 </tag>
+            
+            <tag> JVM </tag>
             
             <tag> 内存 </tag>
             
@@ -1517,11 +1590,11 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
         
         <tags>
             
-            <tag> Java </tag>
-            
             <tag> 设计模式 </tag>
             
             <tag> 策略模式 </tag>
+            
+            <tag> Java </tag>
             
             <tag> UML </tag>
             
