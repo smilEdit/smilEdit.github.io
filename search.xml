@@ -113,8 +113,36 @@
 <p>注意冒号和缩进就行。</p>
 <h4 id="空函数"><a href="#空函数" class="headerlink" title="空函数"></a>空函数</h4><p>一个什么也不想做的空函数，可以用 <code>pass</code> 函数。</p>
 <h4 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h4><p>一个或者多个都行，其实多个也是一个（元组）。</p>
-<h4 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h4><p>很酷</p>
-<h5 id="默认参数"><a href="#默认参数" class="headerlink" title="默认参数"></a>默认参数</h5><h5 id="关键字参数"><a href="#关键字参数" class="headerlink" title="关键字参数"></a>关键字参数</h5><p><em>未完待续…</em></p>
+<h4 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h4><p>很酷！</p>
+<h5 id="默认参数"><a href="#默认参数" class="headerlink" title="默认参数"></a>默认参数</h5><p>Python 是不支持函数的重载的。</p>
+<p>一开始没有想明白，然后我搜了这个<a href="https://www.zhihu.com/question/20053359" target="_blank" rel="external">问题</a>之后豁然开朗。</p>
+<p>首先对于函数重载的重要性不用多说，支持不同类型和不同个数的参数。</p>
+<p>但是 Python 函数本身就对参数类型没有限制，而对于不同个数，Pyhton 的处理很妙。</p>
+<p>看段代码应该就能够理解了</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">funcc</span><span class="params">(x,y=<span class="number">6</span>)</span>:</span></div><div class="line">    <span class="keyword">return</span> x*y;</div><div class="line"><span class="keyword">print</span> funcc(<span class="number">5</span>)</div></pre></td></tr></table></figure>
+<p>结果是 30 。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">funcc</span><span class="params">(x,y=<span class="number">6</span>)</span>:</span></div><div class="line">    <span class="keyword">return</span> x*y;</div><div class="line"><span class="keyword">print</span> funcc(<span class="number">5</span>,<span class="number">4</span>)</div></pre></td></tr></table></figure>
+<p>结果是 20 。</p>
+<p>给函数的参数设置了缺省值，不同的参数个数同一个函数执行，从而也达到了类似于重载的效果</p>
+<h5 id="可变参数"><a href="#可变参数" class="headerlink" title="可变参数"></a>可变参数</h5><p>传入的参数个数不确定，（其实 Java 也是有的）,其实就是将传入的参数封装成一个 tuple。</p>
+<p>具体写法：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">addd</span><span class="params">(numbers)</span>:</span></div><div class="line">    sum = <span class="number">0</span></div><div class="line">    <span class="keyword">for</span> n <span class="keyword">in</span> numbers:</div><div class="line">        sum = sum + n * n</div><div class="line">    <span class="keyword">return</span> sum</div><div class="line"><span class="keyword">print</span> addd([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>])</div></pre></td></tr></table></figure>
+<p>这个括号一定要加，否则会报错 <code>TypeError: addd() takes exactly 1 argument (5 given)</code>。</p>
+<p>如果不想加这个括号也可以这么写：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">addd</span><span class="params">(*numbers)</span>:</span></div><div class="line">    sum = <span class="number">0</span></div><div class="line">    <span class="keyword">for</span> n <span class="keyword">in</span> numbers:</div><div class="line">        sum = sum + n * n</div><div class="line">    <span class="keyword">return</span> sum</div><div class="line"><span class="keyword">print</span> addd(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>)</div></pre></td></tr></table></figure>
+<p>在定义函数参数的时候加上一个星号，如果加了星号还加括号也会报错的 <code>TypeError: can&#39;t multiply sequence by non-int of type &#39;list&#39;</code>。</p>
+<p>如果是已经存在了一个集合，想直接传入集合：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">addd</span><span class="params">(*numbers)</span>:</span></div><div class="line">    sum = <span class="number">0</span></div><div class="line">    <span class="keyword">for</span> n <span class="keyword">in</span> numbers:</div><div class="line">        sum = sum + n * n</div><div class="line">    <span class="keyword">return</span> sum</div><div class="line">listt = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</div><div class="line"><span class="keyword">print</span> addd(*listt)</div></pre></td></tr></table></figure>
+<p>这里定义中的参数前的星号和，传入的参数的星号缺一不可。</p>
+<h5 id="关键字参数"><a href="#关键字参数" class="headerlink" title="关键字参数"></a>关键字参数</h5><p>说是关键字参数好像也不是很准确。</p>
+<p>像是另一种可变参数的体现。</p>
+<p>它是将传入的参数封装成 dict 。</p>
+<p>举个例子，当我们注册一个网站的会员时，要填写一些基本信息，通常是带星号为必须要填写的，其他的就是可选的：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">infoo</span><span class="params">(name,sex,**other)</span>:</span></div><div class="line">    <span class="keyword">print</span> <span class="string">'name:'</span>,name,<span class="string">'sex:'</span>,sex,<span class="string">'other:'</span>,other</div><div class="line">infoo(<span class="string">'zlf'</span>, <span class="string">'male'</span>,city=<span class="string">'hangz'</span>)</div></pre></td></tr></table></figure>
+<p>运行结果：<br><code>name: zlf sex: male other: {&#39;city&#39;: &#39;hangz&#39;}</code></p>
+<p>另外，一般 Python 的习惯写法是：</p>
+<p>可变参数用 *agrs 表示</p>
+<p>关键字参数用 **kw 表示 </p>
 ]]></content>
       
         <categories>
