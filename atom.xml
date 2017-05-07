@@ -78,7 +78,7 @@
     <link href="http://yoursite.com/2017/05/04/Python-%E5%87%BD%E6%95%B0/"/>
     <id>http://yoursite.com/2017/05/04/Python-函数/</id>
     <published>2017-05-04T12:20:24.000Z</published>
-    <updated>2017-05-07T10:17:18.000Z</updated>
+    <updated>2017-05-07T10:20:29.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h3><p>Python 函数的一些用法可以直接通过 help(函数名) 查看，例如</p>
 <p><code>&gt;&gt;&gt; help(abs)</code></p>
@@ -161,6 +161,7 @@
 <p>另外，一般 Python 的习惯写法是：</p>
 <p>可变参数用 *agrs 表示</p>
 <p>关键字参数用 **kw 表示 </p>
+<h3 id="递归函数"><a href="#递归函数" class="headerlink" title="递归函数"></a>递归函数</h3><p>没什么特别的。</p>
 ]]></content>
     
     <summary type="html">
