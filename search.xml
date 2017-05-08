@@ -4,6 +4,26 @@
   
     
     <entry>
+      <title><![CDATA[Python高级特性]]></title>
+      <url>http://yoursite.com/2017/05/07/Python%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7/</url>
+      <content type="html"></content>
+      
+        <categories>
+            
+            <category> Python </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Python </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[关于 Drawable（三）]]></title>
       <url>http://yoursite.com/2017/05/05/%E5%85%B3%E4%BA%8E-Drawable%EF%BC%88%E4%B8%89%EF%BC%89/</url>
       <content type="html"><![CDATA[<h3 id="selector"><a href="#selector" class="headerlink" title="selector"></a>selector</h3><p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-05 上午8.53.41.png" alt="屏幕快照 2017-05-05 上午8.53.41"></p>
@@ -1369,9 +1389,9 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
         
         <tags>
             
-            <tag> 高效 </tag>
-            
             <tag> Java </tag>
+            
+            <tag> 高效 </tag>
             
             <tag> Effectice </tag>
             
@@ -1475,9 +1495,9 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
             
             <tag> Java </tag>
             
-            <tag> JVM </tag>
-            
             <tag> 算法 </tag>
+            
+            <tag> JVM </tag>
             
             <tag> 内存 </tag>
             
@@ -1675,11 +1695,11 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
         
         <tags>
             
-            <tag> Java </tag>
-            
             <tag> 设计模式 </tag>
             
             <tag> 策略模式 </tag>
+            
+            <tag> Java </tag>
             
             <tag> UML </tag>
             
