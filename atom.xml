@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-05-09T14:36:27.000Z</updated>
+  <updated>2017-05-09T15:01:27.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,14 +20,14 @@
     <link href="http://yoursite.com/2017/05/09/%E8%BF%99%E4%B8%AA%E8%80%81%E6%9D%BF%E6%9C%89%E5%A5%97%E8%B7%AF/"/>
     <id>http://yoursite.com/2017/05/09/这个老板有套路/</id>
     <published>2017-05-09T13:50:14.000Z</published>
-    <updated>2017-05-09T14:36:27.000Z</updated>
+    <updated>2017-05-09T15:01:27.000Z</updated>
     
     <content type="html"><![CDATA[<p>这是一家开在距离地铁口200米左右的小吃店，处在算不上是一个很好的地段。对面是年代有点久远的小区，店门前有一排说不出名字，却经常见到的树，总觉得落叶很多。</p>
 <a id="more"></a>
-<p>说是小吃店可能不是很准确，主要吃的有拌面，小笼包，骨头饭之类的不算小吃的东西。</p>
-<p>一家人都是住在小店里面，楼上就是住的地方。</p>
-<p>舍友不在家吃晚饭的时候，我就在这打发晚餐。</p>
-<p>去了几次之后，都在换吃的，没拿准什么好吃。不过那个有点发福，性子大大咧咧的厨子倒是有点眼熟我了。</p>
+<p>说是小吃店可能大准确，吃的主要有拌面，小笼包，骨头饭之类不算小吃的东西。</p>
+<p>一家人都是住在小店里面，楼上就是睡觉的地方。</p>
+<p>舍友不在家吃晚饭的时候，我就在这打发晚饭。</p>
+<p>去了几次之，都在换吃的，还没拿准什么好吃。不过那个有点发福，性子大大咧咧的厨子倒是有点眼熟我了。</p>
 <p>“今天吃什么，拌面和小笼包吗？”</p>
 <p>”恩，拌面…“，我又在看那个特别熟悉的，贴在墙正中间的大大的菜谱。</p>
 <p>”我们店的小笼包都是现做的，可好吃了，里面汁很多…”</p>
@@ -85,7 +85,7 @@
     <link href="http://yoursite.com/2017/05/07/Python%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7/"/>
     <id>http://yoursite.com/2017/05/07/Python高级特性/</id>
     <published>2017-05-07T10:22:04.000Z</published>
-    <updated>2017-05-09T13:23:55.000Z</updated>
+    <updated>2017-05-10T01:50:20.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="切片"><a href="#切片" class="headerlink" title="切片"></a>切片</h3><p>Python 对字符串或者是集合的操作非常的灵活且简洁。</p>
 <p>集合或者字符串后面加一个 [a:b:c]</p>
@@ -132,7 +132,7 @@
     
     </summary>
     
-      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+      <category term="python" scheme="http://yoursite.com/categories/python/"/>
     
     
       <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
@@ -202,7 +202,7 @@
     <link href="http://yoursite.com/2017/05/04/Python-%E5%87%BD%E6%95%B0/"/>
     <id>http://yoursite.com/2017/05/04/Python-函数/</id>
     <published>2017-05-04T12:20:24.000Z</published>
-    <updated>2017-05-07T10:20:29.000Z</updated>
+    <updated>2017-05-10T01:51:49.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h3><p>Python 函数的一些用法可以直接通过 help(函数名) 查看，例如</p>
 <p><code>&gt;&gt;&gt; help(abs)</code></p>
@@ -299,7 +299,7 @@
     
     </summary>
     
-      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+      <category term="python" scheme="http://yoursite.com/categories/python/"/>
     
     
       <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
@@ -311,7 +311,7 @@
     <link href="http://yoursite.com/2017/05/04/py%E5%9F%BA%E7%A1%80/"/>
     <id>http://yoursite.com/2017/05/04/py基础/</id>
     <published>2017-05-04T06:52:57.000Z</published>
-    <updated>2017-05-07T10:21:33.000Z</updated>
+    <updated>2017-05-10T01:51:15.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="格式"><a href="#格式" class="headerlink" title="格式"></a>格式</h3><p>注释用 <code>#</code> 开头表示。</p>
 <p>语法采用缩进的方式，虽然没有规定是几个空格，但是一般都是 4 个。 </p>
@@ -390,7 +390,7 @@
     
     </summary>
     
-      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+      <category term="python" scheme="http://yoursite.com/categories/python/"/>
     
     
       <category term="Python" scheme="http://yoursite.com/tags/Python/"/>

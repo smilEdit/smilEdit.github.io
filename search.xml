@@ -8,10 +8,10 @@
       <url>http://yoursite.com/2017/05/09/%E8%BF%99%E4%B8%AA%E8%80%81%E6%9D%BF%E6%9C%89%E5%A5%97%E8%B7%AF/</url>
       <content type="html"><![CDATA[<p>这是一家开在距离地铁口200米左右的小吃店，处在算不上是一个很好的地段。对面是年代有点久远的小区，店门前有一排说不出名字，却经常见到的树，总觉得落叶很多。</p>
 <a id="more"></a>
-<p>说是小吃店可能不是很准确，主要吃的有拌面，小笼包，骨头饭之类的不算小吃的东西。</p>
-<p>一家人都是住在小店里面，楼上就是住的地方。</p>
-<p>舍友不在家吃晚饭的时候，我就在这打发晚餐。</p>
-<p>去了几次之后，都在换吃的，没拿准什么好吃。不过那个有点发福，性子大大咧咧的厨子倒是有点眼熟我了。</p>
+<p>说是小吃店可能大准确，吃的主要有拌面，小笼包，骨头饭之类不算小吃的东西。</p>
+<p>一家人都是住在小店里面，楼上就是睡觉的地方。</p>
+<p>舍友不在家吃晚饭的时候，我就在这打发晚饭。</p>
+<p>去了几次之，都在换吃的，还没拿准什么好吃。不过那个有点发福，性子大大咧咧的厨子倒是有点眼熟我了。</p>
 <p>“今天吃什么，拌面和小笼包吗？”</p>
 <p>”恩，拌面…“，我又在看那个特别熟悉的，贴在墙正中间的大大的菜谱。</p>
 <p>”我们店的小笼包都是现做的，可好吃了，里面汁很多…”</p>
@@ -108,7 +108,7 @@
       
         <categories>
             
-            <category> Python </category>
+            <category> python </category>
             
         </categories>
         
@@ -266,7 +266,7 @@
       
         <categories>
             
-            <category> Python </category>
+            <category> python </category>
             
         </categories>
         
@@ -351,7 +351,7 @@
       
         <categories>
             
-            <category> Python </category>
+            <category> python </category>
             
         </categories>
         
@@ -1591,9 +1591,9 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
         
         <tags>
             
-            <tag> JVM </tag>
-            
             <tag> Java </tag>
+            
+            <tag> JVM </tag>
             
             <tag> 算法 </tag>
             
