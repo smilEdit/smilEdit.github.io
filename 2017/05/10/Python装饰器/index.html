@@ -83,7 +83,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Android," />
+  <meta name="keywords" content="Python," />
 
 
 
@@ -99,21 +99,25 @@
 
 
 
-<meta name="description" content="好记性不如破键盘">
+<meta name="description" content="不带参数的装饰器核心思想就是设计模式中的装饰者模式。
+按照 Java 中的写法，我们一般是这么做的：
+定义一个专门处理日志打印的函数，接受需要处理的函数：
+123def print_log(func):    print &apos;call &apos;+f.func_name+&apos;()...&apos;    func()">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android 知识点 4.28">
-<meta property="og:url" content="http://yoursite.com/2017/04/28/Android-知识点-4-28/index.html">
+<meta property="og:title" content="Python 装饰器">
+<meta property="og:url" content="http://yoursite.com/2017/05/10/Python装饰器/index.html">
 <meta property="og:site_name" content="smilEdit's Bolg">
-<meta property="og:description" content="好记性不如破键盘">
-<meta property="og:image" content="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-04-28 下午8.56.05.png">
-<meta property="og:image" content="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-04-28 下午9.00.58.png">
-<meta property="og:image" content="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-04-28 下午9.57.42.png">
-<meta property="og:image" content="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-04-28 下午10.06.01.png">
-<meta property="og:updated_time" content="2017-05-01T14:14:31.000Z">
+<meta property="og:description" content="不带参数的装饰器核心思想就是设计模式中的装饰者模式。
+按照 Java 中的写法，我们一般是这么做的：
+定义一个专门处理日志打印的函数，接受需要处理的函数：
+123def print_log(func):    print &apos;call &apos;+f.func_name+&apos;()...&apos;    func()">
+<meta property="og:updated_time" content="2017-05-11T02:54:51.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android 知识点 4.28">
-<meta name="twitter:description" content="好记性不如破键盘">
-<meta name="twitter:image" content="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-04-28 下午8.56.05.png">
+<meta name="twitter:title" content="Python 装饰器">
+<meta name="twitter:description" content="不带参数的装饰器核心思想就是设计模式中的装饰者模式。
+按照 Java 中的写法，我们一般是这么做的：
+定义一个专门处理日志打印的函数，接受需要处理的函数：
+123def print_log(func):    print &apos;call &apos;+f.func_name+&apos;()...&apos;    func()">
 
 
 
@@ -141,13 +145,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/04/28/Android-知识点-4-28/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/05/10/Python装饰器/"/>
 
 
 
 
 
-  <title> Android 知识点 4.28 | smilEdit's Bolg </title>
+  <title> Python 装饰器 | smilEdit's Bolg </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -339,7 +343,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/28/Android-知识点-4-28/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/10/Python装饰器/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhanglf">
@@ -360,7 +364,7 @@
             
             
               
-                Android 知识点 4.28
+                Python 装饰器
               
             
           </h1>
@@ -375,8 +379,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-28T21:48:11+08:00">
-                2017-04-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-10T23:21:23+08:00">
+                2017-05-10
               </time>
             
 
@@ -398,8 +402,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/安卓/" itemprop="url" rel="index">
-                    <span itemprop="name">安卓</span>
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
                   </a>
                 </span>
 
@@ -415,7 +419,7 @@
 
           
           
-             <span id="/2017/04/28/Android-知识点-4-28/" class="leancloud_visitors" data-flag-title="Android 知识点 4.28">
+             <span id="/2017/05/10/Python装饰器/" class="leancloud_visitors" data-flag-title="Python 装饰器">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -444,54 +448,46 @@
       
 
       
-        <blockquote class="blockquote-center"><p>好记性不如破键盘</p>
-</blockquote>
+        <h3 id="不带参数的装饰器"><a href="#不带参数的装饰器" class="headerlink" title="不带参数的装饰器"></a>不带参数的装饰器</h3><p>核心思想就是设计模式中的装饰者模式。</p>
+<p>按照 Java 中的写法，我们一般是这么做的：</p>
+<p>定义一个专门处理日志打印的函数，接受需要处理的函数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_log</span><span class="params">(func)</span>:</span></div><div class="line">    <span class="keyword">print</span> <span class="string">'call '</span>+f.func_name+<span class="string">'()...'</span></div><div class="line">    func()</div></pre></td></tr></table></figure>
 <a id="more"></a>
-<p>设计给了张差不多是这样的一张图。</p>
-<p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-04-28 下午8.56.05.png" alt="屏幕快照 2017-04-28 下午8.56.05"></p>
-<p>编辑栏可以自由的添加文字或者是图片。</p>
-<p>这玩意安卓原生控件肯定是不好搞。</p>
-<p>（写到这我有种怪异的感觉，因为我现在的界面是这样的:</p>
-<p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-04-28 下午9.00.58.png" alt="屏幕快照 2017-04-28 下午9.00.58"></p>
-<p>这不就和那个设计给的图的的效果几乎一样吗？）</p>
-<p>通过 HTML 标签来解决，上面的编辑框就类似于是一个低配版的 MarkDown 编辑器显示框，而我们要传给服务器的就是那些带标签的字符串。</p>
-<p>这玩意有个好听的叫富文本。</p>
-<p>秉着不重复造轮子的态度，我 Github 了一下。（其实根本造不动）</p>
-<p>就是它 <a href="https://github.com/wasabeef/richeditor-android" target="_blank" rel="external">RichEditor</a> ，好家伙，快 3k 的星了。</p>
-<p>直接下载，运行了下。除了图片死活出不来，别的都还好，（不是很清楚为什么出不来，因为我在自己项目里面跑起来了，而且我也改了 Demo 中的 url 了，还是不行，就没管了）。</p>
-<p>其实这个源码很少，而且不复杂。由于我只要图文，所以来看看图片是怎么实现的。</p>
-<p>使用方法很简单，只要</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mRichEdit.insertImage(mHttpUrlPathArray.get(i),<span class="string">"商品详情"</span>);</div></pre></td></tr></table></figure>
-<p>前一个参数是图片的 url（注意是 url ，不是什么本地缓存之类的绝对路径），后一个是图片的 alt 。</p>
-<p>点进去看看是怎么实现的:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insertImage</span><span class="params">(String url, String alt)</span> </span>&#123;</div><div class="line">  exec(<span class="string">"javascript:RE.prepareInsert();"</span>);</div><div class="line">  exec(<span class="string">"javascript:RE.insertImage('"</span> + url + <span class="string">"', '"</span> + alt + <span class="string">"');"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>说实话这个 RE 我还真不知道是什么东西，甚至我 Google 不到，原谅我菜。</p>
-<p>但是我是这么想的，其实这并不是 js 库里面的什么对象，而只是，该类名 RichEditor 的缩写，MDZZ。</p>
-<p>该类中有特别多的这种写法:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">redo</span><span class="params">()</span> </span>&#123;</div><div class="line">  exec(<span class="string">"javascript:RE.redo();"</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setBold</span><span class="params">()</span> </span>&#123;</div><div class="line">  exec(<span class="string">"javascript:RE.setBold();"</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setItalic</span><span class="params">()</span> </span>&#123;</div><div class="line">  exec(<span class="string">"javascript:RE.setItalic();"</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setSubscript</span><span class="params">()</span> </span>&#123;</div><div class="line">  exec(<span class="string">"javascript:RE.setSubscript();"</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setSuperscript</span><span class="params">()</span> </span>&#123;</div><div class="line">  exec(<span class="string">"javascript:RE.setSuperscript();"</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setStrikeThrough</span><span class="params">()</span> </span>&#123;</div><div class="line">  exec(<span class="string">"javascript:RE.setStrikeThrough();"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>因为图片都是属于插入的形式，所以会多了一个 <code>prepareInsert()</code> 步骤。</p>
-<p>然后拼接下字符串，再进行下判断:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">exec</span><span class="params">(<span class="keyword">final</span> String trigger)</span> </span>&#123;</div><div class="line">  <span class="keyword">if</span> (isReady) &#123;</div><div class="line">    load(trigger);</div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    postDelayed(<span class="keyword">new</span> Runnable() &#123;</div><div class="line">      <span class="meta">@Override</span> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">        exec(trigger);</div><div class="line">      &#125;</div><div class="line">    &#125;, <span class="number">100</span>);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这个 <code>isReady</code> 是 WebViewClient 类中的生命周期中获取到的:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onPageFinished</span><span class="params">(WebView view, String url)</span> </span>&#123;</div><div class="line">  isReady = url.equalsIgnoreCase(SETUP_HTML);</div><div class="line">  <span class="keyword">if</span> (mLoadListener != <span class="keyword">null</span>) &#123;</div><div class="line">    mLoadListener.onAfterInitialLoad(isReady);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>如果没有准备好就延时 0.1 秒再执行，准备好了就真正的执行了:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">load</span><span class="params">(String trigger)</span> </span>&#123;</div><div class="line">   <span class="keyword">if</span> (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.KITKAT) &#123;</div><div class="line">     evaluateJavascript(trigger, <span class="keyword">null</span>);</div><div class="line">   &#125; <span class="keyword">else</span> &#123;</div><div class="line">     loadUrl(trigger);</div><div class="line">   &#125;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
-<p>为了兼容不同版本 Android 系统的 WebView 做了判断，然后就是底层代码调用了。</p>
-<p>补充说明：Build.VERSION_CODES.KITKAT 就是 19，也就是安卓 4.4 ,它之前的版本用的是 <a href="https://webkit.org/" target="_blank" rel="external">WebKit内核</a>，之后的版本用的是 <a href="http://www.chromium.org/" target="_blank" rel="external">Chromium 内核</a>。</p>
-<p>两个内核的一些区别：</p>
-<p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-04-28 下午9.57.42.png" alt="屏幕快照 2017-04-28 下午9.57.42"></p>
-<p>好了，主要知道使用是 <code>insertImage()</code> 方法就好了。然后就会遇到一个坑。</p>
-<p>图片的大小，用安卓原生方法是控制不了的因为，那个东西是存在于类似网页中的。</p>
-<p>所以在这里我纠结了挺久的，在想是不是要通过拼接 width 之类的 Img 属性上去。但是这样要修改 RE 中 <code>setImg</code> 的方法，觉得可能搞不定。于是我就想着看看别的一些类库都是怎么实现的。</p>
-<p>于是看了几个也是挺受欢迎的库，像是<a href="https://github.com/xmuSistone/android-animate-RichEditor" target="_blank" rel="external">这个</a>和<a href="https://github.com/KDF5000/RichEditText" target="_blank" rel="external">这个</a>。</p>
-<p>这两个库都是自动处理图片大小的。第一个在图片的右上角还有删除按钮，以及删除图片的动画，感觉特别人性化。</p>
-<p>但是，两者都是通过绝对路径来确认图片以及用原生控件来展示的。（好像也行啊，无语）</p>
-<p>所以··· 解决方法用 CSS 直接一点。</p>
-<p>这个问题在 <a href="https://github.com/wasabeef/richeditor-android/issues/47" target="_blank" rel="external">Issues</a> 中也是有人反映过，而且知情人士也给出了简单好用的解决方案具体步骤:</p>
-<p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-04-28 下午10.06.01.png" alt="屏幕快照 2017-04-28 下午10.06.01"></p>
-<p>然后就好了，亲测，好用。</p>
-<p>好吧，我承认。结尾很潦草。</p>
-<p>明天就是五一小长假了。这一不小心十点了啊。我要出去买点吃的，就先这样。</p>
+<p>使用：<br><code>print_log(func)</code></p>
+<p>其实在我（ Java 程序员眼中）看来，这已经是非常的方便了，而且也没有破坏原函数的结构。</p>
+<p>但是，对于 Python 来说还远远不够，它追求的是依然运行 <code>func()</code> 并且在不改变其内部结构的基础上扩展别的功能。</p>
+<p>且 Python 还用语法糖简化了其使用过程。不过首先，也是非常关键的一点是要理解<strong>闭包</strong>的概念，上一篇的 Python 高级特性中介绍有提过。</p>
+<p>用代码说话，下面就是一个简单的装饰器：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">log</span><span class="params">(f)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fn</span><span class="params">(x)</span>:</span></div><div class="line">        <span class="keyword">print</span> <span class="string">'call '</span> + f.__name__ + <span class="string">'()...'</span></div><div class="line">        <span class="keyword">return</span> f(x)</div><div class="line">    <span class="keyword">return</span> fn</div></pre></td></tr></table></figure>
+<p>第一眼看真的是一脸懵逼，我花了大量的时间想弄清楚 <code>return f(x)</code> 到底是什么意思，有什么用，这个参数 <code>x</code> 又是什么意思。</p>
+<p>于是我改造了一下，去掉了那个 <code>return</code> 和 <code>x</code> ，写成非常好理解的形式：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">log</span><span class="params">(f)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fn</span><span class="params">()</span>:</span></div><div class="line">        <span class="keyword">print</span> <span class="string">'call '</span> + f.__name__ + <span class="string">'()...'</span></div><div class="line">        f()</div><div class="line">    <span class="keyword">return</span> fn</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">funcc</span><span class="params">()</span>:</span></div><div class="line">    <span class="keyword">print</span> <span class="string">'i am funcc'</span></div><div class="line"></div><div class="line">funcc = log(funcc)</div><div class="line">funcc()</div></pre></td></tr></table></figure>
+<p>运行：</p>
+<pre><code>call funcc()...
+i am funcc
+</code></pre><p>并没有问题。函数 <code>log()</code> 的用意是接收一个函数，在不改变传进来的函数的情况下，打印该函数的信息。</p>
+<p><code>print &#39;call &#39; + f.__name__ + &#39;()...&#39;</code></p>
+<p>这行就是打印原函数的名称，也就是装饰器的装饰物。</p>
+<p>最后就是赋值给原先的函数。</p>
+<p>上面那个只是没有参数的函数的装饰，对于有参数的函数，我们需要这么写：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">log</span><span class="params">(f)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fn</span><span class="params">(*args, **kw)</span>:</span></div><div class="line">        <span class="keyword">print</span> <span class="string">'call '</span> + f.__name__ + <span class="string">'()...'</span></div><div class="line">        f(*args, **kw)</div><div class="line">    <span class="keyword">return</span> fn</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">funcc</span><span class="params">()</span>:</span></div><div class="line">    <span class="keyword">print</span> <span class="string">'i am funcc'</span></div><div class="line"></div><div class="line">funcc = log(funcc)</div><div class="line">funcc()</div></pre></td></tr></table></figure>
+<p>这个其实就是比较标准的 Python 装饰器了，除了一个地方，就是那个 <code>return</code> 。暂且我就当成是为了规范吧，因为对于函数 <code>fn</code> 来说好像通过 <code>return</code> 来获取传进来的函数 <code>f</code> 确实是没有用的啊。</p>
+<p><strong>上面那个代码，我运行之后发现，没有 return 是行不通的，所以这个 return 还是必须要加上去的，那为什么没有参数的就行的通呢</strong></p>
+<p><strong>我好像突然想明白了 <a href="http://www.imooc.com/code/6065" target="_blank" rel="external">= =</a></strong></p>
+<p>理解了上面的代码之后，关于装饰器的语法糖就很好理解了，每次写：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">funcc = log(funcc)</div><div class="line">funcc()</div></pre></td></tr></table></figure>
+<p>肯定是觉得有点烦人的，所以 Python 提供了便捷方式：</p>
+<p>要被装饰的函数可以这么写：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@log</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">funcc</span><span class="params">()</span>:</span></div><div class="line">    <span class="keyword">print</span> <span class="string">'i am funcc'</span></div></pre></td></tr></table></figure>
+<p>之后使用就是直接：<code>funcc()</code> 就好了。</p>
+<p>这个 @ 后面跟的就是之前自己定义的装饰器的函数名称。</p>
+<h3 id="带参数的装饰器"><a href="#带参数的装饰器" class="headerlink" title="带参数的装饰器"></a>带参数的装饰器</h3><p>这里说的参数指的是装饰器上面的参数，不是装饰器接受的函数是否带参数。</p>
+<p>使用带参数的装饰器就是在外面再包一层：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">log</span><span class="params">(text)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">decorator</span><span class="params">(func)</span>:</span></div><div class="line">        <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span><span class="params">(*args, **kw)</span>:</span></div><div class="line">            print(<span class="string">'%s %s():'</span> % (text, func.__name__))</div><div class="line">            <span class="keyword">return</span> func(*args, **kw)</div><div class="line">        <span class="keyword">return</span> wrapper</div><div class="line">    <span class="keyword">return</span> decorator</div></pre></td></tr></table></figure>
+<p>那个 <code>text</code> 就是装饰器的参数，可以根据它来做增加一些业务逻辑，用法：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@log('参数')</span></div></pre></td></tr></table></figure>
+<h3 id="类装饰器"><a href="#类装饰器" class="headerlink" title="类装饰器"></a>类装饰器</h3><p>相比函数装饰器，类装饰器更强大。。。</p>
+<p>之后再补充吧，要炸了。</p>
 
       
     </div>
@@ -521,7 +517,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Android/" rel="tag"># Android</a>
+            <a href="/tags/Python/" rel="tag"># Python</a>
           
         </div>
       
@@ -534,8 +530,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/27/我是做安卓的/" rel="next" title="我是做安卓的    吗">
-                <i class="fa fa-chevron-left"></i> 我是做安卓的    吗
+              <a href="/2017/05/09/这个老板有套路/" rel="next" title="路上的一小店">
+                <i class="fa fa-chevron-left"></i> 路上的一小店
               </a>
             
           </div>
@@ -543,10 +539,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/05/01/5月小目标/" rel="prev" title="5月小目标">
-                5月小目标 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -601,8 +593,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -770,6 +771,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#不带参数的装饰器"><span class="nav-number">1.</span> <span class="nav-text">不带参数的装饰器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#带参数的装饰器"><span class="nav-number">2.</span> <span class="nav-text">带参数的装饰器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类装饰器"><span class="nav-number">3.</span> <span class="nav-text">类装饰器</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

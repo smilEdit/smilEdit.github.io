@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-05-09T15:01:27.000Z</updated>
+  <updated>2017-05-11T02:54:51.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,71 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python 装饰器</title>
+    <link href="http://yoursite.com/2017/05/10/Python%E8%A3%85%E9%A5%B0%E5%99%A8/"/>
+    <id>http://yoursite.com/2017/05/10/Python装饰器/</id>
+    <published>2017-05-10T15:21:23.000Z</published>
+    <updated>2017-05-11T02:54:51.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="不带参数的装饰器"><a href="#不带参数的装饰器" class="headerlink" title="不带参数的装饰器"></a>不带参数的装饰器</h3><p>核心思想就是设计模式中的装饰者模式。</p>
+<p>按照 Java 中的写法，我们一般是这么做的：</p>
+<p>定义一个专门处理日志打印的函数，接受需要处理的函数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_log</span><span class="params">(func)</span>:</span></div><div class="line">    <span class="keyword">print</span> <span class="string">'call '</span>+f.func_name+<span class="string">'()...'</span></div><div class="line">    func()</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>使用：<br><code>print_log(func)</code></p>
+<p>其实在我（ Java 程序员眼中）看来，这已经是非常的方便了，而且也没有破坏原函数的结构。</p>
+<p>但是，对于 Python 来说还远远不够，它追求的是依然运行 <code>func()</code> 并且在不改变其内部结构的基础上扩展别的功能。</p>
+<p>且 Python 还用语法糖简化了其使用过程。不过首先，也是非常关键的一点是要理解<strong>闭包</strong>的概念，上一篇的 Python 高级特性中介绍有提过。</p>
+<p>用代码说话，下面就是一个简单的装饰器：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">log</span><span class="params">(f)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fn</span><span class="params">(x)</span>:</span></div><div class="line">        <span class="keyword">print</span> <span class="string">'call '</span> + f.__name__ + <span class="string">'()...'</span></div><div class="line">        <span class="keyword">return</span> f(x)</div><div class="line">    <span class="keyword">return</span> fn</div></pre></td></tr></table></figure>
+<p>第一眼看真的是一脸懵逼，我花了大量的时间想弄清楚 <code>return f(x)</code> 到底是什么意思，有什么用，这个参数 <code>x</code> 又是什么意思。</p>
+<p>于是我改造了一下，去掉了那个 <code>return</code> 和 <code>x</code> ，写成非常好理解的形式：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">log</span><span class="params">(f)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fn</span><span class="params">()</span>:</span></div><div class="line">        <span class="keyword">print</span> <span class="string">'call '</span> + f.__name__ + <span class="string">'()...'</span></div><div class="line">        f()</div><div class="line">    <span class="keyword">return</span> fn</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">funcc</span><span class="params">()</span>:</span></div><div class="line">    <span class="keyword">print</span> <span class="string">'i am funcc'</span></div><div class="line"></div><div class="line">funcc = log(funcc)</div><div class="line">funcc()</div></pre></td></tr></table></figure>
+<p>运行：</p>
+<pre><code>call funcc()...
+i am funcc
+</code></pre><p>并没有问题。函数 <code>log()</code> 的用意是接收一个函数，在不改变传进来的函数的情况下，打印该函数的信息。</p>
+<p><code>print &#39;call &#39; + f.__name__ + &#39;()...&#39;</code></p>
+<p>这行就是打印原函数的名称，也就是装饰器的装饰物。</p>
+<p>最后就是赋值给原先的函数。</p>
+<p>上面那个只是没有参数的函数的装饰，对于有参数的函数，我们需要这么写：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">log</span><span class="params">(f)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fn</span><span class="params">(*args, **kw)</span>:</span></div><div class="line">        <span class="keyword">print</span> <span class="string">'call '</span> + f.__name__ + <span class="string">'()...'</span></div><div class="line">        f(*args, **kw)</div><div class="line">    <span class="keyword">return</span> fn</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">funcc</span><span class="params">()</span>:</span></div><div class="line">    <span class="keyword">print</span> <span class="string">'i am funcc'</span></div><div class="line"></div><div class="line">funcc = log(funcc)</div><div class="line">funcc()</div></pre></td></tr></table></figure>
+<p>这个其实就是比较标准的 Python 装饰器了，除了一个地方，就是那个 <code>return</code> 。暂且我就当成是为了规范吧，因为对于函数 <code>fn</code> 来说好像通过 <code>return</code> 来获取传进来的函数 <code>f</code> 确实是没有用的啊。</p>
+<p><strong>上面那个代码，我运行之后发现，没有 return 是行不通的，所以这个 return 还是必须要加上去的，那为什么没有参数的就行的通呢</strong></p>
+<p><strong>我好像突然想明白了 <a href="http://www.imooc.com/code/6065" target="_blank" rel="external">= =</a></strong></p>
+<p>理解了上面的代码之后，关于装饰器的语法糖就很好理解了，每次写：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">funcc = log(funcc)</div><div class="line">funcc()</div></pre></td></tr></table></figure>
+<p>肯定是觉得有点烦人的，所以 Python 提供了便捷方式：</p>
+<p>要被装饰的函数可以这么写：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@log</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">funcc</span><span class="params">()</span>:</span></div><div class="line">    <span class="keyword">print</span> <span class="string">'i am funcc'</span></div></pre></td></tr></table></figure>
+<p>之后使用就是直接：<code>funcc()</code> 就好了。</p>
+<p>这个 @ 后面跟的就是之前自己定义的装饰器的函数名称。</p>
+<h3 id="带参数的装饰器"><a href="#带参数的装饰器" class="headerlink" title="带参数的装饰器"></a>带参数的装饰器</h3><p>这里说的参数指的是装饰器上面的参数，不是装饰器接受的函数是否带参数。</p>
+<p>使用带参数的装饰器就是在外面再包一层：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">log</span><span class="params">(text)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">decorator</span><span class="params">(func)</span>:</span></div><div class="line">        <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span><span class="params">(*args, **kw)</span>:</span></div><div class="line">            print(<span class="string">'%s %s():'</span> % (text, func.__name__))</div><div class="line">            <span class="keyword">return</span> func(*args, **kw)</div><div class="line">        <span class="keyword">return</span> wrapper</div><div class="line">    <span class="keyword">return</span> decorator</div></pre></td></tr></table></figure>
+<p>那个 <code>text</code> 就是装饰器的参数，可以根据它来做增加一些业务逻辑，用法：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@log('参数')</span></div></pre></td></tr></table></figure>
+<h3 id="类装饰器"><a href="#类装饰器" class="headerlink" title="类装饰器"></a>类装饰器</h3><p>相比函数装饰器，类装饰器更强大。。。</p>
+<p>之后再补充吧，要炸了。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;不带参数的装饰器&quot;&gt;&lt;a href=&quot;#不带参数的装饰器&quot; class=&quot;headerlink&quot; title=&quot;不带参数的装饰器&quot;&gt;&lt;/a&gt;不带参数的装饰器&lt;/h3&gt;&lt;p&gt;核心思想就是设计模式中的装饰者模式。&lt;/p&gt;
+&lt;p&gt;按照 Java 中的写法，我们一般是这么做的：&lt;/p&gt;
+&lt;p&gt;定义一个专门处理日志打印的函数，接受需要处理的函数：&lt;/p&gt;
+&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;print_log&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(func)&lt;/span&gt;:&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;call &#39;&lt;/span&gt;+f.func_name+&lt;span class=&quot;string&quot;&gt;&#39;()...&#39;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    func()&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="python" scheme="http://yoursite.com/categories/python/"/>
+    
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+  </entry>
   
   <entry>
     <title>路上的一小店</title>
@@ -85,7 +150,7 @@
     <link href="http://yoursite.com/2017/05/07/Python%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7/"/>
     <id>http://yoursite.com/2017/05/07/Python高级特性/</id>
     <published>2017-05-07T10:22:04.000Z</published>
-    <updated>2017-05-10T01:50:20.000Z</updated>
+    <updated>2017-05-10T09:12:35.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="切片"><a href="#切片" class="headerlink" title="切片"></a>切片</h3><p>Python 对字符串或者是集合的操作非常的灵活且简洁。</p>
 <p>集合或者字符串后面加一个 [a:b:c]</p>
@@ -202,7 +267,7 @@
     <link href="http://yoursite.com/2017/05/04/Python-%E5%87%BD%E6%95%B0/"/>
     <id>http://yoursite.com/2017/05/04/Python-函数/</id>
     <published>2017-05-04T12:20:24.000Z</published>
-    <updated>2017-05-10T01:51:49.000Z</updated>
+    <updated>2017-05-10T06:20:49.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h3><p>Python 函数的一些用法可以直接通过 help(函数名) 查看，例如</p>
 <p><code>&gt;&gt;&gt; help(abs)</code></p>
@@ -225,26 +290,18 @@
 <p><code>capitalize()</code> 首字母大写</p>
 <p>···  其实和别的语言都差不多</p>
 <h4 id="序列处理"><a href="#序列处理" class="headerlink" title="序列处理"></a>序列处理</h4><p>这个是否常用不是很清楚，但是比较有意思，许多方法和 JavaScript 中的方法大同小异，不过感觉这个写起来更加的简洁。</p>
-<ul>
-<li><code>filter()</code> 过滤序列</li>
-</ul>
+<p><strong>filter() 过滤序列</strong></p>
 <p><code>filter(function, iterable)</code> </p>
 <p>例如：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>filter(<span class="keyword">lambda</span> x:x%<span class="number">2</span>==<span class="number">0</span>, [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>])</div><div class="line">[<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>]</div></pre></td></tr></table></figure>
 <p>直接过滤出偶数。</p>
-<ul>
-<li><code>zip()</code> 并行遍历</li>
-</ul>
+<p><strong>zip() 并行遍历</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>name = [<span class="string">'z'</span>,<span class="string">'l'</span>,<span class="string">'f'</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>age = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>hehe = [<span class="string">'q'</span>,<span class="string">'w'</span>,<span class="string">'r'</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>zip(name,age,hehe)</div><div class="line">[(<span class="string">'z'</span>, <span class="number">1</span>, <span class="string">'q'</span>), (<span class="string">'l'</span>, <span class="number">2</span>, <span class="string">'w'</span>), (<span class="string">'f'</span>, <span class="number">3</span>, <span class="string">'r'</span>)]</div></pre></td></tr></table></figure>
 <p>当集合长度不一样的时候，取最短的。如果是 <code>dict</code> 就只用 <code>key</code> 。</p>
-<ul>
-<li><code>map()</code> 并行遍历 </li>
-</ul>
+<p><strong>map() 并行遍历</strong></p>
 <p>有点像是上面两个函数的结合。</p>
 <p>接收至少两个参数，第一个是函数，后面是集合。<strong>该函数是针对集合的单个元素。</strong>第一个函数可以直接是 None ，其效果就和 <code>zip()</code> 相同。</p>
-<ul>
-<li><code>reduce()</code> 归并</li>
-</ul>
+<p><strong>reduce() 归并</strong></p>
 <p>和上一个方法类似，但是它的<strong>函数是按顺序叠加生效</strong>的：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>listtt = range(<span class="number">101</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>reduce(<span class="keyword">lambda</span> x,y:x+y,listtt)</div><div class="line"><span class="number">5050</span></div></pre></td></tr></table></figure>
 <p>方法中必须是两个参数，否则会报错：</p>
@@ -286,6 +343,37 @@
 <p>可变参数用 *agrs 表示</p>
 <p>关键字参数用 **kw 表示 </p>
 <h3 id="递归函数"><a href="#递归函数" class="headerlink" title="递归函数"></a>递归函数</h3><p>没什么特别的。</p>
+<h3 id="高阶函数"><a href="#高阶函数" class="headerlink" title="高阶函数"></a>高阶函数</h3><p><strong>sorted()</strong>  又是和 JS 差不多。</p>
+<p>除了可以正常的使用，例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>listtt = [<span class="number">32</span>,<span class="number">42</span>,<span class="number">32</span>,<span class="number">23</span>,<span class="number">21</span>,<span class="number">13</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>sorted(listtt)</div><div class="line">[<span class="number">13</span>, <span class="number">21</span>, <span class="number">23</span>, <span class="number">32</span>, <span class="number">32</span>, <span class="number">42</span>]</div></pre></td></tr></table></figure>
+<p>还可以加个条件再排序：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>listtt = [<span class="number">-2</span>,<span class="number">3</span>,<span class="number">-1</span>,<span class="number">32</span>,<span class="number">-23</span>,<span class="number">-54</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>sorted(listtt,abs)</div><div class="line">Traceback (most recent call last):</div><div class="line">  File <span class="string">"&lt;stdin&gt;"</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</div><div class="line">TypeError: abs() takes exactly one argument (<span class="number">2</span> given)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>sorted(listtt,key=abs)</div><div class="line">[<span class="number">-1</span>, <span class="number">-2</span>, <span class="number">3</span>, <span class="number">-23</span>, <span class="number">32</span>, <span class="number">-54</span>]</div></pre></td></tr></table></figure>
+<p>来个稍微复杂点的，给一个字典，根据 key 或者 value 来排序：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">L = [(<span class="string">'Bob'</span>, <span class="number">75</span>), (<span class="string">'Adam'</span>, <span class="number">92</span>), (<span class="string">'Bart'</span>, <span class="number">66</span>), (<span class="string">'Lisa'</span>, <span class="number">88</span>)]</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">by_name</span><span class="params">(t)</span>:</span></div><div class="line">    <span class="keyword">return</span> t[<span class="number">0</span>]</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">by_score</span><span class="params">(t)</span>:</span></div><div class="line">    <span class="keyword">return</span> t[<span class="number">1</span>]</div><div class="line"><span class="keyword">print</span> sorted(L,key = by_name)</div><div class="line"><span class="keyword">print</span> sorted(L,key = by_score)</div></pre></td></tr></table></figure>
+<p>运行结果是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[(&apos;Adam&apos;, 92), (&apos;Bart&apos;, 66), (&apos;Bob&apos;, 75), (&apos;Lisa&apos;, 88)]</div><div class="line">[(&apos;Bart&apos;, 66), (&apos;Bob&apos;, 75), (&apos;Lisa&apos;, 88), (&apos;Adam&apos;, 92)]</div></pre></td></tr></table></figure>
+<h3 id="函数作为返回值"><a href="#函数作为返回值" class="headerlink" title="函数作为返回值"></a>函数作为返回值</h3><p>关于这种用法，在 JavaScript 中也是经常用到。</p>
+<p>这个时候就需要，也必须先理解“闭包”这个概念。</p>
+<p>这个概念我找了很多文章，但是都觉得非常的抽象以及概念化。因为之前接触最多的是 Java ，而 Java 中函数和变量完全是两个不同的东西，所以理解起来不是很顺利。</p>
+<p>直到看到阮一峰老师的<a href="http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html" target="_blank" rel="external">这篇</a>介绍，举了很多例子，觉得易于理解。</p>
+<p>我简单总结了一下。</p>
+<p>就是通过 return 的方式将内部函数当成是变量返回给外部函数，外部函数通过这个桥梁可以读取函数内部的变量。</p>
+<h3 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h3><p>举个例子：</p>
+<p><code>lambda x: x*x</code></p>
+<p>就相当于</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">f</span><span class="params">(x)</span>:</span></div><div class="line">    <span class="keyword">return</span> x*x;</div></pre></td></tr></table></figure>
+<h3 id="偏函数"><a href="#偏函数" class="headerlink" title="偏函数"></a>偏函数</h3><p><code>functools</code> 模块中的一个功能，Partial function。</p>
+<p>例如函数 <code>int()</code> 可以将字符串变成整数，也可以做进制的转化：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>int(<span class="string">'123'</span>,base=<span class="number">8</span>)</div><div class="line"><span class="number">83</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>int(<span class="string">'10101010010101'</span>,base=<span class="number">2</span>)</div><div class="line"><span class="number">10901</span></div></pre></td></tr></table></figure>
+<p>是将当前的数字转成 10 进制。</p>
+<p>当我们需要重复使用转化成 2 进制这个方法的时候，就需要不停的多写一个重复的参数：</p>
+<p><code>int(x,base=2)</code></p>
+<p>当然首先想到的就是定义一个带默认参数的函数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">int2</span><span class="params">(x,base =<span class="number">2</span>)</span>:</span></div><div class="line">    <span class="keyword">return</span> int(x,base)</div></pre></td></tr></table></figure>
+<p>这样封装之后就变得好用了。</p>
+<p>我们说到的偏函数就是用来更加方便的创建这种类型的函数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> functools</div><div class="line">int2 = functools.partial(int,base = <span class="number">2</span>)</div><div class="line"><span class="keyword">print</span> int2(<span class="string">'101'</span>)</div></pre></td></tr></table></figure>
+<p>结果当然是输出 5 。</p>
 ]]></content>
     
     <summary type="html">
@@ -1115,49 +1203,6 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
     
     
       <category term="梦想" scheme="http://yoursite.com/tags/%E6%A2%A6%E6%83%B3/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>周末停水</title>
-    <link href="http://yoursite.com/2017/04/15/%E5%91%A8%E6%9C%AB%E5%81%9C%E6%B0%B4/"/>
-    <id>http://yoursite.com/2017/04/15/周末停水/</id>
-    <published>2017-04-15T04:37:32.000Z</published>
-    <updated>2017-04-15T05:00:20.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>好不容易周末了。</p>
-<p>居然停水了。</p>
-<div align="center"><br> <img src="https://gss0.baidu.com/-vo3dSag_xI4khGko9WTAnF6hhy/zhidao/wh%3D600%2C800/sign=98a158584f10b912bf94fef8f3cdd03b/9a504fc2d5628535b06dcdc298ef76c6a6ef6347.jpg" width="200" height="200" alt="图片名称" align="center"><br> </div>
-
-
-<a id="more"></a>
-<p>都不能好好煮饭做菜了。</p>
-<p>拉屎都要出去拉。</p>
- <div align="center"><br> <img src=" http://img2.imgtn.bdimg.com/it/u=146946539,2154009609&fm=11&gp=0.jpg" width="200" height="200" alt="图片名称" align="center"><br> </div>
-
-<p>昨晚太累太忙了估计是，虽然看到了楼下的通知，但是忘记屯水了。</p>
-<p>9 点到 5 点停水，只能是做晚饭了。</p>
-<p>一般是周末的时候煮点不错的汤，好好补补的。</p>
-<p>另外，早上骑车出去买菜的时候，看到</p>
-<div align="center"><br> <img src=" https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=320948557,2220721548&fm=23&gp=0.jpg" width="200" height="200" alt="图片名称" align="center"><br> </div>
-
-<p>漫天柳树精子，一不小心还吸到鼻子里面，蓝瘦。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;好不容易周末了。&lt;/p&gt;
-&lt;p&gt;居然停水了。&lt;/p&gt;
-&lt;div align=&quot;center&quot;&gt;&lt;br&gt; &lt;img src=&quot;https://gss0.baidu.com/-vo3dSag_xI4khGko9WTAnF6hhy/zhidao/wh%3D600%2C800/sign=98a158584f10b912bf94fef8f3cdd03b/9a504fc2d5628535b06dcdc298ef76c6a6ef6347.jpg&quot; width = &quot;200&quot; height = &quot;200&quot; alt=&quot;图片名称&quot; align=&quot;center&quot; /&gt;&lt;br&gt; &lt;/div&gt;
-    
-    </summary>
-    
-      <category term="随笔" scheme="http://yoursite.com/categories/%E9%9A%8F%E7%AC%94/"/>
-    
-    
-      <category term="随笔" scheme="http://yoursite.com/tags/%E9%9A%8F%E7%AC%94/"/>
-    
-      <category term="宅家" scheme="http://yoursite.com/tags/%E5%AE%85%E5%AE%B6/"/>
     
   </entry>
   

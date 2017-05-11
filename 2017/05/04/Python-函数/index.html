@@ -113,7 +113,7 @@ abs(...)
 abs(...)
       abs(number) -&amp;gt; number
       Return the absolute value of the argument.">
-<meta property="og:updated_time" content="2017-05-10T01:51:49.000Z">
+<meta property="og:updated_time" content="2017-05-10T06:20:49.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python 函数">
 <meta name="twitter:description" content="常用函数Python 函数的一些用法可以直接通过 help(函数名) 查看，例如
@@ -270,6 +270,16 @@ abs(...)
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
           </a>
         </li>
       
@@ -462,26 +472,18 @@ abs(...)
 <p><code>capitalize()</code> 首字母大写</p>
 <p>···  其实和别的语言都差不多</p>
 <h4 id="序列处理"><a href="#序列处理" class="headerlink" title="序列处理"></a>序列处理</h4><p>这个是否常用不是很清楚，但是比较有意思，许多方法和 JavaScript 中的方法大同小异，不过感觉这个写起来更加的简洁。</p>
-<ul>
-<li><code>filter()</code> 过滤序列</li>
-</ul>
+<p><strong>filter() 过滤序列</strong></p>
 <p><code>filter(function, iterable)</code> </p>
 <p>例如：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>filter(<span class="keyword">lambda</span> x:x%<span class="number">2</span>==<span class="number">0</span>, [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>])</div><div class="line">[<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>]</div></pre></td></tr></table></figure>
 <p>直接过滤出偶数。</p>
-<ul>
-<li><code>zip()</code> 并行遍历</li>
-</ul>
+<p><strong>zip() 并行遍历</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>name = [<span class="string">'z'</span>,<span class="string">'l'</span>,<span class="string">'f'</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>age = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>hehe = [<span class="string">'q'</span>,<span class="string">'w'</span>,<span class="string">'r'</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>zip(name,age,hehe)</div><div class="line">[(<span class="string">'z'</span>, <span class="number">1</span>, <span class="string">'q'</span>), (<span class="string">'l'</span>, <span class="number">2</span>, <span class="string">'w'</span>), (<span class="string">'f'</span>, <span class="number">3</span>, <span class="string">'r'</span>)]</div></pre></td></tr></table></figure>
 <p>当集合长度不一样的时候，取最短的。如果是 <code>dict</code> 就只用 <code>key</code> 。</p>
-<ul>
-<li><code>map()</code> 并行遍历 </li>
-</ul>
+<p><strong>map() 并行遍历</strong></p>
 <p>有点像是上面两个函数的结合。</p>
 <p>接收至少两个参数，第一个是函数，后面是集合。<strong>该函数是针对集合的单个元素。</strong>第一个函数可以直接是 None ，其效果就和 <code>zip()</code> 相同。</p>
-<ul>
-<li><code>reduce()</code> 归并</li>
-</ul>
+<p><strong>reduce() 归并</strong></p>
 <p>和上一个方法类似，但是它的<strong>函数是按顺序叠加生效</strong>的：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>listtt = range(<span class="number">101</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>reduce(<span class="keyword">lambda</span> x,y:x+y,listtt)</div><div class="line"><span class="number">5050</span></div></pre></td></tr></table></figure>
 <p>方法中必须是两个参数，否则会报错：</p>
@@ -523,6 +525,37 @@ abs(...)
 <p>可变参数用 *agrs 表示</p>
 <p>关键字参数用 **kw 表示 </p>
 <h3 id="递归函数"><a href="#递归函数" class="headerlink" title="递归函数"></a>递归函数</h3><p>没什么特别的。</p>
+<h3 id="高阶函数"><a href="#高阶函数" class="headerlink" title="高阶函数"></a>高阶函数</h3><p><strong>sorted()</strong>  又是和 JS 差不多。</p>
+<p>除了可以正常的使用，例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>listtt = [<span class="number">32</span>,<span class="number">42</span>,<span class="number">32</span>,<span class="number">23</span>,<span class="number">21</span>,<span class="number">13</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>sorted(listtt)</div><div class="line">[<span class="number">13</span>, <span class="number">21</span>, <span class="number">23</span>, <span class="number">32</span>, <span class="number">32</span>, <span class="number">42</span>]</div></pre></td></tr></table></figure>
+<p>还可以加个条件再排序：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>listtt = [<span class="number">-2</span>,<span class="number">3</span>,<span class="number">-1</span>,<span class="number">32</span>,<span class="number">-23</span>,<span class="number">-54</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>sorted(listtt,abs)</div><div class="line">Traceback (most recent call last):</div><div class="line">  File <span class="string">"&lt;stdin&gt;"</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</div><div class="line">TypeError: abs() takes exactly one argument (<span class="number">2</span> given)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>sorted(listtt,key=abs)</div><div class="line">[<span class="number">-1</span>, <span class="number">-2</span>, <span class="number">3</span>, <span class="number">-23</span>, <span class="number">32</span>, <span class="number">-54</span>]</div></pre></td></tr></table></figure>
+<p>来个稍微复杂点的，给一个字典，根据 key 或者 value 来排序：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">L = [(<span class="string">'Bob'</span>, <span class="number">75</span>), (<span class="string">'Adam'</span>, <span class="number">92</span>), (<span class="string">'Bart'</span>, <span class="number">66</span>), (<span class="string">'Lisa'</span>, <span class="number">88</span>)]</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">by_name</span><span class="params">(t)</span>:</span></div><div class="line">    <span class="keyword">return</span> t[<span class="number">0</span>]</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">by_score</span><span class="params">(t)</span>:</span></div><div class="line">    <span class="keyword">return</span> t[<span class="number">1</span>]</div><div class="line"><span class="keyword">print</span> sorted(L,key = by_name)</div><div class="line"><span class="keyword">print</span> sorted(L,key = by_score)</div></pre></td></tr></table></figure>
+<p>运行结果是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[(&apos;Adam&apos;, 92), (&apos;Bart&apos;, 66), (&apos;Bob&apos;, 75), (&apos;Lisa&apos;, 88)]</div><div class="line">[(&apos;Bart&apos;, 66), (&apos;Bob&apos;, 75), (&apos;Lisa&apos;, 88), (&apos;Adam&apos;, 92)]</div></pre></td></tr></table></figure>
+<h3 id="函数作为返回值"><a href="#函数作为返回值" class="headerlink" title="函数作为返回值"></a>函数作为返回值</h3><p>关于这种用法，在 JavaScript 中也是经常用到。</p>
+<p>这个时候就需要，也必须先理解“闭包”这个概念。</p>
+<p>这个概念我找了很多文章，但是都觉得非常的抽象以及概念化。因为之前接触最多的是 Java ，而 Java 中函数和变量完全是两个不同的东西，所以理解起来不是很顺利。</p>
+<p>直到看到阮一峰老师的<a href="http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html" target="_blank" rel="external">这篇</a>介绍，举了很多例子，觉得易于理解。</p>
+<p>我简单总结了一下。</p>
+<p>就是通过 return 的方式将内部函数当成是变量返回给外部函数，外部函数通过这个桥梁可以读取函数内部的变量。</p>
+<h3 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h3><p>举个例子：</p>
+<p><code>lambda x: x*x</code></p>
+<p>就相当于</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">f</span><span class="params">(x)</span>:</span></div><div class="line">    <span class="keyword">return</span> x*x;</div></pre></td></tr></table></figure>
+<h3 id="偏函数"><a href="#偏函数" class="headerlink" title="偏函数"></a>偏函数</h3><p><code>functools</code> 模块中的一个功能，Partial function。</p>
+<p>例如函数 <code>int()</code> 可以将字符串变成整数，也可以做进制的转化：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>int(<span class="string">'123'</span>,base=<span class="number">8</span>)</div><div class="line"><span class="number">83</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>int(<span class="string">'10101010010101'</span>,base=<span class="number">2</span>)</div><div class="line"><span class="number">10901</span></div></pre></td></tr></table></figure>
+<p>是将当前的数字转成 10 进制。</p>
+<p>当我们需要重复使用转化成 2 进制这个方法的时候，就需要不停的多写一个重复的参数：</p>
+<p><code>int(x,base=2)</code></p>
+<p>当然首先想到的就是定义一个带默认参数的函数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">int2</span><span class="params">(x,base =<span class="number">2</span>)</span>:</span></div><div class="line">    <span class="keyword">return</span> int(x,base)</div></pre></td></tr></table></figure>
+<p>这样封装之后就变得好用了。</p>
+<p>我们说到的偏函数就是用来更加方便的创建这种类型的函数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> functools</div><div class="line">int2 = functools.partial(int,base = <span class="number">2</span>)</div><div class="line"><span class="keyword">print</span> int2(<span class="string">'101'</span>)</div></pre></td></tr></table></figure>
+<p>结果当然是输出 5 。</p>
 
       
     </div>
@@ -657,7 +690,7 @@ abs(...)
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-count">29</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -820,7 +853,7 @@ abs(...)
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#常用函数"><span class="nav-number">1.</span> <span class="nav-text">常用函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数学相关"><span class="nav-number">1.1.</span> <span class="nav-text">数学相关</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#类型转换"><span class="nav-number">1.2.</span> <span class="nav-text">类型转换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字符串相关"><span class="nav-number">1.3.</span> <span class="nav-text">字符串相关</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#序列处理"><span class="nav-number">1.4.</span> <span class="nav-text">序列处理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定义函数"><span class="nav-number">2.</span> <span class="nav-text">定义函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#空函数"><span class="nav-number">2.1.</span> <span class="nav-text">空函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#返回值"><span class="nav-number">2.2.</span> <span class="nav-text">返回值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数参数"><span class="nav-number">2.3.</span> <span class="nav-text">函数参数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#默认参数"><span class="nav-number">2.3.1.</span> <span class="nav-text">默认参数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#可变参数"><span class="nav-number">2.3.2.</span> <span class="nav-text">可变参数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#关键字参数"><span class="nav-number">2.3.3.</span> <span class="nav-text">关键字参数</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#递归函数"><span class="nav-number">3.</span> <span class="nav-text">递归函数</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#常用函数"><span class="nav-number">1.</span> <span class="nav-text">常用函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数学相关"><span class="nav-number">1.1.</span> <span class="nav-text">数学相关</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#类型转换"><span class="nav-number">1.2.</span> <span class="nav-text">类型转换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字符串相关"><span class="nav-number">1.3.</span> <span class="nav-text">字符串相关</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#序列处理"><span class="nav-number">1.4.</span> <span class="nav-text">序列处理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定义函数"><span class="nav-number">2.</span> <span class="nav-text">定义函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#空函数"><span class="nav-number">2.1.</span> <span class="nav-text">空函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#返回值"><span class="nav-number">2.2.</span> <span class="nav-text">返回值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数参数"><span class="nav-number">2.3.</span> <span class="nav-text">函数参数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#默认参数"><span class="nav-number">2.3.1.</span> <span class="nav-text">默认参数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#可变参数"><span class="nav-number">2.3.2.</span> <span class="nav-text">可变参数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#关键字参数"><span class="nav-number">2.3.3.</span> <span class="nav-text">关键字参数</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#递归函数"><span class="nav-number">3.</span> <span class="nav-text">递归函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#高阶函数"><span class="nav-number">4.</span> <span class="nav-text">高阶函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数作为返回值"><span class="nav-number">5.</span> <span class="nav-text">函数作为返回值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#匿名函数"><span class="nav-number">6.</span> <span class="nav-text">匿名函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#偏函数"><span class="nav-number">7.</span> <span class="nav-text">偏函数</span></a></li></ol></div>
             
 
           </div>
