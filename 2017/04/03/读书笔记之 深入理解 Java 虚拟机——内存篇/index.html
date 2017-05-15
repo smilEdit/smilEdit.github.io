@@ -3,7 +3,7 @@
 
 
 
-<html class="theme-next mist" lang="zh-Hans">
+<html class="theme-next muse" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -52,12 +52,6 @@
   
 
   
-    
-      
-    
-
-    
-  
 
   
     
@@ -70,7 +64,7 @@
   
     
     
-    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
   
 
 
@@ -104,7 +98,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="深入理解 Java 虚拟机(内存篇)">
 <meta property="og:url" content="http://yoursite.com/2017/04/03/读书笔记之 深入理解 Java 虚拟机——内存篇/index.html">
-<meta property="og:site_name" content="smilEdit's Bolg">
+<meta property="og:site_name" content="smilEdit">
 <meta property="og:description" content="Java 内存区域概述对于 C 和 C++ 程序员来说，他们即拥有每一个对象的“所有权”，同时也担负每一个对象生命周期的维护责任。
 而 Java 程序员则是在虚拟机自动内存管理机制的帮助下，不用操心对象内存的释放。但是也正由于这个帮助，一旦程序出现内存泄漏和溢出问题的时候，由于不够了解虚拟机运行机制，而对问题无从下手。">
 <meta property="og:image" content="http://on9hzfn6s.bkt.clouddn.com/Runtime.jpg">
@@ -127,7 +121,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Mist',
+    scheme: 'Muse',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: false,
     motion: false,
@@ -153,7 +147,7 @@
 
 
 
-  <title> 深入理解 Java 虚拟机(内存篇) | smilEdit's Bolg </title>
+  <title> 深入理解 Java 虚拟机(内存篇) | smilEdit </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -198,12 +192,12 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">smilEdit's Bolg</span>
+        <span class="site-title">smilEdit</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle">一直走，才能看到答案。</p>
+        <p class="site-subtitle"></p>
       
   </div>
 
@@ -334,8 +328,6 @@
   
 </nav>
 
-
-
  </div>
     </header>
 
@@ -358,13 +350,13 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/03/读书笔记之 深入理解 Java 虚拟机——内存篇/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhanglf">
+      <meta itemprop="name" content="Zhanglf">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="smilEdit's Bolg">
+      <meta itemprop="name" content="smilEdit">
     </span>
 
     
@@ -669,10 +661,10 @@
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
-               alt="zhanglf" />
-          <p class="site-author-name" itemprop="name">zhanglf</p>
+               alt="Zhanglf" />
+          <p class="site-author-name" itemprop="name">Zhanglf</p>
            
-              <p class="site-description motion-element" itemprop="description">coding & cooking</p>
+              <p class="site-description motion-element" itemprop="description"></p>
           
         </div>
         <nav class="site-state motion-element">
@@ -680,7 +672,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">31</span>
+                <span class="site-state-item-count">29</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -691,7 +683,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -702,7 +694,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">37</span>
+                <span class="site-state-item-count">36</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -870,7 +862,7 @@
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">zhanglf</span>
+  <span class="author" itemprop="copyrightHolder">Zhanglf</span>
 </div>
 
 
@@ -881,7 +873,7 @@
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
+    NexT.Muse
   </a>
 </div>
 
@@ -918,8 +910,6 @@
 
 
 
-  
-
 
 
 
@@ -940,9 +930,6 @@
 
   
   <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
   

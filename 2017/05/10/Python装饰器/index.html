@@ -3,7 +3,7 @@
 
 
 
-<html class="theme-next mist" lang="zh-Hans">
+<html class="theme-next muse" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -52,12 +52,6 @@
   
 
   
-    
-      
-    
-
-    
-  
 
   
     
@@ -70,7 +64,7 @@
   
     
     
-    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
   
 
 
@@ -106,12 +100,12 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python 装饰器">
 <meta property="og:url" content="http://yoursite.com/2017/05/10/Python装饰器/index.html">
-<meta property="og:site_name" content="smilEdit's Bolg">
+<meta property="og:site_name" content="smilEdit">
 <meta property="og:description" content="不带参数的装饰器核心思想就是设计模式中的装饰者模式。
 按照 Java 中的写法，我们一般是这么做的：
 定义一个专门处理日志打印的函数，接受需要处理的函数：
 123def print_log(func):    print &apos;call &apos;+f.func_name+&apos;()...&apos;    func()">
-<meta property="og:updated_time" content="2017-05-12T01:45:32.000Z">
+<meta property="og:updated_time" content="2017-05-15T09:42:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python 装饰器">
 <meta name="twitter:description" content="不带参数的装饰器核心思想就是设计模式中的装饰者模式。
@@ -125,7 +119,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Mist',
+    scheme: 'Muse',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: false,
     motion: false,
@@ -151,7 +145,7 @@
 
 
 
-  <title> Python 装饰器 | smilEdit's Bolg </title>
+  <title> Python 装饰器 | smilEdit </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -196,12 +190,12 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">smilEdit's Bolg</span>
+        <span class="site-title">smilEdit</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle">一直走，才能看到答案。</p>
+        <p class="site-subtitle"></p>
       
   </div>
 
@@ -332,8 +326,6 @@
   
 </nav>
 
-
-
  </div>
     </header>
 
@@ -356,13 +348,13 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/10/Python装饰器/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhanglf">
+      <meta itemprop="name" content="Zhanglf">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="smilEdit's Bolg">
+      <meta itemprop="name" content="smilEdit">
     </span>
 
     
@@ -621,10 +613,10 @@ i am funcc
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
-               alt="zhanglf" />
-          <p class="site-author-name" itemprop="name">zhanglf</p>
+               alt="Zhanglf" />
+          <p class="site-author-name" itemprop="name">Zhanglf</p>
            
-              <p class="site-description motion-element" itemprop="description">coding & cooking</p>
+              <p class="site-description motion-element" itemprop="description"></p>
           
         </div>
         <nav class="site-state motion-element">
@@ -632,7 +624,7 @@ i am funcc
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">31</span>
+                <span class="site-state-item-count">29</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -643,7 +635,7 @@ i am funcc
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -654,7 +646,7 @@ i am funcc
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">37</span>
+                <span class="site-state-item-count">36</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -822,7 +814,7 @@ i am funcc
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">zhanglf</span>
+  <span class="author" itemprop="copyrightHolder">Zhanglf</span>
 </div>
 
 
@@ -833,7 +825,7 @@ i am funcc
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
+    NexT.Muse
   </a>
 </div>
 
@@ -870,8 +862,6 @@ i am funcc
 
 
 
-  
-
 
 
 
@@ -892,9 +882,6 @@ i am funcc
 
   
   <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
   

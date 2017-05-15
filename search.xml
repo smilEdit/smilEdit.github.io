@@ -1006,27 +1006,6 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
     </entry>
     
     <entry>
-      <title><![CDATA[小目标]]></title>
-      <url>http://yoursite.com/2017/04/22/%E6%88%91%E7%9A%84%E6%A2%A6%E6%83%B32/</url>
-      <content type="html"><![CDATA[<p><br><br><br></p>
-<p><br><br><br><br><br></p>
-<a id="more"></a>
-<center>独善其身</center>
-
-<p><br><br><br></p>
-<p><br><br><br><br><br></p>
-]]></content>
-      
-        
-        <tags>
-            
-            <tag> 梦想 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[Android 仿淘宝商品详情页]]></title>
       <url>http://yoursite.com/2017/04/17/Android_%E4%BB%BF%E6%B7%98%E5%AE%9D%E5%95%86%E5%93%81%E8%AF%A6%E6%83%85%E9%A1%B5/</url>
       <content type="html"><![CDATA[<p>其实差很多，只是简单的模仿里面的一个效果而已。稍微做个笔记。</p>
@@ -1183,33 +1162,6 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
     </entry>
     
     <entry>
-      <title><![CDATA[我的梦想1]]></title>
-      <url>http://yoursite.com/2017/04/15/%E6%88%91%E7%9A%84%E6%A2%A6%E6%83%B3/</url>
-      <content type="html"><![CDATA[<p><br><br><br></p>
-<p><br><br><br><br><br></p>
-<a id="more"></a>
-<center>养两只猫，一只灰色的，一只白色的</center>
-
-<p><br><br><br></p>
-<p><br><br><br><br><br></p>
-]]></content>
-      
-        <categories>
-            
-            <category> 梦想 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> 梦想 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[周末停水]]></title>
       <url>http://yoursite.com/2017/04/15/%E5%91%A8%E6%9C%AB%E5%81%9C%E6%B0%B4/</url>
       <content type="html"><![CDATA[<p>好不容易周末了。</p>
@@ -1293,7 +1245,9 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
 <p>关于尤克里里，一周一个新曲肯定不行，一段还是可以的。其实这个不用定目标，也会弹的。因为手机和电脑都没有游戏了，弹琴估计是我唯一的放松方式。</p>
 <p>不对，还有做菜。做菜的时候也放松。</p>
 <p>一周尝试一道新菜吧。哈哈。含着泪吃下去。</p>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="298" height="52" src="//music.163.com/outchain/player?type=2&id=28285910&auto=1&height=32"></iframe>]]></content>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="298" height="52" src="//music.163.com/outchain/player?type=2&id=28285910&auto=1&height=32"></iframe>
+
+]]></content>
       
         <categories>
             
