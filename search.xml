@@ -1768,9 +1768,9 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
             
             <tag> Java </tag>
             
-            <tag> JVM </tag>
-            
             <tag> 算法 </tag>
+            
+            <tag> JVM </tag>
             
             <tag> 内存 </tag>
             
