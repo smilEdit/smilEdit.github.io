@@ -4,27 +4,6 @@
   
     
     <entry>
-      <title><![CDATA[hexo个性定制]]></title>
-      <url>http://yoursite.com/2017/05/15/hexo%E4%B8%AA%E6%80%A7%E5%AE%9A%E5%88%B6/</url>
-      <content type="html"><![CDATA[<p>test</p>
-]]></content>
-      
-        <categories>
-            
-            <category> 随笔 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> 随笔 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[python函数对象]]></title>
       <url>http://yoursite.com/2017/05/15/python%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1/</url>
       <content type="html"><![CDATA[<p>函数对象的 <code>__code__</code> 属性里存在着许多东西。</p>
@@ -1683,9 +1662,9 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
         
         <tags>
             
-            <tag> Java </tag>
-            
             <tag> 高效 </tag>
+            
+            <tag> Java </tag>
             
             <tag> Effectice </tag>
             
@@ -1989,11 +1968,11 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
         
         <tags>
             
+            <tag> Java </tag>
+            
             <tag> 设计模式 </tag>
             
             <tag> 策略模式 </tag>
-            
-            <tag> Java </tag>
             
             <tag> UML </tag>
             
