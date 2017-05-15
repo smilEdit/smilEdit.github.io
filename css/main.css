@@ -981,7 +981,7 @@ pre .javascript .function {
   display: inline-block;
   padding: 0 80px;
   color: #fff;
-  background: #222;
+  background: transparent;
   line-height: 36px;
   font-weight: normal;
   font-family: 'Lobster Two', 'Monda', "PingFang SC", "Microsoft YaHei", sans-serif;
@@ -1701,7 +1701,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #339c37;
+  background: #1f6628;
 }
 .links-of-blogroll {
   font-size: 13px;
