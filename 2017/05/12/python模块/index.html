@@ -111,7 +111,7 @@
 <meta property="og:image" content="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-12 下午5.06.18.png">
 <meta property="og:image" content="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-12 下午5.10.09.png">
 <meta property="og:image" content="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-12 下午5.04.19.png">
-<meta property="og:updated_time" content="2017-05-12T09:12:55.000Z">
+<meta property="og:updated_time" content="2017-05-12T09:20:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python 模块">
 <meta name="twitter:description" content="每个 .py 文件就相当于是一个模块。
@@ -441,8 +441,8 @@
 <p>一切都是对象。</p>
 <a id="more"></a>
 <h4 id="模块的创建和使用"><a href="#模块的创建和使用" class="headerlink" title="模块的创建和使用"></a>模块的创建和使用</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">__author__ = <span class="string">'zhanglf'</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> sys</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span><span class="params">()</span>:</span></div><div class="line">    args = sys.argv</div><div class="line">    <span class="keyword">if</span> len(args)==<span class="number">1</span>:</div><div class="line">        print(<span class="string">'Hello, %s!'</span> % args[<span class="number">0</span>])</div><div class="line">    <span class="keyword">elif</span> len(args)==<span class="number">2</span>:</div><div class="line">        print(<span class="string">'Hello, %s!'</span> % args[<span class="number">1</span>])</div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        print(<span class="string">'Too many arguments!'</span>)</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__==<span class="string">'__main__'</span>:</div><div class="line">    test()</div></pre></td></tr></table></figure>
-<p>关于 Python 中的变量默认是公开的。</p>
-<p>其中 <code>_xx</code> 或者是 <code>__xx</code> 就相当于是加了 <code>private</code> 修饰符的变量。而 <code>__author__</code> 或者是 <code>__name__</code> 这种变量是特殊变量。</p>
+<p>关于 Python 中的变量,默认是公开( Pulbic )的。</p>
+<p>其中 <code>_xx</code> 或者 <code>__xx</code> 就相当于是加了 <code>private</code> 修饰符的变量。而 <code>__author__</code> 或者 <code>__name__</code> 这种变量是特殊变量。</p>
 <p>如何使用：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">smilEditdeMBP:practice zhanglf$ python helloworld.py</div><div class="line">Hello, helloworld.py!</div></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> HelloWorld</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>HelloWorld.test()</div><div class="line">Hello, !</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>HelloWorld.__author__</div><div class="line"><span class="string">'zhanglf'</span></div></pre></td></tr></table></figure>
@@ -466,7 +466,8 @@
 <p><code>&gt;&gt;&gt; im.show()</code></p>
 <p>显示属性：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt;print(im.format,im.size,im.mode)</div><div class="line">(<span class="string">'JPEG'</span>, (<span class="number">160</span>, <span class="number">100</span>), <span class="string">'RGB'</span>)</div></pre></td></tr></table></figure>
-<p>再来几个好玩的，图片高斯模糊：</p>
+<p>再来两个比较有意思的：</p>
+<p>图片高斯模糊：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> PIL <span class="keyword">import</span> ImageFilter</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>im = im.filter(ImageFilter.GaussianBlur)</div></pre></td></tr></table></figure>
 <p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-12 下午5.10.09.png" alt="屏幕快照 2017-05-12 下午5.10.09"></p>
 <p>图像冷暖色调调整：</p>
@@ -526,6 +527,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/15/python函数对象/" rel="prev" title="python函数对象">
+                python函数对象 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -605,7 +610,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-count">31</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -627,7 +632,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-count">37</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

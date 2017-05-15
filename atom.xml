@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-05-12T09:12:55.000Z</updated>
+  <updated>2017-05-15T01:59:11.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,18 +16,55 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>python函数对象</title>
+    <link href="http://yoursite.com/2017/05/15/python%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1/"/>
+    <id>http://yoursite.com/2017/05/15/python函数对象/</id>
+    <published>2017-05-15T00:50:31.000Z</published>
+    <updated>2017-05-15T01:59:11.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>函数对象的 <code>__code__</code> 属性里存在着许多东西。</p>
+<p>例如函数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">()</span>:</span></div><div class="line">    <span class="keyword">return</span> <span class="string">'i am foo'</span></div></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>中，函数的元数由 <code>foo.__code__.co_argcount</code> 获得，函数的字节码由 <code>foo.__code__.co_code</code> 获得。这些 <code>__code__</code> 对象中的属性都是只读的，但是 <code>__code__</code> 对象本身却是可读可写的。</p>
+<p>所以我们可以通过这个属性来恶作剧，再定义一个函数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">bar</span><span class="params">()</span>:</span></div><div class="line">    <span class="keyword">return</span> <span class="string">'i am bar'</span></div></pre></td></tr></table></figure>
+<p>（关于 foo bar 之类的函数名到底有什么含义，可以看<a href="http://www.cnblogs.com/awpatp/archive/2011/02/27/1966380.html" target="_blank" rel="external">这里</a>，其实就是类似于中文中的我们常说的张三，李四）</p>
+<p>两个函数定义好了，就可以进行移植了：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">foo.__code__ = bar.__code___</div></pre></td></tr></table></figure>
+<p>这个时候运行</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">print</span> foo()</div></pre></td></tr></table></figure>
+<p>会得到的是： <code>i am bar</code></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;函数对象的 &lt;code&gt;__code__&lt;/code&gt; 属性里存在着许多东西。&lt;/p&gt;
+&lt;p&gt;例如函数：&lt;/p&gt;
+&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;:&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;i am foo&#39;&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="python" scheme="http://yoursite.com/categories/python/"/>
+    
+    
+      <category term="Pyton" scheme="http://yoursite.com/tags/Pyton/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Python 模块</title>
     <link href="http://yoursite.com/2017/05/12/python%E6%A8%A1%E5%9D%97/"/>
     <id>http://yoursite.com/2017/05/12/python模块/</id>
     <published>2017-05-12T06:48:51.000Z</published>
-    <updated>2017-05-12T09:12:55.000Z</updated>
+    <updated>2017-05-12T09:20:18.000Z</updated>
     
     <content type="html"><![CDATA[<p>每个 .py 文件就相当于是一个模块。</p>
 <p>一切都是对象。</p>
 <a id="more"></a>
 <h4 id="模块的创建和使用"><a href="#模块的创建和使用" class="headerlink" title="模块的创建和使用"></a>模块的创建和使用</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">__author__ = <span class="string">'zhanglf'</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> sys</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span><span class="params">()</span>:</span></div><div class="line">    args = sys.argv</div><div class="line">    <span class="keyword">if</span> len(args)==<span class="number">1</span>:</div><div class="line">        print(<span class="string">'Hello, %s!'</span> % args[<span class="number">0</span>])</div><div class="line">    <span class="keyword">elif</span> len(args)==<span class="number">2</span>:</div><div class="line">        print(<span class="string">'Hello, %s!'</span> % args[<span class="number">1</span>])</div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        print(<span class="string">'Too many arguments!'</span>)</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__==<span class="string">'__main__'</span>:</div><div class="line">    test()</div></pre></td></tr></table></figure>
-<p>关于 Python 中的变量默认是公开的。</p>
-<p>其中 <code>_xx</code> 或者是 <code>__xx</code> 就相当于是加了 <code>private</code> 修饰符的变量。而 <code>__author__</code> 或者是 <code>__name__</code> 这种变量是特殊变量。</p>
+<p>关于 Python 中的变量,默认是公开( Pulbic )的。</p>
+<p>其中 <code>_xx</code> 或者 <code>__xx</code> 就相当于是加了 <code>private</code> 修饰符的变量。而 <code>__author__</code> 或者 <code>__name__</code> 这种变量是特殊变量。</p>
 <p>如何使用：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">smilEditdeMBP:practice zhanglf$ python helloworld.py</div><div class="line">Hello, helloworld.py!</div></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> HelloWorld</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>HelloWorld.test()</div><div class="line">Hello, !</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>HelloWorld.__author__</div><div class="line"><span class="string">'zhanglf'</span></div></pre></td></tr></table></figure>
@@ -51,7 +88,8 @@
 <p><code>&gt;&gt;&gt; im.show()</code></p>
 <p>显示属性：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt;print(im.format,im.size,im.mode)</div><div class="line">(<span class="string">'JPEG'</span>, (<span class="number">160</span>, <span class="number">100</span>), <span class="string">'RGB'</span>)</div></pre></td></tr></table></figure>
-<p>再来几个好玩的，图片高斯模糊：</p>
+<p>再来两个比较有意思的：</p>
+<p>图片高斯模糊：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> PIL <span class="keyword">import</span> ImageFilter</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>im = im.filter(ImageFilter.GaussianBlur)</div></pre></td></tr></table></figure>
 <p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-12 下午5.10.09.png" alt="屏幕快照 2017-05-12 下午5.10.09"></p>
 <p>图像冷暖色调调整：</p>
@@ -1183,57 +1221,6 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
     
     
       <category term="设计" scheme="http://yoursite.com/tags/%E8%AE%BE%E8%AE%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>安卓桌面图标未读数字</title>
-    <link href="http://yoursite.com/2017/04/15/%E5%AE%89%E5%8D%93%E6%A1%8C%E9%9D%A2%E5%9B%BE%E6%A0%87%E6%9C%AA%E8%AF%BB%E6%95%B0%E5%AD%97/"/>
-    <id>http://yoursite.com/2017/04/15/安卓桌面图标未读数字/</id>
-    <published>2017-04-15T08:58:12.000Z</published>
-    <updated>2017-04-15T09:52:23.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>再不写个安卓技术文，都要忘了自己其实是做安卓的了。</p>
-<p><img src="http://imgsrc.baidu.com/forum/w%3D580/sign=b8700c65494a20a4311e3ccfa0539847/d2198e16fdfaaf5108b8d5c88a5494eef01f7a74.jpg" alt=""></p>
-<p>今天要是实现的就是这种东西</p>
-<p><img src="http://on9hzfn6s.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-04-15%20%E4%B8%8B%E5%8D%885.06.07.png" alt=""></p>
-<a id="more"></a>
-<p>说实话，有点恶心。每次支付宝微信什么的这种未读标志出现的时候就忍不住去点。</p>
-<p>好了，我的学习流程是这样的，先在网上搜了下:</p>
-<p><img src="http://on9hzfn6s.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-04-15%20%E4%B8%8B%E5%8D%885.09.51.png" alt=""></p>
-<p>看了几篇之后，发现 <a href="http://www.jianshu.com/p/0992ff9eeeb6" target="_blank" rel="external"><em>这个</em></a> 写的比较用心，除了无形狗粮。</p>
-<p>然后找到了 Github 上面的 <a href="https://github.com/leolin310148/ShortcutBadger" target="_blank" rel="external"><em>这个</em></a>，应该是用的人最多的了。</p>
-<p>使用起来非非常的方便:</p>
-<p>新建了个工程，在布局中简单写了两个 <code>Button</code> ，一个用来添加未读的标志，一个用来消除未读的标记。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">Button</span></span></div><div class="line">    <span class="attr">android:text</span>=<span class="string">"addCount"</span></div><div class="line">    <span class="attr">android:id</span>=<span class="string">"@+id/bt_addCount"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span>/&gt;</div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">Button</span></span></div><div class="line">    <span class="attr">android:text</span>=<span class="string">"removeCount"</span></div><div class="line">    <span class="attr">android:id</span>=<span class="string">"@+id/bt_removeCount"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span>/&gt;</div></pre></td></tr></table></figure>
-<p>然后在代码中添加按钮的点击事件:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">mBtAddCount = (Button) findViewById(R.id.bt_addCount);</div><div class="line">        mBtAddCount.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</div><div class="line">                <span class="keyword">if</span> (ShortcutBadger.isBadgeCounterSupported(getApplicationContext())) &#123;</div><div class="line">                    ShortcutBadger.applyCount(getApplicationContext(),<span class="number">1</span>);</div><div class="line">                    Toast  toast = Toast.makeText(getApplicationContext(),<span class="string">"标记已添加"</span>,Toast.LENGTH_SHORT);</div><div class="line">                    toast.show();</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">        mBtRemove = (Button) findViewById(R.id.bt_removeCount);</div><div class="line">        mBtRemove.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</div><div class="line">                <span class="keyword">if</span> (ShortcutBadger.isBadgeCounterSupported(getApplicationContext())) &#123;</div><div class="line">                    ShortcutBadger.removeCount(getApplicationContext());</div><div class="line">                    Toast  toast = Toast.makeText(getApplicationContext(),<span class="string">"标记已清除"</span>,Toast.LENGTH_SHORT);</div><div class="line">                    toast.show();</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;);</div></pre></td></tr></table></figure>
-<p>灰常快，然后在真机上试了下，能用。（手头只有自己使用的手机，华为荣耀 6。）</p>
-<p>再然后，看源码。</p>
-<p>怎么说呢，可以这样理解。桌面屏幕其实也是个 Activity 界面，是一个类，Launcher 。修改桌面图标其实就是传一些参数进去，然后调用里面的修改图标的方法。(这个方法各个厂商的实现方式可能都是不一样的，原生其实是没有的，因为有强大的通知栏了，为何要整这种逼死强迫症的东西呢)</p>
-<p>需要的参数有包名，类名，和想要设置的数字。移除标志其实就是数字传 0。</p>
-<p>不依赖三方库，我自己实现了下，像这样:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Intent launchIntent = getApplicationContext().getPackageManager().getLaunchIntentForPackage(getApplicationContext().getPackageName());</div><div class="line">Bundle localBundle = <span class="keyword">new</span> Bundle();</div><div class="line">localBundle.putString(<span class="string">"package"</span>, getApplicationContext().getPackageName());</div><div class="line">localBundle.putString(<span class="string">"class"</span>, launchIntent.getComponent().getClassName());</div><div class="line">localBundle.putInt(<span class="string">"badgenumber"</span>, <span class="number">1</span>);</div><div class="line">getApplicationContext().getContentResolver().call(Uri.parse(<span class="string">"content://com.huawei.android.launcher.settings/badge/"</span>), <span class="string">"change_badge"</span>, <span class="keyword">null</span>, localBundle);</div></pre></td></tr></table></figure>
-<p>运行了下，妥妥的。</p>
-<p><img src="http://on9hzfn6s.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-04-15%20%E4%B8%8B%E5%8D%885.06.20.png" alt=""></p>
-<p>烦在哪里呢，安卓严重的碎片化。不同牌子的实现方式就都不一样了，上面只是华为的。</p>
-<p>有的手机，例如锤子之类的，只有 System App 才能改。</p>
-<p>ShortcutBadger 就是对市场上的绝大多数品牌的手机做了适配。一般手机的实现方式都和上面华为那个差不多，传参数调接口就行了。具体可以看<a href="https://github.com/leolin310148/ShortcutBadger/tree/master/ShortcutBadger/src/main/java/me/leolin/shortcutbadger/impl" target="_blank" rel="external"><em>这里</em></a>。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;再不写个安卓技术文，都要忘了自己其实是做安卓的了。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://imgsrc.baidu.com/forum/w%3D580/sign=b8700c65494a20a4311e3ccfa0539847/d2198e16fdfaaf5108b8d5c88a5494eef01f7a74.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;今天要是实现的就是这种东西&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://on9hzfn6s.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-04-15%20%E4%B8%8B%E5%8D%885.06.07.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="安卓" scheme="http://yoursite.com/categories/%E5%AE%89%E5%8D%93/"/>
-    
-    
-      <category term="安卓" scheme="http://yoursite.com/tags/%E5%AE%89%E5%8D%93/"/>
     
   </entry>
   

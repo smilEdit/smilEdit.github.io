@@ -4,14 +4,47 @@
   
     
     <entry>
+      <title><![CDATA[python函数对象]]></title>
+      <url>http://yoursite.com/2017/05/15/python%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1/</url>
+      <content type="html"><![CDATA[<p>函数对象的 <code>__code__</code> 属性里存在着许多东西。</p>
+<p>例如函数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">()</span>:</span></div><div class="line">    <span class="keyword">return</span> <span class="string">'i am foo'</span></div></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>中，函数的元数由 <code>foo.__code__.co_argcount</code> 获得，函数的字节码由 <code>foo.__code__.co_code</code> 获得。这些 <code>__code__</code> 对象中的属性都是只读的，但是 <code>__code__</code> 对象本身却是可读可写的。</p>
+<p>所以我们可以通过这个属性来恶作剧，再定义一个函数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">bar</span><span class="params">()</span>:</span></div><div class="line">    <span class="keyword">return</span> <span class="string">'i am bar'</span></div></pre></td></tr></table></figure>
+<p>（关于 foo bar 之类的函数名到底有什么含义，可以看<a href="http://www.cnblogs.com/awpatp/archive/2011/02/27/1966380.html" target="_blank" rel="external">这里</a>，其实就是类似于中文中的我们常说的张三，李四）</p>
+<p>两个函数定义好了，就可以进行移植了：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">foo.__code__ = bar.__code___</div></pre></td></tr></table></figure>
+<p>这个时候运行</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">print</span> foo()</div></pre></td></tr></table></figure>
+<p>会得到的是： <code>i am bar</code></p>
+]]></content>
+      
+        <categories>
+            
+            <category> python </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Pyton </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Python 模块]]></title>
       <url>http://yoursite.com/2017/05/12/python%E6%A8%A1%E5%9D%97/</url>
       <content type="html"><![CDATA[<p>每个 .py 文件就相当于是一个模块。</p>
 <p>一切都是对象。</p>
 <a id="more"></a>
 <h4 id="模块的创建和使用"><a href="#模块的创建和使用" class="headerlink" title="模块的创建和使用"></a>模块的创建和使用</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">__author__ = <span class="string">'zhanglf'</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> sys</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span><span class="params">()</span>:</span></div><div class="line">    args = sys.argv</div><div class="line">    <span class="keyword">if</span> len(args)==<span class="number">1</span>:</div><div class="line">        print(<span class="string">'Hello, %s!'</span> % args[<span class="number">0</span>])</div><div class="line">    <span class="keyword">elif</span> len(args)==<span class="number">2</span>:</div><div class="line">        print(<span class="string">'Hello, %s!'</span> % args[<span class="number">1</span>])</div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        print(<span class="string">'Too many arguments!'</span>)</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__==<span class="string">'__main__'</span>:</div><div class="line">    test()</div></pre></td></tr></table></figure>
-<p>关于 Python 中的变量默认是公开的。</p>
-<p>其中 <code>_xx</code> 或者是 <code>__xx</code> 就相当于是加了 <code>private</code> 修饰符的变量。而 <code>__author__</code> 或者是 <code>__name__</code> 这种变量是特殊变量。</p>
+<p>关于 Python 中的变量,默认是公开( Pulbic )的。</p>
+<p>其中 <code>_xx</code> 或者 <code>__xx</code> 就相当于是加了 <code>private</code> 修饰符的变量。而 <code>__author__</code> 或者 <code>__name__</code> 这种变量是特殊变量。</p>
 <p>如何使用：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">smilEditdeMBP:practice zhanglf$ python helloworld.py</div><div class="line">Hello, helloworld.py!</div></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> HelloWorld</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>HelloWorld.test()</div><div class="line">Hello, !</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>HelloWorld.__author__</div><div class="line"><span class="string">'zhanglf'</span></div></pre></td></tr></table></figure>
@@ -35,7 +68,8 @@
 <p><code>&gt;&gt;&gt; im.show()</code></p>
 <p>显示属性：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt;print(im.format,im.size,im.mode)</div><div class="line">(<span class="string">'JPEG'</span>, (<span class="number">160</span>, <span class="number">100</span>), <span class="string">'RGB'</span>)</div></pre></td></tr></table></figure>
-<p>再来几个好玩的，图片高斯模糊：</p>
+<p>再来两个比较有意思的：</p>
+<p>图片高斯模糊：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> PIL <span class="keyword">import</span> ImageFilter</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>im = im.filter(ImageFilter.GaussianBlur)</div></pre></td></tr></table></figure>
 <p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-12 下午5.10.09.png" alt="屏幕快照 2017-05-12 下午5.10.09"></p>
 <p>图像冷暖色调调整：</p>
@@ -1734,9 +1768,9 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
             
             <tag> Java </tag>
             
-            <tag> JVM </tag>
-            
             <tag> 算法 </tag>
+            
+            <tag> JVM </tag>
             
             <tag> 内存 </tag>
             
