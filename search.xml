@@ -1830,9 +1830,9 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
         
         <tags>
             
-            <tag> JVM </tag>
-            
             <tag> Java </tag>
+            
+            <tag> JVM </tag>
             
             <tag> 算法 </tag>
             
