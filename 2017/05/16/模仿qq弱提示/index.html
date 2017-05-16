@@ -95,7 +95,7 @@
 
 <meta name="description" content="设计给的图：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="模仿 QQ 弱提示">
+<meta property="og:title" content="仿 QQ 弱提示">
 <meta property="og:url" content="http://yoursite.com/2017/05/16/模仿qq弱提示/index.html">
 <meta property="og:site_name" content="smilEdit">
 <meta property="og:description" content="设计给的图：">
@@ -104,10 +104,10 @@
 <meta property="og:image" content="http://on9hzfn6s.bkt.clouddn.com/350F6CDE-ACF8-448B-AAE0-1D6ECC3C20FA.png">
 <meta property="og:image" content="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-16 下午10.37.57.png">
 <meta property="og:image" content="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-16 下午10.31.55.png">
-<meta property="og:image" content="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-16 下午10.31.39.png">
-<meta property="og:updated_time" content="2017-05-16T15:12:41.000Z">
+<meta property="og:image" content="http://on9hzfn6s.bkt.clouddn.com/350F6CDE-ACF8-448B-AAE0-1D6ECC3C20FA.png">
+<meta property="og:updated_time" content="2017-05-16T15:27:47.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="模仿 QQ 弱提示">
+<meta name="twitter:title" content="仿 QQ 弱提示">
 <meta name="twitter:description" content="设计给的图：">
 <meta name="twitter:image" content="http://on9hzfn6s.bkt.clouddn.com/弱提示-2.png">
 
@@ -143,7 +143,7 @@
 
 
 
-  <title> 模仿 QQ 弱提示 | smilEdit </title>
+  <title> 仿 QQ 弱提示 | smilEdit </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -364,7 +364,7 @@
             
             
               
-                模仿 QQ 弱提示
+                仿 QQ 弱提示
               
             
           </h1>
@@ -419,7 +419,7 @@
 
           
           
-             <span id="/2017/05/16/模仿qq弱提示/" class="leancloud_visitors" data-flag-title="模仿 QQ 弱提示">
+             <span id="/2017/05/16/模仿qq弱提示/" class="leancloud_visitors" data-flag-title="仿 QQ 弱提示">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -454,12 +454,20 @@
 
       
         <p>设计给的图：</p>
-<p><img src="http://on9hzfn6s.bkt.clouddn.com/弱提示-2.png" alt="弱提示-2"></p>
+<div align="center"><br> <img src="http://on9hzfn6s.bkt.clouddn.com/弱提示-2.png" width="240" height="460" alt="弱提示-2" align="center"><br> </div>
+
 <a id="more"></a>
-<p><img src="http://on9hzfn6s.bkt.clouddn.com/弱提示-1.png" alt="弱提示-1"></p>
-<p>这这弱提示和 QQ 的非常的像：</p>
-<p><img src="http://on9hzfn6s.bkt.clouddn.com/350F6CDE-ACF8-448B-AAE0-1D6ECC3C20FA.png" alt="350F6CDE-ACF8-448B-AAE0-1D6ECC3C20FA"></p>
-<p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-16 下午10.37.57.png" alt="屏幕快照 2017-05-16 下午10.37.57"></p>
+<p><br></p>
+<div align="center"><br> <img src="http://on9hzfn6s.bkt.clouddn.com/弱提示-1.png" width="240" height="460" alt="弱提示-2" align="center"><br> </div>
+
+<p><br></p>
+<p>这这弱提示和 QQ 的非常像：</p>
+<div align="center"><br> <img src="http://on9hzfn6s.bkt.clouddn.com/350F6CDE-ACF8-448B-AAE0-1D6ECC3C20FA.png" width="240" height="460" alt="弱提示-2" align="center"><br> </div>
+
+<p><br></p>
+<div align="center"><br> <img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-16 下午10.37.57.png" width="240" height="460" alt="弱提示-2" align="center"><br> </div>
+
+<p> <br></p>
 <p>看到这个我第一想法是 <code>SnakeBar</code> ，但是会发现一个问题，<code>SnackBar</code> 需要当前的 <code>Context</code> ，而且当前界面消失的时候，显示的 <code>Snackbar</code> 也会消失。最重要的是工程中的所有 <code>Toast</code> 都要替换成这种弱提示，而之前的方法只需要接受一个 <code>String</code> 参数就能够完成了，所以为了减少工作量，我们在实现该功能的时候，最好也只是需要传入相同参数。</p>
 <p>最终决定也是用 <code>Toast</code> 来完成这个效果：</p>
 <p>首先设置 <code>Toast</code> 的宽度和动画效果：</p>
@@ -488,8 +496,12 @@
 <p>最后根据不同的状态，显示不同的 <code>Toast</code>：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">findViewById(R.id.button).setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</div><div class="line">        show(MainActivity.<span class="keyword">this</span>, <span class="string">"每天最多给它点10个赞"</span>, <span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line">findViewById(R.id.button2).setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</div><div class="line">        show(MainActivity.<span class="keyword">this</span>, <span class="string">"当前网络不可用，请检查网络设置"</span>, <span class="number">2</span>);</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <p>大致的效果图：</p>
-<p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-16 下午10.31.55.png" alt="屏幕快照 2017-05-16 下午10.31.55"></p>
-<p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-16 下午10.31.39.png" alt="屏幕快照 2017-05-16 下午10.31.39"></p>
+<div align="center"><br> <img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-16 下午10.31.55.png" width="240" height="460" alt="弱提示-2" align="center"><br> </div>
+
+<p><br></p>
+<div align="center"><br> <img src="http://on9hzfn6s.bkt.clouddn.com/350F6CDE-ACF8-448B-AAE0-1D6ECC3C20FA.png" width="240" height="460" alt="弱提示-2" align="center"><br> </div>
+
+<p> <br></p>
 <p>最后,这只是个简单的 Demo ，实际中那样改变主题是非常不好的，因为那个只适用于 API 19 及以上的版本，如果真要改变状态栏的颜色，可以参考 <a href="https://github.com/niorgai/StatusBarCompat" target="_blank" rel="external">StatusBarCompat</a>、<a href="https://github.com/jgilfelt/SystemBarTint" target="_blank" rel="external">SystemBarTint</a> 或者 <a href="https://github.com/msdx/status-bar-compat" target="_blank" rel="external">status-bar-compat</a>，使用它们都可以轻松的动态改变状态栏的颜色，但是他们都有局限性，都需要一个参数，就是当前的 <code>Activity</code> 。</p>
 <p>另外，其实 QQ 的那个 <code>Toast</code> 的顶部其实还有渐变的阴影，所以看上效果很更好一点，新版的 QQ 标题栏的颜色也改成了渐变蓝色，也是很好看的。</p>
 
@@ -543,6 +555,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/16/个人博客相关/" rel="prev" title="个人博客相关">
+                个人博客相关 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -613,7 +629,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">33</span>
+                <span class="site-state-item-count">34</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -624,7 +640,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -635,7 +651,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-count">36</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

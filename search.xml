@@ -4,15 +4,70 @@
   
     
     <entry>
-      <title><![CDATA[模仿 QQ 弱提示]]></title>
+      <title><![CDATA[个人博客相关]]></title>
+      <url>http://yoursite.com/2017/05/16/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3/</url>
+      <content type="html"><![CDATA[<p>东西太多了，怕忘记。</p>
+<p>想起什么就记录什么，不论简单复杂。</p>
+<p>所有记录的都是亲测过的。</p>
+<a id="more"></a>
+<h4 id="换行"><a href="#换行" class="headerlink" title="换行"></a>换行</h4><p>在 MD 中 狂敲回车并没有什么软用，可以使用：<br><code>&lt;/br&gt;</code></p>
+<h4 id="限制图片大小"><a href="#限制图片大小" class="headerlink" title="限制图片大小"></a>限制图片大小</h4><p>在 MD 中，图片过大的时候，可以使用：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">align</span>=<span class="string">"center"</span>&gt;</span></div><div class="line"> <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"url..."</span> <span class="attr">width</span> = <span class="string">"宽度"</span> <span class="attr">height</span> = <span class="string">"高度"</span> <span class="attr">alt</span>=<span class="string">"图片描述"</span> <span class="attr">align</span>=<span class="string">"center"</span> /&gt;</span></div><div class="line"> <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>限制宽高并限制居中。</p>
+<h4 id="本地预览失败"><a href="#本地预览失败" class="headerlink" title="本地预览失败"></a>本地预览失败</h4><p>部署： <code>hexo g</code><br>提交： <code>hexo d</code><br>启动服务器： <code>hexo s</code><br>如果启动失败，可能原因是端口被占用了，可以关闭对应端口的程序，一般是 4000 ，如果发现并没有程序占用该端口，或者关闭不了占用该端口的程序，可以在 hexo 的 _config.yml 配置文件中加上：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">server:</div><div class="line">  port: 4001</div><div class="line">  compress: true</div><div class="line">  header: true</div></pre></td></tr></table></figure>
+<p>来修改启动的端口。</p>
+<p>然后重新部署在启动就好了。</p>
+<h4 id="修改个人头像样式"><a href="#修改个人头像样式" class="headerlink" title="修改个人头像样式"></a>修改个人头像样式</h4><p>路径如下：</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-16 下午11.42.21.png" alt="屏幕快照 2017-05-16 下午11.42.21"></p>
+<p>在 custom.styl 文件中添加个人头像的 CSS 代码：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">.site-author-image &#123;</div><div class="line">  border-radius: 100%;</div><div class="line">&#125;</div><div class="line">.site-author-image:hover&#123;</div><div class="line">  animation: scan 4s linear infinite;</div><div class="line">&#125;</div><div class="line">@keyframes scan</div><div class="line">&#123;</div><div class="line">  0%&#123;-webkit-transform:rotate(0)&#125; </div><div class="line">  50%&#123;-webkit-transform:rotate(180deg)&#125; </div><div class="line">  100%&#123;-webkit-transform:rotate(360deg)&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>以上是让图片变成圆形，并且当鼠标移动到头像上时，头像会不停的旋转。</p>
+<h4 id="修改代码高亮"><a href="#修改代码高亮" class="headerlink" title="修改代码高亮"></a>修改代码高亮</h4><p>修改的只是 `` 中的样式：</p>
+<p>例如 <code>code</code> 。</p>
+<p>路径如下：</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-16 下午11.42.21.png" alt="屏幕快照 2017-05-16 下午11.42.21"></p>
+<p>在 custom.styl 文件中添加代码的 CSS 代码：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">code &#123;</div><div class="line">  color: #fc6423;</div><div class="line">  background: #fbf7f8;</div><div class="line">  margin: 2px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="导航栏中的背景图片修改"><a href="#导航栏中的背景图片修改" class="headerlink" title="导航栏中的背景图片修改"></a>导航栏中的背景图片修改</h4><p>路径：</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-16 下午11.51.29.png" alt="屏幕快照 2017-05-16 下午11.51.29"></p>
+<p>修改 <code>background</code> 中的 <code>url</code> 即可：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.header &#123; background-image: url("http://7xkj6q.com1.z0.glb.clouddn.com/header_background.jpg"); &#125;</div><div class="line"></div><div class="line">.header-inner &#123; position: relative; &#125;</div></pre></td></tr></table></figure>
+]]></content>
+      
+        <categories>
+            
+            <category> 备忘录 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 记下来 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[仿 QQ 弱提示]]></title>
       <url>http://yoursite.com/2017/05/16/%E6%A8%A1%E4%BB%BFqq%E5%BC%B1%E6%8F%90%E7%A4%BA/</url>
       <content type="html"><![CDATA[<p>设计给的图：</p>
-<p><img src="http://on9hzfn6s.bkt.clouddn.com/弱提示-2.png" alt="弱提示-2"></p>
+<div align="center"><br> <img src="http://on9hzfn6s.bkt.clouddn.com/弱提示-2.png" width="240" height="460" alt="弱提示-2" align="center"><br> </div>
+
 <a id="more"></a>
-<p><img src="http://on9hzfn6s.bkt.clouddn.com/弱提示-1.png" alt="弱提示-1"></p>
-<p>这这弱提示和 QQ 的非常的像：</p>
-<p><img src="http://on9hzfn6s.bkt.clouddn.com/350F6CDE-ACF8-448B-AAE0-1D6ECC3C20FA.png" alt="350F6CDE-ACF8-448B-AAE0-1D6ECC3C20FA"></p>
-<p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-16 下午10.37.57.png" alt="屏幕快照 2017-05-16 下午10.37.57"></p>
+<p><br></p>
+<div align="center"><br> <img src="http://on9hzfn6s.bkt.clouddn.com/弱提示-1.png" width="240" height="460" alt="弱提示-2" align="center"><br> </div>
+
+<p><br></p>
+<p>这这弱提示和 QQ 的非常像：</p>
+<div align="center"><br> <img src="http://on9hzfn6s.bkt.clouddn.com/350F6CDE-ACF8-448B-AAE0-1D6ECC3C20FA.png" width="240" height="460" alt="弱提示-2" align="center"><br> </div>
+
+<p><br></p>
+<div align="center"><br> <img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-16 下午10.37.57.png" width="240" height="460" alt="弱提示-2" align="center"><br> </div>
+
+<p> <br></p>
 <p>看到这个我第一想法是 <code>SnakeBar</code> ，但是会发现一个问题，<code>SnackBar</code> 需要当前的 <code>Context</code> ，而且当前界面消失的时候，显示的 <code>Snackbar</code> 也会消失。最重要的是工程中的所有 <code>Toast</code> 都要替换成这种弱提示，而之前的方法只需要接受一个 <code>String</code> 参数就能够完成了，所以为了减少工作量，我们在实现该功能的时候，最好也只是需要传入相同参数。</p>
 <p>最终决定也是用 <code>Toast</code> 来完成这个效果：</p>
 <p>首先设置 <code>Toast</code> 的宽度和动画效果：</p>
@@ -41,8 +96,12 @@
 <p>最后根据不同的状态，显示不同的 <code>Toast</code>：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">findViewById(R.id.button).setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</div><div class="line">        show(MainActivity.<span class="keyword">this</span>, <span class="string">"每天最多给它点10个赞"</span>, <span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line">findViewById(R.id.button2).setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</div><div class="line">        show(MainActivity.<span class="keyword">this</span>, <span class="string">"当前网络不可用，请检查网络设置"</span>, <span class="number">2</span>);</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <p>大致的效果图：</p>
-<p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-16 下午10.31.55.png" alt="屏幕快照 2017-05-16 下午10.31.55"></p>
-<p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-16 下午10.31.39.png" alt="屏幕快照 2017-05-16 下午10.31.39"></p>
+<div align="center"><br> <img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-16 下午10.31.55.png" width="240" height="460" alt="弱提示-2" align="center"><br> </div>
+
+<p><br></p>
+<div align="center"><br> <img src="http://on9hzfn6s.bkt.clouddn.com/350F6CDE-ACF8-448B-AAE0-1D6ECC3C20FA.png" width="240" height="460" alt="弱提示-2" align="center"><br> </div>
+
+<p> <br></p>
 <p>最后,这只是个简单的 Demo ，实际中那样改变主题是非常不好的，因为那个只适用于 API 19 及以上的版本，如果真要改变状态栏的颜色，可以参考 <a href="https://github.com/niorgai/StatusBarCompat" target="_blank" rel="external">StatusBarCompat</a>、<a href="https://github.com/jgilfelt/SystemBarTint" target="_blank" rel="external">SystemBarTint</a> 或者 <a href="https://github.com/msdx/status-bar-compat" target="_blank" rel="external">status-bar-compat</a>，使用它们都可以轻松的动态改变状态栏的颜色，但是他们都有局限性，都需要一个参数，就是当前的 <code>Activity</code> 。</p>
 <p>另外，其实 QQ 的那个 <code>Toast</code> 的顶部其实还有渐变的阴影，所以看上效果很更好一点，新版的 QQ 标题栏的颜色也改成了渐变蓝色，也是很好看的。</p>
 ]]></content>
@@ -1962,11 +2021,11 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
         
         <tags>
             
-            <tag> JVM </tag>
-            
             <tag> Java </tag>
             
             <tag> 算法 </tag>
+            
+            <tag> JVM </tag>
             
             <tag> 内存 </tag>
             
