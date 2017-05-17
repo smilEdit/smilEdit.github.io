@@ -106,7 +106,9 @@
 <meta property="og:image" content="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-16 下午11.42.21.png">
 <meta property="og:image" content="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-16 下午11.42.21.png">
 <meta property="og:image" content="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-16 下午11.51.29.png">
-<meta property="og:updated_time" content="2017-05-16T15:54:54.000Z">
+<meta property="og:image" content="http://on9hzfn6s.bkt.clouddn.com/F96A50B5-9782-462A-889C-A2E2EDC8CDF5.png">
+<meta property="og:image" content="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-17 上午9.00.48.png">
+<meta property="og:updated_time" content="2017-05-17T01:13:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="个人博客相关">
 <meta name="twitter:description" content="东西太多了，怕忘记。
@@ -460,29 +462,66 @@
 <p>想起什么就记录什么，不论简单复杂。</p>
 <p>所有记录的都是亲测过的。</p>
 <a id="more"></a>
-<h4 id="换行"><a href="#换行" class="headerlink" title="换行"></a>换行</h4><p>在 MD 中 狂敲回车并没有什么软用，可以使用：<br><code>&lt;/br&gt;</code></p>
-<h4 id="限制图片大小"><a href="#限制图片大小" class="headerlink" title="限制图片大小"></a>限制图片大小</h4><p>在 MD 中，图片过大的时候，可以使用：</p>
+<h3 id="换行"><a href="#换行" class="headerlink" title="换行"></a>换行</h3><p>在 MD 中 狂敲回车并没有什么软用，可以使用：<br><code>&lt;/br&gt;</code></p>
+<h3 id="限制图片大小"><a href="#限制图片大小" class="headerlink" title="限制图片大小"></a>限制图片大小</h3><p>在 MD 中，图片过大的时候，可以使用：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">align</span>=<span class="string">"center"</span>&gt;</span></div><div class="line"> <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"url..."</span> <span class="attr">width</span> = <span class="string">"宽度"</span> <span class="attr">height</span> = <span class="string">"高度"</span> <span class="attr">alt</span>=<span class="string">"图片描述"</span> <span class="attr">align</span>=<span class="string">"center"</span> /&gt;</span></div><div class="line"> <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>限制宽高并限制居中。</p>
-<h4 id="本地预览失败"><a href="#本地预览失败" class="headerlink" title="本地预览失败"></a>本地预览失败</h4><p>部署： <code>hexo g</code><br>提交： <code>hexo d</code><br>启动服务器： <code>hexo s</code><br>如果启动失败，可能原因是端口被占用了，可以关闭对应端口的程序，一般是 4000 ，如果发现并没有程序占用该端口，或者关闭不了占用该端口的程序，可以在 hexo 的 _config.yml 配置文件中加上：</p>
+<h3 id="本地预览失败"><a href="#本地预览失败" class="headerlink" title="本地预览失败"></a>本地预览失败</h3><p>部署： <code>hexo g</code><br>提交： <code>hexo d</code><br>启动服务器： <code>hexo s</code><br>如果启动失败，可能原因是端口被占用了，可以关闭对应端口的程序，一般是 4000 ，如果发现并没有程序占用该端口，或者关闭不了占用该端口的程序，可以在 hexo 的 _config.yml 配置文件中加上：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">server:</div><div class="line">  port: 4001</div><div class="line">  compress: true</div><div class="line">  header: true</div></pre></td></tr></table></figure>
 <p>来修改启动的端口。</p>
 <p>然后重新部署在启动就好了。</p>
-<h4 id="修改个人头像样式"><a href="#修改个人头像样式" class="headerlink" title="修改个人头像样式"></a>修改个人头像样式</h4><p>路径如下：</p>
+<h3 id="修改个人头像样式"><a href="#修改个人头像样式" class="headerlink" title="修改个人头像样式"></a>修改个人头像样式</h3><p>路径如下：</p>
 <p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-16 下午11.42.21.png" alt="屏幕快照 2017-05-16 下午11.42.21"></p>
 <p>在 custom.styl 文件中添加个人头像的 CSS 代码：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">.site-author-image &#123;</div><div class="line">  border-radius: 100%;</div><div class="line">&#125;</div><div class="line">.site-author-image:hover&#123;</div><div class="line">  animation: scan 4s linear infinite;</div><div class="line">&#125;</div><div class="line">@keyframes scan</div><div class="line">&#123;</div><div class="line">  0%&#123;-webkit-transform:rotate(0)&#125; </div><div class="line">  50%&#123;-webkit-transform:rotate(180deg)&#125; </div><div class="line">  100%&#123;-webkit-transform:rotate(360deg)&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>以上是让图片变成圆形，并且当鼠标移动到头像上时，头像会不停的旋转。</p>
-<h4 id="修改代码高亮"><a href="#修改代码高亮" class="headerlink" title="修改代码高亮"></a>修改代码高亮</h4><p>修改的只是 `` 中的样式：</p>
+<h3 id="修改代码高亮"><a href="#修改代码高亮" class="headerlink" title="修改代码高亮"></a>修改代码高亮</h3><p>修改的只是 `` 中的样式：</p>
 <p>例如 <code>code</code> 。</p>
 <p>路径如下：</p>
 <p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-16 下午11.42.21.png" alt="屏幕快照 2017-05-16 下午11.42.21"></p>
 <p>在 custom.styl 文件中添加代码的 CSS 代码：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">code &#123;</div><div class="line">  color: #fc6423;</div><div class="line">  background: #fbf7f8;</div><div class="line">  margin: 2px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="导航栏中的背景图片修改"><a href="#导航栏中的背景图片修改" class="headerlink" title="导航栏中的背景图片修改"></a>导航栏中的背景图片修改</h4><p>路径：</p>
+<h3 id="导航栏中的背景图片修改"><a href="#导航栏中的背景图片修改" class="headerlink" title="导航栏中的背景图片修改"></a>导航栏中的背景图片修改</h3><p>路径：</p>
 <p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-16 下午11.51.29.png" alt="屏幕快照 2017-05-16 下午11.51.29"></p>
 <p>修改 <code>background</code> 中的 <code>url</code> 即可：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.header &#123; background-image: url("http://7xkj6q.com1.z0.glb.clouddn.com/header_background.jpg"); &#125;</div><div class="line"></div><div class="line">.header-inner &#123; position: relative; &#125;</div></pre></td></tr></table></figure>
+<h3 id="引用样式文本"><a href="#引用样式文本" class="headerlink" title="引用样式文本"></a>引用样式文本</h3><p>如下样式：</p>
+<blockquote class="blockquote-center"><p>我是酷酷的引用</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;% centerquote %&#125; example example &#123;% endcenterquote %&#125;</div><div class="line"></div><div class="line">或者简写为</div><div class="line"></div><div class="line">&#123;% cq %&#125; example example &#123;% endcq %&#125;</div></pre></td></tr></table></figure>
+<p>详见 <a href="http://theme-next.iissnan.com/tag-plugins.html" target="_blank" rel="external">NexT 官方文档</a></p>
+<h3 id="Bootstrap-Callout-样式"><a href="#Bootstrap-Callout-样式" class="headerlink" title="Bootstrap Callout 样式"></a>Bootstrap Callout 样式</h3><p>效果如下：</p>
+<div class="note default"><p>class_name 是 default </p>
+</div>
+
+<div class="note primary"><p>class_name 是 primary </p>
+</div>
+<div class="note success"><p>class_name 是 success </p>
+</div>
+
+<div class="note info"><p>class_name 是 info </p>
+</div>
+<div class="note warning"><p>class_name 是 warning </p>
+</div>
+
+<div class="note danger"><p>class_name 是 danger </p>
+</div>
+<p>使用方式为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;% note class_name %&#125; Example  &#123;% endnote %&#125;</div><div class="line"></div><div class="line">替换 class_name 为自己想要的形式，具体如上。</div></pre></td></tr></table></figure>
+<p>详见 <a href="http://theme-next.iissnan.com/tag-plugins.html" target="_blank" rel="external">NexT 官方文档</a></p>
+<h3 id="插入音乐"><a href="#插入音乐" class="headerlink" title="插入音乐"></a>插入音乐</h3><p>例如插入网易云音乐：</p>
+<p>首先，去官网找到自己喜欢的音乐，点击生成外链播放器：</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/F96A50B5-9782-462A-889C-A2E2EDC8CDF5.png" alt="F96A50B5-9782-462A-889C-A2E2EDC8CDF5"></p>
+<p>可以选择外观的布局以及是否自动播放等：</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-17 上午9.00.48.png" alt="屏幕快照 2017-05-17 上午9.00.48"></p>
+<p>然后复制 HTML 代码到编辑器中就行了，如下：</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=415792881&auto=0&height=66"></iframe>
+
+<p>但是许多时候，歌曲有版权的问题，不允许生成外链，那怎么办呢？</p>
+<embed src="http://on9hzfn6s.bkt.clouddn.com/%E8%B5%B5%E6%B5%B4%E8%BE%B0%20-%20%E5%8F%AF%E4%B9%90.mp3" autostart="true" loop="true" width="400" height="30"> 
+
+
+
 
       
     </div>
@@ -776,7 +815,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#换行"><span class="nav-number">1.</span> <span class="nav-text">换行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#限制图片大小"><span class="nav-number">2.</span> <span class="nav-text">限制图片大小</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#本地预览失败"><span class="nav-number">3.</span> <span class="nav-text">本地预览失败</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改个人头像样式"><span class="nav-number">4.</span> <span class="nav-text">修改个人头像样式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改代码高亮"><span class="nav-number">5.</span> <span class="nav-text">修改代码高亮</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#导航栏中的背景图片修改"><span class="nav-number">6.</span> <span class="nav-text">导航栏中的背景图片修改</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#换行"><span class="nav-number">1.</span> <span class="nav-text">换行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#限制图片大小"><span class="nav-number">2.</span> <span class="nav-text">限制图片大小</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#本地预览失败"><span class="nav-number">3.</span> <span class="nav-text">本地预览失败</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改个人头像样式"><span class="nav-number">4.</span> <span class="nav-text">修改个人头像样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改代码高亮"><span class="nav-number">5.</span> <span class="nav-text">修改代码高亮</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导航栏中的背景图片修改"><span class="nav-number">6.</span> <span class="nav-text">导航栏中的背景图片修改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用样式文本"><span class="nav-number">7.</span> <span class="nav-text">引用样式文本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bootstrap-Callout-样式"><span class="nav-number">8.</span> <span class="nav-text">Bootstrap Callout 样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插入音乐"><span class="nav-number">9.</span> <span class="nav-text">插入音乐</span></a></li></ol></div>
             
 
           </div>
