@@ -2015,9 +2015,9 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
         
         <tags>
             
-            <tag> 高效 </tag>
-            
             <tag> Java </tag>
+            
+            <tag> 高效 </tag>
             
             <tag> Effectice </tag>
             
@@ -2121,9 +2121,9 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
             
             <tag> Java </tag>
             
-            <tag> JVM </tag>
-            
             <tag> 算法 </tag>
+            
+            <tag> JVM </tag>
             
             <tag> 内存 </tag>
             
@@ -2321,11 +2321,11 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
         
         <tags>
             
-            <tag> Java </tag>
-            
             <tag> 设计模式 </tag>
             
             <tag> 策略模式 </tag>
+            
+            <tag> Java </tag>
             
             <tag> UML </tag>
             

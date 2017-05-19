@@ -1089,12 +1089,6 @@ pre .javascript .function {
 .menu .menu-item a:hover {
   border-bottom-color: $title-hover-bg;
   color: $title-hover-bg;
-  transition: all 0.2s;
-  -webkit-transform: scale(1.3);
-  -moz-transform: scale(1.3);
-  -ms-transform: scale(1.3);
-  -o-transform: scale(1.3);
-  transform: scale(1.3);
 }
 .menu .menu-item .fa {
   margin-right: 5px;
@@ -1707,7 +1701,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff9dff;
+  background: #ff529a;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2564,6 +2558,20 @@ code {
   color: #fc6423;
   background: #fbf7f8;
   margin: 2px;
+}
+.bg_content {
+  position: fixed;
+  top: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+}
+#canvas {
+  width: 100%;
+  height: 100%;
+}
+.header {
+  background: transparent;
 }
 @-moz-keyframes scan {
   0% {
