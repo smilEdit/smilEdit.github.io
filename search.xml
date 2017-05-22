@@ -241,6 +241,10 @@
 <p>其中 <code>autostart</code> 为是否自动播放， <code>loop</code> 为是否自动循环，这些都可以自己设置，虽然外观有点丑，不过功能齐全，还能下载哦。</p>
 <p>如果真的觉得丑可以选择将宽高都设置为 0 ，然后自动播放。（应该还有别的更好的方式，如果你知道，欢迎留言交流）</p>
 <p>这个播放器还可以设置别的许多属性，详见<a href="http://blog.csdn.net/pengzhaoyang100/article/details/7815314" target="_blank" rel="external">这里</a>。</p>
+<h3 id="博客置顶"><a href="#博客置顶" class="headerlink" title="博客置顶"></a>博客置顶</h3><p>将 <code>node_modules/hexo-generator-index/lib/generator.js</code> 文件改成以下代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="meta">'use strict'</span>;</div><div class="line"><span class="keyword">var</span> pagination = <span class="built_in">require</span>(<span class="string">'hexo-pagination'</span>);</div><div class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span>(<span class="params">locals</span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> config = <span class="keyword">this</span>.config;</div><div class="line">  <span class="keyword">var</span> posts = locals.posts;</div><div class="line">    posts.data = posts.data.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span>(a.top &amp;&amp; b.top) &#123; <span class="comment">// 两篇文章top都有定义</span></div><div class="line">            <span class="keyword">if</span>(a.top == b.top) <span class="keyword">return</span> b.date - a.date; <span class="comment">// 若top值一样则按照文章日期降序排</span></div><div class="line">            <span class="keyword">else</span> <span class="keyword">return</span> b.top - a.top; <span class="comment">// 否则按照top值降序排</span></div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(a.top &amp;&amp; !b.top) &#123; <span class="comment">// 以下是只有一篇文章top有定义，那么将有top的排在前面（这里用异或操作居然不行233）</span></div><div class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(!a.top &amp;&amp; b.top) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span> <span class="keyword">return</span> b.date - a.date; <span class="comment">// 都没定义按照文章日期降序排</span></div><div class="line">    &#125;);</div><div class="line">  <span class="keyword">var</span> paginationDir = config.pagination_dir || <span class="string">'page'</span>;</div><div class="line">  <span class="keyword">return</span> pagination(<span class="string">''</span>, posts, &#123;</div><div class="line">    <span class="attr">perPage</span>: config.index_generator.per_page,</div><div class="line">    <span class="attr">layout</span>: [<span class="string">'index'</span>, <span class="string">'archive'</span>],</div><div class="line">    <span class="attr">format</span>: paginationDir + <span class="string">'/%d/'</span>,</div><div class="line">    <span class="attr">data</span>: &#123;</div><div class="line">      <span class="attr">__index</span>: <span class="literal">true</span></div><div class="line">    &#125;</div><div class="line">  &#125;);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>然后在文章头部加上 <code>top: 5</code> 就行了。<br>另外给文章加上 <code>sticky: 1</code> 会有一个固定的图标，本网站首页的那个<em>行万里路</em>就是用这两个属性设置的。</p>
+<p><a href="https://github.com/iissnan/hexo-theme-next/issues/415" target="_blank" rel="external">参考链接1</a><br><a href="http://www.netcan666.com/2015/11/22/%E8%A7%A3%E5%86%B3Hexo%E7%BD%AE%E9%A1%B6%E9%97%AE%E9%A2%98/" target="_blank" rel="external">参考链接2</a></p>
 ]]></content>
       
         <categories>
@@ -1494,22 +1498,24 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
 <p><img src="http://on9hzfn6s.bkt.clouddn.com/IMG_20170423_094614.jpg" class="full-image"></p>
 <h4 id="白马湖-漫展"><a href="#白马湖-漫展" class="headerlink" title="白马湖 漫展"></a>白马湖 漫展</h4><p><em>努力工作，发奋赚钱，手办、妹纸、福袋…</em></p>
 <p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-01 下午5.02.44.png" class="full-image"></p>
-<h2 id="5-月"><a href="#5-月" class="headerlink" title="5 月"></a>5 月</h2><h3 id="陪妈妈逛杭州"><a href="#陪妈妈逛杭州" class="headerlink" title="陪妈妈逛杭州"></a>陪妈妈逛杭州</h3><h4 id="断桥苏堤"><a href="#断桥苏堤" class="headerlink" title="断桥苏堤"></a>断桥苏堤</h4><p><em>我姓 段</em></p>
-<p><img src="http://on9hzfn6s.bkt.clouddn.com/mmexport1495437799972 (1" alt="mmexport1495437799972 -1-">.jpg)</p>
+<h2 id="5-月"><a href="#5-月" class="headerlink" title="5 月"></a>5 月</h2><h3 id="陪妈妈逛杭州"><a href="#陪妈妈逛杭州" class="headerlink" title="陪妈妈逛杭州"></a>陪妈妈逛杭州</h3><h4 id="断桥苏堤"><a href="#断桥苏堤" class="headerlink" title="断桥苏堤"></a>断桥苏堤</h4><p><em>他姓 段</em></p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/mmexport149543779997.jpg" alt="mmexport149543779997"></p>
 <h4 id="飞来峰"><a href="#飞来峰" class="headerlink" title="飞来峰"></a>飞来峰</h4><p><em>庙庙庙</em></p>
 <p><img src="http://on9hzfn6s.bkt.clouddn.com/mmexport1495425526046.jpg" alt="mmexport1495425526046"></p>
 <h4 id="重游西溪湿地"><a href="#重游西溪湿地" class="headerlink" title="重游西溪湿地"></a>重游西溪湿地</h4><p><em>天蓝蓝蓝蓝蓝</em></p>
 <p><img src="http://on9hzfn6s.bkt.clouddn.com/mmexport1495425505520.jpg" alt="mmexport1495425505520"></p>
 <h4 id="夜河坊"><a href="#夜河坊" class="headerlink" title="夜河坊"></a>夜河坊</h4><p><em>好看 &amp; 好吃</em></p>
 <p><img src="http://on9hzfn6s.bkt.clouddn.com/mmexport1495425510795.jpg" alt="mmexport1495425510795"></p>
-<h4 id="夜滨江"><a href="#夜滨江" class="headerlink" title="夜滨江"></a>夜滨江</h4><p><img src="http://on9hzfn6s.bkt.clouddn.com/mmexport1495437821012 (1" alt="mmexport1495437821012 -1-">.jpg)</p>
+<h4 id="夜滨江"><a href="#夜滨江" class="headerlink" title="夜滨江"></a>夜滨江</h4><p><img src="http://on9hzfn6s.bkt.clouddn.com/mmexport149543782101.jpg" alt="mmexport149543782101"></p>
 <h3 id="公司活动"><a href="#公司活动" class="headerlink" title="公司活动"></a>公司活动</h3><h4 id="英职运动会"><a href="#英职运动会" class="headerlink" title="英职运动会"></a>英职运动会</h4><p><em>跳绳 &amp; 拿冠军</em></p>
-<p><img src="http://on9hzfn6s.bkt.clouddn.com/mmexport1495437026380 (1" alt="mmexport1495437026380 -1-">.jpg)</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/mmexport1495437026380.jpg" alt="mmexport1495437026380"></p>
 <h4 id="九溪缘团建"><a href="#九溪缘团建" class="headerlink" title="九溪缘团建"></a>九溪缘团建</h4><p><em>打牌 &amp; 烧烤</em></p>
-<p><img src="http://on9hzfn6s.bkt.clouddn.com/wx_camera_1495339427178 (1" alt="wx_camera_1495339427178 -1-">.jpg)</p>
-<p>–</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/wx_camera_149533942717.jpg" alt="wx_camera_149533942717"></p>
+<p><br><br><br></p>
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=209326&auto=1&height=66"></iframe>
 
+<hr>
+<p><br><br><br><br><br></p>
 <div class="note default"><p>未完待续… 想买个单单单反 </p>
 </div>
 ]]></content>
