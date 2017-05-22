@@ -43,7 +43,9 @@
 <p>而后者是使用 Tab 补全代码，会删除后面的代码，很多时候或许使用 Tab 是更好的选择。</p>
 <h3 id="包裹代码"><a href="#包裹代码" class="headerlink" title="包裹代码"></a>包裹代码</h3><p>⌥ + Cmd + T</p>
 <p><img src="http://www.see-source.com/mykanyuan/file/kindeditor/images/20160216/1455605795517019590.gif" alt=""></p>
-<p><br><br><br><br><br><br><br></p>
+<p><br><br><br></p>
+<p><a href="https://github.com/pavlospt/Android-Studio-Tips-by-Philippe-Breault/wiki" target="_blank" rel="external">参考链接</a></p>
+<p><br><br><br></p>
 <p><strong>持续更新</strong></p>
 ]]></content>
       
@@ -1472,30 +1474,43 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
       <content type="html"><![CDATA[<blockquote class="blockquote-center"><p>今天的风儿好喧嚣 </p>
 </blockquote>
 <a id="more"></a>
-<h2 id="2月"><a href="#2月" class="headerlink" title="2月"></a>2月</h2><h3 id="上海"><a href="#上海" class="headerlink" title="上海"></a>上海</h3><h4 id="海洋馆"><a href="#海洋馆" class="headerlink" title="海洋馆"></a>海洋馆</h4><p><img src="http://on9hzfn6s.bkt.clouddn.com/mmexport1492871826427.jpg" class="full-image"></p>
+<h2 id="2-月"><a href="#2-月" class="headerlink" title="2 月"></a>2 月</h2><h3 id="上海"><a href="#上海" class="headerlink" title="上海"></a>上海</h3><h4 id="海洋馆"><a href="#海洋馆" class="headerlink" title="海洋馆"></a>海洋馆</h4><p><img src="http://on9hzfn6s.bkt.clouddn.com/mmexport1492871826427.jpg" class="full-image"></p>
 <h4 id="田子坊"><a href="#田子坊" class="headerlink" title="田子坊"></a>田子坊</h4><p><img src="http://on9hzfn6s.bkt.clouddn.com/mmexport1492871843218.jpg" class="full-image"></p>
 <h4 id="泰晤士小镇"><a href="#泰晤士小镇" class="headerlink" title="泰晤士小镇"></a>泰晤士小镇</h4><p><em>三人游</em></p>
 <p><img src="http://on9hzfn6s.bkt.clouddn.com/mmexport1492871880623.jpg" class="full-image"></p>
 <h4 id="辞职"><a href="#辞职" class="headerlink" title="辞职"></a>辞职</h4><p><em>再见上海，再见荣开，再见宅家，再见小伙伴</em></p>
 <p><img src="http://on9hzfn6s.bkt.clouddn.com/IMG_20160825_184452.jpg" class="full-image"></p>
-<h2 id="3月"><a href="#3月" class="headerlink" title="3月"></a>3月</h2><h3 id="杭州"><a href="#杭州" class="headerlink" title="杭州"></a>杭州</h3><h4 id="朋友家"><a href="#朋友家" class="headerlink" title="朋友家"></a>朋友家</h4><p><em>初来乍到</em></p>
+<h2 id="3-月"><a href="#3-月" class="headerlink" title="3 月"></a>3 月</h2><h3 id="杭州"><a href="#杭州" class="headerlink" title="杭州"></a>杭州</h3><h4 id="朋友家"><a href="#朋友家" class="headerlink" title="朋友家"></a>朋友家</h4><p><em>初来乍到</em></p>
 <p><img src="http://on9hzfn6s.bkt.clouddn.com/IMG_20170306_170120.jpg" class="full-image"></p>
 <h4 id="求职路上"><a href="#求职路上" class="headerlink" title="求职路上"></a>求职路上</h4><p><em>那座桥，看着不长，却要走很久</em></p>
 <p><img src="http://on9hzfn6s.bkt.clouddn.com/IMG_20170309_141543.jpg" class="full-image"></p>
 <h4 id="杭州市图书馆"><a href="#杭州市图书馆" class="headerlink" title="杭州市图书馆"></a>杭州市图书馆</h4><p><em>如果我住在它隔壁多好</em></p>
 <p><img src="http://on9hzfn6s.bkt.clouddn.com/mmexport1492871897710.jpg" class="full-image"></p>
-<h2 id="4月"><a href="#4月" class="headerlink" title="4月"></a>4月</h2><h3 id="杭州-1"><a href="#杭州-1" class="headerlink" title="杭州"></a>杭州</h3><h4 id="西湖大作战"><a href="#西湖大作战" class="headerlink" title="西湖大作战"></a>西湖大作战</h4><p><em>是的，一朵都没卖出去</em></p>
+<h2 id="4-月"><a href="#4-月" class="headerlink" title="4 月"></a>4 月</h2><h3 id="杭州-1"><a href="#杭州-1" class="headerlink" title="杭州"></a>杭州</h3><h4 id="西湖大作战"><a href="#西湖大作战" class="headerlink" title="西湖大作战"></a>西湖大作战</h4><p><em>是的，一朵都没卖出去</em></p>
 <p><img src="http://on9hzfn6s.bkt.clouddn.com/IMG_20170408_130314.jpg" class="full-image"></p>
 <h4 id="灵隐寺"><a href="#灵隐寺" class="headerlink" title="灵隐寺"></a>灵隐寺</h4><p><em>屡设山门为阻云</em></p>
 <p><img src="http://on9hzfn6s.bkt.clouddn.com/IMG_20170416_135137.jpg" class="full-image"></p>
 <h4 id="西溪"><a href="#西溪" class="headerlink" title="西溪"></a>西溪</h4><p><em>左边一个小湖，右边一个小湖</em></p>
 <p><img src="http://on9hzfn6s.bkt.clouddn.com/IMG_20170423_094614.jpg" class="full-image"></p>
 <h4 id="白马湖-漫展"><a href="#白马湖-漫展" class="headerlink" title="白马湖 漫展"></a>白马湖 漫展</h4><p><em>努力工作，发奋赚钱，手办、妹纸、福袋…</em></p>
-<p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-01 下午5.02.44.png" alt="屏幕快照 2017-05-01 下午5.02.44"></p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-01 下午5.02.44.png" class="full-image"></p>
+<h2 id="5-月"><a href="#5-月" class="headerlink" title="5 月"></a>5 月</h2><h3 id="陪妈妈逛杭州"><a href="#陪妈妈逛杭州" class="headerlink" title="陪妈妈逛杭州"></a>陪妈妈逛杭州</h3><h4 id="断桥苏堤"><a href="#断桥苏堤" class="headerlink" title="断桥苏堤"></a>断桥苏堤</h4><p><em>我姓 段</em></p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/mmexport1495437799972 (1" alt="mmexport1495437799972 -1-">.jpg)</p>
+<h4 id="飞来峰"><a href="#飞来峰" class="headerlink" title="飞来峰"></a>飞来峰</h4><p><em>庙庙庙</em></p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/mmexport1495425526046.jpg" alt="mmexport1495425526046"></p>
+<h4 id="重游西溪湿地"><a href="#重游西溪湿地" class="headerlink" title="重游西溪湿地"></a>重游西溪湿地</h4><p><em>天蓝蓝蓝蓝蓝</em></p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/mmexport1495425505520.jpg" alt="mmexport1495425505520"></p>
+<h4 id="夜河坊"><a href="#夜河坊" class="headerlink" title="夜河坊"></a>夜河坊</h4><p><em>好看 &amp; 好吃</em></p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/mmexport1495425510795.jpg" alt="mmexport1495425510795"></p>
+<h4 id="夜滨江"><a href="#夜滨江" class="headerlink" title="夜滨江"></a>夜滨江</h4><p><img src="http://on9hzfn6s.bkt.clouddn.com/mmexport1495437821012 (1" alt="mmexport1495437821012 -1-">.jpg)</p>
+<h3 id="公司活动"><a href="#公司活动" class="headerlink" title="公司活动"></a>公司活动</h3><h4 id="英职运动会"><a href="#英职运动会" class="headerlink" title="英职运动会"></a>英职运动会</h4><p><em>跳绳 &amp; 拿冠军</em></p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/mmexport1495437026380 (1" alt="mmexport1495437026380 -1-">.jpg)</p>
+<h4 id="九溪缘团建"><a href="#九溪缘团建" class="headerlink" title="九溪缘团建"></a>九溪缘团建</h4><p><em>打牌 &amp; 烧烤</em></p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/wx_camera_1495339427178 (1" alt="wx_camera_1495339427178 -1-">.jpg)</p>
 <p>–</p>
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=209326&auto=1&height=66"></iframe>
 
-<div class="note default"><p>未完待续…</p>
+<div class="note default"><p>未完待续… 想买个单单单反 </p>
 </div>
 ]]></content>
       
@@ -2229,9 +2244,9 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
             
             <tag> Java </tag>
             
-            <tag> JVM </tag>
-            
             <tag> 算法 </tag>
+            
+            <tag> JVM </tag>
             
             <tag> 内存 </tag>
             
