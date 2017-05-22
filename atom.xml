@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-05-21T15:23:04.000Z</updated>
+  <updated>2017-05-22T01:48:46.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,11 +16,72 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Android Studio 实用快捷键</title>
+    <link href="http://yoursite.com/2017/05/22/AndroidStudio%E5%AE%9E%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+    <id>http://yoursite.com/2017/05/22/AndroidStudio实用快捷键/</id>
+    <published>2017-05-22T01:04:43.000Z</published>
+    <updated>2017-05-22T01:48:46.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>记录一些非常好用但是用的人可能并不是很多的快捷键。</p>
+<a id="more"></a>
+<p>像是 Cmd + O ，Shift + Cmd + A ，Cmd + P 之类的就不说了。</p>
+<h3 id="查看近期文件"><a href="#查看近期文件" class="headerlink" title="查看近期文件"></a>查看近期文件</h3><p>历史浏览记录«</p>
+<p>Cmd + E </p>
+<p><img src="http://www.see-source.com/mykanyuan/file/kindeditor/images/20160216/1455605794330080752.gif" alt=""></p>
+<h3 id="查看近期编辑过的文件"><a href="#查看近期编辑过的文件" class="headerlink" title="查看近期编辑过的文件"></a>查看近期编辑过的文件</h3><p>编辑版历史记录</p>
+<p>Cmd + Shift + E</p>
+<p><img src="http://www.see-source.com/mykanyuan/file/kindeditor/images/20160216/1455605794283025750.gif" alt=""></p>
+<h3 id="跳转至上个修改位置"><a href="#跳转至上个修改位置" class="headerlink" title="跳转至上个修改位置"></a>跳转至上个修改位置</h3><p>非常实用</p>
+<p>Cmd + ←  （也可以是 Cmd + → 下一个修改位置）</p>
+<h3 id="子窗口切换"><a href="#子窗口切换" class="headerlink" title="子窗口切换"></a>子窗口切换</h3><p>非常实用</p>
+<p>⌥ + ← 或者 ⌥ + → </p>
+<p>Ctrl + Tab 也是可以切换的，更加直观，但是效率会低一点</p>
+<p><img src="http://www.see-source.com/mykanyuan/file/kindeditor/images/20160216/1455605794642010375.gif" alt=""></p>
+<h3 id="扩大选择"><a href="#扩大选择" class="headerlink" title="扩大选择"></a>扩大选择</h3><p>⌥ + ↑</p>
+<p><img src="http://www.see-source.com/mykanyuan/file/kindeditor/images/20160216/1455605794517022296.gif" alt=""></p>
+<h3 id="将-Structure-弹窗显示"><a href="#将-Structure-弹窗显示" class="headerlink" title="将 Structure 弹窗显示"></a>将 Structure 弹窗显示</h3><p>Cmd + F12 弹窗后可以直接搜索</p>
+<p><img src="http://www.see-source.com/mykanyuan/file/kindeditor/images/20160216/1455605794580014412.gif" alt=""></p>
+<h3 id="返回编辑器"><a href="#返回编辑器" class="headerlink" title="返回编辑器"></a>返回编辑器</h3><p>非常实用</p>
+<p>直接 esc 或者 Shift + esc 将当前面板关闭后返回</p>
+<h3 id="查看布局"><a href="#查看布局" class="headerlink" title="查看布局"></a>查看布局</h3><p>非常实用</p>
+<p>下面这个动作你肯定没少做：</p>
+<p><img src="http://www.see-source.com/mykanyuan/file/kindeditor/images/20160216/1455605794361097081.gif" alt=""></p>
+<p>直接用 Ctrl + Cmd + ↑  吧</p>
+<h3 id="列编辑"><a href="#列编辑" class="headerlink" title="列编辑"></a>列编辑</h3><p>按住 ⌥  然后鼠标选择</p>
+<p><img src="http://www.see-source.com/mykanyuan/file/kindeditor/images/20160216/1455605794752016544.gif" alt=""></p>
+<h3 id="移动方法"><a href="#移动方法" class="headerlink" title="移动方法"></a>移动方法</h3><p>移动行估计都知道是 Shift + Cmd + Up/Down</p>
+<p>移动方法其实也是 Shift + Cmd + Up/Down ，只要光标在方法名那行就行</p>
+<p><img src="http://www.see-source.com/mykanyuan/file/kindeditor/images/20160216/1455605795283088822.gif" alt=""></p>
+<h3 id="代码补全"><a href="#代码补全" class="headerlink" title="代码补全"></a>代码补全</h3><p>非常实用</p>
+<p>你肯定或者几乎用的都是 Enter 补全代码</p>
+<p><img src="http://www.see-source.com/mykanyuan/file/kindeditor/images/20160216/1455605794939076741.gif" alt=""></p>
+<p>那样会对原来的代码不做操作</p>
+<p>而后者是使用 Tab 补全代码，会删除后面的代码，很多时候或许使用 Tab 是更好的选择。</p>
+<h3 id="包裹代码"><a href="#包裹代码" class="headerlink" title="包裹代码"></a>包裹代码</h3><p>⌥ + Cmd + T</p>
+<p><img src="http://www.see-source.com/mykanyuan/file/kindeditor/images/20160216/1455605795517019590.gif" alt=""></p>
+<p><br><br><br><br><br><br><br></p>
+<p><strong>持续更新</strong></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;记录一些非常好用但是用的人可能并不是很多的快捷键。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="安卓" scheme="http://yoursite.com/categories/%E5%AE%89%E5%8D%93/"/>
+    
+    
+      <category term="Android 高效" scheme="http://yoursite.com/tags/Android-%E9%AB%98%E6%95%88/"/>
+    
+  </entry>
+  
+  <entry>
     <title>查令街十字街 84 号</title>
     <link href="http://yoursite.com/2017/05/21/%E6%9F%A5%E4%BB%A4%E8%A1%97%E5%8D%81%E5%AD%97%E8%A1%9784%E5%8F%B7/"/>
     <id>http://yoursite.com/2017/05/21/查令街十字街84号/</id>
     <published>2017-05-21T13:55:39.000Z</published>
-    <updated>2017-05-21T15:23:04.000Z</updated>
+    <updated>2017-05-22T00:53:59.000Z</updated>
     
     <content type="html"><![CDATA[<center><br><br><img src="https://img3.doubanio.com/lpic/s28671476.jpg" alt=""><br><br></center>
 
@@ -1282,77 +1343,6 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
     
     
       <category term="小目标" scheme="http://yoursite.com/tags/%E5%B0%8F%E7%9B%AE%E6%A0%87/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Android 知识点 4.28</title>
-    <link href="http://yoursite.com/2017/04/28/Android-%E7%9F%A5%E8%AF%86%E7%82%B9-4-28/"/>
-    <id>http://yoursite.com/2017/04/28/Android-知识点-4-28/</id>
-    <published>2017-04-28T13:48:11.000Z</published>
-    <updated>2017-05-15T09:43:38.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote class="blockquote-center"><p>好记性不如破键盘</p>
-</blockquote>
-<a id="more"></a>
-<p>设计给了张差不多是这样的一张图。</p>
-<p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-04-28 下午8.56.05.png" alt="屏幕快照 2017-04-28 下午8.56.05"></p>
-<p>编辑栏可以自由的添加文字或者是图片。</p>
-<p>这玩意安卓原生控件肯定是不好搞。</p>
-<p>（写到这我有种怪异的感觉，因为我现在的界面是这样的:</p>
-<p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-04-28 下午9.00.58.png" alt="屏幕快照 2017-04-28 下午9.00.58"></p>
-<p>这不就和那个设计给的图的的效果几乎一样吗？）</p>
-<p>通过 HTML 标签来解决，上面的编辑框就类似于是一个低配版的 MarkDown 编辑器显示框，而我们要传给服务器的就是那些带标签的字符串。</p>
-<p>这玩意有个好听的叫富文本。</p>
-<p>秉着不重复造轮子的态度，我 Github 了一下。（其实根本造不动）</p>
-<p>就是它 <a href="https://github.com/wasabeef/richeditor-android" target="_blank" rel="external">RichEditor</a> ，好家伙，快 3k 的星了。</p>
-<p>直接下载，运行了下。除了图片死活出不来，别的都还好，（不是很清楚为什么出不来，因为我在自己项目里面跑起来了，而且我也改了 Demo 中的 url 了，还是不行，就没管了）。</p>
-<p>其实这个源码很少，而且不复杂。由于我只要图文，所以来看看图片是怎么实现的。</p>
-<p>使用方法很简单，只要</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mRichEdit.insertImage(mHttpUrlPathArray.get(i),<span class="string">"商品详情"</span>);</div></pre></td></tr></table></figure>
-<p>前一个参数是图片的 url（注意是 url ，不是什么本地缓存之类的绝对路径），后一个是图片的 alt 。</p>
-<p>点进去看看是怎么实现的:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insertImage</span><span class="params">(String url, String alt)</span> </span>&#123;</div><div class="line">  exec(<span class="string">"javascript:RE.prepareInsert();"</span>);</div><div class="line">  exec(<span class="string">"javascript:RE.insertImage('"</span> + url + <span class="string">"', '"</span> + alt + <span class="string">"');"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>说实话这个 RE 我还真不知道是什么东西，甚至我 Google 不到，原谅我菜。</p>
-<p>但是我是这么想的，其实这并不是 js 库里面的什么对象，而只是，该类名 RichEditor 的缩写，MDZZ。</p>
-<p>该类中有特别多的这种写法:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">redo</span><span class="params">()</span> </span>&#123;</div><div class="line">  exec(<span class="string">"javascript:RE.redo();"</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setBold</span><span class="params">()</span> </span>&#123;</div><div class="line">  exec(<span class="string">"javascript:RE.setBold();"</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setItalic</span><span class="params">()</span> </span>&#123;</div><div class="line">  exec(<span class="string">"javascript:RE.setItalic();"</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setSubscript</span><span class="params">()</span> </span>&#123;</div><div class="line">  exec(<span class="string">"javascript:RE.setSubscript();"</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setSuperscript</span><span class="params">()</span> </span>&#123;</div><div class="line">  exec(<span class="string">"javascript:RE.setSuperscript();"</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setStrikeThrough</span><span class="params">()</span> </span>&#123;</div><div class="line">  exec(<span class="string">"javascript:RE.setStrikeThrough();"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>因为图片都是属于插入的形式，所以会多了一个 <code>prepareInsert()</code> 步骤。</p>
-<p>然后拼接下字符串，再进行下判断:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">exec</span><span class="params">(<span class="keyword">final</span> String trigger)</span> </span>&#123;</div><div class="line">  <span class="keyword">if</span> (isReady) &#123;</div><div class="line">    load(trigger);</div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    postDelayed(<span class="keyword">new</span> Runnable() &#123;</div><div class="line">      <span class="meta">@Override</span> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">        exec(trigger);</div><div class="line">      &#125;</div><div class="line">    &#125;, <span class="number">100</span>);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这个 <code>isReady</code> 是 WebViewClient 类中的生命周期中获取到的:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onPageFinished</span><span class="params">(WebView view, String url)</span> </span>&#123;</div><div class="line">  isReady = url.equalsIgnoreCase(SETUP_HTML);</div><div class="line">  <span class="keyword">if</span> (mLoadListener != <span class="keyword">null</span>) &#123;</div><div class="line">    mLoadListener.onAfterInitialLoad(isReady);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>如果没有准备好就延时 0.1 秒再执行，准备好了就真正的执行了:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">load</span><span class="params">(String trigger)</span> </span>&#123;</div><div class="line">   <span class="keyword">if</span> (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.KITKAT) &#123;</div><div class="line">     evaluateJavascript(trigger, <span class="keyword">null</span>);</div><div class="line">   &#125; <span class="keyword">else</span> &#123;</div><div class="line">     loadUrl(trigger);</div><div class="line">   &#125;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
-<p>为了兼容不同版本 Android 系统的 WebView 做了判断，然后就是底层代码调用了。</p>
-<p>补充说明：Build.VERSION_CODES.KITKAT 就是 19，也就是安卓 4.4 ,它之前的版本用的是 <a href="https://webkit.org/" target="_blank" rel="external">WebKit内核</a>，之后的版本用的是 <a href="http://www.chromium.org/" target="_blank" rel="external">Chromium 内核</a>。</p>
-<p>两个内核的一些区别：</p>
-<p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-04-28 下午9.57.42.png" alt="屏幕快照 2017-04-28 下午9.57.42"></p>
-<p>好了，主要知道使用是 <code>insertImage()</code> 方法就好了。然后就会遇到一个坑。</p>
-<p>图片的大小，用安卓原生方法是控制不了的因为，那个东西是存在于类似网页中的。</p>
-<p>所以在这里我纠结了挺久的，在想是不是要通过拼接 width 之类的 Img 属性上去。但是这样要修改 RE 中 <code>setImg</code> 的方法，觉得可能搞不定。于是我就想着看看别的一些类库都是怎么实现的。</p>
-<p>于是看了几个也是挺受欢迎的库，像是<a href="https://github.com/xmuSistone/android-animate-RichEditor" target="_blank" rel="external">这个</a>和<a href="https://github.com/KDF5000/RichEditText" target="_blank" rel="external">这个</a>。</p>
-<p>这两个库都是自动处理图片大小的。第一个在图片的右上角还有删除按钮，以及删除图片的动画，感觉特别人性化。</p>
-<p>但是，两者都是通过绝对路径来确认图片以及用原生控件来展示的。（好像也行啊，无语）</p>
-<p>所以··· 解决方法用 CSS 直接一点。</p>
-<p>这个问题在 <a href="https://github.com/wasabeef/richeditor-android/issues/47" target="_blank" rel="external">Issues</a> 中也是有人反映过，而且知情人士也给出了简单好用的解决方案具体步骤:</p>
-<p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-04-28 下午10.06.01.png" alt="屏幕快照 2017-04-28 下午10.06.01"></p>
-<p>然后就好了，亲测，好用。</p>
-<p>好吧，我承认。结尾很潦草。</p>
-<p>明天就是五一小长假了。这一不小心十点了啊。我要出去买点吃的，就先这样。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;p&gt;好记性不如破键盘&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="安卓" scheme="http://yoursite.com/categories/%E5%AE%89%E5%8D%93/"/>
-    
-    
-      <category term="Android" scheme="http://yoursite.com/tags/Android/"/>
     
   </entry>
   
