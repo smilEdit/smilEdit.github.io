@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-05-22T01:55:02.000Z</updated>
+  <updated>2017-05-25T02:11:49.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,58 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python 元类</title>
+    <link href="http://yoursite.com/2017/05/24/Python%E5%85%83%E7%B1%BB/"/>
+    <id>http://yoursite.com/2017/05/24/Python元类/</id>
+    <published>2017-05-24T07:29:10.000Z</published>
+    <updated>2017-05-25T02:11:49.000Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="type"><a href="#type" class="headerlink" title="type()"></a>type()</h4><p>可以获取对象类型：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">action</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">pass</span></div><div class="line"></div><div class="line">s= Student()</div><div class="line"></div><div class="line">print(type(s))</div><div class="line">print(type(Student))</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>结果为：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;class '__main__.Student'&gt;</div><div class="line">&lt;type 'type'&gt;</div></pre></td></tr></table></figure>
+<p>传入 <code>s</code> ，它是实例，类型为 class <code>Student</code> 。</p>
+<p>传入类名 <code>Student</code> ，它的类型就是 <code>type</code> 。</p>
+<p>除了可以返回一个对象的类型，还能创建新的类型：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">play</span><span class="params">(self)</span>:</span></div><div class="line">    <span class="keyword">print</span> <span class="string">'lol'</span></div><div class="line"></div><div class="line">Me = type(<span class="string">'Me'</span>,(object,),dict(play=play))</div><div class="line">zlf = Me()</div><div class="line">zlf.play()</div></pre></td></tr></table></figure>
+<p>结果是： <code>lol</code></p>
+<p><code>type()</code> 方法传入的三个参数依次是：</p>
+<ol>
+<li>类名</li>
+<li>父类</li>
+<li>方法名</li>
+</ol>
+<p>运行：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">print</span> type(zlf)</div><div class="line"><span class="keyword">print</span> type(Me)</div></pre></td></tr></table></figure>
+<p>结果和之前一样的：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;class '__main__.Me'&gt;</div><div class="line">&lt;type 'type'&gt;</div></pre></td></tr></table></figure>
+<p>直接用 <code>class</code> 创建类和使用 <code>type()</code> 函数其实是一样的，因为 Python 解释器就是用后者创建出 <code>class</code> 的。</p>
+<h4 id="metaclass"><a href="#metaclass" class="headerlink" title="metaclass"></a><strong>metaclass</strong></h4><p>据说是 Python 中的最难理解的概念，也是 Python 中的 black magic 。</p>
+<p>看了许多解释之后，只是能够知道一些模糊的概念：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">age = <span class="number">23</span></div><div class="line"></div><div class="line"><span class="keyword">print</span> age.__class__</div><div class="line"><span class="keyword">print</span> age.__class__.__class__</div><div class="line"></div><div class="line">name = <span class="string">'zlf'</span></div><div class="line"></div><div class="line"><span class="keyword">print</span> name.__class__</div><div class="line"><span class="keyword">print</span> name.__class__.__class__</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Me</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">play</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">pass</span></div><div class="line"></div><div class="line"><span class="keyword">print</span> Me.__class__</div><div class="line"><span class="keyword">print</span> Me.__class__.__class__</div></pre></td></tr></table></figure>
+<p>结果：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;type <span class="string">'int'</span>&gt;</div><div class="line">&lt;type <span class="string">'type'</span>&gt;</div><div class="line">&lt;type <span class="string">'str'</span>&gt;</div><div class="line">&lt;type <span class="string">'type'</span>&gt;</div><div class="line">&lt;type <span class="string">'type'</span>&gt;</div><div class="line">&lt;type <span class="string">'type'</span>&gt;</div></pre></td></tr></table></figure>
+<p>“元类就是深度的魔法，99% 的用户应该根本不必为此操心。如果你想搞清楚究竟是否需要用到元类，那么你就不需要它。那些实际用到元类的人都非常清楚地知道他们需要做什么，而且根本不需要解释为什么要用元类。”  —— Python 界的领袖 Tim Peters</p>
+<p>关于元类，<a href="https://stackoverflow.com/questions/100003/what-is-a-metaclass-in-python" target="_blank" rel="external">Stack Overflow 上一个精彩的回答</a>  </p>
+<p><a href="http://blog.jobbole.com/21351/" target="_blank" rel="external">该回答的中文翻译</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;type&quot;&gt;&lt;a href=&quot;#type&quot; class=&quot;headerlink&quot; title=&quot;type()&quot;&gt;&lt;/a&gt;type()&lt;/h4&gt;&lt;p&gt;可以获取对象类型：&lt;/p&gt;
+&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Student&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(object)&lt;/span&gt;:&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;action&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(self)&lt;/span&gt;:&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;pass&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;s= Student()&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;print(type(s))&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;print(type(Student))&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="python" scheme="http://yoursite.com/categories/python/"/>
+    
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+  </entry>
   
   <entry>
     <title>Android Studio 实用快捷键</title>
@@ -410,10 +462,10 @@
     <link href="http://yoursite.com/2017/05/15/Python%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
     <id>http://yoursite.com/2017/05/15/Python面向对象/</id>
     <published>2017-05-15T14:05:11.000Z</published>
-    <updated>2017-05-19T09:08:03.000Z</updated>
+    <updated>2017-05-24T14:03:10.000Z</updated>
     
     <content type="html"><![CDATA[<p>作为高级面向对象语言，Python 非常的灵活。</p>
-<h4 id="slots-的使用"><a href="#slots-的使用" class="headerlink" title="__slots__ 的使用"></a><code>__slots__</code> 的使用</h4><p>定义一个学生对象，</p>
+<h4 id="slots"><a href="#slots" class="headerlink" title="__slots__"></a><code>__slots__</code></h4><p>定义一个学生对象，</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="keyword">pass</span></div></pre></td></tr></table></figure>
 <p>一般语言，都是在初始化对象的时候，先定义好对象的属性和方法。</p>
 <a id="more"></a>
@@ -434,7 +486,7 @@
 <p>很明显，没有出现在 slots 白名单的属性是不允许被添加的：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Traceback (most recent call last):</div><div class="line">  File <span class="string">"/Users/zhanglf/Documents/Python/practice/HelloWorld.py"</span>, line <span class="number">9</span>, <span class="keyword">in</span> &lt;module&gt;</div><div class="line">    stu.city = <span class="string">'hangz'</span></div><div class="line">AttributeError: <span class="string">'Student'</span> object has no attribute <span class="string">'city'</span></div></pre></td></tr></table></figure>
 <p><strong>注意一点</strong>：这个白名单默认是不被继承的，当子类也定义白名单的时候，父类白名单才会被激活。</p>
-<h4 id="property-的使用"><a href="#property-的使用" class="headerlink" title="@property 的使用"></a>@property 的使用</h4><p>正常情况下我们的 <code>get()</code> <code>set()</code> 是这样写的：</p>
+<h4 id="property"><a href="#property" class="headerlink" title="@property"></a>@property</h4><p>正常情况下我们的 <code>get()</code> <code>set()</code> 是这样写的：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/env python</span></div><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(object)</span>:</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_age</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> self.age</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">set_age</span><span class="params">(self,value)</span>:</span></div><div class="line">        <span class="keyword">if</span> <span class="keyword">not</span> isinstance(value, int):</div><div class="line">            <span class="keyword">raise</span> ValueError(<span class="string">'age must be an integer!'</span>)</div><div class="line">        <span class="keyword">if</span> value &lt; <span class="number">0</span> <span class="keyword">or</span> value &gt; <span class="number">120</span>:</div><div class="line">            <span class="keyword">raise</span> ValueError(<span class="string">'age must be 0 ~ 100!'</span>)</div><div class="line">        self.age = value</div><div class="line"></div><div class="line">stu = Student()</div><div class="line">stu.set_age(<span class="number">50</span>)</div><div class="line"><span class="keyword">print</span> stu.get_age()</div></pre></td></tr></table></figure>
 <p>运行结果当然是： 50 。</p>
 <p>但是调用的过程对于 Python 来说不够优雅，于是有了神奇的 @property 。</p>
@@ -445,6 +497,29 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/env python</span></div><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(object)</span>:</span></div><div class="line"></div><div class="line">    _age = <span class="number">24</span></div><div class="line"></div><div class="line"><span class="meta">    @property</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">age</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> self._age</div><div class="line"></div><div class="line">    <span class="comment"># @age.setter</span></div><div class="line">    <span class="comment"># def age(self,value):</span></div><div class="line">    <span class="comment">#     if not isinstance(value, int):</span></div><div class="line">    <span class="comment">#         raise ValueError('age must be an integer!')</span></div><div class="line">    <span class="comment">#     if value &lt; 0 or value &gt; 120:</span></div><div class="line">    <span class="comment">#         raise ValueError('age must be 0 ~ 100!')</span></div><div class="line">    <span class="comment">#     self._age = value</span></div><div class="line"></div><div class="line">stu = Student()</div><div class="line"><span class="keyword">print</span> stu.age</div></pre></td></tr></table></figure>
 <p>如果加了 <code>stu.age = 50</code> 就会报错：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">AttributeError: can<span class="string">'t set attribute</span></div></pre></td></tr></table></figure>
+<h4 id="str"><a href="#str" class="headerlink" title="__str__"></a><code>__str__</code></h4><p>用于打印属性：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,name)</span>:</span></div><div class="line">        self.name = name</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> <span class="string">'Student object (name: %s)'</span> % self.name</div><div class="line"></div><div class="line">s = Student(<span class="string">'zlf'</span>)</div><div class="line"><span class="keyword">print</span> s</div></pre></td></tr></table></figure>
+<p>结果为：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Student object (name: zlf)</div></pre></td></tr></table></figure>
+<h4 id="iter-和-getitem"><a href="#iter-和-getitem" class="headerlink" title="__iter__ 和 __getitem__"></a><code>__iter__</code> 和 <code>__getitem__</code></h4><p>前者将类作用于循环：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> n <span class="keyword">in</span> Fib():</div><div class="line">    <span class="keyword">print</span> n</div></pre></td></tr></table></figure>
+<p>后者让类的循环可以直接使用下标：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">f = Fib()</div><div class="line"><span class="keyword">print</span> f[<span class="number">5</span>]</div></pre></td></tr></table></figure>
+<p>栗子：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/env python</span></div><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Fib</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        self.a, self.b = <span class="number">0</span>, <span class="number">1</span> <span class="comment"># 初始化两个计数器a，b</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__iter__</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> self <span class="comment"># 实例本身就是迭代对象，故返回自己</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">next</span><span class="params">(self)</span>:</span></div><div class="line">        self.a, self.b = self.b, self.a + self.b <span class="comment"># 计算下一个值</span></div><div class="line">        <span class="keyword">if</span> self.a &gt; <span class="number">100</span>: <span class="comment"># 退出循环的条件</span></div><div class="line">            <span class="keyword">raise</span> StopIteration();</div><div class="line">        <span class="keyword">return</span> self.a <span class="comment"># 返回下一个值</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__getitem__</span><span class="params">(self,n)</span>:</span></div><div class="line">        a,b = <span class="number">1</span>,<span class="number">1</span></div><div class="line">        <span class="keyword">for</span> x <span class="keyword">in</span> range(n):</div><div class="line">            a,b = b,a +b</div><div class="line">        <span class="keyword">return</span> a</div><div class="line"></div><div class="line"><span class="keyword">for</span> n <span class="keyword">in</span> Fib():</div><div class="line">    <span class="keyword">print</span> n</div><div class="line"></div><div class="line">f = Fib()</div><div class="line"><span class="keyword">print</span> f[<span class="number">5</span>]</div></pre></td></tr></table></figure>
+<p>结果：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="number">8</span></div><div class="line"><span class="number">1</span></div><div class="line"><span class="number">1</span></div><div class="line"><span class="number">2</span></div><div class="line"><span class="number">3</span></div><div class="line"><span class="number">5</span></div><div class="line"><span class="number">8</span></div><div class="line"><span class="number">13</span></div><div class="line"><span class="number">21</span></div><div class="line"><span class="number">34</span></div><div class="line"><span class="number">55</span></div><div class="line"><span class="number">89</span></div></pre></td></tr></table></figure>
+<h4 id="call"><a href="#call" class="headerlink" title="__call__"></a><code>__call__</code></h4><p>让对象的实例可以直接调用：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">People</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,action)</span>:</span></div><div class="line">        self.action = action</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__call__</span><span class="params">(self)</span>:</span></div><div class="line">        print(<span class="string">'People can %s .'</span> % self.action)</div><div class="line"></div><div class="line">p = People(<span class="string">'talk'</span>)</div><div class="line">p()</div></pre></td></tr></table></figure>
+<p>结果：</p>
+<p><code>People can talk .</code></p>
+<p>这么看来函数和对象还是很像的。</p>
+<h4 id="getattr"><a href="#getattr" class="headerlink" title="__getattr__"></a><code>__getattr__</code></h4><p>调用不存在的属性时使用 <code>__getattr__()</code> 方法可以动态返回一个属性：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(object)</span>:</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        self.name = <span class="string">'Michael'</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__getattr__</span><span class="params">(self, attr)</span>:</span></div><div class="line">        <span class="keyword">if</span> attr==<span class="string">'score'</span>:</div><div class="line">            <span class="keyword">return</span> <span class="number">99</span></div><div class="line"></div><div class="line">s = Student()</div><div class="line"><span class="keyword">print</span> s.score</div></pre></td></tr></table></figure>
+<p>结果是 99</p>
+<p>当定义属性存在时，再定义 <code>__getattr__</code> 是无效的：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(object)</span>:</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        self.name = <span class="string">'Michael'</span></div><div class="line">        self.score = <span class="number">12</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__getattr__</span><span class="params">(self, attr)</span>:</span></div><div class="line">        <span class="keyword">if</span> attr==<span class="string">'score'</span>:</div><div class="line">            <span class="keyword">return</span> <span class="number">99</span></div><div class="line"></div><div class="line">s = Student()</div><div class="line"><span class="keyword">print</span> s.score</div></pre></td></tr></table></figure>
+<p>结果是 12</p>
 <h4 id="多继承"><a href="#多继承" class="headerlink" title="多继承"></a>多继承</h4><p>Python 支持多继承。那么第一个想到的问题一定是，如果两个父类中拥有相同的方法，子类怎么办？</p>
 <p>看一段网友提供的代码就清楚了：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/env python</span></div><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line"></div><div class="line"><span class="string">'关于多重继承的一些小测试'</span></div><div class="line"></div><div class="line">__author__=<span class="string">'bgn-037'</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">put_out</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> <span class="string">'A'</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">print_outa</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> <span class="string">'a'</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">put_out</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> <span class="string">'B'</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span><span class="params">(A,B)</span>:</span></div><div class="line">    <span class="keyword">pass</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">D</span><span class="params">(B,A)</span>:</span></div><div class="line">    <span class="keyword">pass</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">E</span><span class="params">(D)</span>:</span><span class="comment">#不能同时继承A与D--&gt;TypeError: Cannot create a consistent method resolution order (MRO) for bases A, D</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">put_out</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> <span class="string">'E'</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">print_out</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> <span class="string">'e'</span></div><div class="line"></div><div class="line">X=C()</div><div class="line">print(X.put_out())</div><div class="line">Y=D()</div><div class="line">print(Y.put_out())</div><div class="line">M=E()</div><div class="line">print(M.put_out(),M.print_out(),M.print_outa())</div></pre></td></tr></table></figure>
@@ -465,7 +540,7 @@
     <summary type="html">
     
       &lt;p&gt;作为高级面向对象语言，Python 非常的灵活。&lt;/p&gt;
-&lt;h4 id=&quot;slots-的使用&quot;&gt;&lt;a href=&quot;#slots-的使用&quot; class=&quot;headerlink&quot; title=&quot;__slots__ 的使用&quot;&gt;&lt;/a&gt;&lt;code&gt;__slots__&lt;/code&gt; 的使用&lt;/h4&gt;&lt;p&gt;定义一个学生对象，&lt;/p&gt;
+&lt;h4 id=&quot;slots&quot;&gt;&lt;a href=&quot;#slots&quot; class=&quot;headerlink&quot; title=&quot;__slots__&quot;&gt;&lt;/a&gt;&lt;code&gt;__slots__&lt;/code&gt;&lt;/h4&gt;&lt;p&gt;定义一个学生对象，&lt;/p&gt;
 &lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Student&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(object)&lt;/span&gt;:&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;pass&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;一般语言，都是在初始化对象的时候，先定义好对象的属性和方法。&lt;/p&gt;
     
@@ -1305,50 +1380,6 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
     
     
       <category term="读书笔记" scheme="http://yoursite.com/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>5月小目标</title>
-    <link href="http://yoursite.com/2017/05/01/5%E6%9C%88%E5%B0%8F%E7%9B%AE%E6%A0%87/"/>
-    <id>http://yoursite.com/2017/05/01/5月小目标/</id>
-    <published>2017-05-01T08:17:32.000Z</published>
-    <updated>2017-05-15T09:44:36.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>好好想想四月的所作所为，给五月定几个小目标。</p>
-<a id="more"></a>
-<p>一不小，五一小长假就要结束了。</p>
-<p>意味着，已经五月份了。</p>
-<p>来杭州快两个月了，到新的公司也有40多天了，自己都不相信。</p>
-<p>自己都做了什么事情呢。</p>
-<p>工作上也就前一周有具体的安排任务，完成的自我感觉算还好，不过这还是要下周测试说了算，觉得自己还是存在很多不足的。</p>
-<p>很多方面经验尚显不足，例如，有些实现方式，其实找后端可以比较轻松的实现，但是都是自己通过比较复杂的途径实现的，当然从另一方面来说也是有一定好处的。不过多一种解决方案总归不是错的。</p>
-<p>心还是没有定下来，有点浮躁。这个说的有点玄乎，但是思想上面的玩意本身就是很难描述清楚的。或许就自己能更深切的体会到吧。</p>
-<p>许多时候，虽然在看一些知识点，但是完全看不进去，就像是在装模作样似的，非常的奇葩，因为其实根本没有必要。也不知道自己是装模作样给谁看，现在想想，可能是为了假装自己不闲。？</p>
-<p>欺骗自己是最恐怖的事情。对的，这个月要坚决不做那种恐怖的事情。一是一，二是二。要学一个东西，必须要深入的学，不能光学表面。这个深入，是能有多深就要有多深。一定要深到自己的极限。要坚信，付出终有回报，基础扎实，之后才能事半功倍。</p>
-<p>不是说要自己给自己喂毒鸡汤，而是要在自己可能要松懈的时候，给自己打一波鸡血，持之以恒，养成习惯。</p>
-<p>五一这三天确实有点玩够了，漫展回来又看了一天的动漫，一方面来说这并没有什么错。但是还是觉得有点浪费时间，好在该看的都看完了。</p>
-<p>要习惯每天都做一些有一点意义但可能不是很有趣的事情，每天！   做自己应该做而不是想做事的。</p>
-<p>人在没有明确目标的时候，如果陷入选择就会自然而然选择放松安逸，所以每天的目标都要非常的明确。现在是白天都会定目标，可是晚上回来要做什么却都没有写下来。而晚上的时间又是最自由，对自己最重要的。所以晚上的安排非非非常的重要。这个思考过程可以放在下班回来的地铁上，5 到 10 分钟完成。</p>
-<p>这个月的小目标就是，努力的去完成这个月每天的小目标，白天和晚上的，然后记录下来，给自己打分。</p>
-<p>还有安卓知识点的收集和更新，每周至少看一个新的小知识点，或者类库的使用的，最好是能深入理解分析。</p>
-<p>你现在处在一个非常非常重要的阶段，要么一辈子当一个底层的打工码农，要么，天高海阔，自己来选。</p>
-<p>最后，希望自己能多看书，除了技术的。 一个月至少至少看一本书。  </p>
-<p>花在豆瓣和掘金的时间超过微信和 UC 。 </p>
-<p>这个月就把没看完的 《希特勒传上》看完，以及《天才疯子》全部。  最好是能够写总结。</p>
-<p>12 12 12 12 12 点之前睡觉，不不不不不不不不要睡前玩玩玩玩手机。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;好好想想四月的所作所为，给五月定几个小目标。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="随笔" scheme="http://yoursite.com/categories/%E9%9A%8F%E7%AC%94/"/>
-    
-    
-      <category term="小目标" scheme="http://yoursite.com/tags/%E5%B0%8F%E7%9B%AE%E6%A0%87/"/>
     
   </entry>
   
