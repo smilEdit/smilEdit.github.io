@@ -1,0 +1,1257 @@
+<!doctype html>
+
+
+
+
+<html class="theme-next muse" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Python," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="这是一个爬取百度百科内容的爬虫，主要由以下几个部分组成：
+url 管理器它的作用是管理需要爬取的 url ，它自身维护了两个 set() 集合, new_urls 和 old_urls ，用 set() 集合当然是因为它可以自动去重：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第一个 Python 爬虫">
+<meta property="og:url" content="http://yoursite.com/2017/05/27/第一个Python爬虫/index.html">
+<meta property="og:site_name" content="smilEdit">
+<meta property="og:description" content="这是一个爬取百度百科内容的爬虫，主要由以下几个部分组成：
+url 管理器它的作用是管理需要爬取的 url ，它自身维护了两个 set() 集合, new_urls 和 old_urls ，用 set() 集合当然是因为它可以自动去重：">
+<meta property="og:image" content="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-27 上午9.29.08.png">
+<meta property="og:image" content="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-27 上午9.28.49.png">
+<meta property="og:image" content="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-27 上午9.42.43.png">
+<meta property="og:image" content="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-27 上午9.55.01.png">
+<meta property="og:updated_time" content="2017-05-27T01:58:57.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="第一个 Python 爬虫">
+<meta name="twitter:description" content="这是一个爬取百度百科内容的爬虫，主要由以下几个部分组成：
+url 管理器它的作用是管理需要爬取的 url ，它自身维护了两个 set() 集合, new_urls 和 old_urls ，用 set() 集合当然是因为它可以自动去重：">
+<meta name="twitter:image" content="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-27 上午9.29.08.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: false,
+    motion: false,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/05/27/第一个Python爬虫/"/>
+
+
+
+
+
+  <title> 第一个 Python 爬虫 | smilEdit </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=61724842";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">smilEdit</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-essay">
+          <a href="/categories/随笔" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-pencil"></i> <br />
+            
+            随笔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-read">
+          <a href="/categories/阅读" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            阅读
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/27/第一个Python爬虫/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhanglf">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="smilEdit">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                第一个 Python 爬虫
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-27T00:07:57+08:00">
+                2017-05-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/05/27/第一个Python爬虫/" class="leancloud_visitors" data-flag-title="第一个 Python 爬虫">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>这是一个爬取百度百科内容的爬虫，主要由以下几个部分组成：</p>
+<h3 id="url-管理器"><a href="#url-管理器" class="headerlink" title="url 管理器"></a>url 管理器</h3><p>它的作用是管理需要爬取的 url ，它自身维护了两个 <code>set()</code> 集合, <code>new_urls</code> 和 <code>old_urls</code> ，用 <code>set()</code> 集合当然是因为它可以自动去重：</p>
+<a id="more"></a>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">    self.new_urls = set()</div><div class="line">    self.old_urls = set()</div></pre></td></tr></table></figure>
+<p>该类主要有四个方法：</p>
+<p>添加一个或者多个 url 到 <code>set()</code> 集合中，在 <code>new_urls</code> 或者 <code>old_urls</code> 中出现的 <code>url</code> 当然是不做操作了：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">add_new_url</span><span class="params">(self, url)</span>:</span></div><div class="line">    <span class="keyword">if</span> url <span class="keyword">is</span> <span class="keyword">None</span>:</div><div class="line">        <span class="keyword">return</span></div><div class="line">    <span class="keyword">if</span> url <span class="keyword">not</span> <span class="keyword">in</span> self.new_urls <span class="keyword">and</span> url <span class="keyword">not</span> <span class="keyword">in</span> self.old_urls:</div><div class="line">        self.new_urls.add(url)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">add_new_urls</span><span class="params">(self, urls)</span>:</span></div><div class="line">    <span class="keyword">if</span> urls <span class="keyword">is</span> <span class="keyword">None</span> <span class="keyword">or</span> len(urls) == <span class="number">0</span>:</div><div class="line">        <span class="keyword">return</span></div><div class="line">    <span class="keyword">for</span> url <span class="keyword">in</span> urls:</div><div class="line">        self.add_new_url(url)</div></pre></td></tr></table></figure>
+<p>然后提供获取 <code>url</code> 和判断集合是否已经遍历完成的方法：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">has_new_url</span><span class="params">(self)</span>:</span></div><div class="line">    <span class="keyword">return</span> len(self.new_urls) != <span class="number">0</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_new_url</span><span class="params">(self)</span>:</span></div><div class="line">    new_url = self.new_urls.pop()</div><div class="line">    self.old_urls.add(new_url)</div><div class="line">    <span class="keyword">return</span> new_url</div></pre></td></tr></table></figure>
+<p>执行过获取 <code>url</code> 方法之后的 <code>url</code> 就添加到 <code>old_urls</code> 集合中。</p>
+<h3 id="下载器"><a href="#下载器" class="headerlink" title="下载器"></a>下载器</h3><p>使用 urllib2 模块的功能可以轻松完成：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">download</span><span class="params">(self, url)</span>:</span></div><div class="line">    <span class="keyword">if</span> url <span class="keyword">is</span> <span class="keyword">None</span>:</div><div class="line">        <span class="keyword">return</span> <span class="keyword">None</span></div><div class="line">    response = urllib2.urlopen(url)</div><div class="line">    <span class="keyword">if</span> response.getcode() != <span class="number">200</span>:</div><div class="line">        <span class="keyword">return</span> <span class="keyword">None</span></div><div class="line">    <span class="keyword">return</span> response.read()</div></pre></td></tr></table></figure>
+<h3 id="解析器"><a href="#解析器" class="headerlink" title="解析器"></a>解析器</h3><p>该部分也是爬虫最为核心的部分，它决定了爬虫应该爬取哪些内容，</p>
+<p>使用了 <a href="https://www.crummy.com/software/BeautifulSoup/bs3/documentation.zh.html" target="_blank" rel="external">BeautifulSoup</a> 模块来完成核心的解析部分。</p>
+<p>关于 <code>BeautifulSoup</code> 的使用可以先看一个小 Demo ：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/env python</span></div><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line"></div><div class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</div><div class="line"><span class="keyword">import</span> re</div><div class="line"></div><div class="line">html_doc = <span class="string">"""</span></div><div class="line">&lt;html&gt;&lt;head&gt;&lt;title&gt;The Dormouse's story&lt;/title&gt;&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;p class="title"&gt;&lt;b&gt;The Dormouse's story&lt;/b&gt;&lt;/p&gt;</div><div class="line"></div><div class="line">&lt;p class="story"&gt;Once upon a time there were three little sisters; and their names were</div><div class="line">&lt;a href="http://example.com/elsie" class="sister" id="link1"&gt;Elsie&lt;/a&gt;,</div><div class="line">&lt;a href="http://example.com/lacie" class="sister" id="link2"&gt;Lacie&lt;/a&gt; and</div><div class="line">&lt;a href="http://example.com/tillie" class="sister" id="link3"&gt;Tillie&lt;/a&gt;;</div><div class="line">and they lived at the bottom of a well.&lt;/p&gt;</div><div class="line"></div><div class="line">&lt;p class="story"&gt;...&lt;/p&gt;</div><div class="line">"""</div><div class="line"></div><div class="line">soup = BeautifulSoup(html_doc,<span class="string">'html.parser'</span>,from_encoding=<span class="string">'utf-8'</span>)</div><div class="line"></div><div class="line"><span class="keyword">print</span> <span class="string">"获取所有链接"</span></div><div class="line">links = soup.find_all(<span class="string">'a'</span>)</div><div class="line"><span class="keyword">for</span> link <span class="keyword">in</span> links:</div><div class="line">    <span class="keyword">print</span> link.name,link[<span class="string">'href'</span>],link.get_text()</div><div class="line"></div><div class="line"><span class="keyword">print</span> <span class="string">'获取lacie的链接'</span></div><div class="line">link_node = soup.find(<span class="string">'a'</span>,href=<span class="string">'http://example.com/lacie'</span>)</div><div class="line"><span class="keyword">print</span> link.name,link_node[<span class="string">'href'</span>],link_node.get_text()</div><div class="line"></div><div class="line"><span class="keyword">print</span> <span class="string">'正则匹配'</span></div><div class="line">re_node = soup.find(<span class="string">'a'</span>,href=re.compile(<span class="string">r'ill'</span>))</div><div class="line"><span class="keyword">print</span> re_node.name,re_node[<span class="string">'href'</span>],link_node.get_text()</div><div class="line"></div><div class="line"><span class="keyword">print</span> <span class="string">'获取p段落文字'</span></div><div class="line">p_node = soup.find(<span class="string">'p'</span>,class_=<span class="string">'title'</span>)</div><div class="line"><span class="keyword">print</span> p_node.name,p_node.get_text()</div></pre></td></tr></table></figure>
+<p>结果为：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">获取所有链接</div><div class="line">a http://example.com/elsie Elsie</div><div class="line">a http://example.com/lacie Lacie</div><div class="line">a http://example.com/tillie Tillie</div><div class="line">获取lacie的链接</div><div class="line">a http://example.com/lacie Lacie</div><div class="line">正则匹配</div><div class="line">a http://example.com/tillie Lacie</div><div class="line">获取p段落文字</div><div class="line">p The Dormouse<span class="string">'s story</span></div></pre></td></tr></table></figure>
+<p>它是将整个 <code>url</code> 中的内容解析成 Dom 树，按节点来查找相应的内容，更高效。</p>
+<p>回到我们的解析器，我们的解析器主要由两个功能组成，一个是获取 <code>url</code> 中的数据，这个数据所在的节点需要我们自己决定。</p>
+<p>我们所要爬取的就是标题和内容。</p>
+<p>根据审查，百度百科中我们所要获取的内容的信息分别为：</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-27 上午9.29.08.png" alt="屏幕快照 2017-05-27 上午9.29.08"></p>
+<p>以及：</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-27 上午9.28.49.png" alt="屏幕快照 2017-05-27 上午9.28.49"></p>
+<p>然后就可以编写对应的数据获取代码了：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_new_data</span><span class="params">(self, page_url, soup)</span>:</span></div><div class="line">    res_data = &#123;<span class="string">'url'</span>: page_url&#125;</div><div class="line"></div><div class="line">    <span class="comment"># url</span></div><div class="line"></div><div class="line">    res_data[<span class="string">'url'</span>] = page_url</div><div class="line">    <span class="comment"># &lt;dd class="lemmaWgt-lemmaTitle-title"&gt;&lt;h1&gt;Python&lt;/h1&gt;</span></div><div class="line">    title_node = soup.find(<span class="string">'dd'</span>, class_= <span class="string">"lemmaWgt-lemmaTitle-title"</span>).find(<span class="string">"h1"</span>)</div><div class="line">    res_data[<span class="string">'title'</span>] = title_node.get_text()</div><div class="line"></div><div class="line">    summary_node = soup.find(<span class="string">'div'</span>, class_=<span class="string">"lemma-summary"</span>)</div><div class="line">    res_data[<span class="string">'summary'</span>] = summary_node.get_text()</div><div class="line">    <span class="keyword">return</span> res_data</div></pre></td></tr></table></figure>
+<p>解析器的另外一个功能是从内容中获取新的需要爬取的 <code>url</code> 地址：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">_get_new_urls</span><span class="params">(self, page_url, soup)</span>:</span></div><div class="line">    new_urls = set()</div><div class="line">    links = soup.find_all(<span class="string">'a'</span>, href=re.compile(<span class="string">r"/item/(.*)"</span>))</div><div class="line">    <span class="keyword">for</span> link <span class="keyword">in</span> links:</div><div class="line">        new_url = link[<span class="string">'href'</span>]</div><div class="line">        new_full_url = urlparse.urljoin(page_url, new_url)</div><div class="line">        new_urls.add(new_full_url)</div><div class="line">    <span class="keyword">return</span> new_urls</div></pre></td></tr></table></figure>
+<p>这里我们使用正则来匹配 <code>href</code> 中的内容是否符合我们要爬取的 <code>url</code> ：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">links = soup.find_all(<span class="string">'a'</span>, href=re.compile(<span class="string">r"/item/(.*)"</span>))</div></pre></td></tr></table></figure>
+<p>将两个功能整合，我们的解析器就完成了：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">parse</span><span class="params">(self,page_url,html_cont)</span>:</span></div><div class="line">    <span class="keyword">if</span> page_url <span class="keyword">is</span> <span class="keyword">None</span> <span class="keyword">or</span> html_cont <span class="keyword">is</span> <span class="keyword">None</span>:</div><div class="line">        <span class="keyword">return</span></div><div class="line"></div><div class="line">    soup = BeautifulSoup(html_cont,<span class="string">'html.parser'</span>,from_encoding=<span class="string">'utf-8'</span>)</div><div class="line">    new_urls = self._get_new_urls(page_url,soup)</div><div class="line">    new_data = self.get_new_data(page_url,soup)</div><div class="line">    <span class="keyword">return</span> new_urls,new_data</div></pre></td></tr></table></figure>
+<h3 id="内容输出"><a href="#内容输出" class="headerlink" title="内容输出"></a>内容输出</h3><p>应该是要将其导出到数据库中的，暂时我们将它写入到一个文档中：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/env python</span></div><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">HtmlOutputer</span><span class="params">(object)</span>:</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        self.datas = []</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">collect_data</span><span class="params">(self,data)</span>:</span></div><div class="line">        <span class="keyword">if</span> data <span class="keyword">is</span> <span class="keyword">None</span>:</div><div class="line">            <span class="keyword">return</span></div><div class="line">        self.datas.append(data)</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">output_html</span><span class="params">(self)</span>:</span></div><div class="line">        fout = open(<span class="string">'output.html'</span>,<span class="string">'w'</span>)</div><div class="line">        fout.write(<span class="string">"&lt;html&gt;"</span>)</div><div class="line">        fout.write(<span class="string">"&lt;body&gt;"</span>)</div><div class="line">        fout.write(<span class="string">"&lt;table&gt;"</span>)</div><div class="line"></div><div class="line">        <span class="keyword">for</span> data <span class="keyword">in</span> self.datas:</div><div class="line">            fout.write(<span class="string">'&lt;tr&gt;'</span>)</div><div class="line">            fout.write(<span class="string">"&lt;td&gt;%s&lt;/td&gt;"</span> % data[<span class="string">'url'</span>])</div><div class="line">            fout.write(<span class="string">"&lt;td&gt;%s&lt;/td&gt;"</span> % data[<span class="string">'title'</span>].encode(<span class="string">'utf-8'</span>))</div><div class="line">            fout.write(<span class="string">"&lt;td&gt;%s&lt;/td&gt;"</span> % data[<span class="string">'summary'</span>].encode(<span class="string">'utf-8'</span>))</div><div class="line">            fout.write(<span class="string">"&lt;/tr&gt;"</span>)</div><div class="line">        fout.write(<span class="string">"&lt;/table&gt;"</span>)</div><div class="line">        fout.write(<span class="string">"&lt;/body&gt;"</span>)</div><div class="line">        fout.write(<span class="string">"&lt;/html&gt;"</span>)</div><div class="line">        fout.close()</div></pre></td></tr></table></figure>
+<p>该部分的逻辑还是比较简单的。</p>
+<h3 id="主程序"><a href="#主程序" class="headerlink" title="主程序"></a>主程序</h3><p>关于主程序的编写，首先逻辑一定要清晰，主要按照如下的流程进行：</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-27 上午9.42.43.png" alt="屏幕快照 2017-05-27 上午9.42.43"></p>
+<p>其中我们是直接导出到一个文档，而不是应用中的。</p>
+<p>首先我们导包：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> url_manager,html_parser,html_downloader,html_outputer</div></pre></td></tr></table></figure>
+<p>初始化程序：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">    self.urls = url_manager.UrlManager()</div><div class="line">    self.downloader = html_downloader.HtmlDownloader()</div><div class="line">    self.parser = html_parser.HtmlParser()</div><div class="line">    self.outputer = html_outputer.HtmlOutputer()</div></pre></td></tr></table></figure>
+<p>然后按照上图的逻辑，定义爬取方法，一步步执行对应操作：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">craw</span><span class="params">(self, root_url)</span>:</span></div><div class="line">    count = <span class="number">1</span></div><div class="line">    self.urls.add_new_url(root_url)</div><div class="line">    <span class="keyword">while</span> self.urls.has_new_url():</div><div class="line">        <span class="keyword">try</span> :</div><div class="line">            new_url = self.urls.get_new_url()</div><div class="line">            <span class="keyword">print</span> <span class="string">'craw %d : %s'</span> % (count, new_url)</div><div class="line">            html_cont = self.downloader.download(new_url)</div><div class="line">            new_urls, new_data = self.parser.parse(new_url, html_cont)</div><div class="line">            self.urls.add_new_urls(new_urls)</div><div class="line">            self.outputer.collect_data(new_data)</div><div class="line"></div><div class="line"></div><div class="line">            <span class="keyword">if</span> count == <span class="number">50</span>:</div><div class="line">                <span class="keyword">break</span></div><div class="line">            count = count + <span class="number">1</span></div><div class="line">        <span class="keyword">except</span>:</div><div class="line">            <span class="keyword">print</span> <span class="string">'craw failed'</span></div><div class="line"></div><div class="line">    self.outputer.output_html()</div></pre></td></tr></table></figure>
+<p>由于抓取的途中会出现一些 <code>url</code> 内容为空或者是不符合规范，所以我们使用 <code>try...catch...</code> 语句包裹，这里我们先抓取 50 条数据测试一下。</p>
+<p>启动爬虫程序：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    root_url = <span class="string">'http://baike.baidu.com/item/Python'</span></div><div class="line">    obj_spider = SpiderMain()</div><div class="line">    obj_spider.craw(root_url)</div></pre></td></tr></table></figure>
+<p>运行了 28 秒左右 <code>Exited with code=0 in 28.146 seconds.</code></p>
+<p>控制台：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div></pre></td><td class="code"><pre><div class="line">craw 1 : http://baike.baidu.com/item/Python</div><div class="line">craw 2 : http://baike.baidu.com/item/GPL</div><div class="line">craw failed</div><div class="line">craw 2 : http://baike.baidu.com/item/Zope</div><div class="line">craw 3 : http://baike.baidu.com/item/%E7%BC%96%E8%AF%91%E5%99%A8</div><div class="line">craw 4 : http://baike.baidu.com/item/%E7%9B%AE%E6%A0%87%E4%BB%A3%E7%A0%81</div><div class="line">craw 5 : http://baike.baidu.com/item/FORTRAN%E8%AF%AD%E8%A8%80</div><div class="line">craw 6 : http://baike.baidu.com/item/%E6%95%B0%E6%8D%AE</div><div class="line">craw 7 : http://baike.baidu.com/item/%E6%95%B0%E6%8D%AE?force=1</div><div class="line">craw failed</div><div class="line">craw 7 : http://baike.baidu.com/item/%E8%A1%A8%E8%BE%BE%E5%BC%8F</div><div class="line">craw 8 : http://baike.baidu.com/item/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86</div><div class="line">craw 9 : http://baike.baidu.com/item/%E5%8F%AF%E7%A7%BB%E6%A4%8D%E6%80%A7</div><div class="line">craw 10 : http://baike.baidu.com/item/%E5%BC%80%E6%94%BE%E6%BA%90%E7%A0%81</div><div class="line">craw 11 : http://baike.baidu.com/item/%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F</div><div class="line">craw 12 : http://baike.baidu.com/item/%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95</div><div class="line">craw 13 : http://baike.baidu.com/item/%E5%90%88%E5%BC%8F</div><div class="line">craw 14 : http://baike.baidu.com/item/MySQLdb</div><div class="line">craw 15 : http://baike.baidu.com/item/%E4%BF%9D%E5%AF%86</div><div class="line">craw 16 : http://baike.baidu.com/item/%E5%8E%9F%E5%A7%8B%E6%95%B0%E6%8D%AE</div><div class="line">craw 17 : http://baike.baidu.com/item/%E8%BD%AF%E4%BB%B6%E7%8E%AF%E5%A2%83</div><div class="line">craw 18 : http://baike.baidu.com/item/%E5%B1%9E%E6%80%A7</div><div class="line">craw 19 : http://baike.baidu.com/item/%E4%B8%AD%E5%8D%8E%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9B%BD%E4%BF%9D%E5%AE%88%E5%9B%BD%E5%AE%B6%E7%A7%98%E5%AF%86%E6%B3%95</div><div class="line">craw 20 : http://baike.baidu.com/item/%E5%88%98%E6%96%8C</div><div class="line">craw 21 : http://baike.baidu.com/item/%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98</div><div class="line">craw 22 : http://baike.baidu.com/item/%E6%B1%87%E7%BC%96%E7%A8%8B%E5%BA%8F</div><div class="line">craw 23 : http://baike.baidu.com/item/%E5%A4%A7%E5%AE%85%E9%97%A8/6775752</div><div class="line">craw 24 : http://baike.baidu.com/item/%E7%AD%89%E5%80%BC</div><div class="line">craw 25 : http://baike.baidu.com/item/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A1%AC%E4%BB%B6</div><div class="line">craw 26 : http://baike.baidu.com/item/%E8%B5%B5%E5%AE%9D%E5%88%9A/1460717</div><div class="line">craw 27 : http://baike.baidu.com/item/CD-RW</div><div class="line">craw 28 : http://baike.baidu.com/item/%E4%BD%BF%E7%94%A8%E7%8E%87</div><div class="line">craw 29 : http://baike.baidu.com/item/%E5%90%95%E4%B8%BD%E8%90%8D</div><div class="line">craw 30 : http://baike.baidu.com/item/%E6%9D%A8%E7%8E%84</div><div class="line">craw 31 : http://baike.baidu.com/item/%E5%86%AF%E5%B0%8F%E5%88%9A</div><div class="line">craw 32 : http://baike.baidu.com/item/%E5%8A%A8%E7%89%A9/216062</div><div class="line">craw 33 : http://baike.baidu.com/item/%E6%B9%84%E5%85%AC%E6%B2%B3%E5%B7%A8%E5%9E%8B%E9%B2%B6%E9%B1%BC</div><div class="line">craw 34 : http://baike.baidu.com/item/%E5%AD%99%E7%BA%A2%E9%9B%B7</div><div class="line">craw 35 : http://baike.baidu.com/item/%E5%BC%B9%E6%B6%82%E9%B1%BC</div><div class="line">craw 36 : http://baike.baidu.com/item/%E6%96%B0%E4%B8%8D%E4%BA%86%E6%83%85</div><div class="line">craw 37 : http://baike.baidu.com/item/%E7%BA%A2%E7%86%8A%E7%8C%AB</div><div class="line">craw 38 : http://baike.baidu.com/item/%E5%A4%96%E9%83%A8%E8%AE%BE%E5%A4%87</div><div class="line">craw 39 : http://baike.baidu.com/item/1985</div><div class="line">craw 40 : http://baike.baidu.com/item/1984</div><div class="line">craw failed</div><div class="line">craw 40 : http://baike.baidu.com/item/1987</div><div class="line">craw 41 : http://baike.baidu.com/item/1986</div><div class="line">craw 42 : http://baike.baidu.com/item/%E8%A1%A8%E6%BC%94%E7%B3%BB</div><div class="line">craw 43 : http://baike.baidu.com/item/%E5%86%AF%E5%B7%A9</div><div class="line">craw 44 : http://baike.baidu.com/item/%E5%AE%B6%EF%BC%8CN%E6%AC%A1%E6%96%B9/9465220</div><div class="line">craw 45 : http://baike.baidu.com/item/%E7%AC%AC7%E5%B1%8A%E4%B8%AD%E5%9B%BD%E7%94%B5%E5%BD%B1%E5%AF%BC%E6%BC%94%E5%8D%8F%E4%BC%9A</div><div class="line">craw 46 : http://baike.baidu.com/item/%E8%BF%90%E7%AE%97%E9%80%9F%E5%BA%A6</div><div class="line">craw 47 : http://baike.baidu.com/item/%E7%8E%8B%E5%B0%91%E4%BC%9F</div><div class="line">craw 48 : http://baike.baidu.com/item/%E6%BD%98%E6%85%A7%E5%A6%82</div><div class="line">craw 49 : http://baike.baidu.com/item/%E6%B2%B3%E6%AD%A3%E5%AE%87</div><div class="line">craw 50 : http://baike.baidu.com/item/%E8%B0%A2%E7%A5%96%E6%AD%A6</div></pre></td></tr></table></figure>
+<p>output.html 文件也获取到了想要爬取的内容：</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-27 上午9.55.01.png" alt="屏幕快照 2017-05-27 上午9.55.01"></p>
+<p>至此，人生第一个 Python 爬虫完成。</p>
+<hr>
+<p>该文主要是根据慕课的视频 <a href="http://www.imooc.com/learn/563" target="_blank" rel="external">Python 开发简单爬虫</a> 整理而成。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/25/Python调试相关/" rel="next" title="Python 调试相关">
+                <i class="fa fa-chevron-left"></i> Python 调试相关
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yODIwNi80Nzc5"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Zhanglf" />
+          <p class="site-author-name" itemprop="name">Zhanglf</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">40</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">37</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="mailto:smiledit@163.com" target="_blank" title="Email">
+                  
+                    <i class="fa fa-fw fa-share"></i>
+                  
+                  Email
+                </a>
+
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/smilEdit" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://music.163.com/#/user/home?id=102443731" target="_blank" title="网易云音乐">
+                  
+                    <i class="fa fa-fw fa-music"></i>
+                  
+                  网易云音乐
+                </a>
+
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.douban.com/people/128083476/" target="_blank" title="豆瓣">
+                  
+                    <i class="fa fa-fw fa-book"></i>
+                  
+                  豆瓣
+                </a>
+
+              </span>
+            
+          
+        </div>
+        
+<link href="http://7u2ss1.com1.z0.glb.clouddn.com/harlem-shake-style.css" rel="stylesheet" type="text/css" />
+<a title="刚刚好，可乐，童话镇，芊芊" rel="alternate" class="mw-harlem_shake_slow wobble shake" href='javascript:(
+    /*
+     * Copyright (C) 2015 Rocko (rocko.xyz) <rocko.zxp@gmail.com>
+     *
+     * Licensed under the Apache License, Version 2.0 (the "License");
+     * you may not use this file except in compliance with the License.
+     * You may obtain a copy of the License at
+     *
+     *      http://www.apache.org/licenses/LICENSE-2.0
+     *
+     * Unless required by applicable law or agreed to in writing, software
+     * distributed under the License is distributed on an "AS IS" BASIS,
+     * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     * See the License for the specific language governing permissions and
+     * limitations under the License.
+     */
+    function go() {
+    
+      var songs = [
+          "http://on9hzfn6s.bkt.clouddn.com/%E8%96%9B%E4%B9%8B%E8%B0%A6%20-%20%E5%88%9A%E5%88%9A%E5%A5%BD.mp3",
+          "http://on9hzfn6s.bkt.clouddn.com/%E8%B5%B5%E6%B5%B4%E8%BE%B0%20-%20%E5%8F%AF%E4%B9%90.mp3",
+          "http://on9hzfn6s.bkt.clouddn.com/%E5%9B%9E%E9%9F%B3%E5%93%A5%20-%20%E8%8A%8A%E8%8A%8A.mp3",
+          "http://on9hzfn6s.bkt.clouddn.com/%E9%99%88%E4%B8%80%E5%8F%91%E5%84%BF%20-%20%E7%AB%A5%E8%AF%9D%E9%95%87.mp3"
+      ];
+ 
+      function S() {
+          var e = document.getElementById("audio_element_id");
+          if(e != null){
+              var index = parseInt(e.getAttribute("curSongIndex"));
+              if(index > songs.length - 2) {
+                  index = 0;
+              } else {
+                  index++;
+              }
+              e.setAttribute("curSongIndex", index);
+          }
+          e.src = i;
+          e.play()
+      }
+      function initAudioEle() {
+          var e = document.getElementById("audio_element_id");
+          if(e === null){
+            e = document.createElement("audio");
+            e.setAttribute("curSongIndex", 0);
+            e.id = "audio_element_id";
+            e.loop = false;
+            e.bgcolor = 0;
+            e.innerHTML = " <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";
+            document.body.appendChild(e);
+            e.addEventListener("ended", function() {
+              go();
+            }, true);
+          }        
+      }
+    
+      initAudioEle();
+      var curSongIndex = parseInt(document.getElementById("audio_element_id").getAttribute("curSongIndex"));
+      var i = songs[curSongIndex];
+      S();
+    })()'>
+    &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;  &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;随便听首歌&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;<i class="fa fa-play"></i> </a>
+
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#url-管理器"><span class="nav-number">1.</span> <span class="nav-text">url 管理器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载器"><span class="nav-number">2.</span> <span class="nav-text">下载器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解析器"><span class="nav-number">3.</span> <span class="nav-text">解析器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内容输出"><span class="nav-number">4.</span> <span class="nav-text">内容输出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主程序"><span class="nav-number">5.</span> <span class="nav-text">主程序</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zhanglf</span>
+</div>
+
+
+<div class="powered-by">
+  开心的使用 <a class="theme-link" href="https://hexo.io">Hexo</a> 
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      本站访客数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      本站总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("LsA3oNhLhecH3d5m42Xas4un-gzGzoHsz", "5U5bYAOMfCS8eGWg4apmKTr9");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

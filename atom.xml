@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-05-25T07:45:52.000Z</updated>
+  <updated>2017-05-27T01:58:57.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,85 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>第一个 Python 爬虫</title>
+    <link href="http://yoursite.com/2017/05/27/%E7%AC%AC%E4%B8%80%E4%B8%AAPython%E7%88%AC%E8%99%AB/"/>
+    <id>http://yoursite.com/2017/05/27/第一个Python爬虫/</id>
+    <published>2017-05-26T16:07:57.000Z</published>
+    <updated>2017-05-27T01:58:57.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>这是一个爬取百度百科内容的爬虫，主要由以下几个部分组成：</p>
+<h3 id="url-管理器"><a href="#url-管理器" class="headerlink" title="url 管理器"></a>url 管理器</h3><p>它的作用是管理需要爬取的 url ，它自身维护了两个 <code>set()</code> 集合, <code>new_urls</code> 和 <code>old_urls</code> ，用 <code>set()</code> 集合当然是因为它可以自动去重：</p>
+<a id="more"></a>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">    self.new_urls = set()</div><div class="line">    self.old_urls = set()</div></pre></td></tr></table></figure>
+<p>该类主要有四个方法：</p>
+<p>添加一个或者多个 url 到 <code>set()</code> 集合中，在 <code>new_urls</code> 或者 <code>old_urls</code> 中出现的 <code>url</code> 当然是不做操作了：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">add_new_url</span><span class="params">(self, url)</span>:</span></div><div class="line">    <span class="keyword">if</span> url <span class="keyword">is</span> <span class="keyword">None</span>:</div><div class="line">        <span class="keyword">return</span></div><div class="line">    <span class="keyword">if</span> url <span class="keyword">not</span> <span class="keyword">in</span> self.new_urls <span class="keyword">and</span> url <span class="keyword">not</span> <span class="keyword">in</span> self.old_urls:</div><div class="line">        self.new_urls.add(url)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">add_new_urls</span><span class="params">(self, urls)</span>:</span></div><div class="line">    <span class="keyword">if</span> urls <span class="keyword">is</span> <span class="keyword">None</span> <span class="keyword">or</span> len(urls) == <span class="number">0</span>:</div><div class="line">        <span class="keyword">return</span></div><div class="line">    <span class="keyword">for</span> url <span class="keyword">in</span> urls:</div><div class="line">        self.add_new_url(url)</div></pre></td></tr></table></figure>
+<p>然后提供获取 <code>url</code> 和判断集合是否已经遍历完成的方法：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">has_new_url</span><span class="params">(self)</span>:</span></div><div class="line">    <span class="keyword">return</span> len(self.new_urls) != <span class="number">0</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_new_url</span><span class="params">(self)</span>:</span></div><div class="line">    new_url = self.new_urls.pop()</div><div class="line">    self.old_urls.add(new_url)</div><div class="line">    <span class="keyword">return</span> new_url</div></pre></td></tr></table></figure>
+<p>执行过获取 <code>url</code> 方法之后的 <code>url</code> 就添加到 <code>old_urls</code> 集合中。</p>
+<h3 id="下载器"><a href="#下载器" class="headerlink" title="下载器"></a>下载器</h3><p>使用 urllib2 模块的功能可以轻松完成：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">download</span><span class="params">(self, url)</span>:</span></div><div class="line">    <span class="keyword">if</span> url <span class="keyword">is</span> <span class="keyword">None</span>:</div><div class="line">        <span class="keyword">return</span> <span class="keyword">None</span></div><div class="line">    response = urllib2.urlopen(url)</div><div class="line">    <span class="keyword">if</span> response.getcode() != <span class="number">200</span>:</div><div class="line">        <span class="keyword">return</span> <span class="keyword">None</span></div><div class="line">    <span class="keyword">return</span> response.read()</div></pre></td></tr></table></figure>
+<h3 id="解析器"><a href="#解析器" class="headerlink" title="解析器"></a>解析器</h3><p>该部分也是爬虫最为核心的部分，它决定了爬虫应该爬取哪些内容，</p>
+<p>使用了 <a href="https://www.crummy.com/software/BeautifulSoup/bs3/documentation.zh.html" target="_blank" rel="external">BeautifulSoup</a> 模块来完成核心的解析部分。</p>
+<p>关于 <code>BeautifulSoup</code> 的使用可以先看一个小 Demo ：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/env python</span></div><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line"></div><div class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</div><div class="line"><span class="keyword">import</span> re</div><div class="line"></div><div class="line">html_doc = <span class="string">"""</span></div><div class="line">&lt;html&gt;&lt;head&gt;&lt;title&gt;The Dormouse's story&lt;/title&gt;&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;p class="title"&gt;&lt;b&gt;The Dormouse's story&lt;/b&gt;&lt;/p&gt;</div><div class="line"></div><div class="line">&lt;p class="story"&gt;Once upon a time there were three little sisters; and their names were</div><div class="line">&lt;a href="http://example.com/elsie" class="sister" id="link1"&gt;Elsie&lt;/a&gt;,</div><div class="line">&lt;a href="http://example.com/lacie" class="sister" id="link2"&gt;Lacie&lt;/a&gt; and</div><div class="line">&lt;a href="http://example.com/tillie" class="sister" id="link3"&gt;Tillie&lt;/a&gt;;</div><div class="line">and they lived at the bottom of a well.&lt;/p&gt;</div><div class="line"></div><div class="line">&lt;p class="story"&gt;...&lt;/p&gt;</div><div class="line">"""</div><div class="line"></div><div class="line">soup = BeautifulSoup(html_doc,<span class="string">'html.parser'</span>,from_encoding=<span class="string">'utf-8'</span>)</div><div class="line"></div><div class="line"><span class="keyword">print</span> <span class="string">"获取所有链接"</span></div><div class="line">links = soup.find_all(<span class="string">'a'</span>)</div><div class="line"><span class="keyword">for</span> link <span class="keyword">in</span> links:</div><div class="line">    <span class="keyword">print</span> link.name,link[<span class="string">'href'</span>],link.get_text()</div><div class="line"></div><div class="line"><span class="keyword">print</span> <span class="string">'获取lacie的链接'</span></div><div class="line">link_node = soup.find(<span class="string">'a'</span>,href=<span class="string">'http://example.com/lacie'</span>)</div><div class="line"><span class="keyword">print</span> link.name,link_node[<span class="string">'href'</span>],link_node.get_text()</div><div class="line"></div><div class="line"><span class="keyword">print</span> <span class="string">'正则匹配'</span></div><div class="line">re_node = soup.find(<span class="string">'a'</span>,href=re.compile(<span class="string">r'ill'</span>))</div><div class="line"><span class="keyword">print</span> re_node.name,re_node[<span class="string">'href'</span>],link_node.get_text()</div><div class="line"></div><div class="line"><span class="keyword">print</span> <span class="string">'获取p段落文字'</span></div><div class="line">p_node = soup.find(<span class="string">'p'</span>,class_=<span class="string">'title'</span>)</div><div class="line"><span class="keyword">print</span> p_node.name,p_node.get_text()</div></pre></td></tr></table></figure>
+<p>结果为：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">获取所有链接</div><div class="line">a http://example.com/elsie Elsie</div><div class="line">a http://example.com/lacie Lacie</div><div class="line">a http://example.com/tillie Tillie</div><div class="line">获取lacie的链接</div><div class="line">a http://example.com/lacie Lacie</div><div class="line">正则匹配</div><div class="line">a http://example.com/tillie Lacie</div><div class="line">获取p段落文字</div><div class="line">p The Dormouse<span class="string">'s story</span></div></pre></td></tr></table></figure>
+<p>它是将整个 <code>url</code> 中的内容解析成 Dom 树，按节点来查找相应的内容，更高效。</p>
+<p>回到我们的解析器，我们的解析器主要由两个功能组成，一个是获取 <code>url</code> 中的数据，这个数据所在的节点需要我们自己决定。</p>
+<p>我们所要爬取的就是标题和内容。</p>
+<p>根据审查，百度百科中我们所要获取的内容的信息分别为：</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-27 上午9.29.08.png" alt="屏幕快照 2017-05-27 上午9.29.08"></p>
+<p>以及：</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-27 上午9.28.49.png" alt="屏幕快照 2017-05-27 上午9.28.49"></p>
+<p>然后就可以编写对应的数据获取代码了：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_new_data</span><span class="params">(self, page_url, soup)</span>:</span></div><div class="line">    res_data = &#123;<span class="string">'url'</span>: page_url&#125;</div><div class="line"></div><div class="line">    <span class="comment"># url</span></div><div class="line"></div><div class="line">    res_data[<span class="string">'url'</span>] = page_url</div><div class="line">    <span class="comment"># &lt;dd class="lemmaWgt-lemmaTitle-title"&gt;&lt;h1&gt;Python&lt;/h1&gt;</span></div><div class="line">    title_node = soup.find(<span class="string">'dd'</span>, class_= <span class="string">"lemmaWgt-lemmaTitle-title"</span>).find(<span class="string">"h1"</span>)</div><div class="line">    res_data[<span class="string">'title'</span>] = title_node.get_text()</div><div class="line"></div><div class="line">    summary_node = soup.find(<span class="string">'div'</span>, class_=<span class="string">"lemma-summary"</span>)</div><div class="line">    res_data[<span class="string">'summary'</span>] = summary_node.get_text()</div><div class="line">    <span class="keyword">return</span> res_data</div></pre></td></tr></table></figure>
+<p>解析器的另外一个功能是从内容中获取新的需要爬取的 <code>url</code> 地址：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">_get_new_urls</span><span class="params">(self, page_url, soup)</span>:</span></div><div class="line">    new_urls = set()</div><div class="line">    links = soup.find_all(<span class="string">'a'</span>, href=re.compile(<span class="string">r"/item/(.*)"</span>))</div><div class="line">    <span class="keyword">for</span> link <span class="keyword">in</span> links:</div><div class="line">        new_url = link[<span class="string">'href'</span>]</div><div class="line">        new_full_url = urlparse.urljoin(page_url, new_url)</div><div class="line">        new_urls.add(new_full_url)</div><div class="line">    <span class="keyword">return</span> new_urls</div></pre></td></tr></table></figure>
+<p>这里我们使用正则来匹配 <code>href</code> 中的内容是否符合我们要爬取的 <code>url</code> ：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">links = soup.find_all(<span class="string">'a'</span>, href=re.compile(<span class="string">r"/item/(.*)"</span>))</div></pre></td></tr></table></figure>
+<p>将两个功能整合，我们的解析器就完成了：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">parse</span><span class="params">(self,page_url,html_cont)</span>:</span></div><div class="line">    <span class="keyword">if</span> page_url <span class="keyword">is</span> <span class="keyword">None</span> <span class="keyword">or</span> html_cont <span class="keyword">is</span> <span class="keyword">None</span>:</div><div class="line">        <span class="keyword">return</span></div><div class="line"></div><div class="line">    soup = BeautifulSoup(html_cont,<span class="string">'html.parser'</span>,from_encoding=<span class="string">'utf-8'</span>)</div><div class="line">    new_urls = self._get_new_urls(page_url,soup)</div><div class="line">    new_data = self.get_new_data(page_url,soup)</div><div class="line">    <span class="keyword">return</span> new_urls,new_data</div></pre></td></tr></table></figure>
+<h3 id="内容输出"><a href="#内容输出" class="headerlink" title="内容输出"></a>内容输出</h3><p>应该是要将其导出到数据库中的，暂时我们将它写入到一个文档中：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/env python</span></div><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">HtmlOutputer</span><span class="params">(object)</span>:</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        self.datas = []</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">collect_data</span><span class="params">(self,data)</span>:</span></div><div class="line">        <span class="keyword">if</span> data <span class="keyword">is</span> <span class="keyword">None</span>:</div><div class="line">            <span class="keyword">return</span></div><div class="line">        self.datas.append(data)</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">output_html</span><span class="params">(self)</span>:</span></div><div class="line">        fout = open(<span class="string">'output.html'</span>,<span class="string">'w'</span>)</div><div class="line">        fout.write(<span class="string">"&lt;html&gt;"</span>)</div><div class="line">        fout.write(<span class="string">"&lt;body&gt;"</span>)</div><div class="line">        fout.write(<span class="string">"&lt;table&gt;"</span>)</div><div class="line"></div><div class="line">        <span class="keyword">for</span> data <span class="keyword">in</span> self.datas:</div><div class="line">            fout.write(<span class="string">'&lt;tr&gt;'</span>)</div><div class="line">            fout.write(<span class="string">"&lt;td&gt;%s&lt;/td&gt;"</span> % data[<span class="string">'url'</span>])</div><div class="line">            fout.write(<span class="string">"&lt;td&gt;%s&lt;/td&gt;"</span> % data[<span class="string">'title'</span>].encode(<span class="string">'utf-8'</span>))</div><div class="line">            fout.write(<span class="string">"&lt;td&gt;%s&lt;/td&gt;"</span> % data[<span class="string">'summary'</span>].encode(<span class="string">'utf-8'</span>))</div><div class="line">            fout.write(<span class="string">"&lt;/tr&gt;"</span>)</div><div class="line">        fout.write(<span class="string">"&lt;/table&gt;"</span>)</div><div class="line">        fout.write(<span class="string">"&lt;/body&gt;"</span>)</div><div class="line">        fout.write(<span class="string">"&lt;/html&gt;"</span>)</div><div class="line">        fout.close()</div></pre></td></tr></table></figure>
+<p>该部分的逻辑还是比较简单的。</p>
+<h3 id="主程序"><a href="#主程序" class="headerlink" title="主程序"></a>主程序</h3><p>关于主程序的编写，首先逻辑一定要清晰，主要按照如下的流程进行：</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-27 上午9.42.43.png" alt="屏幕快照 2017-05-27 上午9.42.43"></p>
+<p>其中我们是直接导出到一个文档，而不是应用中的。</p>
+<p>首先我们导包：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> url_manager,html_parser,html_downloader,html_outputer</div></pre></td></tr></table></figure>
+<p>初始化程序：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">    self.urls = url_manager.UrlManager()</div><div class="line">    self.downloader = html_downloader.HtmlDownloader()</div><div class="line">    self.parser = html_parser.HtmlParser()</div><div class="line">    self.outputer = html_outputer.HtmlOutputer()</div></pre></td></tr></table></figure>
+<p>然后按照上图的逻辑，定义爬取方法，一步步执行对应操作：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">craw</span><span class="params">(self, root_url)</span>:</span></div><div class="line">    count = <span class="number">1</span></div><div class="line">    self.urls.add_new_url(root_url)</div><div class="line">    <span class="keyword">while</span> self.urls.has_new_url():</div><div class="line">        <span class="keyword">try</span> :</div><div class="line">            new_url = self.urls.get_new_url()</div><div class="line">            <span class="keyword">print</span> <span class="string">'craw %d : %s'</span> % (count, new_url)</div><div class="line">            html_cont = self.downloader.download(new_url)</div><div class="line">            new_urls, new_data = self.parser.parse(new_url, html_cont)</div><div class="line">            self.urls.add_new_urls(new_urls)</div><div class="line">            self.outputer.collect_data(new_data)</div><div class="line"></div><div class="line"></div><div class="line">            <span class="keyword">if</span> count == <span class="number">50</span>:</div><div class="line">                <span class="keyword">break</span></div><div class="line">            count = count + <span class="number">1</span></div><div class="line">        <span class="keyword">except</span>:</div><div class="line">            <span class="keyword">print</span> <span class="string">'craw failed'</span></div><div class="line"></div><div class="line">    self.outputer.output_html()</div></pre></td></tr></table></figure>
+<p>由于抓取的途中会出现一些 <code>url</code> 内容为空或者是不符合规范，所以我们使用 <code>try...catch...</code> 语句包裹，这里我们先抓取 50 条数据测试一下。</p>
+<p>启动爬虫程序：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    root_url = <span class="string">'http://baike.baidu.com/item/Python'</span></div><div class="line">    obj_spider = SpiderMain()</div><div class="line">    obj_spider.craw(root_url)</div></pre></td></tr></table></figure>
+<p>运行了 28 秒左右 <code>Exited with code=0 in 28.146 seconds.</code></p>
+<p>控制台：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div></pre></td><td class="code"><pre><div class="line">craw 1 : http://baike.baidu.com/item/Python</div><div class="line">craw 2 : http://baike.baidu.com/item/GPL</div><div class="line">craw failed</div><div class="line">craw 2 : http://baike.baidu.com/item/Zope</div><div class="line">craw 3 : http://baike.baidu.com/item/%E7%BC%96%E8%AF%91%E5%99%A8</div><div class="line">craw 4 : http://baike.baidu.com/item/%E7%9B%AE%E6%A0%87%E4%BB%A3%E7%A0%81</div><div class="line">craw 5 : http://baike.baidu.com/item/FORTRAN%E8%AF%AD%E8%A8%80</div><div class="line">craw 6 : http://baike.baidu.com/item/%E6%95%B0%E6%8D%AE</div><div class="line">craw 7 : http://baike.baidu.com/item/%E6%95%B0%E6%8D%AE?force=1</div><div class="line">craw failed</div><div class="line">craw 7 : http://baike.baidu.com/item/%E8%A1%A8%E8%BE%BE%E5%BC%8F</div><div class="line">craw 8 : http://baike.baidu.com/item/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86</div><div class="line">craw 9 : http://baike.baidu.com/item/%E5%8F%AF%E7%A7%BB%E6%A4%8D%E6%80%A7</div><div class="line">craw 10 : http://baike.baidu.com/item/%E5%BC%80%E6%94%BE%E6%BA%90%E7%A0%81</div><div class="line">craw 11 : http://baike.baidu.com/item/%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F</div><div class="line">craw 12 : http://baike.baidu.com/item/%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95</div><div class="line">craw 13 : http://baike.baidu.com/item/%E5%90%88%E5%BC%8F</div><div class="line">craw 14 : http://baike.baidu.com/item/MySQLdb</div><div class="line">craw 15 : http://baike.baidu.com/item/%E4%BF%9D%E5%AF%86</div><div class="line">craw 16 : http://baike.baidu.com/item/%E5%8E%9F%E5%A7%8B%E6%95%B0%E6%8D%AE</div><div class="line">craw 17 : http://baike.baidu.com/item/%E8%BD%AF%E4%BB%B6%E7%8E%AF%E5%A2%83</div><div class="line">craw 18 : http://baike.baidu.com/item/%E5%B1%9E%E6%80%A7</div><div class="line">craw 19 : http://baike.baidu.com/item/%E4%B8%AD%E5%8D%8E%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9B%BD%E4%BF%9D%E5%AE%88%E5%9B%BD%E5%AE%B6%E7%A7%98%E5%AF%86%E6%B3%95</div><div class="line">craw 20 : http://baike.baidu.com/item/%E5%88%98%E6%96%8C</div><div class="line">craw 21 : http://baike.baidu.com/item/%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98</div><div class="line">craw 22 : http://baike.baidu.com/item/%E6%B1%87%E7%BC%96%E7%A8%8B%E5%BA%8F</div><div class="line">craw 23 : http://baike.baidu.com/item/%E5%A4%A7%E5%AE%85%E9%97%A8/6775752</div><div class="line">craw 24 : http://baike.baidu.com/item/%E7%AD%89%E5%80%BC</div><div class="line">craw 25 : http://baike.baidu.com/item/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A1%AC%E4%BB%B6</div><div class="line">craw 26 : http://baike.baidu.com/item/%E8%B5%B5%E5%AE%9D%E5%88%9A/1460717</div><div class="line">craw 27 : http://baike.baidu.com/item/CD-RW</div><div class="line">craw 28 : http://baike.baidu.com/item/%E4%BD%BF%E7%94%A8%E7%8E%87</div><div class="line">craw 29 : http://baike.baidu.com/item/%E5%90%95%E4%B8%BD%E8%90%8D</div><div class="line">craw 30 : http://baike.baidu.com/item/%E6%9D%A8%E7%8E%84</div><div class="line">craw 31 : http://baike.baidu.com/item/%E5%86%AF%E5%B0%8F%E5%88%9A</div><div class="line">craw 32 : http://baike.baidu.com/item/%E5%8A%A8%E7%89%A9/216062</div><div class="line">craw 33 : http://baike.baidu.com/item/%E6%B9%84%E5%85%AC%E6%B2%B3%E5%B7%A8%E5%9E%8B%E9%B2%B6%E9%B1%BC</div><div class="line">craw 34 : http://baike.baidu.com/item/%E5%AD%99%E7%BA%A2%E9%9B%B7</div><div class="line">craw 35 : http://baike.baidu.com/item/%E5%BC%B9%E6%B6%82%E9%B1%BC</div><div class="line">craw 36 : http://baike.baidu.com/item/%E6%96%B0%E4%B8%8D%E4%BA%86%E6%83%85</div><div class="line">craw 37 : http://baike.baidu.com/item/%E7%BA%A2%E7%86%8A%E7%8C%AB</div><div class="line">craw 38 : http://baike.baidu.com/item/%E5%A4%96%E9%83%A8%E8%AE%BE%E5%A4%87</div><div class="line">craw 39 : http://baike.baidu.com/item/1985</div><div class="line">craw 40 : http://baike.baidu.com/item/1984</div><div class="line">craw failed</div><div class="line">craw 40 : http://baike.baidu.com/item/1987</div><div class="line">craw 41 : http://baike.baidu.com/item/1986</div><div class="line">craw 42 : http://baike.baidu.com/item/%E8%A1%A8%E6%BC%94%E7%B3%BB</div><div class="line">craw 43 : http://baike.baidu.com/item/%E5%86%AF%E5%B7%A9</div><div class="line">craw 44 : http://baike.baidu.com/item/%E5%AE%B6%EF%BC%8CN%E6%AC%A1%E6%96%B9/9465220</div><div class="line">craw 45 : http://baike.baidu.com/item/%E7%AC%AC7%E5%B1%8A%E4%B8%AD%E5%9B%BD%E7%94%B5%E5%BD%B1%E5%AF%BC%E6%BC%94%E5%8D%8F%E4%BC%9A</div><div class="line">craw 46 : http://baike.baidu.com/item/%E8%BF%90%E7%AE%97%E9%80%9F%E5%BA%A6</div><div class="line">craw 47 : http://baike.baidu.com/item/%E7%8E%8B%E5%B0%91%E4%BC%9F</div><div class="line">craw 48 : http://baike.baidu.com/item/%E6%BD%98%E6%85%A7%E5%A6%82</div><div class="line">craw 49 : http://baike.baidu.com/item/%E6%B2%B3%E6%AD%A3%E5%AE%87</div><div class="line">craw 50 : http://baike.baidu.com/item/%E8%B0%A2%E7%A5%96%E6%AD%A6</div></pre></td></tr></table></figure>
+<p>output.html 文件也获取到了想要爬取的内容：</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-27 上午9.55.01.png" alt="屏幕快照 2017-05-27 上午9.55.01"></p>
+<p>至此，人生第一个 Python 爬虫完成。</p>
+<hr>
+<p>该文主要是根据慕课的视频 <a href="http://www.imooc.com/learn/563" target="_blank" rel="external">Python 开发简单爬虫</a> 整理而成。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这是一个爬取百度百科内容的爬虫，主要由以下几个部分组成：&lt;/p&gt;
+&lt;h3 id=&quot;url-管理器&quot;&gt;&lt;a href=&quot;#url-管理器&quot; class=&quot;headerlink&quot; title=&quot;url 管理器&quot;&gt;&lt;/a&gt;url 管理器&lt;/h3&gt;&lt;p&gt;它的作用是管理需要爬取的 url ，它自身维护了两个 &lt;code&gt;set()&lt;/code&gt; 集合, &lt;code&gt;new_urls&lt;/code&gt; 和 &lt;code&gt;old_urls&lt;/code&gt; ，用 &lt;code&gt;set()&lt;/code&gt; 集合当然是因为它可以自动去重：&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="python" scheme="http://yoursite.com/categories/python/"/>
+    
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+  </entry>
   
   <entry>
     <title>Python 调试相关</title>
@@ -1278,125 +1357,6 @@ i am funcc
     <summary type="html">
     
       &lt;h3 id=&quot;layer-list&quot;&gt;&lt;a href=&quot;#layer-list&quot; class=&quot;headerlink&quot; title=&quot;layer-list&quot;&gt;&lt;/a&gt;layer-list&lt;/h3&gt;&lt;p&gt;类似于 FrameLayout，将列表中的 item 叠加在一块，最后的 item 显示在最前面。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="安卓" scheme="http://yoursite.com/categories/%E5%AE%89%E5%8D%93/"/>
-    
-    
-      <category term="Android" scheme="http://yoursite.com/tags/Android/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>关于 Drawable（一）</title>
-    <link href="http://yoursite.com/2017/05/03/%E5%85%B3%E4%BA%8E-Drawable%EF%BC%88%E4%B8%80%EF%BC%89/"/>
-    <id>http://yoursite.com/2017/05/03/关于-Drawable（一）/</id>
-    <published>2017-05-03T08:50:49.000Z</published>
-    <updated>2017-05-15T09:45:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>这里的 Drawable 指的是 Android 项目中 res/drawable 下的资源。</p>
-<p>例如: </p>
-<p>.9 图、 .png 、 .jpg 等位图文件， xml 格式的可绘制对象等等。</p>
-<a id="more"></a>
-<h3 id="位图文件"><a href="#位图文件" class="headerlink" title="位图文件"></a>位图文件</h3><p>关于位图文件，Google 官方首先推荐使用的是 .png ，其次是 .jpg ，以及不建议使用的 .gif 文件。</p>
-<pre><code>Tip: 当出现如下错误的时候，
-
-Error:Execution failed for task &apos;:app:mergeDebugResources&apos;.
-Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.ProcessException: `
-
-可能是你将 .jpg 格式图片的后缀改成了 .png 放到 drawable 目录下了。
-</code></pre><p>另外，drawable 中的文件名称格式有一定的<strong>要求</strong>：</p>
-<pre><code>File-based resource names must contain only lowercase a-z, 0-9, or underscore
-</code></pre><p>位图文件的<strong>使用</strong>很简单:</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ImageView</span></span></div><div class="line">      <span class="attr">android:layout_width</span>=<span class="string">"50dp"</span></div><div class="line">      <span class="attr">android:src</span>=<span class="string">"@drawable/bitmap_test"</span></div><div class="line">      <span class="attr">android:layout_height</span>=<span class="string">"50dp"</span>/&gt;</div></pre></td></tr></table></figure>
-<p>或者用 <code>background</code> 。</p>
-<p>其中 <code>src</code> 和 <code>background</code> 的主要区别是，前者不会根据 <code>ImageView</code> 控件的大小拉伸原图。</p>
-<p><code>src</code> 的样式可以通过 <code>scaleType</code> 设置，而 <code>alpha</code> 属性可以作用于 <code>background</code> 。两者可以同时作用，<code>src</code> 在前，<code>background</code> 在后。</p>
-<p>关于 <em>scaleType</em> 的不同类型，可以用一张图来说明:</p>
-<p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-03 下午5.28.55.png" alt="屏幕快照 2017-05-03 下午5.28.55"></p>
-<p>其中 <code>centerCrop</code> 和 <code>center</code> 用的最多。</p>
-<h3 id="XML-中-的位图"><a href="#XML-中-的位图" class="headerlink" title="XML 中 的位图"></a>XML 中 的位图</h3><p>有以下这些属性:</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">bitmap</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line">        <span class="attr">android:src</span>=<span class="string">"@drawable/huaji"</span></div><div class="line">        <span class="attr">android:alpha</span>=<span class="string">"100"</span></div><div class="line">        <span class="attr">android:antialias</span>=<span class="string">"true"</span></div><div class="line">        <span class="attr">android:autoMirrored</span>=<span class="string">"true"</span></div><div class="line">        <span class="attr">android:dither</span>=<span class="string">"true"</span></div><div class="line">        <span class="attr">android:filter</span>=<span class="string">"true"</span></div><div class="line">        <span class="attr">android:gravity</span>=<span class="string">"bottom"</span></div><div class="line">        <span class="attr">android:tileMode</span>=<span class="string">"repeat"</span></div><div class="line">        <span class="attr">android:mipMap</span>=<span class="string">"true"</span></div><div class="line">        <span class="attr">android:tileModeX</span>=<span class="string">"mirror"</span></div><div class="line">        <span class="attr">android:tileModeY</span>=<span class="string">"mirror"</span></div><div class="line">        <span class="attr">android:tintMode</span>=<span class="string">"src_over"</span></div><div class="line">        <span class="attr">android:tint</span>=<span class="string">"null"</span></div><div class="line">    /&gt;</div></pre></td></tr></table></figure>
-<ul>
-<li><code>src</code> 是一定要求有的，是图片资源地址。</li>
-</ul>
-<ul>
-<li><p><code>alpha</code> 图片的透明度。</p>
-</li>
-<li><p><code>antialias</code> 是否抗锯齿。</p>
-</li>
-<li><p><code>autoMirrored</code> 否是镜像反转，当布局是从右往左的时候才有用。</p>
-</li>
-<li><p><code>dither</code> 是否使用位图抖动，当图片像素高于设备配置的时候会用到，它能让图片的显示更加平滑，具体可以点<a href="https://en.wikipedia.org/wiki/Dither" target="_blank" rel="external">这里</a>。</p>
-</li>
-</ul>
-<p>下面的几张图片中， 1 是原图，2 和 3 都是用的同一个<a href="https://en.wikipedia.org/wiki/Web_colors#Web-safe_colors" target="_blank" rel="external">调色板</a>，但是 3 用了<a href="https://en.wikipedia.org/wiki/Floyd%E2%80%93Steinberg_dithering" target="_blank" rel="external">位图抖动算法</a>，看上去更加的平滑。</p>
-<p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-03 下午8.06.48.png" alt="屏幕快照 2017-05-03 下午8.06.48"></p>
-<ul>
-<li><p><code>filter</code> 当图片进行了压缩或者拉伸时，使用该属性可以使得图片的外观更加的平滑。</p>
-</li>
-<li><p><code>gravity</code> 这个很理解，和普通的控件中也有，该属性对应的值有点 <code>left</code>、<code>top</code> 、<code>right</code> 之类的，用来设置图片在控件中的位置或者说是对齐方式。</p>
-</li>
-<li><p><code>tileMode</code> tile 是瓷砖，瓦片的意思。该属性用来设置图片的平铺方式，有四种不同的值：</p>
-<ul>
-<li><p><code>disable</code> 默认值，无平铺方式</p>
-</li>
-<li><p><code>repeat</code> 重复的铺满，如下图</p>
-<p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-03 下午4.37.48.png" alt="屏幕快照 2017-05-03 下午4.37.48"></p>
-</li>
-<li><p><code>mirror</code> 镜像的方式，如下图</p>
-</li>
-</ul>
-</li>
-</ul>
-<p>   <img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-03 下午4.37.57.png" alt="屏幕快照 2017-05-03 下午4.37.57"></p>
-<ul>
-<li><code>clamp</code> 效果如下图，其实拉伸的是图片最边缘的那个像素点上的值。</li>
-</ul>
-<pre><code>![屏幕快照 2017-05-03 下午4.38.09](http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-03 下午4.38.09.png)
-</code></pre><ul>
-<li><p><code>mipMap</code> 这个属性有点邪乎，可以参考<a href="https://developer.android.google.cn/reference/android/graphics/Bitmap.html#setHasMipMap(boolean" target="_blank" rel="external">里面</a>)，大致意思应该是，当你要绘制的 bitmap 小于 50% 原图的时候，开启该属性可以提供更高质量的画质。（但是使用该属性，需要额外的内存开销，并且是 Android 4.2 及以上才能用，而且！用了不一定真的有用哦，它只是给渲染器的一个建议）</p>
-</li>
-<li><p><code>tileMoteX</code> 和<code>tileMoteY</code> 都是 Android 5.0 及之后才有的属性，和 <code>tileMote</code> 的性质一样，只是多了方向上的区别。</p>
-</li>
-<li><p><code>tintMode</code> 也是 Android 5.0 及之后才有的，这个属性是配合 <code>tint</code> 来一起使用的。</p>
-<p>  <img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-03 下午8.37.25.png" alt="屏幕快照 2017-05-03 下午8.37.25"></p>
-</li>
-</ul>
-<p>我们来玩一把，在 <code>android:tint=&quot;#0f0&quot;</code> 的条件下，改变 <code>tintMode</code>：</p>
-<ul>
-<li><p>当值为 <code>src_over</code> 或者 <code>src_in</code> 或者 <code>src_atop</code> 的时候得到的图形都一样(这里一开我也是用的滑稽的图片，但是由于滑稽图是 .jpg 格式的，于是在这三种模式下就会变成全绿，所以用了 .png 的图片演示)</p>
-<p> <img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-03 下午8.59.59.png" alt="屏幕快照 2017-05-03 下午8.59.59"></p>
-</li>
-<li><p>当值为 <code>add</code> 的时候</p>
-<p> <img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-03 下午8.46.42.png" alt="屏幕快照 2017-05-03 下午8.46.42"></p>
-</li>
-</ul>
-<ul>
-<li><p>当值为 <code>multiply</code> 的时候</p>
-<p> <img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-03 下午8.47.03.png" alt="屏幕快照 2017-05-03 下午8.47.03"></p>
-</li>
-</ul>
-<ul>
-<li><p>当值为 <code>screen</code> 的时候</p>
-<p> <img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-03 下午8.47.35.png" alt="屏幕快照 2017-05-03 下午8.47.35"></p>
-</li>
-</ul>
-<p>–</p>
-<p><a href="https://zh.wikipedia.org/wiki/Wikipedia:%E9%A6%96%E9%A1%B5" target="_blank" rel="external">参考链接</a></p>
-<p> <a href="https://developer.android.google.cn/guide/topics/resources/drawable-resource.html" target="_blank" rel="external">Google 官方 API</a></p>
-<p><a href="http://android.jobbole.com/82117/" target="_blank" rel="external">Android 样式的开发：drawable 汇总篇</a></p>
-<p><a href="http://blog.csdn.net/crazymo_/article/details/48941781" target="_blank" rel="external">Android 入门 —— Drawable 与对应的资源 xml 的应用</a></p>
-<p><a href="http://www.cnblogs.com/ai394495243/p/5075758.html?utm_source=tuicool&amp;utm_medium=referral" target="_blank" rel="external">Android 5.x 新特性之 elevation (阴影),tinting（着色）以及 clipping（剪裁）</a></p>
-<p><a href="http://blog.csdn.net/zhuoxiuwu/article/details/50976337" target="_blank" rel="external">Andorid-Tint使用与原理解析</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;这里的 Drawable 指的是 Android 项目中 res/drawable 下的资源。&lt;/p&gt;
-&lt;p&gt;例如: &lt;/p&gt;
-&lt;p&gt;.9 图、 .png 、 .jpg 等位图文件， xml 格式的可绘制对象等等。&lt;/p&gt;
     
     </summary>
     
