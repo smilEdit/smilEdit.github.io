@@ -105,7 +105,7 @@ url 管理器它的作用是管理需要爬取的 url ，它自身维护了两�
 <meta property="og:image" content="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-27 上午9.28.49.png">
 <meta property="og:image" content="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-27 上午9.42.43.png">
 <meta property="og:image" content="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-27 上午9.55.01.png">
-<meta property="og:updated_time" content="2017-05-27T01:58:57.000Z">
+<meta property="og:updated_time" content="2017-05-27T02:09:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第一个 Python 爬虫">
 <meta name="twitter:description" content="这是一个爬取百度百科内容的爬虫，主要由以下几个部分组成：
@@ -455,11 +455,11 @@ url 管理器它的作用是管理需要爬取的 url ，它自身维护了两�
 
       
         <p>这是一个爬取百度百科内容的爬虫，主要由以下几个部分组成：</p>
-<h3 id="url-管理器"><a href="#url-管理器" class="headerlink" title="url 管理器"></a>url 管理器</h3><p>它的作用是管理需要爬取的 url ，它自身维护了两个 <code>set()</code> 集合, <code>new_urls</code> 和 <code>old_urls</code> ，用 <code>set()</code> 集合当然是因为它可以自动去重：</p>
+<h3 id="url-管理器"><a href="#url-管理器" class="headerlink" title="url 管理器"></a>url 管理器</h3><p>它的作用是管理需要爬取的 <code>url</code> ，它自身维护了两个 <code>set()</code> 集合, <code>new_urls</code> 和 <code>old_urls</code> ，用 <code>set()</code> 集合当然是因为它可以自动去重：</p>
 <a id="more"></a>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">    self.new_urls = set()</div><div class="line">    self.old_urls = set()</div></pre></td></tr></table></figure>
 <p>该类主要有四个方法：</p>
-<p>添加一个或者多个 url 到 <code>set()</code> 集合中，在 <code>new_urls</code> 或者 <code>old_urls</code> 中出现的 <code>url</code> 当然是不做操作了：</p>
+<p>添加一个或者多个 <code>url</code> 到 <code>set()</code> 集合中，在 <code>new_urls</code> 或者 <code>old_urls</code> 中出现的 <code>url</code> 当然是不做操作了：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">add_new_url</span><span class="params">(self, url)</span>:</span></div><div class="line">    <span class="keyword">if</span> url <span class="keyword">is</span> <span class="keyword">None</span>:</div><div class="line">        <span class="keyword">return</span></div><div class="line">    <span class="keyword">if</span> url <span class="keyword">not</span> <span class="keyword">in</span> self.new_urls <span class="keyword">and</span> url <span class="keyword">not</span> <span class="keyword">in</span> self.old_urls:</div><div class="line">        self.new_urls.add(url)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">add_new_urls</span><span class="params">(self, urls)</span>:</span></div><div class="line">    <span class="keyword">if</span> urls <span class="keyword">is</span> <span class="keyword">None</span> <span class="keyword">or</span> len(urls) == <span class="number">0</span>:</div><div class="line">        <span class="keyword">return</span></div><div class="line">    <span class="keyword">for</span> url <span class="keyword">in</span> urls:</div><div class="line">        self.add_new_url(url)</div></pre></td></tr></table></figure>
 <p>然后提供获取 <code>url</code> 和判断集合是否已经遍历完成的方法：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">has_new_url</span><span class="params">(self)</span>:</span></div><div class="line">    <span class="keyword">return</span> len(self.new_urls) != <span class="number">0</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_new_url</span><span class="params">(self)</span>:</span></div><div class="line">    new_url = self.new_urls.pop()</div><div class="line">    self.old_urls.add(new_url)</div><div class="line">    <span class="keyword">return</span> new_url</div></pre></td></tr></table></figure>
@@ -473,7 +473,7 @@ url 管理器它的作用是管理需要爬取的 url ，它自身维护了两�
 <p>结果为：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">获取所有链接</div><div class="line">a http://example.com/elsie Elsie</div><div class="line">a http://example.com/lacie Lacie</div><div class="line">a http://example.com/tillie Tillie</div><div class="line">获取lacie的链接</div><div class="line">a http://example.com/lacie Lacie</div><div class="line">正则匹配</div><div class="line">a http://example.com/tillie Lacie</div><div class="line">获取p段落文字</div><div class="line">p The Dormouse<span class="string">'s story</span></div></pre></td></tr></table></figure>
 <p>它是将整个 <code>url</code> 中的内容解析成 Dom 树，按节点来查找相应的内容，更高效。</p>
-<p>回到我们的解析器，我们的解析器主要由两个功能组成，一个是获取 <code>url</code> 中的数据，这个数据所在的节点需要我们自己决定。</p>
+<p>回到我们的解析器，它主要由两个功能组成，一个是获取 <code>url</code> 中的数据，这个数据所在的节点需要我们自己决定。</p>
 <p>我们所要爬取的就是标题和内容。</p>
 <p>根据审查，百度百科中我们所要获取的内容的信息分别为：</p>
 <p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-27 上午9.29.08.png" alt="屏幕快照 2017-05-27 上午9.29.08"></p>
@@ -509,7 +509,7 @@ url 管理器它的作用是管理需要爬取的 url ，它自身维护了两�
 <p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-27 上午9.55.01.png" alt="屏幕快照 2017-05-27 上午9.55.01"></p>
 <p>至此，人生第一个 Python 爬虫完成。</p>
 <hr>
-<p>该文主要是根据慕课的视频 <a href="http://www.imooc.com/learn/563" target="_blank" rel="external">Python 开发简单爬虫</a> 整理而成。</p>
+<p>该文主要是根据慕课网的视频 <a href="http://www.imooc.com/learn/563" target="_blank" rel="external">Python 开发简单爬虫</a> 整理而成。</p>
 
       
     </div>
@@ -561,6 +561,10 @@ url 管理器它的作用是管理需要爬取的 url ，它自身维护了两�
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/27/PS从零开始/" rel="prev" title="PS 从零开始">
+                PS 从零开始 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -640,7 +644,7 @@ url 管理器它的作用是管理需要爬取的 url ，它自身维护了两�
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">40</span>
+                <span class="site-state-item-count">42</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -651,7 +655,7 @@ url 管理器它的作用是管理需要爬取的 url ，它自身维护了两�
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
