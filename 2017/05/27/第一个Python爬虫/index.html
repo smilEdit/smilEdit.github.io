@@ -52,6 +52,12 @@
   
 
   
+    
+      
+    
+
+    
+  
 
   
     
@@ -64,7 +70,7 @@
   
     
     
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
   
 
 
@@ -82,6 +88,8 @@
 
 
 
+
+  <link rel="alternate" href="/atom.xml" title="smilEdit" type="application/atom+xml" />
 
 
 
@@ -675,6 +683,13 @@ url 管理器它的作用是管理需要爬取的 url ，它自身维护了两�
         </nav>
 
         
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
 
         <div class="links-of-author motion-element">
           
@@ -700,16 +715,6 @@ url 管理器它的作用是管理需要爬取的 url ，它自身维护了两�
               </span>
             
               <span class="links-of-author-item">
-                <a href="http://music.163.com/#/user/home?id=102443731" target="_blank" title="网易云音乐">
-                  
-                    <i class="fa fa-fw fa-music"></i>
-                  
-                  网易云音乐
-                </a>
-
-              </span>
-            
-              <span class="links-of-author-item">
                 <a href="https://www.douban.com/people/128083476/" target="_blank" title="豆瓣">
                   
                     <i class="fa fa-fw fa-book"></i>
@@ -719,77 +724,42 @@ url 管理器它的作用是管理需要爬取的 url ，它自身维护了两�
 
               </span>
             
+              <span class="links-of-author-item">
+                <a href="http://music.163.com/#/user/home?id=102443731" target="_blank" title="网易云音乐">
+                  
+                    <i class="fa fa-fw fa-music"></i>
+                  
+                  网易云音乐
+                </a>
+
+              </span>
+            
           
         </div>
         
-<link href="http://7u2ss1.com1.z0.glb.clouddn.com/harlem-shake-style.css" rel="stylesheet" type="text/css" />
-<a title="刚刚好，可乐，童话镇，芊芊" rel="alternate" class="mw-harlem_shake_slow wobble shake" href='javascript:(
-    /*
-     * Copyright (C) 2015 Rocko (rocko.xyz) <rocko.zxp@gmail.com>
-     *
-     * Licensed under the Apache License, Version 2.0 (the "License");
-     * you may not use this file except in compliance with the License.
-     * You may obtain a copy of the License at
-     *
-     *      http://www.apache.org/licenses/LICENSE-2.0
-     *
-     * Unless required by applicable law or agreed to in writing, software
-     * distributed under the License is distributed on an "AS IS" BASIS,
-     * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-     * See the License for the specific language governing permissions and
-     * limitations under the License.
-     */
-    function go() {
-    
-      var songs = [
-          "http://on9hzfn6s.bkt.clouddn.com/%E8%96%9B%E4%B9%8B%E8%B0%A6%20-%20%E5%88%9A%E5%88%9A%E5%A5%BD.mp3",
-          "http://on9hzfn6s.bkt.clouddn.com/%E8%B5%B5%E6%B5%B4%E8%BE%B0%20-%20%E5%8F%AF%E4%B9%90.mp3",
-          "http://on9hzfn6s.bkt.clouddn.com/%E5%9B%9E%E9%9F%B3%E5%93%A5%20-%20%E8%8A%8A%E8%8A%8A.mp3",
-          "http://on9hzfn6s.bkt.clouddn.com/%E9%99%88%E4%B8%80%E5%8F%91%E5%84%BF%20-%20%E7%AB%A5%E8%AF%9D%E9%95%87.mp3"
-      ];
- 
-      function S() {
-          var e = document.getElementById("audio_element_id");
-          if(e != null){
-              var index = parseInt(e.getAttribute("curSongIndex"));
-              if(index > songs.length - 2) {
-                  index = 0;
-              } else {
-                  index++;
-              }
-              e.setAttribute("curSongIndex", index);
-          }
-          e.src = i;
-          e.play()
-      }
-      function initAudioEle() {
-          var e = document.getElementById("audio_element_id");
-          if(e === null){
-            e = document.createElement("audio");
-            e.setAttribute("curSongIndex", 0);
-            e.id = "audio_element_id";
-            e.loop = false;
-            e.bgcolor = 0;
-            e.innerHTML = " <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";
-            document.body.appendChild(e);
-            e.addEventListener("ended", function() {
-              go();
-            }, true);
-          }        
-      }
-    
-      initAudioEle();
-      var curSongIndex = parseInt(document.getElementById("audio_element_id").getAttribute("curSongIndex"));
-      var i = songs[curSongIndex];
-      S();
-    })()'>
-    &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;  &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;随便听首歌&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;<i class="fa fa-play"></i> </a>
-
 
         
         
 
         
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              小伙伴
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://xblydxj.xyz/" title="西伯利亚的雪景" target="_blank">西伯利亚的雪景</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://guangxingmao.github.io/" title="小冇" target="_blank">小冇</a>
+                </li>
+              
+            </ul>
+          </div>
         
 
         
@@ -856,15 +826,15 @@ url 管理器它的作用是管理需要爬取的 url ，它自身维护了两�
 
   
     <span class="site-uv">
-      本站访客数
+      访客
       <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-      人次
+      人
     </span>
   
 
   
     <span class="site-pv">
-      本站总访问量
+      访问量
       <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
       次
     </span>
