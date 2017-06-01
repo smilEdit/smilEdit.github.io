@@ -1,0 +1,1174 @@
+<!doctype html>
+
+
+
+
+<html class="theme-next muse" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="安卓," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="smilEdit" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="先看效果图：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="安卓图片模糊占位加载">
+<meta property="og:url" content="http://yoursite.com/2017/06/01/安卓图片模糊占位加载/index.html">
+<meta property="og:site_name" content="smilEdit">
+<meta property="og:description" content="先看效果图：">
+<meta property="og:image" content="http://on9hzfn6s.bkt.clouddn.com/Untitled1.gif">
+<meta property="og:image" content="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-06-01 上午10.03.32.png">
+<meta property="og:image" content="http://on9hzfn6s.bkt.clouddn.com/Untitled.gif">
+<meta property="og:updated_time" content="2017-06-01T02:30:16.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="安卓图片模糊占位加载">
+<meta name="twitter:description" content="先看效果图：">
+<meta name="twitter:image" content="http://on9hzfn6s.bkt.clouddn.com/Untitled1.gif">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: false,
+    motion: false,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/06/01/安卓图片模糊占位加载/"/>
+
+
+
+
+
+  <title> 安卓图片模糊占位加载 | smilEdit </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=61724842";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">smilEdit</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-essay">
+          <a href="/categories/随笔" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-pencil"></i> <br />
+            
+            随笔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-read">
+          <a href="/categories/阅读" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            阅读
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/01/安卓图片模糊占位加载/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhanglf">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="smilEdit">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                安卓图片模糊占位加载
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-01T08:42:53+08:00">
+                2017-06-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/安卓/" itemprop="url" rel="index">
+                    <span itemprop="name">安卓</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/06/01/安卓图片模糊占位加载/" class="leancloud_visitors" data-flag-title="安卓图片模糊占位加载">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>先看效果图：</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/Untitled1.gif" alt="Untitled1"></p>
+<a id="more"></a>
+<p>这个效果在<a href="https://www.zhihu.com/" target="_blank" rel="external">知乎</a>和 <a href="https://medium.com/" target="_blank" rel="external">Medium</a> 的 PC 端都有应用。</p>
+<p>而且手机端和电脑端都可以通过相同的方式实现这个效果，核心逻辑都是先加载一张放大的缩略图，将其进行模糊处理，同时加载大图并添加一个监听，当大图加载完成的时候，将小图替换成大图。</p>
+<p>这里我们直接使用 <a href="https://github.com/bumptech/glide" target="_blank" rel="external">Glide</a> 图片加载框架。</p>
+<p>先简单的写个布局：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">LinearLayout</span></span></div><div class="line">    <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></div><div class="line">    <span class="attr">xmlns:tools</span>=<span class="string">"http://schemas.android.com/tools"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:orientation</span>=<span class="string">"vertical"</span></div><div class="line">    <span class="attr">tools:context</span>=<span class="string">"com.zhanglf.badgenumberdemo.MainActivity"</span>&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">ImageView</span></span></div><div class="line">        <span class="attr">android:scaleType</span>=<span class="string">"fitCenter"</span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/iv_load"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"400dp"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"200dp"</span></div><div class="line">        <span class="attr">android:layout_gravity</span>=<span class="string">"center"</span></div><div class="line">        <span class="attr">android:layout_marginTop</span>=<span class="string">"40dp"</span>/&gt;</div><div class="line">    <span class="tag">&lt;<span class="name">ImageView</span></span></div><div class="line">        <span class="attr">android:scaleType</span>=<span class="string">"fitCenter"</span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/iv_load2"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"400dp"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"200dp"</span></div><div class="line">        <span class="attr">android:layout_gravity</span>=<span class="string">"center"</span></div><div class="line">        <span class="attr">android:layout_marginTop</span>=<span class="string">"40dp"</span>/&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">LinearLayout</span></span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:gravity</span>=<span class="string">"center"</span></div><div class="line">        <span class="attr">android:orientation</span>=<span class="string">"horizontal"</span>&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">Button</span></span></div><div class="line">            <span class="attr">android:id</span>=<span class="string">"@+id/bt_load"</span></div><div class="line">            <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">            <span class="attr">android:layout_gravity</span>=<span class="string">"center"</span></div><div class="line">            <span class="attr">android:text</span>=<span class="string">"LOAD"</span>/&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">Button</span></span></div><div class="line">            <span class="attr">android:id</span>=<span class="string">"@+id/bt_clean"</span></div><div class="line">            <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">            <span class="attr">android:layout_marginLeft</span>=<span class="string">"40dp"</span></div><div class="line">            <span class="attr">android:text</span>=<span class="string">"CLEAN"</span>/&gt;</div><div class="line">    <span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>单独封装一个 <code>BlurImageLoader</code> 类来实行图片模糊加载。（其实可以很简洁的，但是我看要传入的参数太多，再则为了试试之前的看的 Builder 设计模式，这里简单封装了一下，其实真的是画蛇添足，傻逼了，也不想改了 T T）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BlurImageLoader</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> Context mContext;</div><div class="line">    <span class="keyword">private</span> String mBlurImageUrl;</div><div class="line">    <span class="keyword">private</span> String mNormalImageUrl;</div><div class="line">    <span class="keyword">private</span> ImageView mImageView;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Builder</span> </span>&#123;</div><div class="line">        <span class="keyword">private</span> <span class="keyword">final</span> Context mContext;</div><div class="line">        <span class="keyword">private</span> String mBlurImageUrl;</div><div class="line">        <span class="keyword">private</span> String mNormalImageUrl;</div><div class="line">        <span class="keyword">private</span> ImageView mImageView;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="title">Builder</span><span class="params">(Context context)</span> </span>&#123;</div><div class="line">            <span class="keyword">this</span>.mContext = context;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> Builder <span class="title">Loader</span><span class="params">(String blurImageUrl, String normalImageUrl)</span> </span>&#123;</div><div class="line">            <span class="keyword">this</span>.mBlurImageUrl = blurImageUrl;</div><div class="line">            <span class="keyword">this</span>.mNormalImageUrl = normalImageUrl;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> Builder <span class="title">into</span><span class="params">(ImageView targetImageView)</span> </span>&#123;</div><div class="line">            <span class="keyword">this</span>.mImageView = targetImageView;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> BlurImageLoader <span class="title">builder</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> BlurImageLoader(<span class="keyword">this</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">BlurImageLoader</span><span class="params">(Builder builder)</span> </span>&#123;</div><div class="line">        mContext = builder.mContext;</div><div class="line">        mBlurImageUrl = builder.mBlurImageUrl;</div><div class="line">        mNormalImageUrl = builder.mNormalImageUrl;</div><div class="line">        mImageView = builder.mImageView;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * <span class="doctag">@param</span> context        Any context, will not be retained.</div><div class="line">     * <span class="doctag">@param</span> imageView      The target to load the resource into.</div><div class="line">     * <span class="doctag">@param</span> blurImageUrl   The thumbnail view of url.</div><div class="line">     * <span class="doctag">@param</span> normalImageUrl The normal view of url</div><div class="line">     */</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Loader</span><span class="params">()</span> </span>&#123;</div><div class="line">        Glide.with(mContext).load(mBlurImageUrl).bitmapTransform(<span class="keyword">new</span> BlurTransformation(mContext, <span class="number">5</span>)).into(<span class="keyword">new</span> GlideDrawableImageViewTarget(mImageView) &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onResourceReady</span><span class="params">(<span class="keyword">final</span> GlideDrawable resource, <span class="keyword">final</span> GlideAnimation&lt;? <span class="keyword">super</span> GlideDrawable&gt; animation)</span> </span>&#123;</div><div class="line">                <span class="keyword">super</span>.onResourceReady(resource, animation);</div><div class="line">                Glide.with(mContext).load(mNormalImageUrl).placeholder(resource).crossFade().into(mImageView);</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>核心代码就是 <code>Loader()</code> 方法了，其中：</p>
+<p><code>.bitmapTransform(new BlurTransformation(mContext, 5))</code> 这个新建类就是模糊的关键了。</p>
+<p>他是我从 <a href="https://github.com/wasabeef/glide-transformations" target="_blank" rel="external">glide-transformations</a> 这个强大的 Glide 加载方式辅助工具中的<a href="https://github.com/wasabeef/glide-transformations/blob/master/transformations/src/main/java/jp/wasabeef/glide/transformations/BlurTransformation.java" target="_blank" rel="external">一个类中</a>摘取出来的。</p>
+<p>这个类 <code>BlurTransformation</code> ：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Copyright (C) 2015 Wasabeef</div><div class="line"> *</div><div class="line"> * Licensed under the Apache License, Version 2.0 (the "License");</div><div class="line"> * you may not use this file except in compliance with the License.</div><div class="line"> * You may obtain a copy of the License at</div><div class="line"> *</div><div class="line"> * http://www.apache.org/licenses/LICENSE-2.0</div><div class="line"> *</div><div class="line"> * Unless required by applicable law or agreed to in writing, software</div><div class="line"> * distributed under the License is distributed on an "AS IS" BASIS,</div><div class="line"> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</div><div class="line"> * See the License for the specific language governing permissions and</div><div class="line"> * limitations under the License.</div><div class="line"> */</div><div class="line"></div><div class="line"><span class="keyword">import</span> android.content.Context;</div><div class="line"><span class="keyword">import</span> android.graphics.Bitmap;</div><div class="line"><span class="keyword">import</span> android.graphics.Canvas;</div><div class="line"><span class="keyword">import</span> android.graphics.Paint;</div><div class="line"><span class="keyword">import</span> android.os.Build;</div><div class="line"><span class="keyword">import</span> android.renderscript.RSRuntimeException;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.bumptech.glide.Glide;</div><div class="line"><span class="keyword">import</span> com.bumptech.glide.load.Transformation;</div><div class="line"><span class="keyword">import</span> com.bumptech.glide.load.engine.Resource;</div><div class="line"><span class="keyword">import</span> com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;</div><div class="line"><span class="keyword">import</span> com.bumptech.glide.load.resource.bitmap.BitmapResource;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BlurTransformation</span> <span class="keyword">implements</span> <span class="title">Transformation</span>&lt;<span class="title">Bitmap</span>&gt; </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> MAX_RADIUS = <span class="number">25</span>;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> DEFAULT_DOWN_SAMPLING = <span class="number">1</span>;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> Context mContext;</div><div class="line">    <span class="keyword">private</span> BitmapPool mBitmapPool;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> mRadius;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> mSampling;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">BlurTransformation</span><span class="params">(Context context)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>(context, Glide.get(context).getBitmapPool(), MAX_RADIUS, DEFAULT_DOWN_SAMPLING);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">BlurTransformation</span><span class="params">(Context context, BitmapPool pool)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>(context, pool, MAX_RADIUS, DEFAULT_DOWN_SAMPLING);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">BlurTransformation</span><span class="params">(Context context, BitmapPool pool, <span class="keyword">int</span> radius)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>(context, pool, radius, DEFAULT_DOWN_SAMPLING);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">BlurTransformation</span><span class="params">(Context context, <span class="keyword">int</span> radius)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>(context, Glide.get(context).getBitmapPool(), radius, DEFAULT_DOWN_SAMPLING);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">BlurTransformation</span><span class="params">(Context context, <span class="keyword">int</span> radius, <span class="keyword">int</span> sampling)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>(context, Glide.get(context).getBitmapPool(), radius, sampling);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">BlurTransformation</span><span class="params">(Context context, BitmapPool pool, <span class="keyword">int</span> radius, <span class="keyword">int</span> sampling)</span> </span>&#123;</div><div class="line">        mContext = context.getApplicationContext();</div><div class="line">        mBitmapPool = pool;</div><div class="line">        mRadius = radius;</div><div class="line">        mSampling = sampling;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> Resource&lt;Bitmap&gt; <span class="title">transform</span><span class="params">(Resource&lt;Bitmap&gt; resource, <span class="keyword">int</span> outWidth, <span class="keyword">int</span> outHeight)</span> </span>&#123;</div><div class="line">        Bitmap source = resource.get();</div><div class="line"></div><div class="line">        <span class="keyword">int</span> width = source.getWidth();</div><div class="line">        <span class="keyword">int</span> height = source.getHeight();</div><div class="line">        <span class="keyword">int</span> scaledWidth = width / mSampling;</div><div class="line">        <span class="keyword">int</span> scaledHeight = height / mSampling;</div><div class="line"></div><div class="line">        Bitmap bitmap = mBitmapPool.get(scaledWidth, scaledHeight, Bitmap.Config.ARGB_8888);</div><div class="line">        <span class="keyword">if</span> (bitmap == <span class="keyword">null</span>) &#123;</div><div class="line">            bitmap = Bitmap.createBitmap(scaledWidth, scaledHeight, Bitmap.Config.ARGB_8888);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        Canvas canvas = <span class="keyword">new</span> Canvas(bitmap);</div><div class="line">        canvas.scale(<span class="number">1</span> / (<span class="keyword">float</span>) mSampling, <span class="number">1</span> / (<span class="keyword">float</span>) mSampling);</div><div class="line">        Paint paint = <span class="keyword">new</span> Paint();</div><div class="line">        paint.setFlags(Paint.FILTER_BITMAP_FLAG);</div><div class="line">        canvas.drawBitmap(source, <span class="number">0</span>, <span class="number">0</span>, paint);</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.JELLY_BEAN_MR2) &#123;</div><div class="line">            <span class="keyword">try</span> &#123;</div><div class="line">                bitmap = RSBlur.blur(mContext, bitmap, mRadius);</div><div class="line">            &#125; <span class="keyword">catch</span> (RSRuntimeException e) &#123;</div><div class="line">                bitmap = FastBlur.blur(bitmap, mRadius, <span class="keyword">true</span>);</div><div class="line">            &#125;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            bitmap = FastBlur.blur(bitmap, mRadius, <span class="keyword">true</span>);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> BitmapResource.obtain(bitmap, mBitmapPool);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span> <span class="function"><span class="keyword">public</span> String <span class="title">getId</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"BlurTransformation(radius="</span> + mRadius + <span class="string">", sampling="</span> + mSampling + <span class="string">")"</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>他有多种构造方式，常用的就是上面用到的，第一个传入上下文，第二次传入一个 <code>int</code> 值，这个 <code>int</code> 值代表图片的模糊程度。</p>
+<p>对模糊程度没有概念的可以看<a href="http://www.quasimondo.com/StackBlurForCanvas/StackBlurDemo.html" target="_blank" rel="external">这个网站</a>，自己调整感受一下。</p>
+<p><code>BlurTransformation</code> 类中对 <code>VERSION_CODES</code> 进行判断，大于 18 的采用 <code>RSBlur</code> 进行模糊处理，也就是安卓自带的 <code>ScriptIntrinsicBlur</code> 类。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">import</span> android.annotation.TargetApi;</div><div class="line"><span class="keyword">import</span> android.content.Context;</div><div class="line"><span class="keyword">import</span> android.graphics.Bitmap;</div><div class="line"><span class="keyword">import</span> android.os.Build;</div><div class="line"><span class="keyword">import</span> android.renderscript.Allocation;</div><div class="line"><span class="keyword">import</span> android.renderscript.Element;</div><div class="line"><span class="keyword">import</span> android.renderscript.RSRuntimeException;</div><div class="line"><span class="keyword">import</span> android.renderscript.RenderScript;</div><div class="line"><span class="keyword">import</span> android.renderscript.ScriptIntrinsicBlur;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Copyright (C) 2017 Wasabeef</div><div class="line"> *</div><div class="line"> * Licensed under the Apache License, Version 2.0 (the "License");</div><div class="line"> * you may not use this file except in compliance with the License.</div><div class="line"> * You may obtain a copy of the License at</div><div class="line"> *</div><div class="line"> * http://www.apache.org/licenses/LICENSE-2.0</div><div class="line"> *</div><div class="line"> * Unless required by applicable law or agreed to in writing, software</div><div class="line"> * distributed under the License is distributed on an "AS IS" BASIS,</div><div class="line"> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</div><div class="line"> * See the License for the specific language governing permissions and</div><div class="line"> * limitations under the License.</div><div class="line"> */</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RSBlur</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@TargetApi</span>(Build.VERSION_CODES.JELLY_BEAN_MR2)</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Bitmap <span class="title">blur</span><span class="params">(Context context, Bitmap bitmap, <span class="keyword">int</span> radius)</span> <span class="keyword">throws</span> RSRuntimeException </span>&#123;</div><div class="line">        RenderScript rs = <span class="keyword">null</span>;</div><div class="line">        Allocation input = <span class="keyword">null</span>;</div><div class="line">        Allocation output = <span class="keyword">null</span>;</div><div class="line">        ScriptIntrinsicBlur blur = <span class="keyword">null</span>;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            rs = RenderScript.create(context);</div><div class="line">            rs.setMessageHandler(<span class="keyword">new</span> RenderScript.RSMessageHandler());</div><div class="line">            input = Allocation.createFromBitmap(rs, bitmap, Allocation.MipmapControl.MIPMAP_NONE,</div><div class="line">                    Allocation.USAGE_SCRIPT);</div><div class="line">            output = Allocation.createTyped(rs, input.getType());</div><div class="line">            blur = ScriptIntrinsicBlur.create(rs, Element.U8_4(rs));</div><div class="line"></div><div class="line">            blur.setInput(input);</div><div class="line">            blur.setRadius(radius);</div><div class="line">            blur.forEach(output);</div><div class="line">            output.copyTo(bitmap);</div><div class="line">        &#125; <span class="keyword">finally</span> &#123;</div><div class="line">            <span class="keyword">if</span> (rs != <span class="keyword">null</span>) &#123;</div><div class="line">                rs.destroy();</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> (input != <span class="keyword">null</span>) &#123;</div><div class="line">                input.destroy();</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> (output != <span class="keyword">null</span>) &#123;</div><div class="line">                output.destroy();</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> (blur != <span class="keyword">null</span>) &#123;</div><div class="line">                blur.destroy();</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> bitmap;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>小于 18 的采用被广为使用的 <code>FastBlur</code> 类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div><div class="line">216</div><div class="line">217</div><div class="line">218</div><div class="line">219</div><div class="line">220</div><div class="line">221</div><div class="line">222</div><div class="line">223</div><div class="line">224</div><div class="line">225</div><div class="line">226</div><div class="line">227</div><div class="line">228</div><div class="line">229</div><div class="line">230</div><div class="line">231</div><div class="line">232</div><div class="line">233</div><div class="line">234</div><div class="line">235</div><div class="line">236</div><div class="line">237</div><div class="line">238</div><div class="line">239</div><div class="line">240</div><div class="line">241</div><div class="line">242</div><div class="line">243</div><div class="line">244</div><div class="line">245</div><div class="line">246</div><div class="line">247</div><div class="line">248</div><div class="line">249</div><div class="line">250</div><div class="line">251</div><div class="line">252</div><div class="line">253</div><div class="line">254</div><div class="line">255</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> android.graphics.Bitmap;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Copyright (C) 2015 Wasabeef</div><div class="line"> *</div><div class="line"> * Licensed under the Apache License, Version 2.0 (the "License");</div><div class="line"> * you may not use this file except in compliance with the License.</div><div class="line"> * You may obtain a copy of the License at</div><div class="line"> *</div><div class="line"> * http://www.apache.org/licenses/LICENSE-2.0</div><div class="line"> *</div><div class="line"> * Unless required by applicable law or agreed to in writing, software</div><div class="line"> * distributed under the License is distributed on an "AS IS" BASIS,</div><div class="line"> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</div><div class="line"> * See the License for the specific language governing permissions and</div><div class="line"> * limitations under the License.</div><div class="line"> */</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FastBlur</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Bitmap <span class="title">blur</span><span class="params">(Bitmap sentBitmap, <span class="keyword">int</span> radius, <span class="keyword">boolean</span> canReuseInBitmap)</span> </span>&#123;</div><div class="line"></div><div class="line">        <span class="comment">// Stack Blur v1.0 from</span></div><div class="line">        <span class="comment">// http://www.quasimondo.com/StackBlurForCanvas/StackBlurDemo.html</span></div><div class="line">        <span class="comment">//</span></div><div class="line">        <span class="comment">// Java Author: Mario Klingemann &lt;mario at quasimondo.com&gt;</span></div><div class="line">        <span class="comment">// http://incubator.quasimondo.com</span></div><div class="line">        <span class="comment">// created Feburary 29, 2004</span></div><div class="line">        <span class="comment">// Android port : Yahel Bouaziz &lt;yahel at kayenko.com&gt;</span></div><div class="line">        <span class="comment">// http://www.kayenko.com</span></div><div class="line">        <span class="comment">// ported april 5th, 2012</span></div><div class="line"></div><div class="line">        <span class="comment">// This is a compromise between Gaussian Blur and Box blur</span></div><div class="line">        <span class="comment">// It creates much better looking blurs than Box Blur, but is</span></div><div class="line">        <span class="comment">// 7x faster than my Gaussian Blur implementation.</span></div><div class="line">        <span class="comment">//</span></div><div class="line">        <span class="comment">// I called it Stack Blur because this describes best how this</span></div><div class="line">        <span class="comment">// filter works internally: it creates a kind of moving stack</span></div><div class="line">        <span class="comment">// of colors whilst scanning through the image. Thereby it</span></div><div class="line">        <span class="comment">// just has to add one new block of color to the right side</span></div><div class="line">        <span class="comment">// of the stack and remove the leftmost color. The remaining</span></div><div class="line">        <span class="comment">// colors on the topmost layer of the stack are either added on</span></div><div class="line">        <span class="comment">// or reduced by one, depending on if they are on the right or</span></div><div class="line">        <span class="comment">// on the left side of the stack.</span></div><div class="line">        <span class="comment">//</span></div><div class="line">        <span class="comment">// If you are using this algorithm in your code please add</span></div><div class="line">        <span class="comment">// the following line:</span></div><div class="line">        <span class="comment">//</span></div><div class="line">        <span class="comment">// Stack Blur Algorithm by Mario Klingemann &lt;mario@quasimondo.com&gt;</span></div><div class="line"></div><div class="line">        Bitmap bitmap;</div><div class="line">        <span class="keyword">if</span> (canReuseInBitmap) &#123;</div><div class="line">            bitmap = sentBitmap;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            bitmap = sentBitmap.copy(sentBitmap.getConfig(), <span class="keyword">true</span>);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (radius &lt; <span class="number">1</span>) &#123;</div><div class="line">            <span class="keyword">return</span> (<span class="keyword">null</span>);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">int</span> w = bitmap.getWidth();</div><div class="line">        <span class="keyword">int</span> h = bitmap.getHeight();</div><div class="line"></div><div class="line">        <span class="keyword">int</span>[] pix = <span class="keyword">new</span> <span class="keyword">int</span>[w * h];</div><div class="line">        bitmap.getPixels(pix, <span class="number">0</span>, w, <span class="number">0</span>, <span class="number">0</span>, w, h);</div><div class="line"></div><div class="line">        <span class="keyword">int</span> wm = w - <span class="number">1</span>;</div><div class="line">        <span class="keyword">int</span> hm = h - <span class="number">1</span>;</div><div class="line">        <span class="keyword">int</span> wh = w * h;</div><div class="line">        <span class="keyword">int</span> div = radius + radius + <span class="number">1</span>;</div><div class="line"></div><div class="line">        <span class="keyword">int</span> r[] = <span class="keyword">new</span> <span class="keyword">int</span>[wh];</div><div class="line">        <span class="keyword">int</span> g[] = <span class="keyword">new</span> <span class="keyword">int</span>[wh];</div><div class="line">        <span class="keyword">int</span> b[] = <span class="keyword">new</span> <span class="keyword">int</span>[wh];</div><div class="line">        <span class="keyword">int</span> rsum, gsum, bsum, x, y, i, p, yp, yi, yw;</div><div class="line">        <span class="keyword">int</span> vmin[] = <span class="keyword">new</span> <span class="keyword">int</span>[Math.max(w, h)];</div><div class="line"></div><div class="line">        <span class="keyword">int</span> divsum = (div + <span class="number">1</span>) &gt;&gt; <span class="number">1</span>;</div><div class="line">        divsum *= divsum;</div><div class="line">        <span class="keyword">int</span> dv[] = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">256</span> * divsum];</div><div class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">256</span> * divsum; i++) &#123;</div><div class="line">            dv[i] = (i / divsum);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        yw = yi = <span class="number">0</span>;</div><div class="line"></div><div class="line">        <span class="keyword">int</span>[][] stack = <span class="keyword">new</span> <span class="keyword">int</span>[div][<span class="number">3</span>];</div><div class="line">        <span class="keyword">int</span> stackpointer;</div><div class="line">        <span class="keyword">int</span> stackstart;</div><div class="line">        <span class="keyword">int</span>[] sir;</div><div class="line">        <span class="keyword">int</span> rbs;</div><div class="line">        <span class="keyword">int</span> r1 = radius + <span class="number">1</span>;</div><div class="line">        <span class="keyword">int</span> routsum, goutsum, boutsum;</div><div class="line">        <span class="keyword">int</span> rinsum, ginsum, binsum;</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (y = <span class="number">0</span>; y &lt; h; y++) &#123;</div><div class="line">            rinsum = ginsum = binsum = routsum = goutsum = boutsum = rsum = gsum = bsum = <span class="number">0</span>;</div><div class="line">            <span class="keyword">for</span> (i = -radius; i &lt;= radius; i++) &#123;</div><div class="line">                p = pix[yi + Math.min(wm, Math.max(i, <span class="number">0</span>))];</div><div class="line">                sir = stack[i + radius];</div><div class="line">                sir[<span class="number">0</span>] = (p &amp; <span class="number">0xff0000</span>) &gt;&gt; <span class="number">16</span>;</div><div class="line">                sir[<span class="number">1</span>] = (p &amp; <span class="number">0x00ff00</span>) &gt;&gt; <span class="number">8</span>;</div><div class="line">                sir[<span class="number">2</span>] = (p &amp; <span class="number">0x0000ff</span>);</div><div class="line">                rbs = r1 - Math.abs(i);</div><div class="line">                rsum += sir[<span class="number">0</span>] * rbs;</div><div class="line">                gsum += sir[<span class="number">1</span>] * rbs;</div><div class="line">                bsum += sir[<span class="number">2</span>] * rbs;</div><div class="line">                <span class="keyword">if</span> (i &gt; <span class="number">0</span>) &#123;</div><div class="line">                    rinsum += sir[<span class="number">0</span>];</div><div class="line">                    ginsum += sir[<span class="number">1</span>];</div><div class="line">                    binsum += sir[<span class="number">2</span>];</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    routsum += sir[<span class="number">0</span>];</div><div class="line">                    goutsum += sir[<span class="number">1</span>];</div><div class="line">                    boutsum += sir[<span class="number">2</span>];</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            stackpointer = radius;</div><div class="line"></div><div class="line">            <span class="keyword">for</span> (x = <span class="number">0</span>; x &lt; w; x++) &#123;</div><div class="line"></div><div class="line">                r[yi] = dv[rsum];</div><div class="line">                g[yi] = dv[gsum];</div><div class="line">                b[yi] = dv[bsum];</div><div class="line"></div><div class="line">                rsum -= routsum;</div><div class="line">                gsum -= goutsum;</div><div class="line">                bsum -= boutsum;</div><div class="line"></div><div class="line">                stackstart = stackpointer - radius + div;</div><div class="line">                sir = stack[stackstart % div];</div><div class="line"></div><div class="line">                routsum -= sir[<span class="number">0</span>];</div><div class="line">                goutsum -= sir[<span class="number">1</span>];</div><div class="line">                boutsum -= sir[<span class="number">2</span>];</div><div class="line"></div><div class="line">                <span class="keyword">if</span> (y == <span class="number">0</span>) &#123;</div><div class="line">                    vmin[x] = Math.min(x + radius + <span class="number">1</span>, wm);</div><div class="line">                &#125;</div><div class="line">                p = pix[yw + vmin[x]];</div><div class="line"></div><div class="line">                sir[<span class="number">0</span>] = (p &amp; <span class="number">0xff0000</span>) &gt;&gt; <span class="number">16</span>;</div><div class="line">                sir[<span class="number">1</span>] = (p &amp; <span class="number">0x00ff00</span>) &gt;&gt; <span class="number">8</span>;</div><div class="line">                sir[<span class="number">2</span>] = (p &amp; <span class="number">0x0000ff</span>);</div><div class="line"></div><div class="line">                rinsum += sir[<span class="number">0</span>];</div><div class="line">                ginsum += sir[<span class="number">1</span>];</div><div class="line">                binsum += sir[<span class="number">2</span>];</div><div class="line"></div><div class="line">                rsum += rinsum;</div><div class="line">                gsum += ginsum;</div><div class="line">                bsum += binsum;</div><div class="line"></div><div class="line">                stackpointer = (stackpointer + <span class="number">1</span>) % div;</div><div class="line">                sir = stack[(stackpointer) % div];</div><div class="line"></div><div class="line">                routsum += sir[<span class="number">0</span>];</div><div class="line">                goutsum += sir[<span class="number">1</span>];</div><div class="line">                boutsum += sir[<span class="number">2</span>];</div><div class="line"></div><div class="line">                rinsum -= sir[<span class="number">0</span>];</div><div class="line">                ginsum -= sir[<span class="number">1</span>];</div><div class="line">                binsum -= sir[<span class="number">2</span>];</div><div class="line"></div><div class="line">                yi++;</div><div class="line">            &#125;</div><div class="line">            yw += w;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">for</span> (x = <span class="number">0</span>; x &lt; w; x++) &#123;</div><div class="line">            rinsum = ginsum = binsum = routsum = goutsum = boutsum = rsum = gsum = bsum = <span class="number">0</span>;</div><div class="line">            yp = -radius * w;</div><div class="line">            <span class="keyword">for</span> (i = -radius; i &lt;= radius; i++) &#123;</div><div class="line">                yi = Math.max(<span class="number">0</span>, yp) + x;</div><div class="line"></div><div class="line">                sir = stack[i + radius];</div><div class="line"></div><div class="line">                sir[<span class="number">0</span>] = r[yi];</div><div class="line">                sir[<span class="number">1</span>] = g[yi];</div><div class="line">                sir[<span class="number">2</span>] = b[yi];</div><div class="line"></div><div class="line">                rbs = r1 - Math.abs(i);</div><div class="line"></div><div class="line">                rsum += r[yi] * rbs;</div><div class="line">                gsum += g[yi] * rbs;</div><div class="line">                bsum += b[yi] * rbs;</div><div class="line"></div><div class="line">                <span class="keyword">if</span> (i &gt; <span class="number">0</span>) &#123;</div><div class="line">                    rinsum += sir[<span class="number">0</span>];</div><div class="line">                    ginsum += sir[<span class="number">1</span>];</div><div class="line">                    binsum += sir[<span class="number">2</span>];</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    routsum += sir[<span class="number">0</span>];</div><div class="line">                    goutsum += sir[<span class="number">1</span>];</div><div class="line">                    boutsum += sir[<span class="number">2</span>];</div><div class="line">                &#125;</div><div class="line"></div><div class="line">                <span class="keyword">if</span> (i &lt; hm) &#123;</div><div class="line">                    yp += w;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            yi = x;</div><div class="line">            stackpointer = radius;</div><div class="line">            <span class="keyword">for</span> (y = <span class="number">0</span>; y &lt; h; y++) &#123;</div><div class="line">                <span class="comment">// Preserve alpha channel: ( 0xff000000 &amp; pix[yi] )</span></div><div class="line">                pix[yi] = (<span class="number">0xff000000</span> &amp; pix[yi]) | (dv[rsum] &lt;&lt; <span class="number">16</span>) | (dv[gsum] &lt;&lt; <span class="number">8</span>) | dv[bsum];</div><div class="line"></div><div class="line">                rsum -= routsum;</div><div class="line">                gsum -= goutsum;</div><div class="line">                bsum -= boutsum;</div><div class="line"></div><div class="line">                stackstart = stackpointer - radius + div;</div><div class="line">                sir = stack[stackstart % div];</div><div class="line"></div><div class="line">                routsum -= sir[<span class="number">0</span>];</div><div class="line">                goutsum -= sir[<span class="number">1</span>];</div><div class="line">                boutsum -= sir[<span class="number">2</span>];</div><div class="line"></div><div class="line">                <span class="keyword">if</span> (x == <span class="number">0</span>) &#123;</div><div class="line">                    vmin[y] = Math.min(y + r1, hm) * w;</div><div class="line">                &#125;</div><div class="line">                p = x + vmin[y];</div><div class="line"></div><div class="line">                sir[<span class="number">0</span>] = r[p];</div><div class="line">                sir[<span class="number">1</span>] = g[p];</div><div class="line">                sir[<span class="number">2</span>] = b[p];</div><div class="line"></div><div class="line">                rinsum += sir[<span class="number">0</span>];</div><div class="line">                ginsum += sir[<span class="number">1</span>];</div><div class="line">                binsum += sir[<span class="number">2</span>];</div><div class="line"></div><div class="line">                rsum += rinsum;</div><div class="line">                gsum += ginsum;</div><div class="line">                bsum += binsum;</div><div class="line"></div><div class="line">                stackpointer = (stackpointer + <span class="number">1</span>) % div;</div><div class="line">                sir = stack[stackpointer];</div><div class="line"></div><div class="line">                routsum += sir[<span class="number">0</span>];</div><div class="line">                goutsum += sir[<span class="number">1</span>];</div><div class="line">                boutsum += sir[<span class="number">2</span>];</div><div class="line"></div><div class="line">                rinsum -= sir[<span class="number">0</span>];</div><div class="line">                ginsum -= sir[<span class="number">1</span>];</div><div class="line">                binsum -= sir[<span class="number">2</span>];</div><div class="line"></div><div class="line">                yi += w;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        bitmap.setPixels(pix, <span class="number">0</span>, w, <span class="number">0</span>, <span class="number">0</span>, w, h);</div><div class="line"></div><div class="line">        <span class="keyword">return</span> (bitmap);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>获取到了被模糊处理过后的缩略图之后，回到之前的 <code>Loader()</code> 方法中，我们重写了 <code>onResourceReady()</code> ，也就是当缩略图加载完成时，我们将该 <code>resoure</code> （注意这里的 <code>resource</code> 是已经被模糊处理过后的）放到再次调用 Glide图片加载的 <code>.placeholder(resource)</code> 中，当做是第二次加载图片的占位符。这里添加了一个 Glide 自带的过渡动画效果 <code>.crossFade()</code> 渐显。那么当大图加载完成的时候就会成功的替换之前的模糊小图了。</p>
+<p>为了试验效果，我们给两个按钮添加点击事件：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">mIvLoad1 = (ImageView) findViewById(R.id.iv_load);</div><div class="line">       mIvLoad2 = (ImageView) findViewById(R.id.iv_load2);</div><div class="line"></div><div class="line">       findViewById(R.id.bt_load).setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</div><div class="line">           <span class="meta">@Override</span></div><div class="line">           <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</div><div class="line">               BlurImageLoader ivLoader1 = <span class="keyword">new</span> BlurImageLoader.Builder(MainActivity.<span class="keyword">this</span>).Loader(blurImageUrl1, normalImageUrl1).into(mIvLoad1).builder();</div><div class="line">               ivLoader1.Loader();</div><div class="line">               BlurImageLoader ivLoader2 = <span class="keyword">new</span> BlurImageLoader.Builder(MainActivity.<span class="keyword">this</span>).Loader(blurImageUrl2, normalImageUrl2).into(mIvLoad2).builder();</div><div class="line">               ivLoader2.Loader();</div><div class="line">           &#125;</div><div class="line">       &#125;);</div><div class="line"></div><div class="line">       findViewById(R.id.bt_clean).setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</div><div class="line">           <span class="meta">@Override</span></div><div class="line">           <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</div><div class="line"></div><div class="line">               Glide.clear(mIvLoad1);</div><div class="line">               Glide.clear(mIvLoad2);</div><div class="line">               mIvLoad1.setImageBitmap(<span class="keyword">null</span>);</div><div class="line">               mIvLoad2.setImageBitmap(<span class="keyword">null</span>);</div><div class="line">               clearCacheDiskSelf();</div><div class="line">               clearCacheMemory();</div><div class="line">           &#125;</div><div class="line">       &#125;);</div></pre></td></tr></table></figure>
+<p>因为 Glide 自带的缓存效果，所以我们必须清除磁盘和内存的缓存：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">clearCacheDiskSelf</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            <span class="keyword">if</span> (Looper.myLooper() == Looper.getMainLooper()) &#123;</div><div class="line">                <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</div><div class="line">                    <span class="meta">@Override</span></div><div class="line">                    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">                        Glide.get(getApplicationContext()).clearDiskCache();</div><div class="line">                    &#125;</div><div class="line">                &#125;).start();</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                Glide.get(getApplicationContext()).clearDiskCache();</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">clearCacheMemory</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            <span class="keyword">if</span> (Looper.myLooper() == Looper.getMainLooper()) &#123; <span class="comment">//只能在主线程执行</span></div><div class="line">                Glide.get(getApplicationContext()).clearMemory();</div><div class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">            &#125;</div><div class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>哦，对了，我们要有图片来源才能实验啊，加载一张图片我们需要一张大图和一张小图，这里我的资源是随便打开了一个 Medium <a href="https://theringer.com/justin-bieber-despacito-forgetting-lyrics-breakdown-3646bfaf4cbd" target="_blank" rel="external">网站上的网页</a>使用浏览器的元素检查功能，然后直接复制了 <code>url</code> ：</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-06-01 上午10.03.32.png" alt="屏幕快照 2017-06-01 上午10.03.32"></p>
+<p>我弄了两张图的资源，也就是四张图，为了加载快一点，将其放到了我自己的七牛云中，下面是资源地址：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> String blurImageUrl1 = <span class="string">"http://on9hzfn6s.bkt.clouddn.com/zhanglffffff.jpeg"</span>;</div><div class="line"><span class="keyword">private</span> String blurImageUrl2 = <span class="string">"http://on9hzfn6s.bkt.clouddn.com/1-_qd4EhIwH.jpeg"</span>;</div><div class="line"><span class="keyword">private</span> String normalImageUrl1 = <span class="string">"http://on9hzfn6s.bkt.clouddn.com/zhanglffffffbbb.jpeg"</span>;</div><div class="line"><span class="keyword">private</span> String normalImageUrl2 = <span class="string">"http://on9hzfn6s.bkt.clouddn.com/1-_qd4EhIwHbAjqzKPHu8-Ig.jpeg"</span>;</div></pre></td></tr></table></figure>
+<p>然后就大功告成了（之前的效果图故意延时了一秒，这个是没有延时的）。</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/Untitled.gif" alt="Untitled"></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/安卓/" rel="tag"># 安卓</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/30/千岛湖之行/" rel="next" title="千岛湖之行">
+                <i class="fa fa-chevron-left"></i> 千岛湖之行
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yODIwNi80Nzc5"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Zhanglf" />
+          <p class="site-author-name" itemprop="name">Zhanglf</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">44</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">37</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="mailto:smiledit@163.com" target="_blank" title="Email">
+                  
+                    <i class="fa fa-fw fa-share"></i>
+                  
+                  Email
+                </a>
+
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/smilEdit" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.douban.com/people/128083476/" target="_blank" title="豆瓣">
+                  
+                    <i class="fa fa-fw fa-book"></i>
+                  
+                  豆瓣
+                </a>
+
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://music.163.com/#/user/home?id=102443731" target="_blank" title="网易云音乐">
+                  
+                    <i class="fa fa-fw fa-music"></i>
+                  
+                  网易云音乐
+                </a>
+
+              </span>
+            
+          
+        </div>
+        
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              小伙伴
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://xblydxj.xyz/" title="西伯利亚的雪景" target="_blank">西伯利亚的雪景</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://guangxingmao.github.io/" title="小冇" target="_blank">小冇</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zhanglf</span>
+</div>
+
+
+<div class="powered-by">
+  开心的使用 <a class="theme-link" href="https://hexo.io">Hexo</a> 
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      访客
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("LsA3oNhLhecH3d5m42Xas4un-gzGzoHsz", "5U5bYAOMfCS8eGWg4apmKTr9");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

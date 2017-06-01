@@ -1003,7 +1003,7 @@ pre .javascript .function {
   font-size: 48px;
   color: #f5f5f5;
   font-weight: normal;
-  font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: 'Roboto Slab', 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
 }
 .site-subtitle {
   margin-top: 10px;
@@ -1701,7 +1701,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #1dff49;
+  background: #145c32;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2558,6 +2558,10 @@ code {
   color: #fc6423;
   background: #fbf7f8;
   margin: 2px;
+}
+.links-of-blogroll {
+  color: #fc6423;
+  font-style: italic;
 }
 @-moz-keyframes scan {
   0% {
