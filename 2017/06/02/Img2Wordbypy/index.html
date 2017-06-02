@@ -111,7 +111,7 @@
 效果图：">
 <meta property="og:image" content="http://on9hzfn6s.bkt.clouddn.com/63DD1284-3477-4DDC-82BC-77D3B8B11A1A.jpg">
 <meta property="og:image" content="http://on9hzfn6s.bkt.clouddn.com/14963736807608.png">
-<meta property="og:updated_time" content="2017-06-02T03:58:20.000Z">
+<meta property="og:updated_time" content="2017-06-02T06:08:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Img2Word By Python">
 <meta name="twitter:description" content="将一张图片用字符表示。
@@ -466,7 +466,7 @@
 <a id="more"></a>
 <h4 id="包结构"><a href="#包结构" class="headerlink" title="包结构"></a>包结构</h4><p><img src="http://on9hzfn6s.bkt.clouddn.com/14963736807608.png" alt=""></p>
 <p>第一个是 py 文件，第二个是想要转换成字符的图片，第三个输出字符的文档。</p>
-<h4 id="先是导包"><a href="#先是导包" class="headerlink" title="先是导包"></a>先是导包</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</div><div class="line"><span class="keyword">import</span> argparse</div></pre></td></tr></table></figure>
+<h4 id="导包"><a href="#导包" class="headerlink" title="导包"></a>导包</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</div><div class="line"><span class="keyword">import</span> argparse</div></pre></td></tr></table></figure>
 <p>这两个包前者是 Python 中强大的图片处理工具库，后者是由 <a href="https://docs.python.org/2/library/optparse.html" target="_blank" rel="external">optparse</a> 驱动的用来管理命令行参数输入的工具：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">This module <span class="keyword">is</span> an optparse-inspired command-line parsing library that:</div><div class="line"></div><div class="line">    - handles both optional <span class="keyword">and</span> positional arguments</div><div class="line">    - produces highly informative usage messages</div><div class="line">    - supports parsers that dispatch to sub-parsers</div><div class="line"></div><div class="line">    <span class="comment"># 可处理可选择的和指定位置的参数</span></div><div class="line">    <span class="comment"># 能够提取非常有用的信息</span></div><div class="line">    <span class="comment"># 支持解析部分参数</span></div></pre></td></tr></table></figure>
 <h4 id="获取输入的参数"><a href="#获取输入的参数" class="headerlink" title="获取输入的参数"></a>获取输入的参数</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#命令行输入参数处理</span></div><div class="line">parser = argparse.ArgumentParser()</div><div class="line"></div><div class="line">parser.add_argument(<span class="string">'file'</span>)     <span class="comment">#输入文件</span></div><div class="line">parser.add_argument(<span class="string">'-o'</span>, <span class="string">'--output'</span>)   <span class="comment">#输出文件</span></div><div class="line">parser.add_argument(<span class="string">'--width'</span>, type = int, default = <span class="number">120</span>) <span class="comment">#输出字符画宽</span></div><div class="line">parser.add_argument(<span class="string">'--height'</span>, type = int, default = <span class="number">120</span>) <span class="comment">#输出字符画高</span></div><div class="line"></div><div class="line"><span class="comment">#获取参数</span></div><div class="line">args = parser.parse_args()</div><div class="line"></div><div class="line">IMG = args.file</div><div class="line">WIDTH = args.width</div><div class="line">HEIGHT = args.height</div><div class="line">OUTPUT = args.output</div></pre></td></tr></table></figure>
@@ -535,6 +535,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/06/02/我是猫/" rel="prev" title="我是猫">
+                我是猫 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -614,7 +618,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">45</span>
+                <span class="site-state-item-count">46</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -739,7 +743,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#包结构"><span class="nav-number">1.</span> <span class="nav-text">包结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#先是导包"><span class="nav-number">2.</span> <span class="nav-text">先是导包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#获取输入的参数"><span class="nav-number">3.</span> <span class="nav-text">获取输入的参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字符集"><span class="nav-number">4.</span> <span class="nav-text">字符集</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关于灰度"><span class="nav-number">5.</span> <span class="nav-text">关于灰度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#映射"><span class="nav-number">6.</span> <span class="nav-text">映射</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#遍历像素并输出"><span class="nav-number">7.</span> <span class="nav-text">遍历像素并输出</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#运行"><span class="nav-number">8.</span> <span class="nav-text">运行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#完整代码"><span class="nav-number">9.</span> <span class="nav-text">完整代码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#包结构"><span class="nav-number">1.</span> <span class="nav-text">包结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#导包"><span class="nav-number">2.</span> <span class="nav-text">导包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#获取输入的参数"><span class="nav-number">3.</span> <span class="nav-text">获取输入的参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字符集"><span class="nav-number">4.</span> <span class="nav-text">字符集</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关于灰度"><span class="nav-number">5.</span> <span class="nav-text">关于灰度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#映射"><span class="nav-number">6.</span> <span class="nav-text">映射</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#遍历像素并输出"><span class="nav-number">7.</span> <span class="nav-text">遍历像素并输出</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#运行"><span class="nav-number">8.</span> <span class="nav-text">运行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#完整代码"><span class="nav-number">9.</span> <span class="nav-text">完整代码</span></a></li></ol></div>
             
 
           </div>

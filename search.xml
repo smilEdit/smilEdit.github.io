@@ -4,6 +4,44 @@
   
     
     <entry>
+      <title><![CDATA[我是猫]]></title>
+      <url>http://yoursite.com/2017/06/02/%E6%88%91%E6%98%AF%E7%8C%AB/</url>
+      <content type="html"><![CDATA[<center><br><br><img src="http://on9hzfn6s.bkt.clouddn.com/s6282827.jpg" alt="s6282827"><br><br></center>
+
+<a id="more"></a>
+<p>在公司书架上借的一本书，<a href="http://baike.baidu.com/link?url=6_ehaTo2GEFocsuBFe1lD0ajNZqbdM7VKeapyirGRtYc5FQ0htqJrPBjnbp9l_yK_kxfPfIjJiB6BDIgdxiEIszHzdzxpG-n4ar8pEhAS94T9RP_VhZYYFMDfAqAh5Kh" target="_blank" rel="external">作者</a>和<a href="http://baike.baidu.com/link?url=GwKFV6iW01esUWPMhxpgjHeiEcurRPmrUstbqyNp5CVU5rfkJ3aIWAQj7RlIMByg3rzpD9xIOW1ni2riT0Ql-AT9jjHrTGQUCqFiysdcySiUb9h8Cv4jvN33MXyK8sAD" target="_blank" rel="external">书名</a>早有耳闻。</p>
+<p>在午休期间陆陆续续翻了百来页，有点坚持不下去了，今天拿去还了。</p>
+<p>这书估计，会看我博客的人，不会有人会去看的，就像没几个青少年会去主动看什么 <em>狂人日记</em> 或者 <em>呐喊</em> 之类的书。</p>
+<p>本书主要是以猫的角度来讽刺日本那个时代，文人墨客、资本家的虚伪迂腐之类的玩意。</p>
+<p>给我的感觉是，和鲁迅有些方面很像，首先人长的有点像，哈哈。</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-06-02 下午4.39.27.jpg" alt="屏幕快照 2017-06-02 下午4.39.27"></p>
+<p>接着是风格，这点真的给我感觉，神似。太多地方给我的感觉很像，特别是那种讽刺的口吻，额，这只能是只可意会不可言传了。</p>
+<p>写到这里的时候，我突然想到，这两人有没有交集呢？</p>
+<p>这一<a href="https://www.baidu.com/s?ie=utf-8&amp;f=8&amp;rsv_bp=1&amp;tn=64075107_1_dg&amp;wd=%E5%A4%8F%E7%9B%AE%E6%BC%B1%E7%9F%B3%E5%92%8C%E9%B2%81%E8%BF%85&amp;oq=%25E5%25A4%258F%25E7%259B%25AE%25E6%25BC%25B1%25E7%259F%25B3%25E5%25AF%25B9%25E9%25B2%2581%25E8%25BF%2585%25E7%259A%2584%25E5%25BD%25B1%25E5%2593%258D&amp;rsv_pq=ab52e7e0000205e2&amp;rsv_t=8fbd3wGMwJkLYvM8XA%2FehNXgNNdzl254%2BtAvVbDtZHBCaSoVX3kebd4HPwVztECpFunXng&amp;rqlang=cn&amp;rsv_enter=1&amp;inputT=3667&amp;rsv_sug3=9&amp;rsv_sug1=3&amp;rsv_sug7=000&amp;rsv_sug2=0&amp;rsv_sug4=4319&amp;rsv_sug=1" target="_blank" rel="external">搜索</a>，吓我一跳：</p>
+<p>在<a href="https://www.zhihu.com/question/31936882" target="_blank" rel="external">知乎</a>上有人这么说：</p>
+<p><em>鲁迅确实深受夏目漱石影响，鲁迅留日期间对其影响最大的作家就是夏目漱石。鲁迅在日本住的屋子就是漱石曾经居住过的。周作人讲，鲁迅非常喜欢夏目漱石的《我是猫》。夏目漱石文学中的讽刺影响了鲁迅的文学观。增田涉在《鲁迅在日本》一书中这样写到：“鲁迅后来所写的小说的作风，与漱石的作风也不相似。但那嘲讽之中的轻妙笔致，则是颇受漱石的影响。”</em></p>
+<p>我百度了一下：</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-06-02 下午4.48.13.png" alt="屏幕快照 2017-06-02 下午4.48.13"></p>
+<p>居然还有人专门去研究这个的，也是服了，算是涨姿势了。</p>
+<p>关于本书，给我最大的收获除了知道鲁迅和作者有一腿之外，就是收留那只猫的那个所谓教师男主，他的虚伪和傻逼性格，让我印象深刻。怕不是那个时代很多日本人都那样啊。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 阅读 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 读书笔记 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Img2Word By Python]]></title>
       <url>http://yoursite.com/2017/06/02/Img2Wordbypy/</url>
       <content type="html"><![CDATA[<p>将一张图片用字符表示。</p>
@@ -12,7 +50,7 @@
 <a id="more"></a>
 <h4 id="包结构"><a href="#包结构" class="headerlink" title="包结构"></a>包结构</h4><p><img src="http://on9hzfn6s.bkt.clouddn.com/14963736807608.png" alt=""></p>
 <p>第一个是 py 文件，第二个是想要转换成字符的图片，第三个输出字符的文档。</p>
-<h4 id="先是导包"><a href="#先是导包" class="headerlink" title="先是导包"></a>先是导包</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</div><div class="line"><span class="keyword">import</span> argparse</div></pre></td></tr></table></figure>
+<h4 id="导包"><a href="#导包" class="headerlink" title="导包"></a>导包</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</div><div class="line"><span class="keyword">import</span> argparse</div></pre></td></tr></table></figure>
 <p>这两个包前者是 Python 中强大的图片处理工具库，后者是由 <a href="https://docs.python.org/2/library/optparse.html" target="_blank" rel="external">optparse</a> 驱动的用来管理命令行参数输入的工具：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">This module <span class="keyword">is</span> an optparse-inspired command-line parsing library that:</div><div class="line"></div><div class="line">    - handles both optional <span class="keyword">and</span> positional arguments</div><div class="line">    - produces highly informative usage messages</div><div class="line">    - supports parsers that dispatch to sub-parsers</div><div class="line"></div><div class="line">    <span class="comment"># 可处理可选择的和指定位置的参数</span></div><div class="line">    <span class="comment"># 能够提取非常有用的信息</span></div><div class="line">    <span class="comment"># 支持解析部分参数</span></div></pre></td></tr></table></figure>
 <h4 id="获取输入的参数"><a href="#获取输入的参数" class="headerlink" title="获取输入的参数"></a>获取输入的参数</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#命令行输入参数处理</span></div><div class="line">parser = argparse.ArgumentParser()</div><div class="line"></div><div class="line">parser.add_argument(<span class="string">'file'</span>)     <span class="comment">#输入文件</span></div><div class="line">parser.add_argument(<span class="string">'-o'</span>, <span class="string">'--output'</span>)   <span class="comment">#输出文件</span></div><div class="line">parser.add_argument(<span class="string">'--width'</span>, type = int, default = <span class="number">120</span>) <span class="comment">#输出字符画宽</span></div><div class="line">parser.add_argument(<span class="string">'--height'</span>, type = int, default = <span class="number">120</span>) <span class="comment">#输出字符画高</span></div><div class="line"></div><div class="line"><span class="comment">#获取参数</span></div><div class="line">args = parser.parse_args()</div><div class="line"></div><div class="line">IMG = args.file</div><div class="line">WIDTH = args.width</div><div class="line">HEIGHT = args.height</div><div class="line">OUTPUT = args.output</div></pre></td></tr></table></figure>
@@ -1776,9 +1814,12 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
     <entry>
       <title><![CDATA[黑客与画家]]></title>
       <url>http://yoursite.com/2017/05/01/%E9%BB%91%E5%AE%A2%E4%B8%8E%E7%94%BB%E5%AE%B6/</url>
-      <content type="html"><![CDATA[<p>Lisp</p>
-<p>Lisp</p>
-<p>Lisp</p>
+      <content type="html"><![CDATA[<center><br><br><img src="https://img3.doubanio.com/lpic/s4669554.jpg" alt=""><br><br></center>
+
+<center><br><br>Lisp<br><br>Lisp<br><br>Lisp<br><br></center>
+
+
+
 ]]></content>
       
         <categories>
@@ -2818,9 +2859,9 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
             
             <tag> Java </tag>
             
-            <tag> JVM </tag>
-            
             <tag> 算法 </tag>
+            
+            <tag> JVM </tag>
             
             <tag> 内存 </tag>
             
