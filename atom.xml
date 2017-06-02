@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-06-01T02:30:16.000Z</updated>
+  <updated>2017-06-02T03:58:20.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,54 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Img2Word By Python</title>
+    <link href="http://yoursite.com/2017/06/02/Img2Wordbypy/"/>
+    <id>http://yoursite.com/2017/06/02/Img2Wordbypy/</id>
+    <published>2017-06-02T03:02:49.000Z</published>
+    <updated>2017-06-02T03:58:20.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>将一张图片用字符表示。</p>
+<p>效果图：</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/63DD1284-3477-4DDC-82BC-77D3B8B11A1A.jpg" alt="63DD1284-3477-4DDC-82BC-77D3B8B11A1A"></p>
+<a id="more"></a>
+<h4 id="包结构"><a href="#包结构" class="headerlink" title="包结构"></a>包结构</h4><p><img src="http://on9hzfn6s.bkt.clouddn.com/14963736807608.png" alt=""></p>
+<p>第一个是 py 文件，第二个是想要转换成字符的图片，第三个输出字符的文档。</p>
+<h4 id="先是导包"><a href="#先是导包" class="headerlink" title="先是导包"></a>先是导包</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</div><div class="line"><span class="keyword">import</span> argparse</div></pre></td></tr></table></figure>
+<p>这两个包前者是 Python 中强大的图片处理工具库，后者是由 <a href="https://docs.python.org/2/library/optparse.html" target="_blank" rel="external">optparse</a> 驱动的用来管理命令行参数输入的工具：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">This module <span class="keyword">is</span> an optparse-inspired command-line parsing library that:</div><div class="line"></div><div class="line">    - handles both optional <span class="keyword">and</span> positional arguments</div><div class="line">    - produces highly informative usage messages</div><div class="line">    - supports parsers that dispatch to sub-parsers</div><div class="line"></div><div class="line">    <span class="comment"># 可处理可选择的和指定位置的参数</span></div><div class="line">    <span class="comment"># 能够提取非常有用的信息</span></div><div class="line">    <span class="comment"># 支持解析部分参数</span></div></pre></td></tr></table></figure>
+<h4 id="获取输入的参数"><a href="#获取输入的参数" class="headerlink" title="获取输入的参数"></a>获取输入的参数</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#命令行输入参数处理</span></div><div class="line">parser = argparse.ArgumentParser()</div><div class="line"></div><div class="line">parser.add_argument(<span class="string">'file'</span>)     <span class="comment">#输入文件</span></div><div class="line">parser.add_argument(<span class="string">'-o'</span>, <span class="string">'--output'</span>)   <span class="comment">#输出文件</span></div><div class="line">parser.add_argument(<span class="string">'--width'</span>, type = int, default = <span class="number">120</span>) <span class="comment">#输出字符画宽</span></div><div class="line">parser.add_argument(<span class="string">'--height'</span>, type = int, default = <span class="number">120</span>) <span class="comment">#输出字符画高</span></div><div class="line"></div><div class="line"><span class="comment">#获取参数</span></div><div class="line">args = parser.parse_args()</div><div class="line"></div><div class="line">IMG = args.file</div><div class="line">WIDTH = args.width</div><div class="line">HEIGHT = args.height</div><div class="line">OUTPUT = args.output</div></pre></td></tr></table></figure>
+<h4 id="字符集"><a href="#字符集" class="headerlink" title="字符集"></a>字符集</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ascii_char = list(<span class="string">"$@B%8&amp;WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1&#123;&#125;[]?-_+~&lt;&gt;i!lI;:,\"^`'. "</span>)</div></pre></td></tr></table></figure>
+<p>这个字符集合可以自己来定义，一般情况下，越长越多，能表示颜色就越多，图片也就更清晰有层次感。</p>
+<h4 id="关于灰度"><a href="#关于灰度" class="headerlink" title="关于灰度"></a>关于灰度</h4><p>将一张彩色的照片转换成黑白的，用一定的<a href="https://en.wikipedia.org/wiki/Grayscale" target="_blank" rel="external">算法</a>，这里用的计算方式：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gray = int(<span class="number">0.2126</span> * r + <span class="number">0.7152</span> * g + <span class="number">0.0722</span> * b)</div></pre></td></tr></table></figure>
+<h4 id="映射"><a href="#映射" class="headerlink" title="映射"></a>映射</h4><p>将灰度一一对应到定义好的字符集中：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_char</span><span class="params">(r,g,b,alpha = <span class="number">256</span>)</span>:</span></div><div class="line">    <span class="keyword">if</span> alpha == <span class="number">0</span>:</div><div class="line">        <span class="keyword">return</span> <span class="string">' '</span></div><div class="line">    length = len(ascii_char)</div><div class="line">    gray = int(<span class="number">0.2126</span> * r + <span class="number">0.7152</span> * g + <span class="number">0.0722</span> * b)</div><div class="line"></div><div class="line">    unit = (<span class="number">256.0</span> + <span class="number">1</span>)/length</div><div class="line">    <span class="keyword">return</span> ascii_char[int(gray/unit)]</div></pre></td></tr></table></figure>
+<h4 id="遍历像素并输出"><a href="#遍历像素并输出" class="headerlink" title="遍历像素并输出"></a>遍历像素并输出</h4><p>获取到对应图片，通过 <code>im.getpixel()</code> 方法获取到该图片中每个像素点的色值，再通过之前的灰度映射方法获取到对应的字符，输出到指定的文档中。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line"></div><div class="line">    im = Image.open(IMG)</div><div class="line">    im = im.resize((WIDTH,HEIGHT), Image.NEAREST)</div><div class="line"></div><div class="line">    txt = <span class="string">""</span></div><div class="line"></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(HEIGHT):</div><div class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(WIDTH):</div><div class="line">            txt += get_char(*im.getpixel((j,i)))</div><div class="line">        txt += <span class="string">'\n'</span></div><div class="line"></div><div class="line">    <span class="keyword">print</span> txt</div><div class="line"></div><div class="line">    <span class="comment">#字符画输出到文件</span></div><div class="line">    <span class="keyword">if</span> OUTPUT:</div><div class="line">        <span class="keyword">with</span> open(OUTPUT,<span class="string">'w'</span>) <span class="keyword">as</span> f:</div><div class="line">            f.write(txt)</div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        <span class="keyword">with</span> open(<span class="string">"output.txt"</span>,<span class="string">'w'</span>) <span class="keyword">as</span> f:</div><div class="line">            f.write(txt)</div></pre></td></tr></table></figure>
+<h4 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h4><p>到对应的目录下执行命令行就好了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">python ascii.py img.png</div></pre></td></tr></table></figure>
+<p>记得要跟上图片的文件名(别的参数可选)</p>
+<h4 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/env python</span></div><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line"></div><div class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</div><div class="line"><span class="keyword">import</span> argparse</div><div class="line"></div><div class="line"><span class="comment">#命令行输入参数处理</span></div><div class="line">parser = argparse.ArgumentParser()</div><div class="line"></div><div class="line">parser.add_argument(<span class="string">'file'</span>)     <span class="comment">#输入文件</span></div><div class="line">parser.add_argument(<span class="string">'-o'</span>, <span class="string">'--output'</span>)   <span class="comment">#输出文件</span></div><div class="line">parser.add_argument(<span class="string">'--width'</span>, type = int, default = <span class="number">120</span>) <span class="comment">#输出字符画宽</span></div><div class="line">parser.add_argument(<span class="string">'--height'</span>, type = int, default = <span class="number">120</span>) <span class="comment">#输出字符画高</span></div><div class="line"></div><div class="line"><span class="comment">#获取参数</span></div><div class="line">args = parser.parse_args()</div><div class="line"></div><div class="line">IMG = args.file</div><div class="line">WIDTH = args.width</div><div class="line">HEIGHT = args.height</div><div class="line">OUTPUT = args.output</div><div class="line"></div><div class="line">ascii_char = list(<span class="string">"$@B%8&amp;WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1&#123;&#125;[]?-_+~&lt;&gt;i!lI;:,\"^`'. "</span>)</div><div class="line"></div><div class="line"><span class="comment"># 将256灰度映射到70个字符上</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_char</span><span class="params">(r,g,b,alpha = <span class="number">256</span>)</span>:</span></div><div class="line">    <span class="keyword">if</span> alpha == <span class="number">0</span>:</div><div class="line">        <span class="keyword">return</span> <span class="string">' '</span></div><div class="line">    length = len(ascii_char)</div><div class="line">    gray = int(<span class="number">0.2126</span> * r + <span class="number">0.7152</span> * g + <span class="number">0.0722</span> * b)</div><div class="line"></div><div class="line">    unit = (<span class="number">256.0</span> + <span class="number">1</span>)/length</div><div class="line">    <span class="keyword">return</span> ascii_char[int(gray/unit)]</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line"></div><div class="line">    im = Image.open(IMG)</div><div class="line">    im = im.resize((WIDTH,HEIGHT), Image.NEAREST)</div><div class="line"></div><div class="line">    txt = <span class="string">""</span></div><div class="line"></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(HEIGHT):</div><div class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(WIDTH):</div><div class="line">            txt += get_char(*im.getpixel((j,i)))</div><div class="line">        txt += <span class="string">'\n'</span></div><div class="line"></div><div class="line">    <span class="keyword">print</span> txt</div><div class="line"></div><div class="line">    <span class="comment">#字符画输出到文件</span></div><div class="line">    <span class="keyword">if</span> OUTPUT:</div><div class="line">        <span class="keyword">with</span> open(OUTPUT,<span class="string">'w'</span>) <span class="keyword">as</span> f:</div><div class="line">            f.write(txt)</div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        <span class="keyword">with</span> open(<span class="string">"output.txt"</span>,<span class="string">'w'</span>) <span class="keyword">as</span> f:</div><div class="line">            f.write(txt)</div></pre></td></tr></table></figure>
+<hr>
+<p><a href="https://www.shiyanlou.com/courses/370" target="_blank" rel="external">代码来源</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;将一张图片用字符表示。&lt;/p&gt;
+&lt;p&gt;效果图：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://on9hzfn6s.bkt.clouddn.com/63DD1284-3477-4DDC-82BC-77D3B8B11A1A.jpg&quot; alt=&quot;63DD1284-3477-4DDC-82BC-77D3B8B11A1A&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="python" scheme="http://yoursite.com/categories/python/"/>
+    
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+  </entry>
   
   <entry>
     <title>安卓图片模糊占位加载</title>
@@ -237,9 +285,9 @@
     <link href="http://yoursite.com/2017/05/28/%E6%88%91%E7%94%A8%E5%B0%BD%E4%BA%86%E5%85%A8%E5%8A%9B%E8%BF%87%E7%9D%80%E5%B9%B3%E5%87%A1%E7%9A%84%E4%B8%80%E7%94%9F/"/>
     <id>http://yoursite.com/2017/05/28/我用尽了全力过着平凡的一生/</id>
     <published>2017-05-28T06:59:13.000Z</published>
-    <updated>2017-05-28T08:49:29.000Z</updated>
+    <updated>2017-06-01T02:35:01.000Z</updated>
     
-    <content type="html"><![CDATA[<p>关于题目，很遗憾，这句话应该是语出<strong>月亮与六便士</strong>，该长篇小说，经常听别人说，口碑也不差，英文版貌似还不难理解，希望下个月可以补上。</p>
+    <content type="html"><![CDATA[<p>关于题目，这句话应该是语出<strong>月亮与六便士</strong>，该长篇小说，经常听别人说，口碑也不差，英文版貌似还不难理解，很遗憾，我没看过，希望下个月可以补上。</p>
 <hr>
 <p>由于物流的耽搁，一些装备还没到，只能选择明早出发游玩了。</p>
 <p>下午的时间总是最难打发，特别是对于一个不玩游戏不追剧的人来说。</p>
@@ -296,7 +344,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;关于题目，很遗憾，这句话应该是语出&lt;strong&gt;月亮与六便士&lt;/strong&gt;，该长篇小说，经常听别人说，口碑也不差，英文版貌似还不难理解，希望下个月可以补上。&lt;/p&gt;
+      &lt;p&gt;关于题目，这句话应该是语出&lt;strong&gt;月亮与六便士&lt;/strong&gt;，该长篇小说，经常听别人说，口碑也不差，英文版貌似还不难理解，很遗憾，我没看过，希望下个月可以补上。&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;由于物流的耽搁，一些装备还没到，只能选择明早出发游玩了。&lt;/p&gt;
 &lt;p&gt;下午的时间总是最难打发，特别是对于一个不玩游戏不追剧的人来说。&lt;/p&gt;
@@ -1326,65 +1374,6 @@ i am funcc
     
     
       <category term="随笔" scheme="http://yoursite.com/tags/%E9%9A%8F%E7%AC%94/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python 高级特性</title>
-    <link href="http://yoursite.com/2017/05/07/Python%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7/"/>
-    <id>http://yoursite.com/2017/05/07/Python高级特性/</id>
-    <published>2017-05-07T10:22:04.000Z</published>
-    <updated>2017-05-15T09:43:01.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="切片"><a href="#切片" class="headerlink" title="切片"></a>切片</h3><p>Python 对字符串或者是集合的操作非常的灵活且简洁。</p>
-<p>集合或者字符串后面加一个 [a:b:c]</p>
-<p>a 表示起始位<br>b 表示截止位<br>c 表示逢 c 个元素取一</p>
-<a id="more"></a>
-<p>直接看代码：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">listtt = [<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>,<span class="string">'e'</span>]</div><div class="line"><span class="keyword">print</span> listtt[:<span class="number">2</span>]</div><div class="line"><span class="keyword">print</span> listtt[:]</div><div class="line"><span class="keyword">print</span> listtt[<span class="number">1</span>::]</div><div class="line"><span class="keyword">print</span> listtt[::<span class="number">2</span>]</div></pre></td></tr></table></figure>
-<p>结果是：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[<span class="string">'a'</span>, <span class="string">'b'</span>]</div><div class="line">[<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>, <span class="string">'e'</span>]</div><div class="line">[<span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>, <span class="string">'e'</span>]</div><div class="line">[<span class="string">'a'</span>, <span class="string">'c'</span>, <span class="string">'e'</span>]</div></pre></td></tr></table></figure>
-<p>其中直接一个冒号就是复制原集合，别的都能好理解，很简洁。</p>
-<p>对于字符串也是一个道理：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">print</span> <span class="string">'abcdefg'</span>[::<span class="number">2</span>]</div><div class="line"><span class="keyword">print</span> <span class="string">'abcd'</span>[:<span class="number">2</span>:]</div></pre></td></tr></table></figure>
-<p>结果就不写了，和集合一样的。</p>
-<p>对了，还可以倒着取值，记住倒数第一个的索引是 -1 就行，看个例子就懂了：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">listtt = [<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>,<span class="string">'e'</span>]</div><div class="line"><span class="keyword">print</span> listtt[<span class="number">-5</span>:<span class="number">-1</span>]</div></pre></td></tr></table></figure>
-<p>结果是 <code>[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;]</code></p>
-<p><strong>注意一点</strong>，不论是正数还是倒数，起始位都要比截止位小，否则结果都是空的集合。</p>
-<h3 id="列表生成"><a href="#列表生成" class="headerlink" title="列表生成"></a>列表生成</h3><p>我们知道有个 <code>rang()</code> 函数可以用来快速的生成集合。</p>
-<p>现在我们需要生成一些有一定约束的集合，例如，0 到 100 的三方组成的集合。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>[x * x * x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">10</span>)]</div><div class="line">[<span class="number">0</span>, <span class="number">1</span>, <span class="number">8</span>, <span class="number">27</span>, <span class="number">64</span>, <span class="number">125</span>, <span class="number">216</span>, <span class="number">343</span>, <span class="number">512</span>, <span class="number">729</span>]</div></pre></td></tr></table></figure>
-<p>前面写个函数，后面加个循环就好了。</p>
-<p>还可以在后面加个判断条件：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>[x*x*x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">10</span>) <span class="keyword">if</span> x%<span class="number">3</span>==<span class="number">0</span>]</div><div class="line">[<span class="number">0</span>, <span class="number">27</span>, <span class="number">216</span>, <span class="number">729</span>]</div></pre></td></tr></table></figure>
-<p>还有种，多重循环，两两交互的：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">python</div><div class="line">&gt;&gt;&gt; [x * y for x in [1,2,3] for y in [4,5,6]]</div><div class="line">[4, 5, 6, 8, 10, 12, 12, 15, 18]</div></pre></td></tr></table></figure>
-<p>代码都非常的简洁，但是格式千万不能错！</p>
-<h3 id="生成器"><a href="#生成器" class="headerlink" title="生成器"></a>生成器</h3><p>generator ， 这不就是 <a href="http://es6.ruanyifeng.com/#docs/generator" target="_blank" rel="external">ES 6</a> 中提供的一种异步编程解决方案么。果然语言思想都是互通的，相互学习的啊。</p>
-<p>创建一个 generator 的一种简单方式就是：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>g = (x * x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">10</span>))</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>g</div><div class="line">&lt;generator object &lt;genexpr&gt; at <span class="number">0x107c27eb0</span>&gt;</div></pre></td></tr></table></figure>
-<p>和列表生成有所不同的就是，它是小括号。</p>
-<p>原理结构方面和 JS 的差不多。</p>
-<p>都是可以通过 <code>next()</code> 方法一个接一个的迭代，或者是通过 <code>for</code> 循环直接遍历。</p>
-<p>其中 <code>yield</code> 关键字也是和 JS 中的一样（类似于 <code>return</code>，但是会记录上次的循环层数）。</p>
-<p>有点神奇 = = 。</p>
-<hr>
-<p>慢慢的感受到了 Python 的简洁和强大。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;切片&quot;&gt;&lt;a href=&quot;#切片&quot; class=&quot;headerlink&quot; title=&quot;切片&quot;&gt;&lt;/a&gt;切片&lt;/h3&gt;&lt;p&gt;Python 对字符串或者是集合的操作非常的灵活且简洁。&lt;/p&gt;
-&lt;p&gt;集合或者字符串后面加一个 [a:b:c]&lt;/p&gt;
-&lt;p&gt;a 表示起始位&lt;br&gt;b 表示截止位&lt;br&gt;c 表示逢 c 个元素取一&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="python" scheme="http://yoursite.com/categories/python/"/>
-    
-    
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
     
   </entry>
   
