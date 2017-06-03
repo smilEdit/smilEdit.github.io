@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-06-02T16:11:49.000Z</updated>
+  <updated>2017-06-03T08:20:25.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,52 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>回首 5 月 展望 6 月</title>
+    <link href="http://yoursite.com/2017/06/03/%E5%9B%9E%E9%A6%965%E6%9C%88%E5%B1%95%E6%9C%9B6%E6%9C%88/"/>
+    <id>http://yoursite.com/2017/06/03/回首5月展望6月/</id>
+    <published>2017-06-03T04:12:28.000Z</published>
+    <updated>2017-06-03T08:20:25.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>5 月结束了。</p>
+<p>我翻了一下 5 月初，自己定的小目标，发现说了非常多的废话，真正确定的，明确的东西很少。</p>
+<a id="more"></a>
+<p>虽然如此，整个 5 月还做的比较不错的，像是说一个月至少看一本书，这个目标就是超超额完成了，不过像是每周看一个新的小知识点可能就是没有做到。</p>
+<p>对于什么早睡之类的目标，这个整体完成度还是不错的，可能是有个别一两个晚上迟了点。</p>
+<p>5 月去图书馆看了点书，也借了不少书。</p>
+<p>5 月妈妈和姐姐来杭州了，我带她们去了杭州许多地方玩，以及吃了两顿不错的午饭。</p>
+<p>5 月公司开了运动会，我拿了跳绳冠军。</p>
+<p>5 月部门团建，大家一起去烧烤，玩的挺开心。</p>
+<p>5 月买了一个单反，开始学习摄影。</p>
+<p>5 月一个人去千岛湖露营过夜，走走停停，拍了不少的照片，还算潇洒。</p>
+<p>5 月学了一门新语言 Python ，整理了一些关于它基础笔记，也用它搞了个小游戏。</p>
+<p>…</p>
+<p>忙碌的 5 月结束了，相信 6 月会过的更加充实，那么就定几个硬性的目标吧。</p>
+<p>安卓，饭碗的东西含糊不得。至少每周看一个三方库源码，简单复杂都行。</p>
+<p>Python ，至少每周做一个小实验，分析，并记录。</p>
+<p>书，至少每周看一本，并写读后感。</p>
+<p>电影，一个月至少不快进的看三部 8 分以上作品。</p>
+<p>运动，每三天至少两次全身湿一次。</p>
+<p>英语！重点项目！至少每两天打卡一次单词，一次口语，以及每天阅读必打卡。另外看完一部英文原著，暂定 <em>月亮与六便士</em> 。</p>
+<blockquote>
+<p><strong>不积跬步无以至千里</strong></p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;5 月结束了。&lt;/p&gt;
+&lt;p&gt;我翻了一下 5 月初，自己定的小目标，发现说了非常多的废话，真正确定的，明确的东西很少。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="随笔" scheme="http://yoursite.com/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+      <category term="小目标" scheme="http://yoursite.com/tags/%E5%B0%8F%E7%9B%AE%E6%A0%87/"/>
+    
+  </entry>
   
   <entry>
     <title>我是猫</title>
@@ -1277,71 +1323,6 @@
     
       &lt;p&gt;每个 .py 文件就相当于是一个模块。&lt;/p&gt;
 &lt;p&gt;一切都是对象。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="python" scheme="http://yoursite.com/categories/python/"/>
-    
-    
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python 装饰器</title>
-    <link href="http://yoursite.com/2017/05/10/Python%E8%A3%85%E9%A5%B0%E5%99%A8/"/>
-    <id>http://yoursite.com/2017/05/10/Python装饰器/</id>
-    <published>2017-05-10T15:21:23.000Z</published>
-    <updated>2017-05-15T09:42:43.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="不带参数的装饰器"><a href="#不带参数的装饰器" class="headerlink" title="不带参数的装饰器"></a>不带参数的装饰器</h3><p>核心思想就是设计模式中的装饰者模式。</p>
-<p>按照 Java 中的写法，我们一般是这么做的：</p>
-<p>定义一个专门处理日志打印的函数，接受需要处理的函数：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_log</span><span class="params">(func)</span>:</span></div><div class="line">    <span class="keyword">print</span> <span class="string">'call '</span>+f.func_name+<span class="string">'()...'</span></div><div class="line">    func()</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<p>使用：<br><code>print_log(func)</code></p>
-<p>其实在我（ Java 程序员眼中）看来，这已经是非常的方便了，而且也没有破坏原函数的结构。</p>
-<p>但是，对于 Python 来说还远远不够，它追求的是依然运行 <code>func()</code> 并且在不改变其内部结构的基础上扩展别的功能。</p>
-<p>且 Python 还用语法糖简化了其使用过程。不过首先，也是非常关键的一点是要理解<strong>闭包</strong>的概念，上一篇的 Python 高级特性中介绍有提过。</p>
-<p>用代码说话，下面就是一个简单的装饰器：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">log</span><span class="params">(f)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fn</span><span class="params">(x)</span>:</span></div><div class="line">        <span class="keyword">print</span> <span class="string">'call '</span> + f.__name__ + <span class="string">'()...'</span></div><div class="line">        <span class="keyword">return</span> f(x)</div><div class="line">    <span class="keyword">return</span> fn</div></pre></td></tr></table></figure>
-<p>第一眼看真的是一脸懵逼，我花了大量的时间想弄清楚 <code>return f(x)</code> 到底是什么意思，有什么用，这个参数 <code>x</code> 又是什么意思。</p>
-<p>于是我改造了一下，去掉了那个 <code>return</code> 和 <code>x</code> ，写成非常好理解的形式：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">log</span><span class="params">(f)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fn</span><span class="params">()</span>:</span></div><div class="line">        <span class="keyword">print</span> <span class="string">'call '</span> + f.__name__ + <span class="string">'()...'</span></div><div class="line">        f()</div><div class="line">    <span class="keyword">return</span> fn</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">funcc</span><span class="params">()</span>:</span></div><div class="line">    <span class="keyword">print</span> <span class="string">'i am funcc'</span></div><div class="line"></div><div class="line">funcc = log(funcc)</div><div class="line">funcc()</div></pre></td></tr></table></figure>
-<p>运行：</p>
-<pre><code>call funcc()...
-i am funcc
-</code></pre><p>并没有问题。函数 <code>log()</code> 的用意是接收一个函数，在不改变传进来的函数的情况下，打印该函数的信息。</p>
-<p><code>print &#39;call &#39; + f.__name__ + &#39;()...&#39;</code></p>
-<p>这行就是打印原函数的名称，也就是装饰器的装饰物。</p>
-<p>最后就是赋值给原先的函数。</p>
-<p>上面那个只是没有参数的函数的装饰，对于有参数的函数，我们需要这么写：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">log</span><span class="params">(f)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fn</span><span class="params">(*args, **kw)</span>:</span></div><div class="line">        <span class="keyword">print</span> <span class="string">'call '</span> + f.__name__ + <span class="string">'()...'</span></div><div class="line">        f(*args, **kw)</div><div class="line">    <span class="keyword">return</span> fn</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">funcc</span><span class="params">()</span>:</span></div><div class="line">    <span class="keyword">print</span> <span class="string">'i am funcc'</span></div><div class="line"></div><div class="line">funcc = log(funcc)</div><div class="line">funcc()</div></pre></td></tr></table></figure>
-<p>这个其实就是比较标准的 Python 装饰器了，除了一个地方，就是那个 <code>return</code> 。暂且我就当成是为了规范吧，因为对于函数 <code>fn</code> 来说好像通过 <code>return</code> 来获取传进来的函数 <code>f</code> 确实是没有用的啊。</p>
-<p><strong>上面那个代码，我运行之后发现，没有 return 是行不通的，所以这个 return 还是必须要加上去的，那为什么没有参数的就行的通呢</strong></p>
-<p><strong>我好像突然想明白了 <a href="http://www.imooc.com/code/6065" target="_blank" rel="external">= =</a></strong></p>
-<p>理解了上面的代码之后，关于装饰器的语法糖就很好理解了，每次写：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">funcc = log(funcc)</div><div class="line">funcc()</div></pre></td></tr></table></figure>
-<p>肯定是觉得有点烦人的，所以 Python 提供了便捷方式：</p>
-<p>要被装饰的函数可以这么写：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@log</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">funcc</span><span class="params">()</span>:</span></div><div class="line">    <span class="keyword">print</span> <span class="string">'i am funcc'</span></div></pre></td></tr></table></figure>
-<p>之后使用就是直接：<code>funcc()</code> 就好了。</p>
-<p>这个 @ 后面跟的就是之前自己定义的装饰器的函数名称。</p>
-<h3 id="带参数的装饰器"><a href="#带参数的装饰器" class="headerlink" title="带参数的装饰器"></a>带参数的装饰器</h3><p>这里说的参数指的是装饰器上面的参数，不是装饰器接受的函数是否带参数。</p>
-<p>使用带参数的装饰器就是在外面再包一层：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">log</span><span class="params">(text)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">decorator</span><span class="params">(func)</span>:</span></div><div class="line">        <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span><span class="params">(*args, **kw)</span>:</span></div><div class="line">            print(<span class="string">'%s %s():'</span> % (text, func.__name__))</div><div class="line">            <span class="keyword">return</span> func(*args, **kw)</div><div class="line">        <span class="keyword">return</span> wrapper</div><div class="line">    <span class="keyword">return</span> decorator</div></pre></td></tr></table></figure>
-<p>那个 <code>text</code> 就是装饰器的参数，可以根据它来做增加一些业务逻辑，用法：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@log('参数')</span></div></pre></td></tr></table></figure>
-<h3 id="类装饰器"><a href="#类装饰器" class="headerlink" title="类装饰器"></a>类装饰器</h3><p>相比函数装饰器，类装饰器更强大。。。</p>
-<p>之后再补充吧，要炸了。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;不带参数的装饰器&quot;&gt;&lt;a href=&quot;#不带参数的装饰器&quot; class=&quot;headerlink&quot; title=&quot;不带参数的装饰器&quot;&gt;&lt;/a&gt;不带参数的装饰器&lt;/h3&gt;&lt;p&gt;核心思想就是设计模式中的装饰者模式。&lt;/p&gt;
-&lt;p&gt;按照 Java 中的写法，我们一般是这么做的：&lt;/p&gt;
-&lt;p&gt;定义一个专门处理日志打印的函数，接受需要处理的函数：&lt;/p&gt;
-&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;print_log&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(func)&lt;/span&gt;:&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;call &#39;&lt;/span&gt;+f.func_name+&lt;span class=&quot;string&quot;&gt;&#39;()...&#39;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    func()&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     
