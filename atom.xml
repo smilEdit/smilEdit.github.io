@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-06-24T01:51:20.000Z</updated>
+  <updated>2017-06-25T07:10:25.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2017/06/23/%E7%99%BE%E5%A6%96%E8%B0%B1/"/>
     <id>http://yoursite.com/2017/06/23/百妖谱/</id>
     <published>2017-06-23T13:17:14.000Z</published>
-    <updated>2017-06-24T01:51:20.000Z</updated>
+    <updated>2017-06-25T07:10:25.000Z</updated>
     
     <content type="html"><![CDATA[<center><br><br><img src="http://on9hzfn6s.bkt.clouddn.com/s29259213 2.jpg" alt="s29259213 2"><br><br></center>
 
@@ -82,10 +82,10 @@
     
     </summary>
     
-      <category term="读书笔记" scheme="http://yoursite.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+      <category term="阅读" scheme="http://yoursite.com/categories/%E9%98%85%E8%AF%BB/"/>
     
     
-      <category term="阅读" scheme="http://yoursite.com/tags/%E9%98%85%E8%AF%BB/"/>
+      <category term="读书笔记" scheme="http://yoursite.com/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
@@ -94,7 +94,7 @@
     <link href="http://yoursite.com/2017/06/21/%E5%BD%93%E6%88%91%E8%B7%91%E6%AD%A5%E6%97%B6%E6%88%91%E5%9C%A8%E8%B0%88%E4%BA%9B%E4%BB%80%E4%B9%88/"/>
     <id>http://yoursite.com/2017/06/21/当我跑步时我在谈些什么/</id>
     <published>2017-06-21T15:41:52.000Z</published>
-    <updated>2017-06-25T07:03:00.000Z</updated>
+    <updated>2017-06-25T07:11:03.000Z</updated>
     
     <content type="html"><![CDATA[<center><br><br><img src="http://on9hzfn6s.bkt.clouddn.com/s28316091.jpg" alt="s28316091"><br><br></center>
 
@@ -134,10 +134,10 @@
     
     </summary>
     
-      <category term="读书笔记" scheme="http://yoursite.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+      <category term="阅读" scheme="http://yoursite.com/categories/%E9%98%85%E8%AF%BB/"/>
     
     
-      <category term="阅读" scheme="http://yoursite.com/tags/%E9%98%85%E8%AF%BB/"/>
+      <category term="读书笔记" scheme="http://yoursite.com/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
@@ -146,7 +146,7 @@
     <link href="http://yoursite.com/2017/06/18/%E6%BC%AB%E9%95%BF%E7%9A%84%E5%91%8A%E5%88%AB/"/>
     <id>http://yoursite.com/2017/06/18/漫长的告别/</id>
     <published>2017-06-18T12:52:27.000Z</published>
-    <updated>2017-06-23T16:45:51.000Z</updated>
+    <updated>2017-06-25T07:10:48.000Z</updated>
     
     <content type="html"><![CDATA[<p>若是周日不用加班，就补上。</p>
 ]]></content>
@@ -158,10 +158,10 @@
     
     </summary>
     
-      <category term="读书笔记" scheme="http://yoursite.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+      <category term="阅读" scheme="http://yoursite.com/categories/%E9%98%85%E8%AF%BB/"/>
     
     
-      <category term="阅读" scheme="http://yoursite.com/tags/%E9%98%85%E8%AF%BB/"/>
+      <category term="读书笔记" scheme="http://yoursite.com/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
@@ -250,7 +250,7 @@
     <link href="http://yoursite.com/2017/06/05/%E9%95%BF%E6%81%A8%E6%AD%8C/"/>
     <id>http://yoursite.com/2017/06/05/长恨歌/</id>
     <published>2017-06-05T00:53:15.000Z</published>
-    <updated>2017-06-05T02:03:35.000Z</updated>
+    <updated>2017-06-25T07:10:29.000Z</updated>
     
     <content type="html"><![CDATA[<center><br><br><img src="http://on9hzfn6s.bkt.clouddn.com/s3018752.jpg" alt="s3018752"><br><br></center>
 
@@ -303,7 +303,7 @@
       <category term="阅读" scheme="http://yoursite.com/categories/%E9%98%85%E8%AF%BB/"/>
     
     
-      <category term="阅读笔记" scheme="http://yoursite.com/tags/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+      <category term="读书笔记" scheme="http://yoursite.com/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
