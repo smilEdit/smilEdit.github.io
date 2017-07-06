@@ -2896,11 +2896,15 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
 <p>按住 control 不放 ，再按 tab 可以切换 Chrome 的子窗口，和长按 command + tab 的组合差不多。</p>
 <p>以及在 Chrome 中非常非常常用的两个快捷键，command + w 关闭当前子窗口(这个在几乎所有的软件中都适用)，command + t 打开新的子窗口。哦，还有个可能会用到的，如果一不小心关了个子窗口想重新打开可能会跑历史记录里面查找恢复，直接按 command + shift + t 就好了。 </p>
 <h2 id="4-22-更新"><a href="#4-22-更新" class="headerlink" title="4.22 更新"></a>4.22 更新</h2><h3 id="Chrome-2"><a href="#Chrome-2" class="headerlink" title="Chrome"></a>Chrome</h3><p>切换子窗口用 option + command + 左右方向键 更好用</p>
-<h2 id="4-24-更新"><a href="#4-24-更新" class="headerlink" title="4.24 更新"></a>4.24 更新</h2><h3 id="MWeb"><a href="#MWeb" class="headerlink" title="MWeb"></a>MWeb</h3><p>现在使用的 MarkDown 工具。集成了许多插件，功能齐全，十分强大大大，还支持绑定许多图床，包括七牛，图片直接拖进去就可以使用了，之前虽然下了但是感觉不够简洁，习惯了就好了。等用一段时间再总结。</p>
+<h2 id="4-24-更新"><a href="#4-24-更新" class="headerlink" title="4.24 更新"></a>4.24 更新</h2><h3 id="MWeb"><a href="#MWeb" class="headerlink" title="MWeb"></a><a href="http://xclient.info/s/mweb.html?_=28224c24c5d048ba73bf06b15e2a6668" target="_blank" rel="external">MWeb</a></h3><p>现在使用的 MarkDown 工具。集成了许多插件，功能齐全，十分强大大大，还支持绑定许多图床，包括七牛，图片直接拖进去就可以使用了，之前虽然下了但是感觉不够简洁，习惯了就好了。等用一段时间再总结。</p>
 <h2 id="4-27-更新"><a href="#4-27-更新" class="headerlink" title="4.27 更新"></a>4.27 更新</h2><h3 id="iterm"><a href="#iterm" class="headerlink" title="iterm"></a>iterm</h3><p>有个坑。</p>
 <p>感觉今天 Mac 中毒了一样，我的 Android Studio 鼠标箭头老是变成等待的彩色圆圈，气的我敲代码的效率降低了有 36.25%，然后我就重启了我的 MBP。</p>
 <p>然后发现他丫的 iTerm 老是启动失败，由于我马上弄好了，忘了截图，反正就是提示配置错误一堆的玩意，下次有机会补上截图。</p>
 <p>原因就是自己作的，把 iTerm 在 Dock 中去除了，恢复了就好了。相应指令之前说过了。</p>
+<h2 id="7-5-更新"><a href="#7-5-更新" class="headerlink" title="7.5 更新"></a>7.5 更新</h2><h3 id="CheatSheet"><a href="#CheatSheet" class="headerlink" title="CheatSheet"></a><a href="http://www.ifunmac.com/2014/04/cheatsheet/" target="_blank" rel="external">CheatSheet</a></h3><p>默认是长按 ⌘ 键就能查看当前软件的所有快捷键，非常炫酷。</p>
+<h2 id="7-6-更新"><a href="#7-6-更新" class="headerlink" title="7.6 更新"></a>7.6 更新</h2><h3 id="Charles"><a href="#Charles" class="headerlink" title="Charles"></a><a href="http://xclient.info/s/charles.html?_=28224c24c5d048ba73bf06b15e2a6668" target="_blank" rel="external">Charles</a></h3><p>据说是非常好用的抓包工具。之前开发安卓的时候都是用的 Logger 看的接口数据，感觉还是有点不方便的。</p>
+<p>如果只想看接口请求和数据，只要给手机加个访问代理就行了，网上教程一堆。下载到安装设置使用，半小时不到就可以看到接口数据了。</p>
+<p>像是弱网状态，压力测试等功能也是可以轻松实现的，找了一个挺不错的教程地址，<a href="http://shadow000902.space/2017/04/25/Charles%E5%B8%B8%E7%94%A8%E7%9A%84%E4%B9%9D%E5%A4%A7%E5%8A%9F%E8%83%BD/" target="_blank" rel="external">点这里</a>。</p>
 <p>   <strong>未完待续…</strong></p>
 <p><br><br><br></p>
 <p>友情链接：</p>
@@ -3128,9 +3132,9 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
         
         <tags>
             
-            <tag> Java </tag>
-            
             <tag> 高效 </tag>
+            
+            <tag> Java </tag>
             
             <tag> Effectice </tag>
             
@@ -3434,11 +3438,11 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
         
         <tags>
             
+            <tag> Java </tag>
+            
             <tag> 设计模式 </tag>
             
             <tag> 策略模式 </tag>
-            
-            <tag> Java </tag>
             
             <tag> UML </tag>
             
