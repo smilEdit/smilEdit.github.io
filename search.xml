@@ -4,6 +4,57 @@
   
     
     <entry>
+      <title><![CDATA[compileSdkVersion,buildToolsVersion, minSdkVersion 和 targetSdkVersion]]></title>
+      <url>http://yoursite.com/2017/08/09/compileSdkVersion-minSdkVersion-%E5%92%8C-targetSdkVersion/</url>
+      <content type="html"><![CDATA[<p>一直对这几个版本的概念都不是特别清楚，前几天面试的时候还被问到过，发现有必要好好整理一下。</p>
+<a id="more"></a>
+<h4 id="compileSdkVersion"><a href="#compileSdkVersion" class="headerlink" title="compileSdkVersion"></a>compileSdkVersion</h4><p>它告诉 Gradle 使用哪个 Android SDK 版本来运行你的应用，要使用当然要先下载。</p>
+<p>重点： 修改 compileSdkVersion 并不会改变运行的时候的行为，但是有可能会出现新的编译问题，例如 compileSdkVersion 版本改成很低之后，出现如下的编译问题：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Error:(53, 30) 错误: -source 1.6 中不支持 diamond 运算符</div><div class="line">(请使用 -source 7 或更高版本以启用 diamond 运算符)</div></pre></td></tr></table></figure>
+<p>虽然它纯粹只是在编译的时候使用，但是官方强烈建议我们使用最新的 SDK 进行编译，因为这样可以使用新的编译检查避免很多问题。</p>
+<p>没有道理不用最新的啊？</p>
+<h4 id="buildeToolsVersion"><a href="#buildeToolsVersion" class="headerlink" title="buildeToolsVersion"></a>buildeToolsVersion</h4><p>前面我们说了 compileSdkVersion 是我们SDK的版本号，也就是 API Level，例如 API-19、API-20、API-21 等等。</p>
+<p>buildeToolsVersion 是我们构建工具的版本，其中包括了打包工具 aapt、dx 等等。这个工具的目录位于..your_sdk_path/build-tools/XX.XX.XX。</p>
+<h4 id="minSdkVersion"><a href="#minSdkVersion" class="headerlink" title="minSdkVersion"></a>minSdkVersion</h4><p>这个概念相对非常好理解。就是该应用的最低要求。例如我们应用的 minSdkVersion 是 10 。 那么最高只支持 9 的手机是不能够安装这个应用的。</p>
+<p>该设置的好处在开发也起到一个好处，在你使用了高于 minSdkVersion 的 API 时会警告你。</p>
+<p>相对来说越低越好，但是许多时候，一些技术在低版本的设配上很难实现，这种时候是去做兼容还是舍弃就要好好决定了。</p>
+<h4 id="targetSdkVersion"><a href="#targetSdkVersion" class="headerlink" title="targetSdkVersion"></a>targetSdkVersion</h4><p>相对来说，它是这几个概念中最难被理解的。</p>
+<p>官方说它有点 interesting ， “targetSdkVersion is the main way Android provides forward compatibility” 。（ targetSdkVersion 是 Android 系统提供前向兼容的主要手段。）</p>
+<p>这句话怎么理解呢？</p>
+<p>举个例子，如果 API 10 中，有一个 A 方法是输出 “我喜欢你” ,而随着系统的升级，在 API 11 中，A 方法依然存在，但是源码却经过了改变，变成了输出“我喜欢你妈”。这种情况虽然非常少发生，但是还是有可能发生的。</p>
+<p>那么这个时候设置 targetSdkVersion 的好处就来了。当设置 targetSdkVersion 为 10 时，系统运行时就会使用 API 10，输出“我喜欢你”；设置 targetSdkVersion 为 11 就会输出“我喜欢你妈”。</p>
+<p>这么一解释，是不是就比较能够明白 targetSdkVersion 是 Android 系统提供前向兼容的主要手段 这句话了呢。</p>
+<p>虽然 API 不会，但是 API 的行为却发生了变化。虽然一般情况下我们是将 targetSdkVersion 更新成最新的，但是要特别注意，最好是去查看新版 API 中，老的一些方法的变化，否则盲目的更新，可能就会出现 “我喜欢你” 就会变成 “我喜欢你妈” 这样的错误（虽然官方也是极力避免这种情况的发生）。</p>
+<hr>
+<p>照上面所说，一般情况下，这三种 Sdk 的版本的关系是这样的<br>minSdkVersion &lt;= targetSdkVersion &lt;= compileSdkVersion</p>
+<p>但是理想上，这三者的关系应该是这样的：</p>
+<p>minSdkVersion (lowest possible) &lt;= targetSdkVersion == compileSdkVersion (latest SDK)</p>
+<hr>
+<p>参考链接：</p>
+<p><a href="https://stackoverflow.com/questions/24521017/android-gradle-buildtoolsversion-vs-compilesdkversion" target="_blank" rel="external">buildtoolsVersion vs compileSdkVersion</a></p>
+<p><a href="http://www.bubuko.com/infodetail-1008155.html" target="_blank" rel="external">Android关于buildToolVersion与CompileSdkVersion的区别</a></p>
+<p><a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#filtering" target="_blank" rel="external">关于 SDK 的版本，官网的一些解释。</a></p>
+<p><a href="https://race604.com/android-targetsdkversion/" target="_blank" rel="external">Android targetSdkVersion 原理</a></p>
+<p><a href="http://chinagdg.org/2016/01/picking-your-compilesdkversion-minsdkversion-targetsdkversion/" target="_blank" rel="external">如何选择 compileSdkVersion, minSdkVersion 和 targetSdkVersion</a></p>
+<p><a href="http://blog.csdn.net/u012719153/article/details/50619881" target="_blank" rel="external">minSdkVersion、targetSdkVersion、compileSdkVersion三者的作用解析</a></p>
+]]></content>
+      
+        <categories>
+            
+            <category> 安卓 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Android </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Android打包]]></title>
       <url>http://yoursite.com/2017/08/09/Android%E6%89%93%E5%8C%85/</url>
       <content type="html"><![CDATA[<p>打包的事，之前很少做，也了解的比较少，今天好好看了看，总结一下，以后要是用到了，或许可以少走些弯路。</p>
@@ -3223,9 +3274,9 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
         
         <tags>
             
-            <tag> Java </tag>
-            
             <tag> 高效 </tag>
+            
+            <tag> Java </tag>
             
             <tag> Effectice </tag>
             
@@ -3327,9 +3378,9 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
         
         <tags>
             
-            <tag> JVM </tag>
-            
             <tag> Java </tag>
+            
+            <tag> JVM </tag>
             
             <tag> 算法 </tag>
             
@@ -3529,11 +3580,11 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
         
         <tags>
             
+            <tag> Java </tag>
+            
             <tag> 设计模式 </tag>
             
             <tag> 策略模式 </tag>
-            
-            <tag> Java </tag>
             
             <tag> UML </tag>
             

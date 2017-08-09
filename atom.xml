@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-08-09T08:46:03.000Z</updated>
+  <updated>2017-08-09T10:19:42.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,59 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>compileSdkVersion,buildToolsVersion, minSdkVersion 和 targetSdkVersion</title>
+    <link href="http://yoursite.com/2017/08/09/compileSdkVersion-minSdkVersion-%E5%92%8C-targetSdkVersion/"/>
+    <id>http://yoursite.com/2017/08/09/compileSdkVersion-minSdkVersion-和-targetSdkVersion/</id>
+    <published>2017-08-09T09:00:42.000Z</published>
+    <updated>2017-08-09T10:19:42.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>一直对这几个版本的概念都不是特别清楚，前几天面试的时候还被问到过，发现有必要好好整理一下。</p>
+<a id="more"></a>
+<h4 id="compileSdkVersion"><a href="#compileSdkVersion" class="headerlink" title="compileSdkVersion"></a>compileSdkVersion</h4><p>它告诉 Gradle 使用哪个 Android SDK 版本来运行你的应用，要使用当然要先下载。</p>
+<p>重点： 修改 compileSdkVersion 并不会改变运行的时候的行为，但是有可能会出现新的编译问题，例如 compileSdkVersion 版本改成很低之后，出现如下的编译问题：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Error:(53, 30) 错误: -source 1.6 中不支持 diamond 运算符</div><div class="line">(请使用 -source 7 或更高版本以启用 diamond 运算符)</div></pre></td></tr></table></figure>
+<p>虽然它纯粹只是在编译的时候使用，但是官方强烈建议我们使用最新的 SDK 进行编译，因为这样可以使用新的编译检查避免很多问题。</p>
+<p>没有道理不用最新的啊？</p>
+<h4 id="buildeToolsVersion"><a href="#buildeToolsVersion" class="headerlink" title="buildeToolsVersion"></a>buildeToolsVersion</h4><p>前面我们说了 compileSdkVersion 是我们SDK的版本号，也就是 API Level，例如 API-19、API-20、API-21 等等。</p>
+<p>buildeToolsVersion 是我们构建工具的版本，其中包括了打包工具 aapt、dx 等等。这个工具的目录位于..your_sdk_path/build-tools/XX.XX.XX。</p>
+<h4 id="minSdkVersion"><a href="#minSdkVersion" class="headerlink" title="minSdkVersion"></a>minSdkVersion</h4><p>这个概念相对非常好理解。就是该应用的最低要求。例如我们应用的 minSdkVersion 是 10 。 那么最高只支持 9 的手机是不能够安装这个应用的。</p>
+<p>该设置的好处在开发也起到一个好处，在你使用了高于 minSdkVersion 的 API 时会警告你。</p>
+<p>相对来说越低越好，但是许多时候，一些技术在低版本的设配上很难实现，这种时候是去做兼容还是舍弃就要好好决定了。</p>
+<h4 id="targetSdkVersion"><a href="#targetSdkVersion" class="headerlink" title="targetSdkVersion"></a>targetSdkVersion</h4><p>相对来说，它是这几个概念中最难被理解的。</p>
+<p>官方说它有点 interesting ， “targetSdkVersion is the main way Android provides forward compatibility” 。（ targetSdkVersion 是 Android 系统提供前向兼容的主要手段。）</p>
+<p>这句话怎么理解呢？</p>
+<p>举个例子，如果 API 10 中，有一个 A 方法是输出 “我喜欢你” ,而随着系统的升级，在 API 11 中，A 方法依然存在，但是源码却经过了改变，变成了输出“我喜欢你妈”。这种情况虽然非常少发生，但是还是有可能发生的。</p>
+<p>那么这个时候设置 targetSdkVersion 的好处就来了。当设置 targetSdkVersion 为 10 时，系统运行时就会使用 API 10，输出“我喜欢你”；设置 targetSdkVersion 为 11 就会输出“我喜欢你妈”。</p>
+<p>这么一解释，是不是就比较能够明白 targetSdkVersion 是 Android 系统提供前向兼容的主要手段 这句话了呢。</p>
+<p>虽然 API 不会，但是 API 的行为却发生了变化。虽然一般情况下我们是将 targetSdkVersion 更新成最新的，但是要特别注意，最好是去查看新版 API 中，老的一些方法的变化，否则盲目的更新，可能就会出现 “我喜欢你” 就会变成 “我喜欢你妈” 这样的错误（虽然官方也是极力避免这种情况的发生）。</p>
+<hr>
+<p>照上面所说，一般情况下，这三种 Sdk 的版本的关系是这样的<br>minSdkVersion &lt;= targetSdkVersion &lt;= compileSdkVersion</p>
+<p>但是理想上，这三者的关系应该是这样的：</p>
+<p>minSdkVersion (lowest possible) &lt;= targetSdkVersion == compileSdkVersion (latest SDK)</p>
+<hr>
+<p>参考链接：</p>
+<p><a href="https://stackoverflow.com/questions/24521017/android-gradle-buildtoolsversion-vs-compilesdkversion" target="_blank" rel="external">buildtoolsVersion vs compileSdkVersion</a></p>
+<p><a href="http://www.bubuko.com/infodetail-1008155.html" target="_blank" rel="external">Android关于buildToolVersion与CompileSdkVersion的区别</a></p>
+<p><a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#filtering" target="_blank" rel="external">关于 SDK 的版本，官网的一些解释。</a></p>
+<p><a href="https://race604.com/android-targetsdkversion/" target="_blank" rel="external">Android targetSdkVersion 原理</a></p>
+<p><a href="http://chinagdg.org/2016/01/picking-your-compilesdkversion-minsdkversion-targetsdkversion/" target="_blank" rel="external">如何选择 compileSdkVersion, minSdkVersion 和 targetSdkVersion</a></p>
+<p><a href="http://blog.csdn.net/u012719153/article/details/50619881" target="_blank" rel="external">minSdkVersion、targetSdkVersion、compileSdkVersion三者的作用解析</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;一直对这几个版本的概念都不是特别清楚，前几天面试的时候还被问到过，发现有必要好好整理一下。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="安卓" scheme="http://yoursite.com/categories/%E5%AE%89%E5%8D%93/"/>
+    
+    
+      <category term="Android" scheme="http://yoursite.com/tags/Android/"/>
+    
+  </entry>
   
   <entry>
     <title>Android打包</title>
@@ -1173,57 +1226,6 @@
     
     
       <category term="Android 高效" scheme="http://yoursite.com/tags/Android-%E9%AB%98%E6%95%88/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>查令十字街 84 号</title>
-    <link href="http://yoursite.com/2017/05/21/%E6%9F%A5%E4%BB%A4%E8%A1%97%E5%8D%81%E5%AD%97%E8%A1%9784%E5%8F%B7/"/>
-    <id>http://yoursite.com/2017/05/21/查令街十字街84号/</id>
-    <published>2017-05-21T13:55:39.000Z</published>
-    <updated>2017-07-02T09:39:02.000Z</updated>
-    
-    <content type="html"><![CDATA[<center><br><br><img src="https://img3.doubanio.com/lpic/s28671476.jpg" alt=""><br><br></center>
-
-<a id="more"></a> 
-<p>图书馆借的一本书，当时是觉得这书名以前在哪里有听过，而且名字也挺对我口味的。</p>
-<p>该书是由一女作家和书店几位员工（主要是其中一个男的）的往来书信整理而成，整理人就是这个买书人。这家书店的地址就是在英国伦敦的中西二区<em>查令十字街 84 号</em>。</p>
-<p>该书的内容通俗易懂，简单，充满了人情世故。</p>
-<p>沉下心，两三个小时就可以看完了。</p>
-<p>主要内容就是一买书人，同时也是一个作家，住在纽约。通过书信认识了远在伦敦一家书店的许多员工。</p>
-<p>插句题外话，看这本书，给我带来更多的不是内容本身，而是它所带来的那种，我觉得我暂时还不能够表达清楚的含义。但是我会尽我所能去将其说清楚，我相信这是一种能力，一种我目前十分想拥有的能力，而这种能力，也需要不断的去锻炼，完善。</p>
-<p>回到书本。他们来来往往的那么多书信，主要说的是作者询问一些想买的书的情况，另外就是唠唠家常，和书店里面许多员工打成一片。</p>
-<p>很难想象，远在纽约的她会伦敦的店家寄去几箱鸡蛋和熏肉等许多好吃的，而毫无所求。或者说有所求，就像作者自己说的，她获得的比她付出的，因为她收获了书店中所有员工的爱，那种情谊是物质所不能够比较。（本来想找原话的，觉得麻烦，就照自己的话照印象说了）</p>
-<p>这种感觉有点像是在类似四合院中生活的人们，其实我第一个想到是，<a href="http://baike.baidu.com/link?url=kCVwhR8yyxQp_-uw2_BX9nGV5Pkd8QdC3UAfpVt2QcshdkAXgHLGuoXmsd7Yb0Ntkl7XcmprLj_2t7PBtYnWwm1msePA5PvEXamrXUClHuA_iOWIB2tXn81G4aY3kfOL" target="_blank" rel="external">请回答1988</a>：</p>
-<p><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1495387054991&amp;di=f21519fc0e63acb9cba91ef15e16c322&amp;imgtype=0&amp;src=http%3A%2F%2Fimg1.shenchuang.com%2F2016%2F0114%2F1452756648518.png" alt=""></p>
-<p>大家都非常的热情，有什么东西都会想着分享，我眼中作者就是那么招人喜欢的人。</p>
-<p>听说这本书是要准备排成电影了，或者是已经拍好了，没去关注，但是却是知道为了吸引观众，导演在戏中将书中的男女主角的关系说成了是爱情。</p>
-<p>当时我就震惊了，因为这样说可真的是把这本书想要表达的意思全都扭曲了，由于现实生活中的男女主角都已经去去世了，他们各自的内心我们是无法猜测的，但是明显书中并没有任何地方提现了所谓的爱情。</p>
-<p>虽然我不认为在我身边的男女之间存在着纯洁的友情，但是我愿意相信，书中的两人，同样也是真实存在在现实生活中的两人之间，纯粹就是那种信任产生的友情。这让我想到了一部叫做<a href="http://baike.baidu.com/link?url=bAieXcj5A_sVfES7K1w2dPmzlwX3DWr-oWzH-vrp-Y7085fR4ETKTjxOTgmW4M6jOXJPyYKtVASYI0ffPiSqOl9lhlaOnrCdqwcYGCyOnCylFEzNKEu74OMLhv5-izRa8T3mWFJI58SVJntiYDSu2K" target="_blank" rel="external">玛丽和马克思</a>的澳大利亚粘土动画电影，看的人不多，但是却完看却是能够收获不浅，在我看来，说的也是纯洁友谊。</p>
-<p>哦，男女主角虽然通信了 20 年左右，但是始终没有见过一次面，所以作者也说，“你们若恰好路经查令街十字街 84 号，请带我献上一吻，我亏欠她的良多 ··· ···”</p>
-<p>这不就是所谓的笔友吗？或者是说当今的网友？好像都觉得网友比笔友 Low 很多。</p>
-<p>不用感觉，就是这样。如果明白为什么同样都是不见面，同样都是信息交流，网友这种关系偏贬义，笔友偏褒义，那么本书所表达的意思估计就能够感觉得出来了。</p>
-<p>一条信息。</p>
-<p>对于笔友，要付出许多的心思和时间，你会选择比较好纸张和笔，会在构思了好一会儿之后才动笔书写，写完之后可能要买邮票，去邮局，还要过很久才能收到回信。</p>
-<p>而对于网友，仅仅只是打开你可能时时刻刻都打开的社交软件，动动手就发出去了，可能你都没有经过大脑的思考，手指已经哒哒哒编辑好了，想到什么忘了说的，再哒哒哒编辑，发送。许多时候，可能都在发没有营养的表情。</p>
-<p>是的，这是科技带来的进步，却在一定程度上影响了人们的世界观，人生观，感情观。在我看来，这么说真的一点不夸张，这种影响好坏掺半。不能否认的是科技为我们的日常生活给来了许多的便利。</p>
-<p>工具还是次要的，重要的是，在付出方面，就是用情方面（这情更多的不是指爱情），网友这种关系之中太少太少。</p>
-<p>一个人有 10 个笔友怕是要疯了吧？但是一个人有 10 个网友不是非常正常吗？而且更换网友需要多少成本？</p>
-<p>可能我之前也说过，虽然我从事的就是互联网这个科技所带来的行业，而且也喜欢这个工作，但是却并不觉得它真的很好，因为科技带给我们一些便捷的同时，我们失去的更多原始的味道，希望更多时候，更多人，可以回到自然，重回纯真。（说的自己都有点看不明白，但是意思就是那样）</p>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=27867140&auto=1&height=66"></iframe>
-
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;center&gt;&lt;br&gt;&lt;br&gt;&lt;img src=&quot;https://img3.doubanio.com/lpic/s28671476.jpg&quot; alt=&quot;&quot;&gt;&lt;br&gt;&lt;br&gt;&lt;/center&gt;
-    
-    </summary>
-    
-      <category term="阅读" scheme="http://yoursite.com/categories/%E9%98%85%E8%AF%BB/"/>
-    
-    
-      <category term="读书笔记" scheme="http://yoursite.com/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
