@@ -4,6 +4,90 @@
   
     
     <entry>
+      <title><![CDATA[Android打包]]></title>
+      <url>http://yoursite.com/2017/08/09/Android%E6%89%93%E5%8C%85/</url>
+      <content type="html"><![CDATA[<p>打包的事，之前很少做，也了解的比较少，今天好好看了看，总结一下，以后要是用到了，或许可以少走些弯路。</p>
+<a id="more"></a>
+<h3 id="多渠道打包"><a href="#多渠道打包" class="headerlink" title="多渠道打包"></a>多渠道打包</h3><h4 id="友盟多渠道打包"><a href="#友盟多渠道打包" class="headerlink" title="友盟多渠道打包"></a>友盟多渠道打包</h4><p>友盟在 Github 也有相对应的<a href="https://github.com/umeng/umeng-muti-channel-build-tool" target="_blank" rel="external">文档</a>，主要是利用 Android Gradle 中的 ProductFlavor 功能添加的多个渠道。</p>
+<p>首先在 AndroidManifest.xml 中添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;meta-data android:value=&quot;UMENG_CHANNEL_VALUE&quot; android:name=&quot;UMENG_CHANNEL&quot;/&gt;</div></pre></td></tr></table></figure>
+<p>接着在 app 的 build.gradle 中添加：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">productFlavors &#123;</div><div class="line">    anzhi &#123;</div><div class="line">        manifestPlaceholders = [<span class="string">UMENG_CHANNEL_VALUE:</span> <span class="string">"anzhi"</span>]</div><div class="line">    &#125;</div><div class="line">    baidu &#123;</div><div class="line">        manifestPlaceholders = [<span class="string">UMENG_CHANNEL_VALUE:</span> <span class="string">"baidu"</span>]</div><div class="line">    &#125;</div><div class="line">    c360 &#123;</div><div class="line">        manifestPlaceholders = [<span class="string">UMENG_CHANNEL_VALUE:</span> <span class="string">"c360"</span>]</div><div class="line">    &#125;</div><div class="line">    yingyongbao &#123;</div><div class="line">        manifestPlaceholders = [<span class="string">UMENG_CHANNEL_VALUE:</span> <span class="string">"yingyongbao"</span>]</div><div class="line">    &#125;</div><div class="line">    huawei &#123;</div><div class="line">        manifestPlaceholders = [<span class="string">UMENG_CHANNEL_VALUE:</span> <span class="string">"huawei"</span>]</div><div class="line">    &#125;</div><div class="line">    xiaomi &#123;</div><div class="line">        manifestPlaceholders = [<span class="string">UMENG_CHANNEL_VALUE:</span> <span class="string">"xiaomi"</span>]</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>上面的配置看起来有点蠢，可以抽取出来，用一个方法来实现：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">productFlavors &#123;</div><div class="line">       anzhi &#123;&#125;</div><div class="line">       baidu &#123;&#125;</div><div class="line">       c360 &#123;&#125;</div><div class="line">       yingyongbao &#123;&#125;</div><div class="line">       huawei &#123;&#125;</div><div class="line">       xiaomi &#123;&#125;</div><div class="line">       productFlavors.all &#123; flavor -&gt;</div><div class="line">           flavor.manifestPlaceholders = [<span class="string">UMENG_CHANNEL_VALUE:</span> name]</div><div class="line">       &#125;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<p>另外，签名的配置肯定不能少，也是在 app 的 build.gradle 文件中：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">signingConfigs &#123;</div><div class="line">       release &#123;</div><div class="line">           storeFile file(<span class="string">"demo.jks"</span>)</div><div class="line">           storePassword <span class="string">"123123"</span></div><div class="line">           keyAlias <span class="string">"123123"</span></div><div class="line">           keyPassword <span class="string">"123123"</span></div><div class="line">       &#125;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<p>jks 和 keystore 俩文件，前者是 Android Studio 生成的，后者是 Eclipse 生成的，使用的时候两者都是可以的。</p>
+<p>在 buildTypes 中加入对生成的 apk 的命名方式：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">android.applicationVariants.all &#123; variant -&gt;</div><div class="line">        variant.outputs.each &#123; output -&gt;</div><div class="line">            <span class="keyword">def</span> outputFile = output.outputFile</div><div class="line">            <span class="keyword">if</span> (outputFile != <span class="literal">null</span> &amp;&amp; outputFile.name.endsWith(<span class="string">'.apk'</span>)) &#123;</div><div class="line">                File outputDirectory = <span class="keyword">new</span> File(outputFile.parent);</div><div class="line">                <span class="keyword">def</span> fileName</div><div class="line">                <span class="keyword">if</span> (variant.buildType.name == <span class="string">"release"</span>) &#123;</div><div class="line"><span class="comment">//                    fileName = "app_v$&#123;defaultConfig.versionName&#125;_$&#123;packageTime()&#125;_$&#123;variant.productFlavors[0].name&#125;.apk"</span></div><div class="line">                    fileName = <span class="string">"caixiangji_$&#123;variant.productFlavors[0].name&#125;.apk"</span></div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line"><span class="comment">//                    fileName = "app_v$&#123;defaultConfig.versionName&#125;_$&#123;packageTime()&#125;_beta.apk"</span></div><div class="line">                    fileName = <span class="string">"caixiangji_$&#123;variant.productFlavors[0].name&#125;_beta.apk"</span></div><div class="line">                &#125;</div><div class="line">                output.outputFile = <span class="keyword">new</span> File(outputDirectory, fileName)</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>然后在 AS 自带的 Terminal 下输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gradlew assembleRelease</div></pre></td></tr></table></figure>
+<p>不过有可能出现一些问题，我在 mac 下就遇到过，例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">-bash ：gradlew command not found</div></pre></td></tr></table></figure>
+<p>那么有可能是<a href="http://blog.csdn.net/yyh352091626/article/details/52343951" target="_blank" rel="external">权限问题</a>，执行 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo chmod +x gradlew</div></pre></td></tr></table></figure>
+<p>还有，在 mac 下执行当前目录下的命令要在前面加上 “./“。</p>
+<p>当然也有可能是你没有<a href="http://www.sohu.com/a/158458258_500663" target="_blank" rel="external">配置好</a>环境变量，按步骤设置一遍就好了。</p>
+<p>如果一切顺利，那么差不多等上 10 分钟可能就打包好了。其实除了命令行，也可以直接使用图形化窗口操作，双击运行即可。</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-08-09 下午4.00.08.png" alt="屏幕快照 2017-08-09 下午4.00.08"></p>
+<h4 id="美团的多渠道打包"><a href="#美团的多渠道打包" class="headerlink" title="美团的多渠道打包"></a>美团的多渠道打包</h4><p><a href="https://github.com/Meituan-Dianping/walle" target="_blank" rel="external">Walle</a> ： Android Signature V2 Scheme 签名下的新一代渠道包<a href="http://www.jianshu.com/p/0ba717f7385f" target="_blank" rel="external">打包神器</a>。</p>
+<p>打包速度相对前者来说，真的是特特别快。</p>
+<p>集成步骤 Github 上的文档写的也挺详细的了。</p>
+<h5 id="配置build-gradle"><a href="#配置build-gradle" class="headerlink" title="配置build.gradle"></a>配置build.gradle</h5><p>在位于项目的根目录 <code>build.gradle</code> 文件中添加Walle Gradle插件的依赖， 如下：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">buildscript &#123;</div><div class="line">    dependencies &#123;</div><div class="line">        classpath <span class="string">'com.meituan.android.walle:plugin:1.1.5'</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>并在当前App的 <code>build.gradle</code> 文件中apply这个插件，并添加上用于读取渠道号的AAR</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">apply <span class="string">plugin:</span> <span class="string">'walle'</span></div><div class="line"></div><div class="line">dependencies &#123;</div><div class="line">    compile <span class="string">'com.meituan.android.walle:library:1.1.5'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="配置插件"><a href="#配置插件" class="headerlink" title="配置插件"></a>配置插件</h5><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">walle &#123;</div><div class="line">    <span class="comment">// 指定渠道包的输出路径</span></div><div class="line">    apkOutputFolder = <span class="keyword">new</span> File(<span class="string">"$&#123;project.buildDir&#125;/outputs/channels"</span>);</div><div class="line">    <span class="comment">// 定制渠道包的APK的文件名称</span></div><div class="line">    apkFileNameFormat = <span class="string">'$&#123;appName&#125;-$&#123;packageName&#125;-$&#123;channel&#125;-$&#123;buildType&#125;-v$&#123;versionName&#125;-$&#123;versionCode&#125;-$&#123;buildTime&#125;.apk'</span>;</div><div class="line">    <span class="comment">// 渠道配置文件</span></div><div class="line">    channelFile = <span class="keyword">new</span> File(<span class="string">"$&#123;project.getProjectDir()&#125;/channel"</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这里是将渠道的配置文件单独抽取出来了，所以需要在 app 文件夹下新建一个文件 channel （ Text 类型），在里面配置渠道的信息，例如：</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/1638147-1e316c70eb9a0af6.png" alt="1638147-1e316c70eb9a0af6"></p>
+<p>最后可以打包了，所有渠道的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./gradlew clean assembleReleaseChannels</div></pre></td></tr></table></figure>
+<p>或者是单独的渠道 (华为)：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./gradlew clean assembleReleaseChannels -PchannelList=huawei</div></pre></td></tr></table></figure>
+<p>也可以直接用界面操作。</p>
+<p>3 分钟不到， 10 多个不同渠道的包就打完了。</p>
+<p>输出的位置是在 outputs/channels ，也可以自己配置。</p>
+<h3 id="多版本，多环境"><a href="#多版本，多环境" class="headerlink" title="多版本，多环境"></a><a href="http://www.jianshu.com/p/872dc6f89cb4" target="_blank" rel="external">多版本，多环境</a></h3><p>多渠道使用 Walle 的情况下，我们可以基于 buildTypes 和 productFlavors 使用多版本和多环境的打包。</p>
+<h4 id="多版本"><a href="#多版本" class="headerlink" title="多版本"></a>多版本</h4><p>基于buildTypes</p>
+<ol>
+<li>debug:调试版本,无混淆</li>
+<li>release:发布版本,有混淆、压缩</li>
+</ol>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">buildTypes &#123;</div><div class="line">        release &#123;</div><div class="line">            minifyEnabled <span class="literal">true</span></div><div class="line">            proguardFiles getDefaultProguardFile(<span class="string">'proguard-android.txt'</span>), <span class="string">'proguard-rules.pro'</span></div><div class="line">            signingConfig signingConfigs.test</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        debug &#123;</div><div class="line">            minifyEnabled <span class="literal">false</span></div><div class="line">            proguardFiles getDefaultProguardFile(<span class="string">'proguard-android.txt'</span>), <span class="string">'proguard-rules.pro'</span></div><div class="line"></div><div class="line">            signingConfig signingConfigs.test</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h4 id="多环境"><a href="#多环境" class="headerlink" title="多环境"></a>多环境</h4><p>基于productFlavors</p>
+<ol>
+<li>develop:开发环境，开发和自测时使用</li>
+<li>check:测试环境，克隆一份生产环境的配置，在这里测试通过后，再发布到生产环境。</li>
+<li>product:生产环境，正式提供服务的。</li>
+</ol>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">productFlavors &#123;</div><div class="line">        <span class="comment">//开发环境</span></div><div class="line">        develop &#123;</div><div class="line">            buildConfigField <span class="string">"int"</span>, <span class="string">"ENV_TYPE"</span>, <span class="string">"1"</span></div><div class="line">            applicationId <span class="string">'com.zhanglf.servertest.develop'</span></div><div class="line">            manifestPlaceholders = [</div><div class="line"><span class="symbol">                    app_name:</span> <span class="string">"开-Demo"</span>,</div><div class="line"><span class="symbol">                    app_icon:</span> <span class="string">"@mipmap/dev_launcher"</span></div><div class="line">            ]</div><div class="line">        &#125;</div><div class="line">        <span class="comment">//测试环境</span></div><div class="line">        check &#123;</div><div class="line">            buildConfigField <span class="string">"int"</span>, <span class="string">"ENV_TYPE"</span>, <span class="string">"2"</span></div><div class="line">            applicationId <span class="string">'com.zhanglf.servertest.check'</span></div><div class="line">            manifestPlaceholders = [</div><div class="line"><span class="symbol">                    app_name:</span> <span class="string">"测-Demo"</span>,</div><div class="line"><span class="symbol">                    app_icon:</span> <span class="string">"@mipmap/check_launcher"</span></div><div class="line">            ]</div><div class="line">        &#125;</div><div class="line">        <span class="comment">//生产环境</span></div><div class="line">        product &#123;</div><div class="line">            buildConfigField <span class="string">"int"</span>, <span class="string">"ENV_TYPE"</span>, <span class="string">"3"</span></div><div class="line">            applicationId <span class="string">'com.zhanglf.servertest.product'</span></div><div class="line">            manifestPlaceholders = [</div><div class="line"><span class="symbol">                    app_name:</span> <span class="string">"Demo"</span>,</div><div class="line"><span class="symbol">                    app_icon:</span> <span class="string">"@mipmap/pro_launcher"</span></div><div class="line">            ]</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>在 mainfest 中使用占位符：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">android:icon=&quot;$&#123;app_icon&#125;&quot;</div><div class="line">android:label=&quot;$&#123;app_name&#125;&quot;</div></pre></td></tr></table></figure>
+<h3 id="不同渠道-资源替换问题"><a href="#不同渠道-资源替换问题" class="headerlink" title="不同渠道 资源替换问题"></a>不同渠道 资源替换问题</h3><p>一种比较想到的方式是就是通过代码的方式获取渠道信息，再通过该信息，分配不同的资源。但是该方式的缺点是，不同的资源在打包的时候都被放进了 apk 中。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">String channel = WalleChannelReader.getChannel(<span class="keyword">this</span>.getApplicationContext());</div></pre></td></tr></table></figure>
+<p>另一种方式就是根据不同的渠道在打包的时候就将对应的资源分配好了，上面的多环境中的 icon 和 app_name 占位符的方式就是如此。</p>
+<p>具体实现：</p>
+<p>在项目工程的 src 文件夹下创建对应渠道的文件夹，下面存放资源文件，如下：</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/20151227235630312.png" alt="20151227235630312"></p>
+<p>这样通过不同渠道打包的时候，资源文件会自动覆盖 main 中的资源，而且 main 中的或者是别的渠道中的文件都不会再该渠道的包中出现，从而更加节省空间。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 安卓 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Android </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[百妖谱]]></title>
       <url>http://yoursite.com/2017/06/23/%E7%99%BE%E5%A6%96%E8%B0%B1/</url>
       <content type="html"><![CDATA[<center><br><br><img src="http://on9hzfn6s.bkt.clouddn.com/s29259213 2.jpg" alt="s29259213 2"><br><br></center>
@@ -2905,6 +2989,13 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
 <h2 id="7-6-更新"><a href="#7-6-更新" class="headerlink" title="7.6 更新"></a>7.6 更新</h2><h3 id="Charles"><a href="#Charles" class="headerlink" title="Charles"></a><a href="http://xclient.info/s/charles.html?_=28224c24c5d048ba73bf06b15e2a6668" target="_blank" rel="external">Charles</a></h3><p>据说是非常好用的抓包工具。之前开发安卓的时候都是用的 Logger 看的接口数据，感觉还是有点不方便的。</p>
 <p>如果只想看接口请求和数据，只要给手机加个访问代理就行了，网上教程一堆。下载到安装设置使用，半小时不到就可以看到接口数据了。</p>
 <p>像是弱网状态，压力测试等功能也是可以轻松实现的，找了一个挺不错的教程地址，<a href="http://shadow000902.space/2017/04/25/Charles%E5%B8%B8%E7%94%A8%E7%9A%84%E4%B9%9D%E5%A4%A7%E5%8A%9F%E8%83%BD/" target="_blank" rel="external">点这里</a>。</p>
+<h2 id="8-8-更新"><a href="#8-8-更新" class="headerlink" title="8.8 更新"></a>8.8 更新</h2><h3 id="Mac-触发角"><a href="#Mac-触发角" class="headerlink" title="Mac 触发角"></a>Mac 触发角</h3><p>系统偏好设置 -&gt; 桌面与屏幕保护程序 -&gt; 触发角</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-08-08 上午11.33.16.png" alt="屏幕快照 2017-08-08 上午11.33.16"></p>
+<p>当鼠标移动到对应的角落时会触发对应的操作。</p>
+<p>操作有：</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-08-08 上午11.36.10.png" alt="屏幕快照 2017-08-08 上午11.36.10"></p>
+<p>方便是有，但是用了两天觉得其实这些手势也可以设置，或者是也都已经设置了，有点多此一举，而且容易一步小心就触发了什么。</p>
+<p>其实一开始我的意图就是想有什么好的方式可以快速的关掉屏幕（不合起来的情况下）。</p>
 <p>   <strong>未完待续…</strong></p>
 <p><br><br><br></p>
 <p>友情链接：</p>
@@ -3132,9 +3223,9 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
         
         <tags>
             
-            <tag> 高效 </tag>
-            
             <tag> Java </tag>
+            
+            <tag> 高效 </tag>
             
             <tag> Effectice </tag>
             
@@ -3236,11 +3327,11 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
         
         <tags>
             
+            <tag> JVM </tag>
+            
             <tag> Java </tag>
             
             <tag> 算法 </tag>
-            
-            <tag> JVM </tag>
             
             <tag> 内存 </tag>
             
@@ -3438,11 +3529,11 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
         
         <tags>
             
-            <tag> Java </tag>
-            
             <tag> 设计模式 </tag>
             
             <tag> 策略模式 </tag>
+            
+            <tag> Java </tag>
             
             <tag> UML </tag>
             
