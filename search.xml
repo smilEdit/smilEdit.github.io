@@ -3047,6 +3047,10 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
 <p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-08-08 上午11.36.10.png" alt="屏幕快照 2017-08-08 上午11.36.10"></p>
 <p>方便是有，但是用了两天觉得其实这些手势也可以设置，或者是也都已经设置了，有点多此一举，而且容易一步小心就触发了什么。</p>
 <p>其实一开始我的意图就是想有什么好的方式可以快速的关掉屏幕（不合起来的情况下）。</p>
+<h2 id="8-9-更新"><a href="#8-9-更新" class="headerlink" title="8.9 更新"></a>8.9 更新</h2><h3 id="SpotLight-技巧"><a href="#SpotLight-技巧" class="headerlink" title="SpotLight 技巧"></a>SpotLight 技巧</h3><p>使用了这么久，才发现除了用回车直接打开文件夹以外，还能用 ⌘ + 回车进入文件所在的目录，非非非常实用。</p>
+<p>另外还有一些别的，例如</p>
+<p>查看搜索项的信息： ⌘ + i</p>
+<p>在搜索结果中跳转分类： ⌘ + ↑/↓</p>
 <p>   <strong>未完待续…</strong></p>
 <p><br><br><br></p>
 <p>友情链接：</p>
@@ -3380,9 +3384,9 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
             
             <tag> Java </tag>
             
-            <tag> JVM </tag>
-            
             <tag> 算法 </tag>
+            
+            <tag> JVM </tag>
             
             <tag> 内存 </tag>
             
