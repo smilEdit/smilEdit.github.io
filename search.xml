@@ -3408,9 +3408,9 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
         
         <tags>
             
-            <tag> Java </tag>
-            
             <tag> 高效 </tag>
+            
+            <tag> Java </tag>
             
             <tag> Effectice </tag>
             
@@ -3714,11 +3714,11 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
         
         <tags>
             
+            <tag> Java </tag>
+            
             <tag> 设计模式 </tag>
             
             <tag> 策略模式 </tag>
-            
-            <tag> Java </tag>
             
             <tag> UML </tag>
             
