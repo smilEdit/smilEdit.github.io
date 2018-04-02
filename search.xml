@@ -6,8 +6,23 @@
     <entry>
       <title><![CDATA[一天]]></title>
       <url>http://yoursite.com/2018/01/19/%E4%B8%80%E5%A4%A9/</url>
-      <content type="html"></content>
+      <content type="html"><![CDATA[<center><br><br><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2018-01-11 下午10.58.05.png" alt="屏幕快照 2018-01-11 下午10.58.05"><br><br></center>
+
+<a id="more"></a>
+]]></content>
       
+        <categories>
+            
+            <category> 随笔 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 随笔 </tag>
+            
+        </tags>
         
     </entry>
     
@@ -3393,9 +3408,9 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
         
         <tags>
             
-            <tag> 高效 </tag>
-            
             <tag> Java </tag>
+            
+            <tag> 高效 </tag>
             
             <tag> Effectice </tag>
             
@@ -3699,11 +3714,11 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
         
         <tags>
             
-            <tag> Java </tag>
-            
             <tag> 设计模式 </tag>
             
             <tag> 策略模式 </tag>
+            
+            <tag> Java </tag>
             
             <tag> UML </tag>
             
