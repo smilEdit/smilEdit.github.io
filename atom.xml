@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-10-18T06:22:21.787Z</updated>
+  <updated>2018-10-18T07:22:26.998Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,73 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>TCP的三次握手和四次挥手</title>
+    <link href="http://yoursite.com/2018/10/18/TCP%E7%9A%84%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E5%92%8C%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B/"/>
+    <id>http://yoursite.com/2018/10/18/TCP的三次握手和四次挥手/</id>
+    <published>2018-10-18T06:25:40.000Z</published>
+    <updated>2018-10-18T07:22:26.998Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="三次握手"><a href="#三次握手" class="headerlink" title="三次握手"></a>三次握手</h4><p>为什么是三次而不是两次或者四次？  因为两次太少，四次浪费，三次是保证双方相互明确对方能收能发的最低值。</p>
+<p>理论上多少次握手这个可信的通道都是建立不起来的，但是通过三次握手至少可以确认它是可用的，往上加握手次数只是在提高这个可信的程度。</p>
+<p>说是三次握手其实不够准确，因为其实就是两次握手两次确认，只是其中一方将握手和确认合并在了一块。或者说其实只是一次握手，毕竟是 three-way handshake，而不是 three handshakes ，有三个步骤的一次握手。</p>
+<p>TCP 协议中大致分为五类报文：</p>
+<ol>
+<li>SYN <strong>建立连接</strong>（Synchronize </li>
+<li>Data   <strong>数据传输</strong>                           </li>
+<li>FIN <strong>断开连接</strong>（Finish                       </li>
+<li>Reset <strong>重置连接</strong>                             </li>
+<li>ACK <strong>确认连接</strong>（Acknowledgement               </li>
+</ol>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/27894C0E-E440-4C22-8E32-E47D14735ED0.png" alt="27894C0E-E440-4C22-8E32-E47D14735ED0"></p>
+<p>这图已经将三次握手的过程，画的非常清楚了，只需要知道一点，就是这个 seq 是什么，有什么用？</p>
+<p>seq ： 是由操作系统动态随机选取的一个 32 位长的序列号，该序列号是为了告诉对方哪些数据是合法的，因为之后的数据都会在此基础上增加。</p>
+<p>TCP 握手，握的是什么，就是交换双方的数据原点的序列号，也是就是这个 seq 。</p>
+<p><strong>来看看，如果我们换成四次握手是怎么样的：</strong></p>
+<ol>
+<li>A 发送 SYN + A’seq</li>
+<li>B 接收 A 的连接请求，记录 A’seq 到本地，命名 B 的 ACK 为 A’seq + 1</li>
+<li>B 发送 SYN + B’s seq</li>
+<li>A 接收到 B 的同步信号，记录 B’seq 到本地，命名 A 的 ACK 为 B’seq + 1</li>
+</ol>
+<p>其中 2 和 3 可以合并为一个步骤。</p>
+<p>那么如果 4 这个步骤中 A 的 ACK ，B 没有收到会怎么样呢？</p>
+<p>A 不会重传这个 ACK ，而是 B 在没有收到 A 的 ACK 时，会不断的重传自己的 seq 直到接收的 A 的 ACK 为止。</p>
+<p><strong>如果换成两次握手又会是怎么样？</strong></p>
+<ol>
+<li>A 发送 SYN + A’seq</li>
+<li>B 发送 SYN + B’seq + ACK</li>
+</ol>
+<p>由于最后少了 A 的 ACK ，所以 B 不确定 A 是否真的收到了 B 的 seq ，可能 B 的 seq 发送失败了，那么这次握手其实是不成功的，但是双方都不清楚。</p>
+<h4 id="四次挥手"><a href="#四次挥手" class="headerlink" title="四次挥手"></a>四次挥手</h4><p>了解了三次握手之后再理解四次挥手就简单许多。</p>
+<p>为什么挥手比握手多一次呢？多的这一次做了什么？</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/20170607205756255.gif" alt="20170607205756255"></p>
+<p>看上图可以很直观的知道，关闭请求是客户端发出的，当客户端发出关闭请求时，服务端可能还有数据没有传输完成，所以会先发一个收到关闭请求的 ack ，等数据全部传输完成之后再发送 FIN，其它三步骤和三次握手基本一样。</p>
+<p>这里有个比较有意思的东西，在客户端发送了最后的 ACK 包之后，会等待 2MSL ，这个 2MSL 是什么，为什么最后需要等待 2MSL 呢？</p>
+<p>MSL（Maximum Segment Lifetime），报文最大生存时间，任何报文在网络上超过该时长都会被丢弃。</p>
+<p>等待 2MSL 的目的就是担心最后一个 ACK 包对方没有收到，因为如果对方真的没有收到这个 ACK 就会重新发送之前的 FIN，那么此时就需要再次发送 ACK ，然后重置等待时间为 2MSL ，直到对方不发送 FIN 默认就是收到了 ACK 。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;三次握手&quot;&gt;&lt;a href=&quot;#三次握手&quot; class=&quot;headerlink&quot; title=&quot;三次握手&quot;&gt;&lt;/a&gt;三次握手&lt;/h4&gt;&lt;p&gt;为什么是三次而不是两次或者四次？  因为两次太少，四次浪费，三次是保证双方相互明确对方能收能发的最低值。&lt;/p&gt;
+&lt;p&gt;理论
+    
+    </summary>
+    
+      <category term="计算机基础" scheme="http://yoursite.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="计算机网络" scheme="http://yoursite.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+      <category term="协议" scheme="http://yoursite.com/tags/%E5%8D%8F%E8%AE%AE/"/>
+    
+      <category term="网络" scheme="http://yoursite.com/tags/%E7%BD%91%E7%BB%9C/"/>
+    
+      <category term="传输" scheme="http://yoursite.com/tags/%E4%BC%A0%E8%BE%93/"/>
+    
+  </entry>
   
   <entry>
     <title>CAP</title>
@@ -1115,56 +1182,6 @@
     
     
       <category term="随笔" scheme="http://yoursite.com/tags/%E9%9A%8F%E7%AC%94/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>PS 从零开始</title>
-    <link href="http://yoursite.com/2017/05/27/PS%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B/"/>
-    <id>http://yoursite.com/2017/05/27/PS从零开始/</id>
-    <published>2017-05-27T06:17:49.000Z</published>
-    <updated>2017-10-26T09:19:48.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="常用快捷键（亲测）："><a href="#常用快捷键（亲测）：" class="headerlink" title="常用快捷键（亲测）："></a>常用快捷键（亲测）：</h3><p>缩小扩大画笔或者橡皮工具：</p>
-<p>[   缩小</p>
-<p>]   扩大</p>
-<p>填充背景色：</p>
-<p>⌥ + delete 前景色</p>
-<p>⌘ + delete 背景色</p>
-<a id="more"></a>
-<p>图层切换：</p>
-<p>⌥ + [ 或者是 ⌥ + ]</p>
-<p>图层新建：</p>
-<p>shift + ⌘ + n</p>
-<p>抠图：</p>
-<p>按住 ⌥ 是去掉选中的区域</p>
-<h3 id="基本常识"><a href="#基本常识" class="headerlink" title="基本常识"></a>基本常识</h3><p>笔刷：</p>
-<p>长按画笔工具选第一个：</p>
-<p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-27 下午2.24.38.png" alt="屏幕快照 2017-05-27 下午2.24.38"></p>
-<p>切换画笔面板：</p>
-<p><img src="http://on9hzfn6s.bkt.clouddn.com/E956DCCB-DCE4-4DB1-9C63-A02493500BCE.png" alt="E956DCCB-DCE4-4DB1-9C63-A02493500BCE"></p>
-<p>开刷。</p>
-<h3 id="P-图"><a href="#P-图" class="headerlink" title="P 图"></a>P 图</h3><p>原图</p>
-<p><img src="http://on9hzfn6s.bkt.clouddn.com/6E3E84E5-0A60-4C01-8AA2-C6419AA32B5F.png" alt="6E3E84E5-0A60-4C01-8AA2-C6419AA32B5F"></p>
-<p>一番修饰之后：<br><img src="http://on9hzfn6s.bkt.clouddn.com/绿道.jpg" alt="绿道"></p>
-<p><strong>不断更新中…</strong></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;常用快捷键（亲测）：&quot;&gt;&lt;a href=&quot;#常用快捷键（亲测）：&quot; class=&quot;headerlink&quot; title=&quot;常用快捷键（亲测）：&quot;&gt;&lt;/a&gt;常用快捷键（亲测）：&lt;/h3&gt;&lt;p&gt;缩小扩大画笔或者橡皮工具：&lt;/p&gt;
-&lt;p&gt;[   缩小&lt;/p&gt;
-&lt;p&gt;]   扩大&lt;/p&gt;
-&lt;p&gt;填充背景色：&lt;/p&gt;
-&lt;p&gt;⌥ + delete 前景色&lt;/p&gt;
-&lt;p&gt;⌘ + delete 背景色&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="设计" scheme="http://yoursite.com/categories/%E8%AE%BE%E8%AE%A1/"/>
-    
-    
-      <category term="设计" scheme="http://yoursite.com/tags/%E8%AE%BE%E8%AE%A1/"/>
     
   </entry>
   
