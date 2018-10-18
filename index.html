@@ -345,6 +345,178 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/17/CAP/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhanglf">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="smilEdit">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/10/17/CAP/" itemprop="url">
+                  CAP
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-17T11:01:59+08:00">
+                2018-10-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/计算机基础/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机基础</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/10/17/CAP/" class="leancloud_visitors" data-flag-title="CAP">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>对于一个分布式计算系统来说，不可能同时满足以下三点：</p>
+<p>Consistency 一致性<br>所有节点访问到的都是同一份最新的数据</p>
+<p>Availablity 可用性<br>每次请求都能获取到响应，不一定是最新的</p>
+<p>Partition tolerance 分区容错性<br>由于网络原因，两台不同服务器可能没法通信</p>
+<p>CAP 理论说的是，由于网络通信的问题，所以分区容错性是一定存在的，那么在此基础上 C 和 A 是不能够共存的。</p>
+<p>为什么不能够共存呢？</p>
+<p>举个例子：</p>
+<p>G1 和 G2 是两台服务器，上面存在一条共同的记录 V0，现在一个用户向服务器发起一个写入请求，将 V0 修改为 V1，G1 修改完成后返回确认指令。</p>
+<p><img src="media/15292982215849/15396720490854.jpg" alt=""></p>
+<p>但是如果用户这时候向 G2 发起读的请求就会返回 V0：</p>
+<p><img src="media/15292982215849/F868663B-FEA0-45EF-A991-E947C3A28353.png" alt="F868663B-FEA0-45EF-A991-E947C3A28353"></p>
+<p>那么这样就不能够保证一致性了，所以为了保证一性质，可以在用户向 G1 发起写入请求时，G1 与 G2 之间进行数据同步，并上锁，不允许用户访问该数据，当同步完成之后才给用户返回写入完成的指令。这时用户再向 G2 发起读的请求，由于 G1 已经和 G2 同步过数据，所以读取到数据是 V1：</p>
+<p><img src="media/15292982215849/15396715924501.jpg" alt=""></p>
+<p>这样就能够解决一致性的问题了。也就是说按照这种方案可以同时满足 C 和 P 。</p>
+<p>但是在 G1 与 G2 同步的过程中，如果有用户请求 G2 读取数据，那么由于此时 G1 和 G2 在同步数据，该数据属于上锁状态，暂时不允许被读，否则会返回 V0 这种过期数据。所以这时的 G2 是不可用的，不满足可用性这个特点。</p>
+<p>反之，如果在 G1 和 G2 同步的过程中，不对该数据上锁，那么用户访问 G2 就会返回 V0 这条过期数据，虽然数据可能不是最新数据，但是 G2 至少是处于可响应的状态，那么这样就能够同时满足 A 和 P ，不满足 C。</p>
+<p>到处可以看出 CAP 三者中，最多只能是 CA 或者 CP。</p>
+<p>当然，如果存在这么一个服务器，它的运算和存储能力都是无穷大，并且网络通信都是百分之百畅通且无延时，那么也就不需要分布式这个系统了。这样在一定程度上也是满足了 CAP 三者。</p>
+<p>图片来源：<a href="https://mwhittaker.github.io/blog/an_illustrated_proof_of_the_cap_theorem/" target="_blank" rel="external">https://mwhittaker.github.io/blog/an_illustrated_proof_of_the_cap_theorem/</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/19/一天/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -972,164 +1144,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/09/Android打包/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zhanglf">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="smilEdit">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/08/09/Android打包/" itemprop="url">
-                  Android打包
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-09T15:13:52+08:00">
-                2017-08-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/安卓/" itemprop="url" rel="index">
-                    <span itemprop="name">安卓</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/08/09/Android打包/" class="leancloud_visitors" data-flag-title="Android打包">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>打包的事，之前很少做，也了解的比较少，今天好好看了看，总结一下，以后要是用到了，或许可以少走些弯路。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/08/09/Android打包/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1179,7 +1193,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">59</span>
+                <span class="site-state-item-count">60</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1201,7 +1215,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">38</span>
+                <span class="site-state-item-count">39</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
