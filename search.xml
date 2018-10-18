@@ -9,6 +9,7 @@
       <content type="html"><![CDATA[<h4 id="三次握手"><a href="#三次握手" class="headerlink" title="三次握手"></a>三次握手</h4><p>为什么是三次而不是两次或者四次？  因为两次太少，四次浪费，三次是保证双方相互明确对方能收能发的最低值。</p>
 <p>理论上多少次握手这个可信的通道都是建立不起来的，但是通过三次握手至少可以确认它是可用的，往上加握手次数只是在提高这个可信的程度。</p>
 <p>说是三次握手其实不够准确，因为其实就是两次握手两次确认，只是其中一方将握手和确认合并在了一块。或者说其实只是一次握手，毕竟是 three-way handshake，而不是 three handshakes ，有三个步骤的一次握手。</p>
+<a id="more"></a>
 <p>TCP 协议中大致分为五类报文：</p>
 <ol>
 <li>SYN <strong>建立连接</strong>（Synchronize </li>
@@ -3514,9 +3515,9 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
         
         <tags>
             
-            <tag> Java </tag>
-            
             <tag> 高效 </tag>
+            
+            <tag> Java </tag>
             
             <tag> Effectice </tag>
             
@@ -3820,11 +3821,11 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
         
         <tags>
             
+            <tag> Java </tag>
+            
             <tag> 设计模式 </tag>
             
             <tag> 策略模式 </tag>
-            
-            <tag> Java </tag>
             
             <tag> UML </tag>
             
