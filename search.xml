@@ -7,18 +7,19 @@
       <title><![CDATA[CAP]]></title>
       <url>http://yoursite.com/2018/10/17/CAP/</url>
       <content type="html"><![CDATA[<p>对于一个分布式计算系统来说，不可能同时满足以下三点：</p>
-<p>Consistency 一致性<br>所有节点访问到的都是同一份最新的数据</p>
-<p>Availablity 可用性<br>每次请求都能获取到响应，不一定是最新的</p>
-<p>Partition tolerance 分区容错性<br>由于网络原因，两台不同服务器可能没法通信</p>
+<p><strong>Consistency 一致性</strong><br>所有节点访问到的都是同一份最新的数据</p>
+<p><strong>Availablity 可用性</strong><br>每次请求都能获取到响应，不一定是最新的</p>
+<p><strong>Partition tolerance 分区容错性</strong><br>由于网络原因，两台不同服务器可能没法通信</p>
 <p>CAP 理论说的是，由于网络通信的问题，所以分区容错性是一定存在的，那么在此基础上 C 和 A 是不能够共存的。</p>
+<a id="more"></a>
 <p>为什么不能够共存呢？</p>
 <p>举个例子：</p>
 <p>G1 和 G2 是两台服务器，上面存在一条共同的记录 V0，现在一个用户向服务器发起一个写入请求，将 V0 修改为 V1，G1 修改完成后返回确认指令。</p>
-<p><img src="media/15292982215849/15396720490854.jpg" alt=""></p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/941D1AC5-4756-432A-BEBF-A5F075DD7AD2.png" alt="941D1AC5-4756-432A-BEBF-A5F075DD7AD2"></p>
 <p>但是如果用户这时候向 G2 发起读的请求就会返回 V0：</p>
-<p><img src="media/15292982215849/F868663B-FEA0-45EF-A991-E947C3A28353.png" alt="F868663B-FEA0-45EF-A991-E947C3A28353"></p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/A73EBBAE-A4E7-4B23-B13C-4EDADD8504F4.png" alt="A73EBBAE-A4E7-4B23-B13C-4EDADD8504F4"></p>
 <p>那么这样就不能够保证一致性了，所以为了保证一性质，可以在用户向 G1 发起写入请求时，G1 与 G2 之间进行数据同步，并上锁，不允许用户访问该数据，当同步完成之后才给用户返回写入完成的指令。这时用户再向 G2 发起读的请求，由于 G1 已经和 G2 同步过数据，所以读取到数据是 V1：</p>
-<p><img src="media/15292982215849/15396715924501.jpg" alt=""></p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/A04460AE-3BAD-4D11-A082-AFB13E951BBB.png" alt="A04460AE-3BAD-4D11-A082-AFB13E951BBB"></p>
 <p>这样就能够解决一致性的问题了。也就是说按照这种方案可以同时满足 C 和 P 。</p>
 <p>但是在 G1 与 G2 同步的过程中，如果有用户请求 G2 读取数据，那么由于此时 G1 和 G2 在同步数据，该数据属于上锁状态，暂时不允许被读，否则会返回 V0 这种过期数据。所以这时的 G2 是不可用的，不满足可用性这个特点。</p>
 <p>反之，如果在 G1 和 G2 同步的过程中，不对该数据上锁，那么用户访问 G2 就会返回 V0 这条过期数据，虽然数据可能不是最新数据，但是 G2 至少是处于可响应的状态，那么这样就能够同时满足 A 和 P ，不满足 C。</p>
@@ -3364,11 +3365,11 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
         
         <tags>
             
+            <tag> JVM </tag>
+            
             <tag> Java 虚拟机 </tag>
             
             <tag> Class 结构 </tag>
-            
-            <tag> JVM </tag>
             
         </tags>
         
@@ -3557,9 +3558,9 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
             
             <tag> 算法 </tag>
             
-            <tag> JVM </tag>
-            
             <tag> 内存 </tag>
+            
+            <tag> JVM </tag>
             
             <tag> GC </tag>
             
