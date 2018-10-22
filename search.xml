@@ -4,6 +4,14 @@
   
     
     <entry>
+      <title><![CDATA[HTTPS]]></title>
+      <url>http://yoursite.com/2018/10/22/HTTPS/</url>
+      <content type="html"></content>
+      
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[窗口机制和拥塞避免算法]]></title>
       <url>http://yoursite.com/2018/10/21/%E7%AA%97%E5%8F%A3%E6%9C%BA%E5%88%B6%E5%92%8C%E6%8B%A5%E5%A1%9E%E9%81%BF%E5%85%8D%E7%AE%97%E6%B3%95/</url>
       <content type="html"><![CDATA[<h3 id="窗口机制"><a href="#窗口机制" class="headerlink" title="窗口机制"></a>窗口机制</h3><p>滑动窗口是 TCP 协议中非常重要的一个概念。</p>
@@ -3533,11 +3541,11 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
         
         <tags>
             
-            <tag> JVM </tag>
-            
             <tag> Java 虚拟机 </tag>
             
             <tag> Class 结构 </tag>
+            
+            <tag> JVM </tag>
             
         </tags>
         
@@ -3724,13 +3732,13 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
             
             <tag> Java </tag>
             
-            <tag> 内存 </tag>
-            
             <tag> JVM </tag>
             
-            <tag> GC </tag>
-            
             <tag> 算法 </tag>
+            
+            <tag> 内存 </tag>
+            
+            <tag> GC </tag>
             
         </tags>
         
@@ -3926,13 +3934,13 @@ Error: java.util.concurrent.ExecutionException: com.android.ide.common.process.P
             
             <tag> Java </tag>
             
-            <tag> 算法 </tag>
-            
             <tag> 设计模式 </tag>
             
             <tag> 策略模式 </tag>
             
             <tag> UML </tag>
+            
+            <tag> 算法 </tag>
             
         </tags>
         
