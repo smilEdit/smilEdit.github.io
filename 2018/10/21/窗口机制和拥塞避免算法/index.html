@@ -83,7 +83,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="计算机网络,协议,网络,传输," />
 
 
 
@@ -101,15 +101,35 @@
 
 
 
-<meta name="description" content="Self-control is the strongest instinct.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="smilEdit">
-<meta property="og:url" content="http://yoursite.com/tags/Andoird/index.html">
+<meta name="description" content="窗口机制滑动窗口是 TCP 协议中非常重要的一个概念。
+TCP 在解决可靠传输以及包乱序这个问题的时，引入了 Sliding Window 。
+滑动窗口分为接受窗口和发送窗口。
+
+TCP 头有一个字段叫 Window ，这个字段是接收端告诉发送端自己还有多少缓冲区可以接收数据。Window 是一个 16bit 位字段，代表的是窗口字节容量，也就是TCP的标准窗口最大为 2^16 -1 = 6553">
+<meta property="og:type" content="article">
+<meta property="og:title" content="窗口机制和拥塞避免算法">
+<meta property="og:url" content="http://yoursite.com/2018/10/21/窗口机制和拥塞避免算法/index.html">
 <meta property="og:site_name" content="smilEdit">
-<meta property="og:description" content="Self-control is the strongest instinct.">
+<meta property="og:description" content="窗口机制滑动窗口是 TCP 协议中非常重要的一个概念。
+TCP 在解决可靠传输以及包乱序这个问题的时，引入了 Sliding Window 。
+滑动窗口分为接受窗口和发送窗口。
+
+TCP 头有一个字段叫 Window ，这个字段是接收端告诉发送端自己还有多少缓冲区可以接收数据。Window 是一个 16bit 位字段，代表的是窗口字节容量，也就是TCP的标准窗口最大为 2^16 -1 = 6553">
+<meta property="og:image" content="http://on9hzfn6s.bkt.clouddn.com/8EBAD15B-5F50-4536-8E31-0FD0BBBCBB1D.png">
+<meta property="og:image" content="http://on9hzfn6s.bkt.clouddn.com/7F44F015-BE82-4486-BAE6-3FD6EBE863AC.png">
+<meta property="og:image" content="http://on9hzfn6s.bkt.clouddn.com/B4F9CEA8-7F2D-45BD-AE13-FC4C3A86590C.png">
+<meta property="og:image" content="http://on9hzfn6s.bkt.clouddn.com/96CB0775-1CE7-4927-BADE-A09B6843455A.png">
+<meta property="og:image" content="http://on9hzfn6s.bkt.clouddn.com/0C04D101-E84D-4649-8249-547CAB75A118.png">
+<meta property="og:image" content="http://on9hzfn6s.bkt.clouddn.com/15401293153337.jpg">
+<meta property="og:updated_time" content="2018-10-22T01:53:49.184Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="smilEdit">
-<meta name="twitter:description" content="Self-control is the strongest instinct.">
+<meta name="twitter:title" content="窗口机制和拥塞避免算法">
+<meta name="twitter:description" content="窗口机制滑动窗口是 TCP 协议中非常重要的一个概念。
+TCP 在解决可靠传输以及包乱序这个问题的时，引入了 Sliding Window 。
+滑动窗口分为接受窗口和发送窗口。
+
+TCP 头有一个字段叫 Window ，这个字段是接收端告诉发送端自己还有多少缓冲区可以接收数据。Window 是一个 16bit 位字段，代表的是窗口字节容量，也就是TCP的标准窗口最大为 2^16 -1 = 6553">
+<meta name="twitter:image" content="http://on9hzfn6s.bkt.clouddn.com/8EBAD15B-5F50-4536-8E31-0FD0BBBCBB1D.png">
 
 
 
@@ -137,13 +157,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/Andoird/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/10/21/窗口机制和拥塞避免算法/"/>
 
 
 
 
 
-  <title> 标签: Andoird | smilEdit </title>
+  <title> 窗口机制和拥塞避免算法 | smilEdit </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -177,7 +197,7 @@
     
   
 
-  <div class="container sidebar-position-left  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -333,46 +353,279 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        Andoird
-        <small>标签</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/21/窗口机制和拥塞避免算法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhanglf">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="smilEdit">
+    </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                窗口机制和拥塞避免算法
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-21T20:26:02+08:00">
+                2018-10-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/计算机基础/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机基础</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/10/21/窗口机制和拥塞避免算法/" class="leancloud_visitors" data-flag-title="窗口机制和拥塞避免算法">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <h3 id="窗口机制"><a href="#窗口机制" class="headerlink" title="窗口机制"></a>窗口机制</h3><p>滑动窗口是 TCP 协议中非常重要的一个概念。</p>
+<p>TCP 在解决可靠传输以及包乱序这个问题的时，引入了 Sliding Window 。</p>
+<p>滑动窗口分为接受窗口和发送窗口。</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/8EBAD15B-5F50-4536-8E31-0FD0BBBCBB1D.png" alt="8EBAD15B-5F50-4536-8E31-0FD0BBBCBB1D"></p>
+<p>TCP 头有一个字段叫 Window ，这个字段是接收端告诉发送端自己还有多少缓冲区可以接收数据。Window 是一个 16bit 位字段，代表的是窗口字节容量，也就是TCP的标准窗口最大为 2^16 -1 = 65535 个字节。</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/7F44F015-BE82-4486-BAE6-3FD6EBE863AC.png" alt="7F44F015-BE82-4486-BAE6-3FD6EBE863AC"></p>
+<ul>
+<li>LastByteAcked 被接收端 Ack 过的位置，只要被 Ack 过才算是真正的发送成功</li>
+<li>LastByteSent 表示已经发送了，但是没有收到 Ack</li>
+<li>LastByteWritten 上层应用正在写的地方</li>
+</ul>
+<hr>
+<ul>
+<li>LastByteRead 缓冲区中读到的位置</li>
+<li>NextByteExpected 收到的连续包的最后一个位置</li>
+<li>LastByteRcved 收到包的最后一个位置，中间可能有一些数据没有到达</li>
+</ul>
+<hr>
+<ul>
+<li>接收端在 ACK 中返回自己的 Window 为 最大缓存区大小 MaxRcvBuffer - LastByteRcvd -1 </li>
+<li>发送端根据该字段大小控制数据发送的多少</li>
+</ul>
+<p>对于发送方来说，任何时候它缓存区中的数据都可以分为四类：</p>
+<ol>
+<li>已经发送并且收到了发送端 ACK 的</li>
+<li>发送但是没有收到发送端 ACK 的</li>
+<li>未发送但是发送端允许发送的</li>
+<li>未发送且发送端不允许发送的</li>
+</ol>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/B4F9CEA8-7F2D-45BD-AE13-FC4C3A86590C.png" alt="B4F9CEA8-7F2D-45BD-AE13-FC4C3A86590C"></p>
+<p>当收到发送端的 ACK 时，对之前的数据重新分类：</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/96CB0775-1CE7-4927-BADE-A09B6843455A.png" alt="96CB0775-1CE7-4927-BADE-A09B6843455A"></p>
+<p>当收到的 ACK = 36 时窗口滑动。</p>
+<h3 id="拥塞避免算法"><a href="#拥塞避免算法" class="headerlink" title="拥塞避免算法"></a>拥塞避免算法</h3><p>为什么会设计这么一个算法？</p>
+<p>TCP 通过滑动窗口来控制流量，但是控制的仅仅是收发两端的流量数据，并不知道当前网络中发生了什么，如果不清楚当前网络的情况，当网络出现延时情况时，大量数据都需要重传，网络中的将出现非常多的重传数据，这样又会导致更多的包丢失。</p>
+<p>TCP 就是像一个交通法则，管理约束着所有在公路网上行驶的车辆，避免出现大规模的堵塞现象。</p>
+<p>该规则主要有四个算法：</p>
+<p>(cwnd 全称 Congestion Window)</p>
+<h4 id="慢启动-Slow-Start"><a href="#慢启动-Slow-Start" class="headerlink" title="慢启动  Slow Start"></a>慢启动  Slow Start</h4><p>表面意思比较好理解，</p>
+<p>买了一个馒头，吃了之后发现不够饱。又买了两个，还是不够饱，再买四个吃… 别问我为什么一开始不买十个，一开始我也不知道我要吃几个才饱。只能是慢慢试探自己的胃。</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/0C04D101-E84D-4649-8249-547CAB75A118.png" alt="0C04D101-E84D-4649-8249-547CAB75A118"></p>
+<p>具体一开始买几个吃，以及吃不饱之后再买几个吃，这个就比较有讲究了。目前知道是这个增长速度是指数形式的。</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/15401293153337.jpg" alt=""></p>
+<h4 id="拥塞避免-Congestion-Avoidance"><a href="#拥塞避免-Congestion-Avoidance" class="headerlink" title="拥塞避免 Congestion Avoidance"></a>拥塞避免 Congestion Avoidance</h4><p>ssthresh (slow start threshold)，是一个上限，当 cwnd &gt;= ssthresh 时，就会进入拥塞避免算法，该值一般是 65535 字节。</p>
+<p>之前说过，慢算法是指数上涨，而拥塞避免算法是线性上涨。</p>
+<p>还是吃馒头，当吃到一定个数时，觉得有点饱了，但是还没到完全吃不下的地步，可又能再按照之前的方式增加，否则就太浪费了，那么就调整算法，相对的减缓增加的数量。</p>
+<h4 id="拥塞发生"><a href="#拥塞发生" class="headerlink" title="拥塞发生"></a>拥塞发生</h4><p>当 RTO （Retransmission TimeOut） 超时，重传数据包，此时参数发生改变：</p>
+<ol>
+<li>sshthresh = cwnd/2</li>
+<li>cwnd 重置为 1</li>
+<li>重新进入慢启动过程</li>
+</ol>
+<p>因为丢包现象严重时，需要快速减少在网络上传输的包，然后重新观察网络状况。</p>
+<p><strong>Fast Retransmit 算法，</strong>收到 3 个 duplicate ACK 时就开启重传，因为还能收到 ACK 所以认为没那么严重，减少的量也没上上面那种大：</p>
+<ol>
+<li>cwnd = cwnd/2</li>
+<li>sshthresh = cwnd</li>
+<li>进入快速恢复算法 —— Fast Recovery</li>
+</ol>
+<h4 id="快速恢复-Fast-Recovery"><a href="#快速恢复-Fast-Recovery" class="headerlink" title="快速恢复 Fast Recovery"></a>快速恢复 Fast Recovery</h4><p><strong>TCP Reno ：</strong></p>
+<p>快速重传和快速恢复算法一般同时使用。快速恢复算法是认为，你还有 3 个 Duplicated Acks 说明网络也不那么糟糕，所以没有必要像 RTO 超时那么强烈。此前的参数：</p>
+<ol>
+<li>cwnd = cwnd/2</li>
+<li>sshthresh = cwnd</li>
+</ol>
+<p><strong>Fast Recovery 算法启动：</strong></p>
+<ol>
+<li>cwnd = sshthresh  + 3 * MSS （ 3 的意思是确认有 3 个数据包被收到了）</li>
+<li>重传 Duplicated ACKs 指定的数据包</li>
+<li>如果再收到 duplicated Acks，那么 cwnd = cwnd + 1</li>
+<li>如果收到了新的 Ack，那么，cwnd = sshthresh ，然后就进入了拥塞避免的算法了</li>
+</ol>
+<p>参考链接：</p>
+<p><a href="https://www.zhihu.com/question/32255109" target="_blank" rel="external">https://www.zhihu.com/question/32255109</a><br><a href="http://www.tcpipguide.com/free/t_TCPSlidingWindowAcknowledgmentSystemForDataTranspo-6.htm" target="_blank" rel="external">http://www.tcpipguide.com/free/t_TCPSlidingWindowAcknowledgmentSystemForDataTranspo-6.htm</a><br><a href="https://coolshell.cn/articles/11609.html" target="_blank" rel="external">https://coolshell.cn/articles/11609.html</a><br><a href="https://www.cnblogs.com/luoquan/p/4886345.html" target="_blank" rel="external">https://www.cnblogs.com/luoquan/p/4886345.html</a></p>
 
-      <h1 class="post-title">
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/2017/03/27/Atlas框架浅析/" itemprop="url">
-              
-                <span itemprop="name">Atlas框架浅析</span>
-              
-            </a>
+
+      
+    </div>
+
+    <div>
+      
         
-      </h1>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-27T10:29:04+08:00"
-              content="2017-03-27" >
-          03-27
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/计算机网络/" rel="tag"># 计算机网络</a>
+          
+            <a href="/tags/协议/" rel="tag"># 协议</a>
+          
+            <a href="/tags/网络/" rel="tag"># 网络</a>
+          
+            <a href="/tags/传输/" rel="tag"># 传输</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/18/TCP的三次握手和四次挥手/" rel="next" title="TCP的三次握手和四次挥手">
+                <i class="fa fa-chevron-left"></i> TCP的三次握手和四次挥手
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
 
-  
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
 
 
           </div>
@@ -380,6 +633,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yODIwNi80Nzc5"></div>
+    
+  </div>
+
 
         </div>
         
@@ -399,8 +658,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -531,6 +799,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#窗口机制"><span class="nav-number">1.</span> <span class="nav-text">窗口机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拥塞避免算法"><span class="nav-number">2.</span> <span class="nav-text">拥塞避免算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#慢启动-Slow-Start"><span class="nav-number">2.1.</span> <span class="nav-text">慢启动  Slow Start</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#拥塞避免-Congestion-Avoidance"><span class="nav-number">2.2.</span> <span class="nav-text">拥塞避免 Congestion Avoidance</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#拥塞发生"><span class="nav-number">2.3.</span> <span class="nav-text">拥塞发生</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#快速恢复-Fast-Recovery"><span class="nav-number">2.4.</span> <span class="nav-text">快速恢复 Fast Recovery</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -654,6 +938,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 
