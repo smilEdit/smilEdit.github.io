@@ -10,6 +10,7 @@
 <p>TCP 在解决可靠传输以及包乱序这个问题的时，引入了 Sliding Window 。</p>
 <p>滑动窗口分为接受窗口和发送窗口。</p>
 <p><img src="http://on9hzfn6s.bkt.clouddn.com/8EBAD15B-5F50-4536-8E31-0FD0BBBCBB1D.png" alt="8EBAD15B-5F50-4536-8E31-0FD0BBBCBB1D"></p>
+<a id="more"></a>
 <p>TCP 头有一个字段叫 Window ，这个字段是接收端告诉发送端自己还有多少缓冲区可以接收数据。Window 是一个 16bit 位字段，代表的是窗口字节容量，也就是TCP的标准窗口最大为 2^16 -1 = 65535 个字节。</p>
 <p><img src="http://on9hzfn6s.bkt.clouddn.com/7F44F015-BE82-4486-BAE6-3FD6EBE863AC.png" alt="7F44F015-BE82-4486-BAE6-3FD6EBE863AC"></p>
 <ul>

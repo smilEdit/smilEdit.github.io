@@ -103,32 +103,26 @@
 
 <meta name="description" content="窗口机制滑动窗口是 TCP 协议中非常重要的一个概念。
 TCP 在解决可靠传输以及包乱序这个问题的时，引入了 Sliding Window 。
-滑动窗口分为接受窗口和发送窗口。
-
-TCP 头有一个字段叫 Window ，这个字段是接收端告诉发送端自己还有多少缓冲区可以接收数据。Window 是一个 16bit 位字段，代表的是窗口字节容量，也就是TCP的标准窗口最大为 2^16 -1 = 6553">
+滑动窗口分为接受窗口和发送窗口。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="窗口机制和拥塞避免算法">
 <meta property="og:url" content="http://yoursite.com/2018/10/21/窗口机制和拥塞避免算法/index.html">
 <meta property="og:site_name" content="smilEdit">
 <meta property="og:description" content="窗口机制滑动窗口是 TCP 协议中非常重要的一个概念。
 TCP 在解决可靠传输以及包乱序这个问题的时，引入了 Sliding Window 。
-滑动窗口分为接受窗口和发送窗口。
-
-TCP 头有一个字段叫 Window ，这个字段是接收端告诉发送端自己还有多少缓冲区可以接收数据。Window 是一个 16bit 位字段，代表的是窗口字节容量，也就是TCP的标准窗口最大为 2^16 -1 = 6553">
+滑动窗口分为接受窗口和发送窗口。">
 <meta property="og:image" content="http://on9hzfn6s.bkt.clouddn.com/8EBAD15B-5F50-4536-8E31-0FD0BBBCBB1D.png">
 <meta property="og:image" content="http://on9hzfn6s.bkt.clouddn.com/7F44F015-BE82-4486-BAE6-3FD6EBE863AC.png">
 <meta property="og:image" content="http://on9hzfn6s.bkt.clouddn.com/B4F9CEA8-7F2D-45BD-AE13-FC4C3A86590C.png">
 <meta property="og:image" content="http://on9hzfn6s.bkt.clouddn.com/96CB0775-1CE7-4927-BADE-A09B6843455A.png">
 <meta property="og:image" content="http://on9hzfn6s.bkt.clouddn.com/0C04D101-E84D-4649-8249-547CAB75A118.png">
 <meta property="og:image" content="http://on9hzfn6s.bkt.clouddn.com/15401293153337.jpg">
-<meta property="og:updated_time" content="2018-10-22T01:53:49.184Z">
+<meta property="og:updated_time" content="2018-10-22T01:55:00.824Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="窗口机制和拥塞避免算法">
 <meta name="twitter:description" content="窗口机制滑动窗口是 TCP 协议中非常重要的一个概念。
 TCP 在解决可靠传输以及包乱序这个问题的时，引入了 Sliding Window 。
-滑动窗口分为接受窗口和发送窗口。
-
-TCP 头有一个字段叫 Window ，这个字段是接收端告诉发送端自己还有多少缓冲区可以接收数据。Window 是一个 16bit 位字段，代表的是窗口字节容量，也就是TCP的标准窗口最大为 2^16 -1 = 6553">
+滑动窗口分为接受窗口和发送窗口。">
 <meta name="twitter:image" content="http://on9hzfn6s.bkt.clouddn.com/8EBAD15B-5F50-4536-8E31-0FD0BBBCBB1D.png">
 
 
@@ -477,6 +471,7 @@ TCP 头有一个字段叫 Window ，这个字段是接收端告诉发送端自�
 <p>TCP 在解决可靠传输以及包乱序这个问题的时，引入了 Sliding Window 。</p>
 <p>滑动窗口分为接受窗口和发送窗口。</p>
 <p><img src="http://on9hzfn6s.bkt.clouddn.com/8EBAD15B-5F50-4536-8E31-0FD0BBBCBB1D.png" alt="8EBAD15B-5F50-4536-8E31-0FD0BBBCBB1D"></p>
+<a id="more"></a>
 <p>TCP 头有一个字段叫 Window ，这个字段是接收端告诉发送端自己还有多少缓冲区可以接收数据。Window 是一个 16bit 位字段，代表的是窗口字节容量，也就是TCP的标准窗口最大为 2^16 -1 = 65535 个字节。</p>
 <p><img src="http://on9hzfn6s.bkt.clouddn.com/7F44F015-BE82-4486-BAE6-3FD6EBE863AC.png" alt="7F44F015-BE82-4486-BAE6-3FD6EBE863AC"></p>
 <ul>
