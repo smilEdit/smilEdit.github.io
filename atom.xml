@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-10-22T12:46:15.356Z</updated>
+  <updated>2018-10-22T02:22:15.036Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,53 +14,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>了解 HTTPS</title>
-    <link href="http://yoursite.com/2018/10/22/HTTPS%E5%92%8CHTTP/"/>
-    <id>http://yoursite.com/2018/10/22/HTTPS和HTTP/</id>
-    <published>2018-10-22T12:07:26.000Z</published>
-    <updated>2018-10-22T12:46:15.356Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="安全几何"><a href="#安全几何" class="headerlink" title="安全几何"></a>安全几何</h4><p>为什么叫做通信安全，我认为就是，A 于 B 之间通信的真正内容有且仅有 AB 双方知道。</p>
-<p>很自然就会想到通过加密的方式来实现：</p>
-<p><img src="http://jbcdn2.b0.upaiyun.com/2017/02/7b9b2dc0095083a57a2d0f82709051f0.png" alt=""></p>
-<p>上图就是使用对称加密算法，如果通信双方都只是单对单的通信，并且这个秘钥也只有 AB 两方知晓，那么就没有问题。</p>
-<p>但是在现实网络中，我们一般是服务器与客户端进行通信，所以会出现一个 Server 对非常多的 Client 。此时还是使用同样的秘钥，肯定是不行的。</p>
-<p>Server 对不同的 Client 需要采取不同的秘钥：</p>
-<p><img src="http://jbcdn2.b0.upaiyun.com/2017/02/ecdf349ff1392a9359188db92cad6817.png" alt=""></p>
-<h4 id="不同秘钥如何产生"><a href="#不同秘钥如何产生" class="headerlink" title="不同秘钥如何产生"></a>不同秘钥如何产生</h4><p>这时候就需要用到非对称加密算法了。该算法的特点是私钥加密后的密文，只要是公钥，都可以解密，但是公钥加密后的密文，只有私钥可以解密。私钥只有一个人有，而公钥可以发给所有的人。</p>
-<p><img src="http://jbcdn2.b0.upaiyun.com/2017/02/618ffe0f1831b3cfd52d4708175c7473.png" alt=""></p>
-<p>虽然服务器端向 A、B……的方向还是不安全的，但是至少 A、B 向服务器端方向是安全的。</p>
-<p>公钥是服务端发送给每一个客户端的。</p>
-<h4 id="公钥被劫持怎么办？"><a href="#公钥被劫持怎么办？" class="headerlink" title="公钥被劫持怎么办？"></a>公钥被劫持怎么办？</h4><p><img src="http://jbcdn2.b0.upaiyun.com/2017/02/fef3bb2c62d4a4737854c70bec10ce9b.png" alt=""></p>
-<p>这是一个鸡生蛋的问题，如果仅仅是在网络上通信，那么怎么样都不能真正确认对方的身份。</p>
-<p>所以我们用到了<strong>数字证书</strong>，这个证书是由服务器交给三方机构的公钥。</p>
-<p><img src="http://jbcdn2.b0.upaiyun.com/2017/02/7a6e485e031044d698331ea22d3d5328.png" alt=""></p>
-<p>那么问题又来了，一些不良三方可能也拥有数字证书怎么办？</p>
-<p>第三方机构不可能只给你一家公司制作证书，它也可能会给中间人这样有坏心思的公司发放证书。这样的，中间人就有机会对你的证书进行调包，客户端在这种情况下是无法分辨出是接收的是你的证书，还是中间人的。因为不论中间人，还是你的证书，都能使用第三方机构的公钥进行解密。像下面这样：</p>
-<p><img src="http://jbcdn2.b0.upaiyun.com/2017/02/76f620e98e2edb9435af8f3b4304f799.png" alt=""></p>
-<p>使用<strong>数字签名</strong>：</p>
-<p>将其放在客户端，这样就不会被篡改了。</p>
-<p><img src="http://jbcdn2.b0.upaiyun.com/2017/02/f515ad086ade1775aa07ed4e7a4da21d.png" alt=""></p>
-<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>HTTPS 要使客户端与服务器端的通信过程得到安全保证，必须使用的对称加密算法，但是协商对称加密算法的过程，需要使用非对称加密算法来保证安全，然而直接使用非对称加密的过程本身也不安全，会有中间人篡改公钥的可能性，所以客户端与服务器不直接使用公钥，而是使用数字证书签发机构颁发的证书来保证非对称加密过程本身的安全。这样通过这些机制协商出一个对称加密算法，就此双方使用该算法进行加密解密。从而解决了客户端与服务器端之间的通信安全问题。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h4 id=&quot;安全几何&quot;&gt;&lt;a href=&quot;#安全几何&quot; class=&quot;headerlink&quot; title=&quot;安全几何&quot;&gt;&lt;/a&gt;安全几何&lt;/h4&gt;&lt;p&gt;为什么叫做通信安全，我认为就是，A 于 B 之间通信的真正内容有且仅有 AB 双方知道。&lt;/p&gt;
-&lt;p&gt;很自然就会想到通过加
-    
-    </summary>
-    
-      <category term="计算机基础" scheme="http://yoursite.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/"/>
-    
-    
-      <category term="计算机网络" scheme="http://yoursite.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
-    
-      <category term="传输" scheme="http://yoursite.com/tags/%E4%BC%A0%E8%BE%93/"/>
-    
-  </entry>
   
   <entry>
     <title>窗口机制和拥塞避免算法</title>
@@ -160,11 +113,11 @@
     
       <category term="计算机网络" scheme="http://yoursite.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
-      <category term="传输" scheme="http://yoursite.com/tags/%E4%BC%A0%E8%BE%93/"/>
-    
       <category term="协议" scheme="http://yoursite.com/tags/%E5%8D%8F%E8%AE%AE/"/>
     
       <category term="网络" scheme="http://yoursite.com/tags/%E7%BD%91%E7%BB%9C/"/>
+    
+      <category term="传输" scheme="http://yoursite.com/tags/%E4%BC%A0%E8%BE%93/"/>
     
       <category term="TCP" scheme="http://yoursite.com/tags/TCP/"/>
     
@@ -231,11 +184,11 @@
     
       <category term="计算机网络" scheme="http://yoursite.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
-      <category term="传输" scheme="http://yoursite.com/tags/%E4%BC%A0%E8%BE%93/"/>
-    
       <category term="协议" scheme="http://yoursite.com/tags/%E5%8D%8F%E8%AE%AE/"/>
     
       <category term="网络" scheme="http://yoursite.com/tags/%E7%BD%91%E7%BB%9C/"/>
+    
+      <category term="传输" scheme="http://yoursite.com/tags/%E4%BC%A0%E8%BE%93/"/>
     
   </entry>
   
@@ -1099,6 +1052,168 @@
     
     
       <category term="安卓" scheme="http://yoursite.com/tags/%E5%AE%89%E5%8D%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>千岛湖之行</title>
+    <link href="http://yoursite.com/2017/05/30/%E5%8D%83%E5%B2%9B%E6%B9%96%E4%B9%8B%E8%A1%8C/"/>
+    <id>http://yoursite.com/2017/05/30/千岛湖之行/</id>
+    <published>2017-05-30T06:42:13.000Z</published>
+    <updated>2017-05-31T07:20:36.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>记录它，一个很重要的原因是，我将其当成是我的一个里程碑。</p>
+<a id="more"></a>
+<p>虽然不是第一次一个人去别的城市玩，却是第一次一个人在外面搭帐篷过夜（在帐篷里睡觉这种事，以前仅做过一次，那是大学时期，班级组织的一次活动，和一个舍友睡一块的，大冬天的，没被冻死真是万幸）。</p>
+<p>由于快递问题，装备迟到了一天，所以行程推到了假期的第二天。</p>
+<p>那天早上 5 点半就醒来了，收拾完东西才意识到这个点有木有地铁，有木有公交呢？（我住的地方去千岛湖，有点不方便，要先去杭州西站做汽车，但是西站距离我那可不近，而且公交车没有直达的，也没有地铁直达，只能采取先地铁再公交的策略）</p>
+<p>好在吃了早饭，到了地铁门口发现人还是不少的，在地铁上班的哥哥姐姐们，真是辛苦了！</p>
+<p>拎着大包小包坐地铁到了武林广场，再转公交到了西站，买了票，等了不短的时间，检票，挑了个最前的位置，8点10分，车开了。</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/1496127443979.jpg" alt="1496127443979"></p>
+<p>饱饱的睡了一觉，想着，等我到了，映入眼帘的应该是这样的风景：</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-31 下午2.29.49.png" alt="屏幕快照 2017-05-31 下午2.29.49"></p>
+<p>或者这样的风景：</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-31 下午2.30.33.png" alt="屏幕快照 2017-05-31 下午2.30.33"></p>
+<p>然后美滋滋的睡了。</p>
+<p>（中间有被一手机铃声吵醒，这铃声间歇性的响个不停，我坐在司机的斜后方，所以在响了三次左右，我就确定是那司机的手机发出来的声音，他的手机和出租车司机的手机一样，用一个架子架着，就好像是用来当导航？ 一开始我是不信的，可是当我模糊看见上面真的显示的是导航路线的时候，有点怀疑人生，这是路太多了还是这司机太业余了？ 而且，而且，他在车开了一个小时左右的时候，居然看了几条微信的聊天记录？ 约莫 3 分钟左右，他关了手机显示频，拿出了墨镜，带上，若无其事的瞄了一眼两边的外后视镜，这个过程中我通过司机头上的内后视镜看的一清二楚，我脑子里一百个念头闪过，我小幅度的移了下视线，发现光车的前部分就有不少于四个摄像头，心中千万只草泥马奔腾而过，哼，强龙不压地头蛇，我还是接着睡觉吧）</p>
+<p>当车子到达千岛湖收费站的时候，我发现事情有点和我料想的不一样了。啥？千岛湖是一个城市？</p>
+<p>不是一个景点吗？ 我开始在脑中快速的筛选前几天看的千岛湖旅游攻略···</p>
+<p>一堆狗屎。我发现我昨天很傻逼的，早早的睡着了。</p>
+<p><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1496139095181&amp;di=03d96813d562ebc345261e27e8825d63&amp;imgtype=0&amp;src=http%3A%2F%2Fcomic.qq.com%2Fz%2Fbiaoqing%2Fimages%2Fw05.jpg" alt=""></p>
+<p>果然，到终点站了，这景象：</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-30 下午3.25.45.png" alt="屏幕快照 2017-05-31 下午2.30.33"></p>
+<p>快 10 点多了，很热，我提着两个包，在那尬站着，呆若木鸡，甚至有点后悔出来了。</p>
+<p>不，不能够啊，打打气。我顺着指示牌找到了一本旅游指南翻了一会儿，然后问旅游中心客服，</p>
+<p>“我想去一个能够，自由搭帐篷的地方，你看，像是这里”，我手指着图册。</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-31 下午2.50.18.png" alt="屏幕快照 2017-05-31 下午2.50.18"></p>
+<p>他看了一眼册子，又看了一眼我，拿出一张（像是当年大学考模电，开卷考仅能带一张 A4 纸，而费尽所能，在上面所有角落写满笔记）应该是属于他的指南纸，扫了几眼，比较遗憾的和我说，露营的地方，距离这里都很远。</p>
+<p>我对他道了谢，提着我的装备转身离开服务中心，说实话，要是打自己不疼，而且我还很有有力气的话，我会当场把我自己打个残废。</p>
+<p>我又回到了，下车的地方，开始看上面的公交车路线，心想随便去个地方吧，都比这里强，这个我看到一个外国的小哥手里拿着一张纸，上面用文中写着，旅游码头 007 。</p>
+<p>我心想，外国人来玩，应该专挑特别出名的地方玩，我不禁为自己的睿智折服。</p>
+<p>在我暗自得意的时候，007 路公交车到了，那外国小哥上了，我当然也是快步跟上，然后不动痕迹的挨他坐下，抬头望了一眼刚好在我对面座位上方的站点图，目的地在倒数第二站，可以好好休息一下了。</p>
+<p>我闭上眼睛，假装睡觉，心里莫名的愉悦起来。</p>
+<p>车开了约莫 8 分钟，那歪果仁碰了下我手臂，把他手机放我跟前，上面用中文写着：</p>
+<p><strong>到了这一站，告诉我，旅游码头。</strong></p>
+<p>我非常流利的回答道：“OK”。</p>
+<p>他点了点头又玩手机去了，我有点纳闷，这人是觉得我听不懂 Thanks ，连个谢谢都不说吗。</p>
+<p>一路无话，约莫过了 20 分钟，我看他似乎有点猴急，我目测他觉得我忘记他说的了。</p>
+<p>像我这么为别人着想的人，我拍了他一下：“I also go to here，and there are 10 station。”</p>
+<p>他可能有点吃惊，我居然不止会说 OK ，先是惊讶的 Oh 了一声，然后拿出手机哒哒哒，给我看屏幕：</p>
+<p>“从这里开始，还有 10 站吗？”</p>
+<p>确实有点远啊，毕竟都已经快坐了半小时了，我也很无奈的回了个，“Yes，a little far。”</p>
+<p>然后又闲聊了几句，当然英语渣的我也是比较机智的，啊，哈哈，</p>
+<div align="center"><br> <img src="http://on9hzfn6s.bkt.clouddn.com/Screenshot_2017-05-30-16-02-29.png" width="200" height="300" alt="地图" align="center"><br> </div>
+
+
+<p>终于到了。下车之后，小哥这回没给我看手机，直接用英语问我，看来是对我的英语有信心啊。</p>
+<p>“xxxxxxxxx”</p>
+<p>“啊？”</p>
+<p>“xxxxxxxx”</p>
+<p>额，我很想和他说，我们这算是尬聊吧？挣扎了一会，我很流利的说出，“I know no。”</p>
+<p>他估计也是有点无奈，耸了耸肩，“xxxxxxxx”。</p>
+<p>我也耸了耸肩，如果手上不是拿着东西，我可能会做这样的姿势。</p>
+<p><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1496142208477&amp;di=1eb13ffcb584427191a22e4d1d8a832f&amp;imgtype=0&amp;src=http%3A%2F%2Fupload.ikanchai.com%2F2017%2F0414%2F1492153535806.jpg" alt=""></p>
+<p>然后这厮就走了。</p>
+<p>好吧，我还是有点感谢你的，因为下车之后我就发现，这个地方，应该可以好好玩一会了，看来我没跟错。</p>
+<p>在小卖部买了一根玉米和一个茶叶蛋后，除了单反和手机，我把其他都寄存到老板那了。</p>
+<p>在池塘边：</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/DSC_0239.jpg" alt="DSC_0239"></p>
+<p>吃完所谓的午饭。</p>
+<p>就正式的开始了我的千岛湖之旅了。</p>
+<p>池塘边就是三重门：</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-30 下午4.23.59.png" alt="屏幕快照 2017-05-30 下午4.23.59"></p>
+<p>没什么意思，第三个门再往前就看到湖水了：</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-30 下午4.27.06.png" alt="屏幕快照 2017-05-30 下午4.27.06"></p>
+<p>坐船去岛上要花不少钱呢，所以一开始我打算先在附近逛逛。</p>
+<p>面向湖水，右边是游客上船的地方不让走，左边有一条骑自行车的林荫小道，带着帽子，拿着相机，我假装四处看风景。</p>
+<p>一辆很酷的摩托车从我身边开过，一男一女两个都是外国人：</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-30 下午4.30.36.png" alt="屏幕快照 2017-05-30 下午4.30.36"></p>
+<p>很热，而且没什么好看的，小道走着就走着就到了大道，好多人都骑着那种双人车：</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-30 下午4.32.44.png" alt="屏幕快照 2017-05-30 下午4.32.44"></p>
+<p>大道再往前，出现了分叉口，发现了一个度假酒店，唔，资本主义的腐败：</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/DSC_0283.jpg" alt="DSC_0283"></p>
+<p>他们一家人在泳池边玩，不经感叹，有钱真好。</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/DSC_0277.jpg" alt="DSC_0277"></p>
+<p>湖中的游艇真的不少，</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/DSC_0287.jpg" alt="DSC_0287"></p>
+<p>逛了一个小时，我又回到三重门前，决定买票出发了，难的来一次，该花的钱，总是要花的。</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/1496127512604.jpg" alt="1496127512604"></p>
+<p>花了 4 个小时左右，看了三座大岛。</p>
+<p><strong>第一座</strong>，锁岛，岛上有着各式各样的锁，（在我看来就是一个虐狗岛）：</p>
+<p>像是一柱擎天爱心锁：</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/DSC_0300.jpg" alt="DSC_0300"></p>
+<p>还有被各种祝福挂满的十二生肖锁：</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/DSC_0303.jpg" alt="DSC_0303"></p>
+<p>导游口中的，世界上最大的铜锁：</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/DSC_0315.jpg" alt="DSC_0315"></p>
+<p>或者是：</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/DSC_0321.jpg" alt="DSC_0321"></p>
+<p>还有很多小小的锁：</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/DSC_0318.jpg" alt="DSC_0318"></p>
+<p>锁岛下来是鱼乐桥：</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-30 下午4.55.58.jpg" alt="屏幕快照 2017-05-30 下午4.55.58"></p>
+<p>里面的鱼好像是怎么吃都吃不饱，灰常恐怖：</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/DSC_0337.jpg" alt="DSC_0337"></p>
+<p>我比较喜欢顶上，挂着许许多多的风铃。</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/DSC_0336.jpg" alt="DSC_0336"></p>
+<p>再走过去是，幸福桥：</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/DSC_0359.jpg" alt="DSC_0359"></p>
+<p>有许多人新人在这拍摄婚纱照，顶上也是比较美：</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-30 下午5.02.35.jpg" alt="屏幕快照 2017-05-30 下午5.02.35"></p>
+<p>可以玩滑索，不过要排非常久的队伍，我就放弃了：</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/DSC_0365.jpg" alt="DSC_0365"></p>
+<p><strong>第二座岛</strong>，梅峰岛。也是千岛湖最出名的一座岛屿，导游说，千岛湖有1000余座小岛，其面积相当于是一个新加坡，自己租一个游船要想看遍所有的岛屿要花上七天七夜。</p>
+<p>而在梅峰岛上就可以看遍至少四分之一的岛屿，一开始我是很期待的。</p>
+<p>登顶后：</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/DSC_0385.jpg" alt="DSC_0385"></p>
+<p>感受一下游客的热情：</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/DSC_0391.jpg" alt="DSC_0391"></p>
+<p>其实就那样吧：</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/DSC_0393.jpg" alt="DSC_0393"></p>
+<p>然后下山，差不多 10 来分钟，去<strong>最后一座岛</strong>，龙山岛：</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/DSC_0437.jpg" alt="DSC_0437"></p>
+<p>因为这个岛屿远看像是一条卧着的龙，反正我是看不出来，他也是所有岛屿中人文气息最重的岛屿，这岛上有一个海公祠，就是清官海瑞啦，听说他妈妈七十大寿的时候，他写了一个很牛逼的寿字：</p>
+<div align="center"><br> <img src="http://on9hzfn6s.bkt.clouddn.com/屏幕快照 2017-05-30 下午5.17.21.jpg" width="400" height="600" alt="发票" align="center"><br> </div>
+
+<p>听导游说，这字从上看下看，左看又看都是寿字，而且从上到下，由四个字组成，<em>生母七十</em>，确实有点厉害。</p>
+<p>游玩回来也快六点了，我问了导游，附近是否有可以露营的地方，她告诉了我具体方位，还好，不远。</p>
+<p>虽说可能就算自己带了帐篷，但是还是要收费，不过总归是被我找到了啊，还是比较开心，而且中旅游码头可以直接坐公交到那边，真是惊喜。</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/DSC_0515.jpg" alt="DSC_0515"></p>
+<p>那一刻，觉得自己没有白来啊。</p>
+<p>等我搭好帐篷，太阳也是快要落山了，</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/DSC_0456.jpg" alt="DSC_0456"></p>
+<p>湖边的黄昏真的很美，虽然那时候已经很饿了：</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/DSC_0454.jpg" alt="DSC_0454"></p>
+<p>我滑到湖水边，泡脚：</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/DSC_0470.jpg" alt="DSC_0470"></p>
+<p>等到完全下山了，我就去吃饭了。</p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/DSC_0490.jpg" alt="DSC_0490"></p>
+<p>在旅游码头的秀水街，吃了有机鱼：</p>
+<div align="center"><br> <img src="http://on9hzfn6s.bkt.clouddn.com/wx_camera_1496057907649.jpg" width="400" height="600" alt="发票" align="center"><br> </div>
+
+<p>喝了一半的啤酒，好撑啊。</p>
+<p>回去玩了一会手机，呼呼就睡了。</p>
+<p>半夜被一群在旁边露营的大人的孩子吵醒了，然后我琢磨着要拍星星，没有三脚架，而且时不时有人还用手电筒乱晃，这样的光污染肯定是拍不成了。</p>
+<p>一夜无话。</p>
+<p>第二天一早，一个人，收拾一切，归来。</p>
+<div align="center"><br> <img src="http://on9hzfn6s.bkt.clouddn.com/1496127557719.jpg" width="400" height="600" alt="发票" align="center"><br> </div>
+
+<p>四个多小时的辗转，到家了发现舍友还在睡觉，额哈哈。</p>
+<hr>
+<p>（图片排版弄得十分烦躁，还有一般的图片都太大了，所以做了很大的压缩处理，50M 变成 0.5M 之类的，为了加载更快。还有放在我裤兜里面的票据因为全身是汗都湿透了 T T）</p>
+<p>最后，希望下次可以去看海，然后拍星星和看日出。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;记录它，一个很重要的原因是，我将其当成是我的一个里程碑。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="随笔" scheme="http://yoursite.com/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+      <category term="随笔" scheme="http://yoursite.com/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
