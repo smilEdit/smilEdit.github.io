@@ -4,6 +4,29 @@
   
     
     <entry>
+      <title><![CDATA[十一月的第二个星期三]]></title>
+      <url>http://yoursite.com/2018/11/14/%E5%8D%81%E4%B8%80%E6%9C%88%E7%9A%84%E7%AC%AC%E5%8D%81%E5%9B%9B%E5%A4%A9/</url>
+      <content type="html"><![CDATA[<p>距离 2018 年结束还有 47 天。</p>
+<a id="more"></a>
+<p>有点难集中注意力做一件事。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 随笔 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 个人随想 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[窗口机制和拥塞避免算法]]></title>
       <url>http://yoursite.com/2018/10/21/%E7%AA%97%E5%8F%A3%E6%9C%BA%E5%88%B6%E5%92%8C%E6%8B%A5%E5%A1%9E%E9%81%BF%E5%85%8D%E7%AE%97%E6%B3%95/</url>
       <content type="html"><![CDATA[<h3 id="窗口机制"><a href="#窗口机制" class="headerlink" title="窗口机制"></a>窗口机制</h3><p>滑动窗口是 TCP 协议中非常重要的一个概念。</p>
