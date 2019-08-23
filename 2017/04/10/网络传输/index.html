@@ -4,15 +4,15 @@
 
 
 <html class="theme-next muse" lang="zh-Hans">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -78,50 +78,43 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="计算机网络,协议,网络,传输," />
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
 
 
-
-
-
-  <link rel="alternate" href="/atom.xml" title="smilEdit" type="application/atom+xml" />
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+  <meta name="keywords" content="计算机网络,协议,网络,传输,">
 
 
 
 
 
+  <link rel="alternate" href="/atom.xml" title="smilEdit" type="application/atom+xml">
 
-<meta name="description" content="概述五层模型相比 OSI 的 7 层参考模型，为了更加高效的开发，TCP/IP 使用了 4 层参考模型。
-但是一般为了介绍方便，一般采用 5 层协议。
 
-为何协议，协议就是大家都遵守的规则，所有的这些协议统称为互联网协议。">
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0">
+
+
+
+
+
+
+<meta name="description" content="概述五层模型相比 OSI 的 7 层参考模型，为了更加高效的开发，TCP/IP 使用了 4 层参考模型。 但是一般为了介绍方便，一般采用 5 层协议。  为何协议，协议就是大家都遵守的规则，所有的这些协议统称为互联网协议。">
+<meta name="keywords" content="计算机网络,协议,网络,传输">
 <meta property="og:type" content="article">
 <meta property="og:title" content="网络传输基础">
 <meta property="og:url" content="http://yoursite.com/2017/04/10/网络传输/index.html">
 <meta property="og:site_name" content="smilEdit">
-<meta property="og:description" content="概述五层模型相比 OSI 的 7 层参考模型，为了更加高效的开发，TCP/IP 使用了 4 层参考模型。
-但是一般为了介绍方便，一般采用 5 层协议。
-
-为何协议，协议就是大家都遵守的规则，所有的这些协议统称为互联网协议。">
+<meta property="og:description" content="概述五层模型相比 OSI 的 7 层参考模型，为了更加高效的开发，TCP/IP 使用了 4 层参考模型。 但是一般为了介绍方便，一般采用 5 层协议。  为何协议，协议就是大家都遵守的规则，所有的这些协议统称为互联网协议。">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://on9hzfn6s.bkt.clouddn.com/1-150526093225401.png">
 <meta property="og:image" content="http://on9hzfn6s.bkt.clouddn.com/231055580455666.jpg">
 <meta property="og:updated_time" content="2018-10-18T06:26:21.725Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="网络传输基础">
-<meta name="twitter:description" content="概述五层模型相比 OSI 的 7 层参考模型，为了更加高效的开发，TCP/IP 使用了 4 层参考模型。
-但是一般为了介绍方便，一般采用 5 层协议。
-
-为何协议，协议就是大家都遵守的规则，所有的这些协议统称为互联网协议。">
+<meta name="twitter:description" content="概述五层模型相比 OSI 的 7 层参考模型，为了更加高效的开发，TCP/IP 使用了 4 层参考模型。 但是一般为了介绍方便，一般采用 5 层协议。  为何协议，协议就是大家都遵守的规则，所有的这些协议统称为互联网协议。">
 <meta name="twitter:image" content="http://on9hzfn6s.bkt.clouddn.com/1-150526093225401.png">
 
 
@@ -150,7 +143,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/04/10/网络传输/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/04/10/网络传输/">
 
 
 
@@ -199,7 +192,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">smilEdit</span>
         <span class="logo-line-after"><i></i></span>
@@ -229,7 +222,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
@@ -239,7 +232,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
             分类
           </a>
@@ -249,7 +242,7 @@
         <li class="menu-item menu-item-about">
           <a href="/about" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
             
             关于
           </a>
@@ -259,7 +252,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
@@ -269,7 +262,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
             标签
           </a>
@@ -279,7 +272,7 @@
         <li class="menu-item menu-item-essay">
           <a href="/categories/随笔" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-pencil"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-pencil"></i> <br>
             
             随笔
           </a>
@@ -289,7 +282,7 @@
         <li class="menu-item menu-item-read">
           <a href="/categories/阅读" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br>
             
             阅读
           </a>
@@ -302,7 +295,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
             
             搜索
           </a>
@@ -323,9 +316,7 @@
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocapitalize="off" autocomplete="off" autocorrect="off"
-             placeholder="搜索..." spellcheck="false"
-             type="text" id="local-search-input">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
     </div>
   </div>
   <div id="local-search-result"></div>
@@ -360,7 +351,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Zhanglf">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
@@ -403,7 +394,7 @@
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -447,7 +438,7 @@
           
             <span class="post-meta-divider">|</span>
             <span class="page-pv"><i class="fa fa-file-o"></i>
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
             </span>
           
 
@@ -468,16 +459,16 @@
       
         <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><h3 id="五层模型"><a href="#五层模型" class="headerlink" title="五层模型"></a>五层模型</h3><p>相比 OSI 的 7 层参考模型，为了更加高效的开发，TCP/IP 使用了 4 层参考模型。</p>
 <p>但是一般为了介绍方便，一般采用 5 层协议。</p>
-<p><img src="http://on9hzfn6s.bkt.clouddn.com/1-150526093225401.png" alt=""></p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/1-150526093225401.png" alt></p>
 <p>为何协议，协议就是大家都遵守的规则，所有的这些协议统称为<strong>互联网协议</strong>。<br><a id="more"></a><br>每层模型都有属于自己的协议，协议各式各样，有的是为了数据能找到目的地址，有的是为了保证源数据的完整性，有的是当发送失败的重发使用等等。</p>
-<p><img src="http://on9hzfn6s.bkt.clouddn.com/231055580455666.jpg" alt=""></p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/231055580455666.jpg" alt></p>
 <p>发送数据的时候至上而下经过层层模型，经过每层模型的时候都会在数据中加点本层模型的内容，层层封装之后发送到另一个主机上。</p>
 <p>就像是买了个小礼品，包装了一层一层，最后写上收件人交给邮递员，历经万水千山，收件人拿到了快递，再一层一层的拆包装，最后才能看到里面的小礼品。</p>
 <p>对的，就算你在 QQ 上发了一个句号给你的朋友，这个句号也要这样经过层层封装，在网络中不断辗转。</p>
 <p>下面就主要介绍一下每层之中重要的协议和一些基本概念。</p>
 <h3 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h3><p>是体系中的最高层，也是用户最能直观感受到的一层。</p>
 <p>该层的任务是<strong>通过应用进程间的交互来完成特定网络应用</strong>。这里进程就是指那些正在运行的程序。</p>
-<p>例如 QQ、Chrome、Foxmail 等。不同的程序有各自的协议，比如 Chrome 就应该遵守 <a href="https://zh.wikipedia.org/wiki/%E8%B6%85%E6%96%87%E6%9C%AC%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AEhtt" target="_blank" rel="external">HTTP</a> 或者是 <a href="https://zh.wikipedia.org/wiki/%E8%B6%85%E6%96%87%E6%9C%AC%E4%BC%A0%E8%BE%93%E5%AE%89%E5%85%A8%E5%8D%8F%E8%AE%AE" target="_blank" rel="external">HTTPS</a> 协议，Foxmail 要遵守 <a href="https://zh.wikipedia.org/wiki/%E7%AE%80%E5%8D%95%E9%82%AE%E4%BB%B6%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE" target="_blank" rel="external">SMTP</a> 协议，QQ 之间传递文件就要遵守 <a href="https://zh.wikipedia.org/wiki/%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE" target="_blank" rel="external">FTP</a> 协议。</p>
+<p>例如 QQ、Chrome、Foxmail 等。不同的程序有各自的协议，比如 Chrome 就应该遵守 <a href="https://zh.wikipedia.org/wiki/%E8%B6%85%E6%96%87%E6%9C%AC%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AEhtt" target="_blank" rel="noopener">HTTP</a> 或者是 <a href="https://zh.wikipedia.org/wiki/%E8%B6%85%E6%96%87%E6%9C%AC%E4%BC%A0%E8%BE%93%E5%AE%89%E5%85%A8%E5%8D%8F%E8%AE%AE" target="_blank" rel="noopener">HTTPS</a> 协议，Foxmail 要遵守 <a href="https://zh.wikipedia.org/wiki/%E7%AE%80%E5%8D%95%E9%82%AE%E4%BB%B6%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE" target="_blank" rel="noopener">SMTP</a> 协议，QQ 之间传递文件就要遵守 <a href="https://zh.wikipedia.org/wiki/%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE" target="_blank" rel="noopener">FTP</a> 协议。</p>
 <p>我们常说的报文，就是该层交互的数据单元。</p>
 <p>HTTP 协议:</p>
 
@@ -596,7 +587,7 @@
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
@@ -607,9 +598,7 @@
 
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar.jpg"
-               alt="Zhanglf" />
+          <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Zhanglf">
           <p class="site-author-name" itemprop="name">Zhanglf</p>
            
               <p class="site-description motion-element" itemprop="description">Self-control is the strongest instinct.</p>
@@ -765,10 +754,10 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
+        <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2018</span>
+  <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

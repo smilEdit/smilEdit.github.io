@@ -4,15 +4,15 @@
 
 
 <html class="theme-next muse" lang="zh-Hans">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -78,37 +78,37 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="Java,算法,JVM,内存,GC," />
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
 
 
-
-
-
-  <link rel="alternate" href="/atom.xml" title="smilEdit" type="application/atom+xml" />
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+  <meta name="keywords" content="Java,JVM,算法,内存,GC,">
 
 
 
 
 
+  <link rel="alternate" href="/atom.xml" title="smilEdit" type="application/atom+xml">
 
-<meta name="description" content="Java 内存区域概述对于 C 和 C++ 程序员来说，他们即拥有每一个对象的“所有权”，同时也担负每一个对象生命周期的维护责任。
-而 Java 程序员则是在虚拟机自动内存管理机制的帮助下，不用操心对象内存的释放。但是也正由于这个帮助，一旦程序出现内存泄漏和溢出问题的时候，由于不够了解虚拟机运行机制，而对问题无从下手。">
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0">
+
+
+
+
+
+
+<meta name="description" content="Java 内存区域概述对于 C 和 C++ 程序员来说，他们即拥有每一个对象的“所有权”，同时也担负每一个对象生命周期的维护责任。 而 Java 程序员则是在虚拟机自动内存管理机制的帮助下，不用操心对象内存的释放。但是也正由于这个帮助，一旦程序出现内存泄漏和溢出问题的时候，由于不够了解虚拟机运行机制，而对问题无从下手。">
+<meta name="keywords" content="Java,JVM,算法,内存,GC">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深入理解 Java 虚拟机(内存篇)">
 <meta property="og:url" content="http://yoursite.com/2017/04/03/读书笔记之 深入理解 Java 虚拟机——内存篇/index.html">
 <meta property="og:site_name" content="smilEdit">
-<meta property="og:description" content="Java 内存区域概述对于 C 和 C++ 程序员来说，他们即拥有每一个对象的“所有权”，同时也担负每一个对象生命周期的维护责任。
-而 Java 程序员则是在虚拟机自动内存管理机制的帮助下，不用操心对象内存的释放。但是也正由于这个帮助，一旦程序出现内存泄漏和溢出问题的时候，由于不够了解虚拟机运行机制，而对问题无从下手。">
+<meta property="og:description" content="Java 内存区域概述对于 C 和 C++ 程序员来说，他们即拥有每一个对象的“所有权”，同时也担负每一个对象生命周期的维护责任。 而 Java 程序员则是在虚拟机自动内存管理机制的帮助下，不用操心对象内存的释放。但是也正由于这个帮助，一旦程序出现内存泄漏和溢出问题的时候，由于不够了解虚拟机运行机制，而对问题无从下手。">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://on9hzfn6s.bkt.clouddn.com/Runtime.jpg">
 <meta property="og:image" content="http://on9hzfn6s.bkt.clouddn.com/ObejctHeader.jpg">
 <meta property="og:image" content="http://on9hzfn6s.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-04-03%20%E4%B8%8B%E5%8D%885.01.54.png">
@@ -119,8 +119,7 @@
 <meta property="og:updated_time" content="2017-05-15T03:24:14.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解 Java 虚拟机(内存篇)">
-<meta name="twitter:description" content="Java 内存区域概述对于 C 和 C++ 程序员来说，他们即拥有每一个对象的“所有权”，同时也担负每一个对象生命周期的维护责任。
-而 Java 程序员则是在虚拟机自动内存管理机制的帮助下，不用操心对象内存的释放。但是也正由于这个帮助，一旦程序出现内存泄漏和溢出问题的时候，由于不够了解虚拟机运行机制，而对问题无从下手。">
+<meta name="twitter:description" content="Java 内存区域概述对于 C 和 C++ 程序员来说，他们即拥有每一个对象的“所有权”，同时也担负每一个对象生命周期的维护责任。 而 Java 程序员则是在虚拟机自动内存管理机制的帮助下，不用操心对象内存的释放。但是也正由于这个帮助，一旦程序出现内存泄漏和溢出问题的时候，由于不够了解虚拟机运行机制，而对问题无从下手。">
 <meta name="twitter:image" content="http://on9hzfn6s.bkt.clouddn.com/Runtime.jpg">
 
 
@@ -149,7 +148,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/04/03/读书笔记之 深入理解 Java 虚拟机——内存篇/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/04/03/读书笔记之 深入理解 Java 虚拟机——内存篇/">
 
 
 
@@ -198,7 +197,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">smilEdit</span>
         <span class="logo-line-after"><i></i></span>
@@ -228,7 +227,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
@@ -238,7 +237,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
             分类
           </a>
@@ -248,7 +247,7 @@
         <li class="menu-item menu-item-about">
           <a href="/about" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
             
             关于
           </a>
@@ -258,7 +257,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
@@ -268,7 +267,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
             标签
           </a>
@@ -278,7 +277,7 @@
         <li class="menu-item menu-item-essay">
           <a href="/categories/随笔" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-pencil"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-pencil"></i> <br>
             
             随笔
           </a>
@@ -288,7 +287,7 @@
         <li class="menu-item menu-item-read">
           <a href="/categories/阅读" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br>
             
             阅读
           </a>
@@ -301,7 +300,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
             
             搜索
           </a>
@@ -322,9 +321,7 @@
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocapitalize="off" autocomplete="off" autocorrect="off"
-             placeholder="搜索..." spellcheck="false"
-             type="text" id="local-search-input">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
     </div>
   </div>
   <div id="local-search-result"></div>
@@ -359,7 +356,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Zhanglf">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
@@ -402,7 +399,7 @@
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -446,7 +443,7 @@
           
             <span class="post-meta-divider">|</span>
             <span class="page-pv"><i class="fa fa-file-o"></i>
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
             </span>
           
 
@@ -467,7 +464,7 @@
       
         <h2 id="Java-内存区域"><a href="#Java-内存区域" class="headerlink" title="Java 内存区域"></a>Java 内存区域</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>对于 C 和 C++ 程序员来说，他们即拥有每一个对象的“所有权”，同时也担负每一个对象生命周期的维护责任。</p>
 <p>而 Java 程序员则是在虚拟机自动内存管理机制的帮助下，不用操心对象内存的释放。但是也正由于这个帮助，一旦程序出现内存泄漏和溢出问题的时候，由于不够了解虚拟机运行机制，而对问题无从下手。<br><a id="more"></a></p>
-<h3 id="运行时数据区域"><a href="#运行时数据区域" class="headerlink" title="运行时数据区域"></a>运行时数据区域</h3><p><img src="http://on9hzfn6s.bkt.clouddn.com/Runtime.jpg" alt=""></p>
+<h3 id="运行时数据区域"><a href="#运行时数据区域" class="headerlink" title="运行时数据区域"></a>运行时数据区域</h3><p><img src="http://on9hzfn6s.bkt.clouddn.com/Runtime.jpg" alt></p>
 <p>上图是 Java 虚拟机运行时数据区的结构图</p>
 <h4 id="PC-Register"><a href="#PC-Register" class="headerlink" title="PC Register"></a>PC Register</h4><p>当一个 Java 线程启动的时候，就会产生一个程序计数器( Program Counter Register ),它是一块较小的内存空间。</p>
 <p>当线程正在执行的是一个 Java方法的时候，它记录的是正在执行的虚拟机字节码指令的地址，如果执行的是 Native 方法，就为空。</p>
@@ -484,7 +481,7 @@
 <h4 id="Runtime-Constant-Pool"><a href="#Runtime-Constant-Pool" class="headerlink" title="Runtime Constant Pool"></a>Runtime Constant Pool</h4><p>运行时常量池是方法区的一部分，用于存放编译期生成的各种字面量和符号用引用。</p>
 <h4 id="Direct-Memory"><a href="#Direct-Memory" class="headerlink" title="Direct Memory"></a>Direct Memory</h4><p>直接内存虽然不是 JVM 运行时数据区的一部分，但是却被频繁使用。</p>
 <p>在 JDK 1.4 中新加入了 NIO（New Input/Output）类，引入了一种基于 Channel 与 Buffer 的 I/O 方式，它可以使用 Native 直接分配堆外内存，然后用 Java Heap 中的 DirectByteBuffer 对象作为内存引用进行操作。避免在 Java Heap 和 Native Heap 来回复制数据，提高了不少性能。</p>
-<h3 id="HotSpot-虚拟机对象"><a href="#HotSpot-虚拟机对象" class="headerlink" title="HotSpot 虚拟机对象"></a><a href="https://zh.wikipedia.org/wiki/HotSpot" target="_blank" rel="external">HotSpot</a> 虚拟机对象</h3><h4 id="对象的创建"><a href="#对象的创建" class="headerlink" title="对象的创建"></a>对象的创建</h4><p>当遇到一条 New 指令的时候，检查该类是否已经被加载解析，初始化。如果没有先执行类的加载过程，关于类的加载之后再详说。</p>
+<h3 id="HotSpot-虚拟机对象"><a href="#HotSpot-虚拟机对象" class="headerlink" title="HotSpot 虚拟机对象"></a><a href="https://zh.wikipedia.org/wiki/HotSpot" target="_blank" rel="noopener">HotSpot</a> 虚拟机对象</h3><h4 id="对象的创建"><a href="#对象的创建" class="headerlink" title="对象的创建"></a>对象的创建</h4><p>当遇到一条 New 指令的时候，检查该类是否已经被加载解析，初始化。如果没有先执行类的加载过程，关于类的加载之后再详说。</p>
 <p>加载检查之后就是分配内存空间。</p>
 <p>关于内存的分配根据收集器算法的不同而采用不同的分配方式：</p>
 <ul>
@@ -493,13 +490,13 @@
 </ul>
 <p>考虑到并发情况下操作内存指针的安全性问题，对分配内存又进行了同步处理：</p>
 <ul>
-<li>采用 <a href="http://www.searchsoa.com.cn/showcontent_69238.htm" target="_blank" rel="external">CAS</a> 配上失败重试的方式保证更新操作的原子性。</li>
+<li>采用 <a href="http://www.searchsoa.com.cn/showcontent_69238.htm" target="_blank" rel="noopener">CAS</a> 配上失败重试的方式保证更新操作的原子性。</li>
 <li>一开始就给不同线程分配一块叫做<em>本地线程分配缓冲</em>（Thread Local Allocatiuon Buffer,TLAB）的区域当做缓存，只有当它用完了，重新分配的时候才需要同步锁定。</li>
 </ul>
 <h4 id="对象的内存布局"><a href="#对象的内存布局" class="headerlink" title="对象的内存布局"></a>对象的内存布局</h4><p>对象布局主要由三个部分组成：</p>
 <h5 id="Header"><a href="#Header" class="headerlink" title="Header"></a>Header</h5><p>对象头主要由两个部分组成：</p>
 <ol>
-<li><p>第一部分 官方称之为 Mack Word ，主要存储哈希码，GC 分代年龄，锁状态的标志等信息。<br><img src="http://on9hzfn6s.bkt.clouddn.com/ObejctHeader.jpg" alt=""></p>
+<li><p>第一部分 官方称之为 Mack Word ，主要存储哈希码，GC 分代年龄，锁状态的标志等信息。<br><img src="http://on9hzfn6s.bkt.clouddn.com/ObejctHeader.jpg" alt></p>
 </li>
 <li><p>第二分就是存储类型指针了。也就是指向对象的类元数据指针。</p>
 </li>
@@ -509,11 +506,11 @@
 <h4 id="对象的访问定位"><a href="#对象的访问定位" class="headerlink" title="对象的访问定位"></a>对象的访问定位</h4><p>关于对象的访问，许多人都知道，是通过在 Stack 上的一个 reference 数据来操作 Heap 上的具体对象，但是是通过什么方式访问却没有指定。</p>
 <p>目前主流的有两种方式，<strong>句柄</strong> 和 <strong>直接指针</strong>。</p>
 <ul>
-<li><a href="https://zh.wikipedia.org/wiki/%E5%8F%A5%E6%9F%84" target="_blank" rel="external"><em>句柄</em></a><br><img src="http://on9hzfn6s.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-04-03%20%E4%B8%8B%E5%8D%885.01.54.png" alt=""></li>
+<li><a href="https://zh.wikipedia.org/wiki/%E5%8F%A5%E6%9F%84" target="_blank" rel="noopener"><em>句柄</em></a><br><img src="http://on9hzfn6s.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-04-03%20%E4%B8%8B%E5%8D%885.01.54.png" alt></li>
 </ul>
 <p>上图已经表示的非常清楚了，使用该方式的访问，Java Heap 中会划分出一个句柄池，优点很明显，当对象改变时，Java Stack 中的 reference 是不改变的。移动的是句柄中的实例数据指针。</p>
 <ul>
-<li><em>直接指针</em><br><img src="http://on9hzfn6s.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-04-03%20%E4%B8%8B%E5%8D%885.02.07.png" alt=""></li>
+<li><em>直接指针</em><br><img src="http://on9hzfn6s.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-04-03%20%E4%B8%8B%E5%8D%885.02.07.png" alt></li>
 </ul>
 <p>很明显 reference 直接指向对象实例数据，优势就是速度更快。（ HotSpot 使用这种方式）</p>
 <h2 id="Java-垃圾收集器"><a href="#Java-垃圾收集器" class="headerlink" title="Java 垃圾收集器"></a>Java 垃圾收集器</h2><h3 id="关于对象存活的判断"><a href="#关于对象存活的判断" class="headerlink" title="关于对象存活的判断"></a>关于对象存活的判断</h3><h4 id="引用计数算法"><a href="#引用计数算法" class="headerlink" title="引用计数算法"></a>引用计数算法</h4><p>给对象添加一个引用计数器，被引用加 1 ，引用失效减 1 。为 0 就说明不再被使用。</p>
@@ -526,17 +523,17 @@
 <li>方法区中常量引用的对象。</li>
 <li>本地方法栈中 Native 方法引用的对象。</li>
 </ul>
-<h3 id="垃圾收集算法"><a href="#垃圾收集算法" class="headerlink" title="垃圾收集算法"></a>垃圾收集算法</h3><h4 id="标记-清除算法"><a href="#标记-清除算法" class="headerlink" title="标记-清除算法"></a>标记-清除算法</h4><p><img src="http://on9hzfn6s.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-04-03%20%E4%B8%8B%E5%8D%885.31.55.png" alt=""></p>
+<h3 id="垃圾收集算法"><a href="#垃圾收集算法" class="headerlink" title="垃圾收集算法"></a>垃圾收集算法</h3><h4 id="标记-清除算法"><a href="#标记-清除算法" class="headerlink" title="标记-清除算法"></a>标记-清除算法</h4><p><img src="http://on9hzfn6s.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-04-03%20%E4%B8%8B%E5%8D%885.31.55.png" alt></p>
 <p>先标记无用对象，在清除。是最基础算法，之后的算法都是根据它来改进。</p>
 <p>不足有两点：</p>
 <ol>
 <li>标记和清除的效率都不高。</li>
 <li>清除之后会导致内存的碎片化。</li>
 </ol>
-<h4 id="复制算法"><a href="#复制算法" class="headerlink" title="复制算法"></a>复制算法</h4><p><img src="http://on9hzfn6s.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-04-03%20%E4%B8%8B%E5%8D%885.32.09.png" alt=""></p>
+<h4 id="复制算法"><a href="#复制算法" class="headerlink" title="复制算法"></a>复制算法</h4><p><img src="http://on9hzfn6s.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-04-03%20%E4%B8%8B%E5%8D%885.32.09.png" alt></p>
 <p>将内存一分为二，每次用其中一块。当一块内存用完的时候，就将存活的对象复制到另一块新的空的内存中，然后这边一次性全部清空就好了。简单高效。</p>
 <p>缺点很明显，就是只有一半的内存能用。</p>
-<h4 id="标记-整理算法"><a href="#标记-整理算法" class="headerlink" title="标记-整理算法"></a>标记-整理算法</h4><p><img src="http://on9hzfn6s.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-04-03%20%E4%B8%8B%E5%8D%885.32.25.png" alt=""></p>
+<h4 id="标记-整理算法"><a href="#标记-整理算法" class="headerlink" title="标记-整理算法"></a>标记-整理算法</h4><p><img src="http://on9hzfn6s.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-04-03%20%E4%B8%8B%E5%8D%885.32.25.png" alt></p>
 <p>可以说是前两种算法的综合，标记阶段和“<em>标记-清除</em>”算法一样，清除阶段先是将存活对象移到一边，然后直接清除没被引用对象。</p>
 <p>解决了碎片化和清除效率低的问题。</p>
 <h4 id="分代收集算法"><a href="#分代收集算法" class="headerlink" title="分代收集算法"></a>分代收集算法</h4><p>当前主流算法，是前面几种算法的综合。</p>
@@ -574,9 +571,9 @@
           
             <a href="/tags/Java/" rel="tag"># Java</a>
           
-            <a href="/tags/算法/" rel="tag"># 算法</a>
-          
             <a href="/tags/JVM/" rel="tag"># JVM</a>
+          
+            <a href="/tags/算法/" rel="tag"># 算法</a>
           
             <a href="/tags/内存/" rel="tag"># 内存</a>
           
@@ -661,7 +658,7 @@
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
@@ -672,9 +669,7 @@
 
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar.jpg"
-               alt="Zhanglf" />
+          <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Zhanglf">
           <p class="site-author-name" itemprop="name">Zhanglf</p>
            
               <p class="site-description motion-element" itemprop="description">Self-control is the strongest instinct.</p>
@@ -830,10 +825,10 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
+        <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2018</span>
+  <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

@@ -4,15 +4,15 @@
 
 
 <html class="theme-next muse" lang="zh-Hans">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -78,60 +78,41 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="Java 虚拟机,Class 结构,JVM," />
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
 
 
-
-
-
-  <link rel="alternate" href="/atom.xml" title="smilEdit" type="application/atom+xml" />
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+  <meta name="keywords" content="Java 虚拟机,Class 结构,JVM,">
 
 
 
 
 
+  <link rel="alternate" href="/atom.xml" title="smilEdit" type="application/atom+xml">
 
-<meta name="description" content="Class 类文件的结构概述是一组以 8 位字节为基础单位的二进制流。
-其格式是一种类似于 C 语言结构体的伪结构，由两种数据类型组成。
 
-无符号数: 基本数据类型，数字、索引引用、数量值等等。
-表: 由多个无符号数或者其他表组成，以 _info 结尾。
 
-整个 Class 文件本质上就是一张表。
-Class 结构的了解对进一步理解虚拟机执行引擎很重要。">
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0">
+
+
+
+
+
+
+<meta name="description" content="Class 类文件的结构概述是一组以 8 位字节为基础单位的二进制流。 其格式是一种类似于 C 语言结构体的伪结构，由两种数据类型组成。  无符号数: 基本数据类型，数字、索引引用、数量值等等。 表: 由多个无符号数或者其他表组成，以 _info 结尾。  整个 Class 文件本质上就是一张表。 Class 结构的了解对进一步理解虚拟机执行引擎很重要。">
+<meta name="keywords" content="Java 虚拟机,Class 结构,JVM">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深入理解 Java 虚拟机(结构篇)">
 <meta property="og:url" content="http://yoursite.com/2017/04/10/JVM 结构篇/index.html">
 <meta property="og:site_name" content="smilEdit">
-<meta property="og:description" content="Class 类文件的结构概述是一组以 8 位字节为基础单位的二进制流。
-其格式是一种类似于 C 语言结构体的伪结构，由两种数据类型组成。
-
-无符号数: 基本数据类型，数字、索引引用、数量值等等。
-表: 由多个无符号数或者其他表组成，以 _info 结尾。
-
-整个 Class 文件本质上就是一张表。
-Class 结构的了解对进一步理解虚拟机执行引擎很重要。">
+<meta property="og:description" content="Class 类文件的结构概述是一组以 8 位字节为基础单位的二进制流。 其格式是一种类似于 C 语言结构体的伪结构，由两种数据类型组成。  无符号数: 基本数据类型，数字、索引引用、数量值等等。 表: 由多个无符号数或者其他表组成，以 _info 结尾。  整个 Class 文件本质上就是一张表。 Class 结构的了解对进一步理解虚拟机执行引擎很重要。">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-05-15T09:41:45.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解 Java 虚拟机(结构篇)">
-<meta name="twitter:description" content="Class 类文件的结构概述是一组以 8 位字节为基础单位的二进制流。
-其格式是一种类似于 C 语言结构体的伪结构，由两种数据类型组成。
-
-无符号数: 基本数据类型，数字、索引引用、数量值等等。
-表: 由多个无符号数或者其他表组成，以 _info 结尾。
-
-整个 Class 文件本质上就是一张表。
-Class 结构的了解对进一步理解虚拟机执行引擎很重要。">
+<meta name="twitter:description" content="Class 类文件的结构概述是一组以 8 位字节为基础单位的二进制流。 其格式是一种类似于 C 语言结构体的伪结构，由两种数据类型组成。  无符号数: 基本数据类型，数字、索引引用、数量值等等。 表: 由多个无符号数或者其他表组成，以 _info 结尾。  整个 Class 文件本质上就是一张表。 Class 结构的了解对进一步理解虚拟机执行引擎很重要。">
 
 
 
@@ -159,7 +140,7 @@ Class 结构的了解对进一步理解虚拟机执行引擎很重要。">
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/04/10/JVM 结构篇/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/04/10/JVM 结构篇/">
 
 
 
@@ -208,7 +189,7 @@ Class 结构的了解对进一步理解虚拟机执行引擎很重要。">
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">smilEdit</span>
         <span class="logo-line-after"><i></i></span>
@@ -238,7 +219,7 @@ Class 结构的了解对进一步理解虚拟机执行引擎很重要。">
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
@@ -248,7 +229,7 @@ Class 结构的了解对进一步理解虚拟机执行引擎很重要。">
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
             分类
           </a>
@@ -258,7 +239,7 @@ Class 结构的了解对进一步理解虚拟机执行引擎很重要。">
         <li class="menu-item menu-item-about">
           <a href="/about" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
             
             关于
           </a>
@@ -268,7 +249,7 @@ Class 结构的了解对进一步理解虚拟机执行引擎很重要。">
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
@@ -278,7 +259,7 @@ Class 结构的了解对进一步理解虚拟机执行引擎很重要。">
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
             标签
           </a>
@@ -288,7 +269,7 @@ Class 结构的了解对进一步理解虚拟机执行引擎很重要。">
         <li class="menu-item menu-item-essay">
           <a href="/categories/随笔" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-pencil"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-pencil"></i> <br>
             
             随笔
           </a>
@@ -298,7 +279,7 @@ Class 结构的了解对进一步理解虚拟机执行引擎很重要。">
         <li class="menu-item menu-item-read">
           <a href="/categories/阅读" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br>
             
             阅读
           </a>
@@ -311,7 +292,7 @@ Class 结构的了解对进一步理解虚拟机执行引擎很重要。">
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
             
             搜索
           </a>
@@ -332,9 +313,7 @@ Class 结构的了解对进一步理解虚拟机执行引擎很重要。">
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocapitalize="off" autocomplete="off" autocorrect="off"
-             placeholder="搜索..." spellcheck="false"
-             type="text" id="local-search-input">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
     </div>
   </div>
   <div id="local-search-result"></div>
@@ -369,7 +348,7 @@ Class 结构的了解对进一步理解虚拟机执行引擎很重要。">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Zhanglf">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
@@ -412,7 +391,7 @@ Class 结构的了解对进一步理解虚拟机执行引擎很重要。">
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -456,7 +435,7 @@ Class 结构的了解对进一步理解虚拟机执行引擎很重要。">
           
             <span class="post-meta-divider">|</span>
             <span class="page-pv"><i class="fa fa-file-o"></i>
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
             </span>
           
 
@@ -649,7 +628,7 @@ Class 结构的了解对进一步理解虚拟机执行引擎很重要。">
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
@@ -660,9 +639,7 @@ Class 结构的了解对进一步理解虚拟机执行引擎很重要。">
 
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar.jpg"
-               alt="Zhanglf" />
+          <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Zhanglf">
           <p class="site-author-name" itemprop="name">Zhanglf</p>
            
               <p class="site-description motion-element" itemprop="description">Self-control is the strongest instinct.</p>
@@ -818,10 +795,10 @@ Class 结构的了解对进一步理解虚拟机执行引擎很重要。">
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
+        <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2018</span>
+  <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

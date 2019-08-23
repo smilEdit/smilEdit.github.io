@@ -4,15 +4,15 @@
 
 
 <html class="theme-next muse" lang="zh-Hans">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -78,39 +78,37 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="计算机网络,协议,网络,传输,TCP," />
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
 
 
-
-
-
-  <link rel="alternate" href="/atom.xml" title="smilEdit" type="application/atom+xml" />
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+  <meta name="keywords" content="计算机网络,协议,网络,传输,TCP,">
 
 
 
 
 
+  <link rel="alternate" href="/atom.xml" title="smilEdit" type="application/atom+xml">
 
-<meta name="description" content="窗口机制滑动窗口是 TCP 协议中非常重要的一个概念。
-TCP 在解决可靠传输以及包乱序这个问题的时，引入了 Sliding Window 。
-滑动窗口分为接受窗口和发送窗口。">
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0">
+
+
+
+
+
+
+<meta name="description" content="窗口机制滑动窗口是 TCP 协议中非常重要的一个概念。 TCP 在解决可靠传输以及包乱序这个问题的时，引入了 Sliding Window 。 滑动窗口分为接受窗口和发送窗口。">
+<meta name="keywords" content="计算机网络,协议,网络,传输,TCP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="窗口机制和拥塞避免算法">
 <meta property="og:url" content="http://yoursite.com/2018/10/21/窗口机制和拥塞避免算法/index.html">
 <meta property="og:site_name" content="smilEdit">
-<meta property="og:description" content="窗口机制滑动窗口是 TCP 协议中非常重要的一个概念。
-TCP 在解决可靠传输以及包乱序这个问题的时，引入了 Sliding Window 。
-滑动窗口分为接受窗口和发送窗口。">
+<meta property="og:description" content="窗口机制滑动窗口是 TCP 协议中非常重要的一个概念。 TCP 在解决可靠传输以及包乱序这个问题的时，引入了 Sliding Window 。 滑动窗口分为接受窗口和发送窗口。">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://on9hzfn6s.bkt.clouddn.com/8EBAD15B-5F50-4536-8E31-0FD0BBBCBB1D.png">
 <meta property="og:image" content="http://on9hzfn6s.bkt.clouddn.com/7F44F015-BE82-4486-BAE6-3FD6EBE863AC.png">
 <meta property="og:image" content="http://on9hzfn6s.bkt.clouddn.com/B4F9CEA8-7F2D-45BD-AE13-FC4C3A86590C.png">
@@ -120,9 +118,7 @@ TCP 在解决可靠传输以及包乱序这个问题的时，引入了 Sliding W
 <meta property="og:updated_time" content="2018-10-22T02:22:15.036Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="窗口机制和拥塞避免算法">
-<meta name="twitter:description" content="窗口机制滑动窗口是 TCP 协议中非常重要的一个概念。
-TCP 在解决可靠传输以及包乱序这个问题的时，引入了 Sliding Window 。
-滑动窗口分为接受窗口和发送窗口。">
+<meta name="twitter:description" content="窗口机制滑动窗口是 TCP 协议中非常重要的一个概念。 TCP 在解决可靠传输以及包乱序这个问题的时，引入了 Sliding Window 。 滑动窗口分为接受窗口和发送窗口。">
 <meta name="twitter:image" content="http://on9hzfn6s.bkt.clouddn.com/8EBAD15B-5F50-4536-8E31-0FD0BBBCBB1D.png">
 
 
@@ -151,7 +147,7 @@ TCP 在解决可靠传输以及包乱序这个问题的时，引入了 Sliding W
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/10/21/窗口机制和拥塞避免算法/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/10/21/窗口机制和拥塞避免算法/">
 
 
 
@@ -200,7 +196,7 @@ TCP 在解决可靠传输以及包乱序这个问题的时，引入了 Sliding W
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">smilEdit</span>
         <span class="logo-line-after"><i></i></span>
@@ -230,7 +226,7 @@ TCP 在解决可靠传输以及包乱序这个问题的时，引入了 Sliding W
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
@@ -240,7 +236,7 @@ TCP 在解决可靠传输以及包乱序这个问题的时，引入了 Sliding W
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
             分类
           </a>
@@ -250,7 +246,7 @@ TCP 在解决可靠传输以及包乱序这个问题的时，引入了 Sliding W
         <li class="menu-item menu-item-about">
           <a href="/about" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
             
             关于
           </a>
@@ -260,7 +256,7 @@ TCP 在解决可靠传输以及包乱序这个问题的时，引入了 Sliding W
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
@@ -270,7 +266,7 @@ TCP 在解决可靠传输以及包乱序这个问题的时，引入了 Sliding W
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
             标签
           </a>
@@ -280,7 +276,7 @@ TCP 在解决可靠传输以及包乱序这个问题的时，引入了 Sliding W
         <li class="menu-item menu-item-essay">
           <a href="/categories/随笔" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-pencil"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-pencil"></i> <br>
             
             随笔
           </a>
@@ -290,7 +286,7 @@ TCP 在解决可靠传输以及包乱序这个问题的时，引入了 Sliding W
         <li class="menu-item menu-item-read">
           <a href="/categories/阅读" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br>
             
             阅读
           </a>
@@ -303,7 +299,7 @@ TCP 在解决可靠传输以及包乱序这个问题的时，引入了 Sliding W
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
             
             搜索
           </a>
@@ -324,9 +320,7 @@ TCP 在解决可靠传输以及包乱序这个问题的时，引入了 Sliding W
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocapitalize="off" autocomplete="off" autocorrect="off"
-             placeholder="搜索..." spellcheck="false"
-             type="text" id="local-search-input">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
     </div>
   </div>
   <div id="local-search-result"></div>
@@ -361,7 +355,7 @@ TCP 在解决可靠传输以及包乱序这个问题的时，引入了 Sliding W
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Zhanglf">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
@@ -404,7 +398,7 @@ TCP 在解决可靠传输以及包乱序这个问题的时，引入了 Sliding W
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -448,7 +442,7 @@ TCP 在解决可靠传输以及包乱序这个问题的时，引入了 Sliding W
           
             <span class="post-meta-divider">|</span>
             <span class="page-pv"><i class="fa fa-file-o"></i>
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
             </span>
           
 
@@ -510,7 +504,7 @@ TCP 在解决可靠传输以及包乱序这个问题的时，引入了 Sliding W
 <p>买了一个馒头，吃了之后发现不够饱。又买了两个，还是不够饱，再买四个吃… 别问我为什么一开始不买十个，一开始我也不知道我要吃几个才饱。只能是慢慢试探自己的胃。</p>
 <p><img src="http://on9hzfn6s.bkt.clouddn.com/0C04D101-E84D-4649-8249-547CAB75A118.png" alt="0C04D101-E84D-4649-8249-547CAB75A118"></p>
 <p>具体一开始买几个吃，以及吃不饱之后再买几个吃，这个就比较有讲究了。目前知道是这个增长速度是指数形式的。</p>
-<p><img src="http://on9hzfn6s.bkt.clouddn.com/15401293153337.jpg" alt=""></p>
+<p><img src="http://on9hzfn6s.bkt.clouddn.com/15401293153337.jpg" alt></p>
 <h4 id="拥塞避免-Congestion-Avoidance"><a href="#拥塞避免-Congestion-Avoidance" class="headerlink" title="拥塞避免 Congestion Avoidance"></a>拥塞避免 Congestion Avoidance</h4><p>ssthresh (slow start threshold)，是一个上限，当 cwnd &gt;= ssthresh 时，就会进入拥塞避免算法，该值一般是 65535 字节。</p>
 <p>之前说过，慢算法是指数上涨，而拥塞避免算法是线性上涨。</p>
 <p>还是吃馒头，当吃到一定个数时，觉得有点饱了，但是还没到完全吃不下的地步，可又能再按照之前的方式增加，否则就太浪费了，那么就调整算法，相对的减缓增加的数量。</p>
@@ -541,7 +535,7 @@ TCP 在解决可靠传输以及包乱序这个问题的时，引入了 Sliding W
 <li>如果收到了新的 Ack，那么，cwnd = sshthresh ，然后就进入了拥塞避免的算法了</li>
 </ol>
 <p>参考链接：</p>
-<p><a href="https://www.zhihu.com/question/32255109" target="_blank" rel="external">https://www.zhihu.com/question/32255109</a><br><a href="http://www.tcpipguide.com/free/t_TCPSlidingWindowAcknowledgmentSystemForDataTranspo-6.htm" target="_blank" rel="external">http://www.tcpipguide.com/free/t_TCPSlidingWindowAcknowledgmentSystemForDataTranspo-6.htm</a><br><a href="https://coolshell.cn/articles/11609.html" target="_blank" rel="external">https://coolshell.cn/articles/11609.html</a><br><a href="https://www.cnblogs.com/luoquan/p/4886345.html" target="_blank" rel="external">https://www.cnblogs.com/luoquan/p/4886345.html</a></p>
+<p><a href="https://www.zhihu.com/question/32255109" target="_blank" rel="noopener">https://www.zhihu.com/question/32255109</a><br><a href="http://www.tcpipguide.com/free/t_TCPSlidingWindowAcknowledgmentSystemForDataTranspo-6.htm" target="_blank" rel="noopener">http://www.tcpipguide.com/free/t_TCPSlidingWindowAcknowledgmentSystemForDataTranspo-6.htm</a><br><a href="https://coolshell.cn/articles/11609.html" target="_blank" rel="noopener">https://coolshell.cn/articles/11609.html</a><br><a href="https://www.cnblogs.com/luoquan/p/4886345.html" target="_blank" rel="noopener">https://www.cnblogs.com/luoquan/p/4886345.html</a></p>
 
       
     </div>
@@ -660,7 +654,7 @@ TCP 在解决可靠传输以及包乱序这个问题的时，引入了 Sliding W
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
@@ -671,9 +665,7 @@ TCP 在解决可靠传输以及包乱序这个问题的时，引入了 Sliding W
 
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar.jpg"
-               alt="Zhanglf" />
+          <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Zhanglf">
           <p class="site-author-name" itemprop="name">Zhanglf</p>
            
               <p class="site-description motion-element" itemprop="description">Self-control is the strongest instinct.</p>
@@ -829,10 +821,10 @@ TCP 在解决可靠传输以及包乱序这个问题的时，引入了 Sliding W
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
+        <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2018</span>
+  <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
